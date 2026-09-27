@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis XV - Antonella</title>
+
+    <!-- Fuentes elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* ==============================
+           CONFIGURACIÓN GENERAL
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top, #163d5b 0%, #071a2c 40%, #020b14 100%);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+
+        /* ==============================
+           PORTADA
+        ============================== */
+
+        #portada {
+
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #020b14;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .contenedor-portada {
+
+            position: relative;
+
+            width: 100%;
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+
+        .imagen-portada {
+
+            width: 100%;
+            height: auto;
+
+            display: block;
+        }
+
+
+        /* ==============================
+           BOTÓN INVISIBLE SOBRE LA LLAVE
+        ============================== */
+
+        .boton-llave {
+
+            position: absolute;
+
+            /*
+            Esta zona está colocada encima
+            de la llave de la imagen.
+            */
+
+            left: 25%;
+            top: 57%;
+
+            width: 55%;
+            height: 14%;
+
+            cursor: pointer;
+
+            border: none;
+            background: transparent;
+
+            z-index: 10;
+
+            border-radius: 100px;
+
+            animation: respirar 2s infinite;
+        }
+
+
+        @keyframes respirar {
+
+            0%,100% {
+                filter:
+                    drop-shadow(0 0 5px transparent);
+            }
+
+            50% {
+                filter:
+                    drop-shadow(0 0 15px #9deaff)
+                    drop-shadow(0 0 30px #4cc9ff);
+            }
+        }
+
+
+        /* círculo de brillo */
+
+        .boton-llave::after {
+
+            content: "";
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            width: 30px;
+            height: 30px;
+
+            transform: translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background: rgba(160,230,255,.25);
+
+            box-shadow:
+                0 0 20px #b7efff,
+                0 0 50px #5bcfff;
+
+            animation: brilloLlave 1.8s infinite;
+        }
+
+
+        @keyframes brilloLlave {
+
+            0% {
+                transform:
+                    translate(-50%, -50%)
+                    scale(.5);
+
+                opacity: .3;
+            }
+
+            50% {
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(2);
+
+                opacity: .8;
+            }
+
+            100% {
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(.5);
+
+                opacity: .3;
+            }
+        }
+
+
+        /* ==============================
+           ANIMACIÓN AL ABRIR
+        ============================== */
+
+        .abrir-portada {
+
+            animation:
+                abrirMagia 1.5s forwards;
+        }
+
+
+        @keyframes abrirMagia {
+
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            40% {
+
+                filter:
+                    brightness(1.5)
+                    drop-shadow(0 0 40px #8cecff);
+
+                transform: scale(1.03);
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    scale(1.15);
+
+                filter:
+                    brightness(2);
+            }
+        }
+
+
+        /* ==============================
+           INVITACIÓN
+        ============================== */
+
+        #invitacion {
+
+            min-height: 100vh;
+
+            display: none;
+
+            position: relative;
+
+            text-align: center;
+
+            padding:
+
+                80px
+                20px
+                80px;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 10%,
+                    #174765,
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 20% 70%,
+                    #0c3855,
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    #03111e,
+                    #071d30,
+                    #020a12
+                );
+
+            overflow: hidden;
+        }
+
+
+        #invitacion.mostrar {
+
+            display: block;
+
+            animation:
+                aparecer 1.5s ease;
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(50px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* ==============================
+           ESTRELLAS
+        ============================== */
+
+        .estrella {
+
+            position: absolute;
+
+            width: 3px;
+            height: 3px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 8px white;
+
+            animation:
+                parpadear 2s infinite alternate;
+        }
+
+
+        @keyframes parpadear {
+
+            from {
+                opacity: .2;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        /* ==============================
+           CONTENIDO
+        ============================== */
+
+        .contenido {
+
+            width: 100%;
+            max-width: 650px;
+
+            margin: auto;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+        .corona {
+
+            font-size: 45px;
+
+            margin-bottom: 15px;
+
+            filter:
+                drop-shadow(
+                    0 0 10px #dfbd70
+                );
+        }
+
+
+        .mis-xv {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            letter-spacing: 6px;
+
+            font-size: 18px;
+
+            color: #e7d4a4;
+
+            margin-bottom: 5px;
+        }
+
+
+        .nombre {
+
+            font-family:
+                'Great Vibes',
+                cursive;
+
+            font-size:
+                clamp(
+                    70px,
+                    15vw,
+                    115px
+                );
+
+            font-weight: normal;
+
+            line-height: 1;
+
+            margin: 10px 0;
+
+            color: #f4e4bd;
+
+            text-shadow:
+
+                0 0 10px
+                rgba(
+                    255,
+                    224,
+                    154,
+                    .35
+                ),
+
+                0 4px 4px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .7
+                );
+        }
+
+
+        .frase {
+
+            font-family:
+                'Great Vibes',
+                cursive;
+
+            font-size: 32px;
+
+            margin:
+                20px auto
+                40px;
+
+            max-width: 550px;
+
+            color: #e8edf3;
+        }
+
+
+        /* ==============================
+           SEPARADOR
+        ============================== */
+
+        .separador {
+
+            margin:
+                30px auto;
+
+            width: 180px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            color: #e3c785;
+        }
+
+
+        .separador::before,
+        .separador::after {
+
+            content: "";
+
+            width: 70px;
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    #d9bd77
+                );
+        }
+
+
+        .separador::after {
+
+            background:
+                linear-gradient(
+                    to left,
+                    transparent,
+                    #d9bd77
+                );
+        }
+
+
+        /* ==============================
+           FECHA
+        ============================== */
+
+        .fecha {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            color: #ead7a6;
+
+            margin-bottom: 40px;
+        }
+
+
+        .dia-numero {
+
+            font-size: 75px;
+
+            line-height: 1;
+
+            margin:
+                10px 0;
+
+            color: white;
+
+            text-shadow:
+                0 0 15px
+                rgba(
+                    91,
+                    207,
+                    255,
+                    .5
+                );
+        }
+
+
+        .mes {
+
+            font-size: 27px;
+
+            letter-spacing: 5px;
+        }
+
+
+        .anio {
+
+            font-size: 18px;
+
+            letter-spacing: 5px;
+
+            margin-top: 7px;
+        }
+
+
+        .hora {
+
+            margin-top: 20px;
+
+            font-size: 21px;
+
+            color: white;
+        }
+
+
+        /* ==============================
+           CUENTA REGRESIVA
+        ============================== */
+
+        .titulo-contador {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size: 20px;
+
+            letter-spacing: 3px;
+
+            color: #e6cf98;
+
+            margin-bottom: 25px;
+        }
+
+
+        .contador {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    1fr
+                );
+
+            gap: 10px;
+
+            margin:
+                20px auto
+                50px;
+
+            max-width: 600px;
+        }
+
+
+        .caja-tiempo {
+
+            padding:
+                20px 5px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(
+                        27,
+                        73,
+                        103,
+                        .7
+                    ),
+                    rgba(
+                        5,
+                        21,
+                        35,
+                        .9
+                    )
+                );
+
+            border:
+                1px solid
+                rgba(
+                    220,
+                    190,
+                    120,
+                    .45
+                );
+
+            border-radius: 12px;
+
+            box-shadow:
+
+                0 10px 30px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .3
+                ),
+
+                inset
+                0 0 15px
+                rgba(
+                    100,
+                    200,
+                    255,
+                    .08
+                );
+        }
+
+
+        .numero {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size:
+                clamp(
+                    25px,
+                    7vw,
+                    42px
+                );
+
+            color: white;
+        }
+
+
+        .texto-tiempo {
+
+            margin-top: 5px;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            color: #d8c28c;
+        }
+
+
+        /* ==============================
+           INFORMACIÓN DEL EVENTO
+        ============================== */
+
+        .tarjeta {
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(
+                        18,
+                        59,
+                        84,
+                        .75
+                    ),
+                    rgba(
+                        5,
+                        19,
+                        31,
+                        .9
+                    )
+                );
+
+            border:
+                1px solid
+                rgba(
+                    224,
+                    196,
+                    128,
+                    .5
+                );
+
+            border-radius: 20px;
+
+            padding:
+                35px
+                20px;
+
+            margin:
+                25px auto;
+
+            max-width: 570px;
+
+            box-shadow:
+
+                0 20px 50px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .35
+                ),
+
+                inset
+                0 0 20px
+                rgba(
+                    89,
+                    199,
+                    255,
+                    .05
+                );
+        }
+
+
+        .icono {
+
+            font-size: 40px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .titulo-tarjeta {
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            color: #e9d39d;
+
+            font-size: 20px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .local {
+
+            font-family:
+                'Great Vibes',
+                cursive;
+
+            font-size: 40px;
+
+            color: white;
+
+            margin-bottom: 15px;
+        }
+
+
+        .direccion {
+
+            line-height: 1.8;
+
+            font-size: 14px;
+
+            color: #d9e2e8;
+        }
+
+
+        .referencia {
+
+            margin-top: 15px;
+
+            color: #d9c68e;
+
+            font-size: 13px;
+        }
+
+
+        /* ==============================
+           BOTÓN MAPA
+        ============================== */
+
+        .boton-mapa {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 25px;
+
+            padding:
+                15px
+                28px;
+
+            text-decoration: none;
+
+            font-family:
+                'Cinzel',
+                serif;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            color: #071522;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #f0d89d,
+                    #caa85e
+                );
+
+            border-radius: 50px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(
+                    205,
+                    173,
+                    97,
+                    .25
+                );
+
+            transition: .3s;
+        }
+
+
+        .boton-mapa:hover {
+
+            transform:
+                translateY(-3px)
+                scale(1.03);
+
+            box-shadow:
+                0 12px 30px
+                rgba(
+                    226,
+                    195,
+                    120,
+                    .4
+                );
+        }
+
+
+        /* ==============================
+           FINAL
+        ============================== */
+
+        .final {
+
+            margin-top: 60px;
+
+            font-family:
+                'Great Vibes',
+                cursive;
+
+            font-size: 35px;
+
+            color: #ead9af;
+        }
+
+
+        .diamante {
+
+            font-size: 25px;
+
+            margin:
+                25px 0;
+
+            color: #8edfff;
+
+            text-shadow:
+                0 0 15px #67d9ff;
+        }
+
+
+        /* ==============================
+           CELULARES
+        ============================== */
+
+        @media(
+            max-width: 500px
+        ) {
+
+            #invitacion {
+
+                padding:
+                    60px
+                    15px;
+            }
+
+            .frase {
+
+                font-size: 28px;
+            }
+
+            .contador {
+
+                gap: 6px;
+            }
+
+            .caja-tiempo {
+
+                padding:
+                    17px
+                    2px;
+            }
+
+            .texto-tiempo {
+
+                font-size: 8px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     PORTADA
+=========================================== -->
+
+<section id="portada">
+
+    <div
+        class="contenedor-portada"
+        id="contenedorPortada"
+    >
+
+        <!--
+        IMPORTANTE:
+        La imagen debe llamarse portada.jpeg
+        -->
+
+        <img
+            src="portada.jpeg"
+            alt="Invitación Antonella"
+            class="imagen-portada"
+        >
+
+
+        <!--
+        Este botón transparente está
+        encima de la llave.
+        -->
+
+        <button
+            class="boton-llave"
+            onclick="abrirInvitacion()"
+            aria-label="Abrir invitación"
+        ></button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     INVITACIÓN
+=========================================== -->
+
+<section id="invitacion">
+
+
+    <!-- ESTRELLAS -->
+
+    <span
+        class="estrella"
+        style="
+        top:5%;
+        left:10%;
+        "
+    ></span>
+
+    <span
+        class="estrella"
+        style="
+        top:12%;
+        left:80%;
+        "
+    ></span>
+
+    <span
+        class="estrella"
+        style="
+        top:30%;
+        left:5%;
+        "
+    ></span>
+
+    <span
+        class="estrella"
+        style="
+        top:45%;
+        left:90%;
+        "
+    ></span>
+
+    <span
+        class="estrella"
+        style="
+        top:60%;
+        left:15%;
+        "
+    ></span>
+
+    <span
+        class="estrella"
+        style="
+        top:75%;
+        left:85%;
+        "
+    ></span>
+
+    <span
+        class="estrella"
+        style="
+        top:88%;
+        left:25%;
+        "
+    ></span>
+
+
+
+    <div class="contenido">
+
+
+        <div class="corona">
+            ♛
+        </div>
+
+
+        <div class="mis-xv">
+            MIS XV AÑOS
+        </div>
+
+
+        <h1 class="nombre">
+            Antonella
+        </h1>
+
+
+        <div class="separador">
+            ✦
+        </div>
+
+
+        <p class="frase">
+            Hay momentos en la vida que son
+            especiales por sí solos, pero
+            compartirlos con las personas que
+            queremos los convierte en
+            inolvidables.
+        </p>
+
+
+
+        <!-- FECHA -->
+
+        <div class="fecha">
+
+            <div>
+                SÁBADO
+            </div>
+
+            <div class="dia-numero">
+                03
+            </div>
+
+            <div class="mes">
+                OCTUBRE
+            </div>
+
+            <div class="anio">
+                2026
+            </div>
+
+            <div class="hora">
+                ✦ 03:00 PM ✦
+            </div>
+
+        </div>
+
+
+
+        <div class="separador">
+            ✦
+        </div>
+
+
+
+        <!-- =================================
+             CUENTA REGRESIVA
+        ================================== -->
+
+        <div class="titulo-contador">
+            FALTAN
+        </div>
+
+
+        <div class="contador">
+
+
+            <div class="caja-tiempo">
+
+                <div
+                    class="numero"
+                    id="dias"
+                >
+                    00
+                </div>
+
+                <div class="texto-tiempo">
+                    DÍAS
+                </div>
+
+            </div>
+
+
+
+            <div class="caja-tiempo">
+
+                <div
+                    class="numero"
+                    id="horas"
+                >
+                    00
+                </div>
+
+                <div class="texto-tiempo">
+                    HORAS
+                </div>
+
+            </div>
+
+
+
+            <div class="caja-tiempo">
+
+                <div
+                    class="numero"
+                    id="minutos"
+                >
+                    00
+                </div>
+
+                <div class="texto-tiempo">
+                    MINUTOS
+                </div>
+
+            </div>
+
+
+
+            <div class="caja-tiempo">
+
+                <div
+                    class="numero"
+                    id="segundos"
+                >
+                    00
+                </div>
+
+                <div class="texto-tiempo">
+                    SEGUNDOS
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             LUGAR
+        ================================== -->
+
+        <div class="tarjeta">
+
+
+            <div class="icono">
+                ♕
+            </div>
+
+
+            <div class="titulo-tarjeta">
+                RECEPCIÓN
+            </div>
+
+
+            <div class="local">
+                Shiny Star Eventos
+            </div>
+
+
+            <div class="direccion">
+
+                Urb. Palmeras del Valle
+                Mz. A Lt. 3 II Etapa
+
+            </div>
+
+
+            <div class="referencia">
+
+                ✦ Referencia:
+                A espalda de Makro
+
+            </div>
+
+
+
+            <!-- BOTÓN GOOGLE MAPS -->
+
+            <a
+                class="boton-mapa"
+
+                href="https://www.google.com/maps/place/8%C2%B005'06.9%22S+79%C2%B002'48.7%22W/@-8.0852516,-79.0494475,17z/data=!4m4!3m3!8m2!3d-8.0852622!4d-79.0468618?hl=es&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D"
+
+                target="_blank"
+
+                rel="noopener noreferrer"
+            >
+
+                📍 VER UBICACIÓN
+
+            </a>
+
+
+        </div>
+
+
+
+        <div class="final">
+
+            Te esperamos para
+            compartir una noche mágica
+
+        </div>
+
+
+        <div class="diamante">
+            ◆
+        </div>
+
+
+        <div
+            style="
+            font-family:'Cinzel',serif;
+            letter-spacing:3px;
+            font-size:12px;
+            color:#d7c18b;
+            "
+        >
+
+            ANTONELLA · MIS XV
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+
+/* ==========================================
+   ABRIR INVITACIÓN
+========================================== */
+
+function abrirInvitacion() {
+
+
+    const portada =
+        document.getElementById(
+            "contenedorPortada"
+        );
+
+
+    portada.classList.add(
+        "abrir-portada"
+    );
+
+
+    /*
+    Esperamos a que termine
+    la animación.
+    */
+
+    setTimeout(
+        function() {
+
+
+            document
+                .getElementById(
+                    "portada"
+                )
+                .style.display =
+                "none";
+
+
+            const invitacion =
+                document
+                .getElementById(
+                    "invitacion"
+                );
+
+
+            invitacion
+                .classList
+                .add(
+                    "mostrar"
+                );
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+
+        },
+        1400
+    );
+
+}
+
+
+
+/* ==========================================
+   CUENTA REGRESIVA
+
+   Evento:
+   03 de octubre de 2026
+   03:00 PM
+   Hora de Perú
+========================================== */
+
+
+/*
+Perú utiliza UTC-5.
+
+Al especificar -05:00 hacemos que
+la cuenta regresiva funcione
+correctamente aunque el invitado
+abra la página desde otro país.
+*/
+
+const fechaEvento =
+    new Date(
+        "2026-10-03T15:00:00-05:00"
+    );
+
+
+function actualizarContador() {
+
+
+    const ahora =
+        new Date();
+
+
+    const diferencia =
+        fechaEvento - ahora;
+
+
+    /*
+    Si llegó la fecha del evento.
+    */
+
+    if (
+        diferencia <= 0
+    ) {
+
+
+        document
+            .getElementById(
+                "dias"
+            )
+            .textContent =
+            "00";
+
+
+        document
+            .getElementById(
+                "horas"
+            )
+            .textContent =
+            "00";
+
+
+        document
+            .getElementById(
+                "minutos"
+            )
+            .textContent =
+            "00";
+
+
+        document
+            .getElementById(
+                "segundos"
+            )
+            .textContent =
+            "00";
+
+
+        document
+            .querySelector(
+                ".titulo-contador"
+            )
+            .textContent =
+            "¡HOY ES EL GRAN DÍA!";
+
+
+        return;
+
+    }
+
+
+
+    /*
+    Cálculos del contador.
+    */
+
+    const dias =
+        Math.floor(
+            diferencia /
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            )
+        );
+
+
+    const horas =
+        Math.floor(
+            (
+                diferencia /
+                (
+                    1000 *
+                    60 *
+                    60
+                )
+            )
+            % 24
+        );
+
+
+    const minutos =
+        Math.floor(
+            (
+                diferencia /
+                (
+                    1000 *
+                    60
+                )
+            )
+            % 60
+        );
+
+
+    const segundos =
+        Math.floor(
+            (
+                diferencia /
+                1000
+            )
+            % 60
+        );
+
+
+
+    /*
+    Mostrar valores.
+    */
+
+    document
+        .getElementById(
+            "dias"
+        )
+        .textContent =
+        String(
+            dias
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    document
+        .getElementById(
+            "horas"
+        )
+        .textContent =
+        String(
+            horas
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    document
+        .getElementById(
+            "minutos"
+        )
+        .textContent =
+        String(
+            minutos
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    document
+        .getElementById(
+            "segundos"
+        )
+        .textContent =
+        String(
+            segundos
+        ).padStart(
+            2,
+            "0"
+        );
+
+}
+
+
+/*
+Actualizar inmediatamente.
+*/
+
+actualizarContador();
+
+
+/*
+Actualizar cada segundo.
+*/
+
+setInterval(
+    actualizarContador,
+    1000
+);
+
+
+</script>
+
+
+</body>
+</html>
