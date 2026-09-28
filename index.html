@@ -1,303 +1,188 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Mis XV - Antonella Viviana</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link
-href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
-rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
 /* =========================================================
    PALETA GENERAL
-   CELESTE · BLANCO · HIELO · PLATEADO
 ========================================================= */
 
 :root{
-
     --celeste-oscuro:#287fa6;
-
     --celeste:#62c9ee;
-
     --celeste-medio:#8bdcff;
-
     --celeste-claro:#bcecff;
-
     --celeste-hielo:#e8f9ff;
-
     --blanco:#ffffff;
-
     --plata:#d8e5eb;
-
     --texto:#28566c;
+    --texto-fuerte:#145675;
 }
-
 
 /* =========================================================
    GENERAL
 ========================================================= */
 
 *{
-
     margin:0;
     padding:0;
     box-sizing:border-box;
-
 }
-
 
 html{
-
     scroll-behavior:smooth;
-
 }
-
 
 body{
-
     margin:0;
-
     min-height:100%;
-
     font-family:'Montserrat',sans-serif;
-
     color:white;
-
     background:#a6def2;
-
     overflow-x:hidden;
-
 }
-
 
 /* =========================================================
    FONDO GENERAL
 ========================================================= */
 
 .fondo-general{
-
     position:fixed;
-
     inset:0;
-
     width:100vw;
-
     height:100vh;
     height:100svh;
-
     z-index:-20;
 
     background-image:url("castillo.jpg");
-
     background-size:cover;
-
     background-repeat:no-repeat;
-
     background-position:center center;
-
 }
-
 
 /* =========================================================
    PORTADA
 ========================================================= */
 
 #portada{
-
     min-height:100vh;
     min-height:100svh;
-
     position:relative;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     overflow:hidden;
-
 }
 
-
-/* Capa celeste muy suave */
-
 #portada::after{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     z-index:0;
 
     background:
-
         linear-gradient(
             180deg,
-            rgba(70,190,235,.10),
-            rgba(63,177,221,.13),
-            rgba(25,110,150,.25)
+            rgba(117,211,244,.08),
+            rgba(74,188,230,.12),
+            rgba(34,126,165,.24)
         );
 
     pointer-events:none;
-
 }
 
-
 /* =========================================================
-   ESTRELLAS
+   ESTRELLAS PORTADA
 ========================================================= */
 
 .estrellas{
-
     position:absolute;
-
     inset:0;
-
     z-index:1;
-
     pointer-events:none;
-
     opacity:.55;
 
     background-image:
-
-        radial-gradient(
-            circle,
-            white 1px,
-            transparent 1.5px
-        ),
-
-        radial-gradient(
-            circle,
-            #bfeeff 1px,
-            transparent 1.5px
-        );
+        radial-gradient(circle, white 1px, transparent 1.5px),
+        radial-gradient(circle, #bfeeff 1px, transparent 1.5px);
 
     background-size:
-
         48px 48px,
         78px 78px;
 
     background-position:
-
         0 0,
         20px 25px;
 
-    animation:
-
-        estrellasMover
-        35s
-        linear
-        infinite;
-
+    animation:estrellasMover 35s linear infinite;
 }
-
 
 @keyframes estrellasMover{
-
     to{
-
         background-position:
-
             180px 250px,
             -150px 200px;
-
     }
-
 }
 
-
 /* =========================================================
-   MARCO PORTADA
+   MARCO
 ========================================================= */
 
 .marco{
-
     position:absolute;
-
     inset:15px;
-
     z-index:2;
 
-    border:
-
-        1px solid
-        rgba(220,248,255,.90);
+    border:1px solid rgba(220,248,255,.90);
 
     pointer-events:none;
-
 }
-
 
 .marco::after{
-
     content:"";
-
     position:absolute;
-
     inset:6px;
 
-    border:
-
-        1px solid
-        rgba(201,241,255,.38);
-
+    border:1px solid rgba(201,241,255,.38);
 }
 
-
 /* =========================================================
-   CONTENIDO PORTADA
+   PORTADA CONTENIDO
 ========================================================= */
 
 .portada-contenido{
-
     width:92%;
-
     max-width:650px;
 
     position:relative;
-
     z-index:5;
 
     text-align:center;
 
-    padding:
-
-        50px
-        15px
-        45px;
-
+    padding:50px 15px 45px;
 }
-
 
 /* =========================================================
    ORNAMENTOS
 ========================================================= */
 
 .ornamento{
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     gap:12px;
@@ -305,206 +190,125 @@ body{
     color:#e9fbff;
 
     margin-bottom:15px;
-
 }
-
 
 .ornamento::before,
 .ornamento::after{
-
     content:"";
-
     width:60px;
-
     height:1px;
 
     background:
-
         linear-gradient(
             to right,
             transparent,
             #e6faff
         );
-
 }
 
-
 .ornamento::after{
-
     background:
-
         linear-gradient(
             to left,
             transparent,
             #e6faff
         );
-
 }
-
 
 .ornamento-centro{
-
     font-family:'Cinzel',serif;
-
     font-size:19px;
-
     letter-spacing:6px;
 
-    text-shadow:
-
-        0 0 10px
-        rgba(210,246,255,.9);
-
+    text-shadow:0 0 10px rgba(210,246,255,.9);
 }
-
 
 /* =========================================================
    MIS XV
 ========================================================= */
 
 .mis-xv{
-
     font-family:'Cinzel',serif;
-
     font-size:14px;
-
     letter-spacing:7px;
-
     color:#e7faff;
-
 }
-
 
 /* =========================================================
    NOMBRE PORTADA
 ========================================================= */
 
 .nombre-portada{
-
     font-family:'Great Vibes',cursive;
 
-    font-size:
-
-        clamp(
-            72px,
-            17vw,
-            125px
-        );
-
+    font-size:clamp(72px,17vw,125px);
     font-weight:normal;
-
     line-height:.78;
 
-    margin:
-
-        20px
-        0
-        30px;
+    margin:20px 0 30px;
 
     color:white;
 
     text-shadow:
-
-        0 0 10px
-        rgba(255,255,255,.70),
-
-        0 0 25px
-        rgba(140,225,255,.85),
-
-        0 4px 8px
-        rgba(20,90,120,.60);
-
+        0 0 10px rgba(255,255,255,.70),
+        0 0 25px rgba(140,225,255,.85),
+        0 4px 8px rgba(20,90,120,.60);
 }
-
 
 .nombre-portada span{
-
     color:#dcf7ff;
-
 }
 
-
 /* =========================================================
-   FRASE PORTADA
+   FRASES PORTADA
 ========================================================= */
 
 .frase-portada{
-
     max-width:500px;
-
-    margin:
-
-        0 auto
-        20px;
+    margin:0 auto 20px;
 
     font-family:'Great Vibes',cursive;
-
     font-size:29px;
-
     line-height:1.35;
 
     color:white;
 
-    text-shadow:
-
-        0 2px 7px
-        rgba(20,70,100,.85);
-
+    text-shadow:0 2px 7px rgba(20,70,100,.85);
 }
 
-
 .personal{
-
     font-family:'Cinzel',serif;
 
     font-size:10px;
-
     line-height:1.9;
-
     letter-spacing:1.5px;
 
     color:#e8faff;
 
     margin-bottom:25px;
 
-    text-shadow:
-
-        0 2px 5px
-        rgba(20,70,100,.80);
-
+    text-shadow:0 2px 5px rgba(20,70,100,.80);
 }
-
 
 /* =========================================================
    SOBRE
 ========================================================= */
 
 .abrir-zona{
-
     width:300px;
-
     max-width:100%;
 
-    margin:
-
-        10px auto
-        0;
+    margin:10px auto 0;
 
     cursor:pointer;
-
     user-select:none;
 
     position:relative;
-
     z-index:20;
-
 }
 
-
 .sobre{
-
     width:260px;
-
     height:180px;
 
     margin:auto;
@@ -514,363 +318,245 @@ body{
     perspective:1200px;
 
     filter:
-
         drop-shadow(
-            0 16px 17px
-            rgba(35,100,125,.38)
+            0 16px 17px rgba(35,100,125,.38)
         );
 
-    animation:
-
-        flotarSobre
-        3s
-        ease-in-out
-        infinite;
-
+    animation:flotarSobre 3s ease-in-out infinite;
 }
 
-
 @keyframes flotarSobre{
-
-    0%,
-    100%{
-
-        transform:
-
-            translateY(0)
-            rotate(-.7deg);
-
+    0%,100%{
+        transform:translateY(0) rotate(-.7deg);
     }
 
     50%{
-
-        transform:
-
-            translateY(-8px)
-            rotate(.7deg);
-
+        transform:translateY(-8px) rotate(.7deg);
     }
-
 }
 
-
-/* Parte trasera */
-
 .sobre-fondo{
-
     position:absolute;
 
     left:0;
-
     bottom:0;
 
     width:100%;
-
     height:140px;
 
     border-radius:6px;
 
     background:
-
         linear-gradient(
             145deg,
             #9ce3fa,
             #58bfe6
         );
 
-    border:
-
-        1px solid
-        rgba(230,250,255,.95);
+    border:1px solid rgba(230,250,255,.95);
 
     z-index:1;
-
 }
-
 
 /* =========================================================
    CARTA INTERIOR
-
-   IMPORTANTE:
-   invisible antes de abrir.
 ========================================================= */
 
 .carta-interior{
-
     position:absolute;
 
     left:50%;
-
     bottom:25px;
 
     width:150px;
-
     height:75px;
 
     transform:
-
         translateX(-50%)
         translateY(25px)
         scale(.95);
 
     background:
-
         linear-gradient(
             145deg,
             #ffffff,
             #edfaff
         );
 
-    border:
-
-        1px solid
-        #c6efff;
-
+    border:1px solid #c6efff;
     border-radius:5px;
 
     color:#4a9fc1;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
 
     opacity:0;
-
     visibility:hidden;
 
     z-index:2;
 
-    box-shadow:
-
-        0 4px 12px
-        rgba(30,100,130,.20);
+    box-shadow:0 4px 12px rgba(30,100,130,.20);
 
     transition:
-
         transform .9s ease,
         opacity .25s ease;
-
 }
-
 
 .carta-interior span{
-
     font-family:'Great Vibes',cursive;
-
     font-size:19px;
-
 }
-
 
 .mini-estrella{
-
     font-size:12px;
-
     margin-bottom:4px;
-
 }
-
 
 /* =========================================================
    SOLAPA SUPERIOR
 ========================================================= */
 
 .sobre-tapa{
-
     position:absolute;
 
     left:0;
-
     top:40px;
 
     width:0;
-
     height:0;
 
-    border-left:
+    border-left:130px solid transparent;
+    border-right:130px solid transparent;
+    border-top:95px solid #83d7f4;
 
-        130px solid transparent;
-
-    border-right:
-
-        130px solid transparent;
-
-    border-top:
-
-        95px solid #83d7f4;
-
-    transform-origin:
-
-        center top;
+    transform-origin:center top;
 
     z-index:8;
 
     transition:
-
-        transform .75s
-        cubic-bezier(.45,.05,.25,1),
-
+        transform .75s cubic-bezier(.45,.05,.25,1),
         z-index 0s .4s;
-
 }
 
-
 /* =========================================================
-   FRENTE DEL SOBRE
+   FRENTE SOBRE
 ========================================================= */
 
 .sobre-frente{
-
     position:absolute;
 
     left:0;
-
     bottom:0;
 
     width:100%;
-
     height:140px;
 
     overflow:hidden;
 
-    border-radius:
-
-        0 0 6px 6px;
+    border-radius:0 0 6px 6px;
 
     z-index:5;
-
 }
 
-
 .sobre-frente::before{
-
     content:"";
 
     position:absolute;
 
     width:205px;
-
     height:205px;
 
     left:-105px;
-
     bottom:-103px;
 
     transform:rotate(45deg);
 
     background:
-
         linear-gradient(
             135deg,
             #82d8f4,
             #55bae0
         );
-
 }
 
-
 .sobre-frente::after{
-
     content:"";
 
     position:absolute;
 
     width:205px;
-
     height:205px;
 
     right:-105px;
-
     bottom:-103px;
 
     transform:rotate(45deg);
 
     background:
-
         linear-gradient(
             135deg,
             #75cfef,
             #49add5
         );
-
 }
-
 
 /* =========================================================
    SOLAPA INFERIOR
 ========================================================= */
 
 .solapa-inferior{
-
     position:absolute;
 
     left:0;
-
     bottom:0;
 
     width:100%;
-
     height:112px;
 
     overflow:hidden;
 
     z-index:6;
-
 }
 
-
 .solapa-inferior::before{
-
     content:"";
 
     position:absolute;
 
     width:190px;
-
     height:190px;
 
     left:50%;
-
     bottom:-138px;
 
     transform:
-
         translateX(-50%)
         rotate(45deg);
 
     background:
-
         linear-gradient(
             145deg,
             #8bdcf6,
             #56bce1
         );
-
 }
-
 
 /* =========================================================
    SELLO
 ========================================================= */
 
 .sello{
-
     position:absolute;
 
     left:50%;
-
     top:92px;
 
-    transform:
-
-        translateX(-50%);
+    transform:translateX(-50%);
 
     width:58px;
-
     height:58px;
 
     border-radius:50%;
@@ -878,19 +564,15 @@ body{
     z-index:12;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     font-family:'Cinzel',serif;
-
     font-size:14px;
 
     color:white;
 
     background:
-
         radial-gradient(
             circle at 35% 30%,
             #d9f7ff,
@@ -898,181 +580,110 @@ body{
             #43a8d0
         );
 
-    border:
-
-        3px double
-        white;
+    border:3px double white;
 
     box-shadow:
-
-        0 0 15px
-        rgba(202,244,255,.95),
-
-        0 0 30px
-        rgba(102,207,246,.65);
+        0 0 15px rgba(202,244,255,.95),
+        0 0 30px rgba(102,207,246,.65);
 
     transition:.35s;
-
 }
-
 
 .sello::before{
-
     content:"✦";
-
     position:absolute;
-
     top:4px;
-
     font-size:7px;
-
 }
 
-
 .sello::after{
-
     content:"";
-
     position:absolute;
 
     inset:-9px;
 
-    border:
-
-        1px solid
-        rgba(221,248,255,.75);
-
+    border:1px solid rgba(221,248,255,.75);
     border-radius:50%;
 
-    animation:
-
-        pulso
-        1.7s
-        infinite;
-
+    animation:pulso 1.7s infinite;
 }
 
-
 @keyframes pulso{
-
     from{
-
         transform:scale(.9);
-
         opacity:.8;
-
     }
 
     to{
-
         transform:scale(1.55);
-
         opacity:0;
-
     }
-
 }
-
 
 /* =========================================================
    SOBRE ABIERTO
 ========================================================= */
 
 .sobre.abierto{
-
     animation:none;
-
 }
 
-
 .sobre.abierto .sello{
-
     opacity:0;
 
     transform:
-
         translateX(-50%)
         scale(.3);
-
 }
-
 
 .sobre.abierto .sobre-tapa{
-
     transform:rotateX(180deg);
-
     z-index:0;
-
 }
 
-
 .sobre.abierto .carta-interior{
-
     visibility:visible;
-
     opacity:1;
 
     transform:
-
         translateX(-50%)
         translateY(-90px)
         scale(1);
 
     transition-delay:.55s;
-
 }
 
-
 /* =========================================================
-   TEXTO ABRIR
+   TOCAR SOBRE
 ========================================================= */
 
 .tocar{
-
     margin-top:22px;
 
     font-family:'Great Vibes',cursive;
-
     font-size:28px;
 
     color:white;
 
     text-shadow:
+        0 0 12px #a7e8ff,
+        0 2px 5px rgba(20,90,120,.7);
 
-        0 0 12px
-        #a7e8ff,
-
-        0 2px 5px
-        rgba(20,90,120,.7);
-
-    animation:
-
-        pulsarTexto
-        1.8s
-        infinite;
-
+    animation:pulsarTexto 1.8s infinite;
 }
-
 
 @keyframes pulsarTexto{
-
     50%{
-
         opacity:.75;
-
         transform:scale(1.025);
-
     }
-
 }
-
 
 /* =========================================================
    PARTÍCULAS
 ========================================================= */
 
 .particula{
-
     position:fixed;
 
     z-index:9999;
@@ -1080,13 +691,11 @@ body{
     pointer-events:none;
 
     width:8px;
-
     height:8px;
 
     background:white;
 
     clip-path:
-
         polygon(
             50% 0%,
             61% 35%,
@@ -1099,63 +708,36 @@ body{
         );
 
     filter:
+        drop-shadow(0 0 6px white)
+        drop-shadow(0 0 12px #8de4ff);
 
-        drop-shadow(
-            0 0 6px white
-        )
-
-        drop-shadow(
-            0 0 12px #8de4ff
-        );
-
-    animation:
-
-        explosion
-        2s
-        forwards;
-
+    animation:explosion 2s forwards;
 }
 
-
 @keyframes explosion{
-
     from{
-
         opacity:1;
 
         transform:
-
             translate(0,0)
             scale(.4);
-
     }
 
     to{
-
         opacity:0;
 
         transform:
-
-            translate(
-                var(--x),
-                var(--y)
-            )
-
+            translate(var(--x),var(--y))
             scale(1.6)
-
             rotate(360deg);
-
     }
-
 }
-
 
 /* =========================================================
    INVITACIÓN
 ========================================================= */
 
 #invitacion{
-
     display:none;
 
     min-height:100vh;
@@ -1163,273 +745,154 @@ body{
     position:relative;
 
     isolation:isolate;
-
 }
-
 
 #invitacion.visible{
-
     display:block;
-
-    animation:
-
-        aparecer
-        1.2s ease;
-
+    animation:aparecer 1.2s ease;
 }
-
 
 @keyframes aparecer{
-
-    from{
-
-        opacity:0;
-
-    }
-
-    to{
-
-        opacity:1;
-
-    }
-
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
-
 /* =========================================================
-   FONDO DIFUMINADO DE LA SEGUNDA SECCIÓN
-
-   IMPORTANTE:
-   Aquí sí hacemos blur SOLO a la imagen.
-   El contenido permanece nítido.
+   FONDO SEGUNDA SECCIÓN
 ========================================================= */
 
 #invitacion::before{
-
     content:"";
 
     position:fixed;
-
-    /*
-    Ampliamos un poco la imagen para
-    evitar bordes causados por blur.
-    */
 
     inset:-12px;
 
     z-index:-2;
 
-    background-image:
-
-        url("castillo.jpg");
+    background-image:url("castillo.jpg");
 
     background-size:cover;
-
     background-position:center center;
-
     background-repeat:no-repeat;
 
-    /*
-    Difuminado moderado:
-    el castillo sigue distinguiéndose.
-    */
+    filter:blur(3px);
 
-    filter:
-
-        blur(3px);
-
-    transform:
-
-        scale(1.025);
-
+    transform:scale(1.025);
 }
 
-
-/* Capa celeste translúcida */
-
 #invitacion::after{
-
     content:"";
 
     position:fixed;
-
     inset:0;
 
     z-index:-1;
 
     background:
-
         linear-gradient(
             180deg,
-            rgba(187,235,250,.34),
-            rgba(119,207,238,.30),
-            rgba(77,174,212,.34)
+            rgba(187,235,250,.30),
+            rgba(119,207,238,.27),
+            rgba(77,174,212,.31)
         );
 
     pointer-events:none;
-
 }
-
 
 /* =========================================================
    PRESENTACIÓN
 ========================================================= */
 
 .castillo-fondo{
-
     min-height:100vh;
     min-height:100svh;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
-    padding:
-
-        80px
-        20px;
-
+    padding:80px 20px;
 }
 
-
 .presentacion{
-
     width:92%;
-
     max-width:620px;
 
     text-align:center;
 
-    padding:
+    padding:50px 25px;
 
-        50px
-        25px;
-
-    border:
-
-        1px solid
-        rgba(236,251,255,.85);
-
+    border:1px solid rgba(236,251,255,.85);
     border-radius:30px;
 
     background:
-
         linear-gradient(
             145deg,
-            rgba(127,210,239,.58),
-            rgba(84,179,216,.63)
+            rgba(127,210,239,.54),
+            rgba(84,179,216,.60)
         );
 
-    box-shadow:
+    box-shadow:0 20px 45px rgba(35,105,135,.28);
 
-        0 20px 45px
-        rgba(35,105,135,.28);
-
-    backdrop-filter:
-
-        blur(4px);
-
+    backdrop-filter:blur(4px);
 }
 
-
 .presentacion-mini{
-
     font-family:'Cinzel',serif;
 
     letter-spacing:6px;
-
     font-size:13px;
 
     color:white;
-
 }
 
-
 .presentacion-nombre{
-
     font-family:'Great Vibes',cursive;
 
-    font-size:
-
-        clamp(
-            70px,
-            16vw,
-            110px
-        );
-
+    font-size:clamp(70px,16vw,110px);
     font-weight:normal;
-
     line-height:.82;
 
-    margin:
-
-        25px
-        0;
+    margin:25px 0;
 
     color:white;
 
     text-shadow:
-
-        0 0 18px
-        rgba(216,249,255,.95),
-
-        0 3px 8px
-        rgba(41,124,157,.50);
-
+        0 0 18px rgba(216,249,255,.95),
+        0 3px 8px rgba(41,124,157,.50);
 }
 
-
 .presentacion-frase{
-
     font-family:'Great Vibes',cursive;
 
     font-size:30px;
-
     line-height:1.45;
 
     color:white;
-
 }
-
 
 /* =========================================================
    CONTENIDO
 ========================================================= */
 
 .contenido{
-
     width:92%;
-
     max-width:700px;
 
     margin:auto;
 
-    padding:
-
-        40px
-        0
-        100px;
-
+    padding:40px 0 100px;
 }
-
 
 /* =========================================================
    TARJETAS
 ========================================================= */
 
 .tarjeta{
+    margin:0 auto 45px;
 
-    margin:
-
-        0 auto
-        45px;
-
-    padding:
-
-        42px
-        25px;
+    padding:42px 25px;
 
     text-align:center;
 
@@ -1438,173 +901,119 @@ body{
     color:white;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(121,209,240,.78),
             rgba(69,164,202,.82)
         );
 
-    border:
+    border:1px solid rgba(229,249,255,.88);
 
-        1px solid
-        rgba(229,249,255,.88);
+    box-shadow:0 18px 45px rgba(41,111,140,.25);
 
-    box-shadow:
-
-        0 18px 45px
-        rgba(41,111,140,.25);
-
-    backdrop-filter:
-
-        blur(6px);
-
+    backdrop-filter:blur(6px);
 }
 
-
 .tarjeta-clara{
-
     color:var(--texto);
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.96),
             rgba(229,248,255,.95)
         );
-
 }
-
 
 /* =========================================================
    TÍTULOS
 ========================================================= */
 
 .ornamento-tarjeta{
-
     font-family:'Cinzel',serif;
 
     font-size:19px;
-
     letter-spacing:8px;
 
     margin-bottom:15px;
 
     color:#e9faff;
-
 }
 
-
-.tarjeta-clara
-.ornamento-tarjeta{
-
+.tarjeta-clara .ornamento-tarjeta{
     color:#62badb;
-
 }
-
 
 .titulo{
-
     font-family:'Cinzel',serif;
 
     letter-spacing:3px;
-
     font-size:20px;
 
     color:white;
 
     margin-bottom:25px;
-
 }
 
-
-.tarjeta-clara
-.titulo{
-
+.tarjeta-clara .titulo{
     color:#4b9dbc;
-
 }
-
 
 /* =========================================================
    PADRES
 ========================================================= */
 
 .nombre-familia{
-
     font-family:'Great Vibes',cursive;
 
     font-size:32px;
-
     line-height:1.65;
 
     color:white;
-
 }
-
 
 /* =========================================================
    PADRINOS
 ========================================================= */
 
 .padrinos-grupo{
-
     line-height:1.9;
-
     color:#f1fcff;
-
 }
-
 
 .pareja-padrinos{
-
     margin-bottom:20px;
-
 }
 
-
 .separador{
-
     width:100px;
-
     height:1px;
 
-    margin:
-
-        20px auto;
+    margin:20px auto;
 
     background:
-
         linear-gradient(
             to right,
             transparent,
             white,
             transparent
         );
-
 }
-
 
 /* =========================================================
    FECHA
 ========================================================= */
 
 .fecha{
-
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
     gap:25px;
-
 }
 
-
 .dia{
-
     font-family:'Cinzel',serif;
 
     font-size:75px;
@@ -1612,180 +1021,117 @@ body{
     color:white;
 
     line-height:1;
-
 }
-
 
 .fecha-info{
-
     text-align:left;
 
-    border-left:
-
-        1px solid
-        rgba(255,255,255,.8);
+    border-left:1px solid rgba(255,255,255,.8);
 
     padding-left:25px;
-
 }
 
-
 .hora{
-
     font-family:'Cinzel',serif;
 
     font-size:27px;
 
     margin-top:8px;
-
 }
 
-
 .puntualidad{
-
     margin-top:30px;
 
     padding:20px;
 
     border-radius:15px;
 
-    background:
+    background:rgba(255,255,255,.13);
 
-        rgba(255,255,255,.13);
-
-    border:
-
-        1px solid
-        rgba(255,255,255,.45);
+    border:1px solid rgba(255,255,255,.45);
 
     line-height:1.8;
-
 }
-
 
 /* =========================================================
    CONTADOR
 ========================================================= */
 
 .contador{
-
     display:grid;
 
-    grid-template-columns:
-
-        repeat(
-            4,
-            1fr
-        );
+    grid-template-columns:repeat(4,1fr);
 
     gap:8px;
-
 }
 
-
 .tiempo{
-
-    padding:
-
-        20px
-        4px;
+    padding:20px 4px;
 
     border-radius:14px;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(227,249,255,.95),
             rgba(143,220,247,.95)
         );
 
-    border:
-
-        1px solid white;
+    border:1px solid white;
 
     color:#3d91b2;
-
 }
-
 
 .numero{
-
     font-family:'Cinzel',serif;
 
-    font-size:
-
-        clamp(
-            24px,
-            7vw,
-            42px
-        );
-
+    font-size:clamp(24px,7vw,42px);
 }
 
-
 .etiqueta{
-
     font-size:9px;
-
     letter-spacing:1px;
 
     margin-top:5px;
-
 }
-
 
 /* =========================================================
    LOCAL
 ========================================================= */
 
 .local{
-
     font-family:'Great Vibes',cursive;
 
     font-size:48px;
 
     margin-bottom:15px;
-
 }
-
 
 .direccion{
-
     line-height:1.8;
-
 }
 
-
 .referencia{
-
     margin-top:15px;
 
     color:#eefbff;
-
 }
-
 
 /* =========================================================
    BOTONES
 ========================================================= */
 
 .boton{
-
     display:inline-flex;
 
     align-items:center;
-
     justify-content:center;
 
     gap:10px;
 
     margin-top:25px;
 
-    padding:
-
-        15px
-        28px;
+    padding:15px 28px;
 
     border-radius:50px;
 
@@ -1794,188 +1140,164 @@ body{
     font-family:'Cinzel',serif;
 
     font-size:12px;
-
     letter-spacing:1px;
 
     color:#367f9c;
 
     background:
-
         linear-gradient(
             135deg,
             white,
             #d5f5ff
         );
 
-    border:
+    border:1px solid rgba(255,255,255,.9);
 
-        1px solid
-        rgba(255,255,255,.9);
-
-    box-shadow:
-
-        0 8px 25px
-        rgba(40,130,170,.20);
+    box-shadow:0 8px 25px rgba(40,130,170,.20);
 
     transition:.3s;
-
 }
-
 
 .boton:hover{
-
-    transform:
-
-        translateY(-3px)
-        scale(1.03);
-
+    transform:translateY(-3px) scale(1.03);
 }
-
 
 /* =========================================================
    CONFIRMAR ASISTENCIA
+   TEXTO MÁS FUERTE
 ========================================================= */
 
 .confirmacion{
-
     background:
-
         linear-gradient(
             145deg,
-            rgba(237,251,255,.97),
-            rgba(203,241,255,.96)
+            rgba(237,251,255,.98),
+            rgba(194,237,253,.97)
         );
 
-    color:#377b97;
-
+    color:#155a78;
 }
 
+.confirmacion .titulo{
+    color:#145675;
+
+    font-weight:600;
+
+    text-shadow:none;
+}
+
+.confirmacion .ornamento-tarjeta{
+    color:#2985aa;
+}
 
 .confirmacion-frase{
-
     max-width:520px;
 
     margin:auto;
 
     font-family:'Great Vibes',cursive;
 
-    font-size:32px;
-
+    font-size:34px;
     line-height:1.5;
 
-    color:#438eaa;
+    color:#145675;
 
+    font-weight:500;
 }
 
-
 .confirmacion-texto{
-
     max-width:520px;
 
-    margin:
-
-        20px auto
-        5px;
+    margin:20px auto 5px;
 
     line-height:1.8;
 
-    color:#568399;
+    color:#245e76;
 
+    font-weight:500;
 }
 
-
 .boton-whatsapp{
-
     margin-top:28px;
 
     background:
-
         linear-gradient(
             135deg,
-            #8fddf6,
-            #d8f6ff
+            #57bee4,
+            #8edcf5
         );
 
-    color:#286d88;
+    color:#0c4c68;
 
-    padding:
-
-        17px
-        30px;
+    padding:17px 30px;
 
     font-size:12px;
 
-    box-shadow:
+    font-weight:600;
 
-        0 10px 25px
-        rgba(65,164,200,.25);
+    border:1px solid rgba(255,255,255,.95);
 
+    box-shadow:0 10px 25px rgba(35,125,165,.30);
 }
 
+.boton-whatsapp:hover{
+    background:
+        linear-gradient(
+            135deg,
+            #45b4dc,
+            #7bd4f2
+        );
+
+    color:#083e56;
+}
 
 /* =========================================================
    ITINERARIO
 ========================================================= */
 
 .itinerario{
-
     position:relative;
 
     max-width:550px;
 
     margin:auto;
-
 }
 
-
 .itinerario::before{
-
     content:"";
 
     position:absolute;
 
     left:50%;
-
     top:20px;
-
     bottom:20px;
 
     width:2px;
 
-    transform:
-
-        translateX(-50%);
+    transform:translateX(-50%);
 
     background:
-
         linear-gradient(
             white,
             #c9f2ff,
             white
         );
-
 }
 
-
 .evento{
-
     min-height:115px;
 
     display:grid;
 
     grid-template-columns:
-
         1fr
         55px
         1fr;
 
     align-items:center;
-
 }
 
-
 .evento-hora{
-
     text-align:right;
 
     padding-right:17px;
@@ -1983,14 +1305,10 @@ body{
     font-family:'Cinzel',serif;
 
     font-size:14px;
-
 }
 
-
 .punto-itinerario{
-
     width:42px;
-
     height:42px;
 
     margin:auto;
@@ -1999,31 +1317,21 @@ body{
 
     background:white;
 
-    border:
+    border:2px solid #dff8ff;
 
-        2px solid
-        #dff8ff;
-
-    box-shadow:
-
-        0 0 14px
-        rgba(220,250,255,.95);
+    box-shadow:0 0 14px rgba(220,250,255,.95);
 
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
     z-index:2;
 
     font-size:18px;
-
 }
 
-
 .evento-info{
-
     text-align:left;
 
     padding-left:17px;
@@ -2033,56 +1341,40 @@ body{
     font-size:13px;
 
     font-family:'Cinzel',serif;
-
 }
-
 
 /* =========================================================
    REGALO
 ========================================================= */
 
 .regalo-frase{
-
     font-family:'Great Vibes',cursive;
 
     font-size:31px;
-
     line-height:1.4;
 
     color:#438daa;
-
 }
 
-
 .regalo-secundario{
-
-    margin:
-
-        25px auto;
+    margin:25px auto;
 
     line-height:1.8;
 
     max-width:520px;
 
     color:#547e91;
-
 }
-
 
 /* =========================================================
    QR
 ========================================================= */
 
 .qr-contenedor{
-
     width:260px;
-
     max-width:90%;
 
-    margin:
-
-        25px auto
-        15px;
+    margin:25px auto 15px;
 
     padding:15px;
 
@@ -2090,27 +1382,17 @@ body{
 
     border-radius:18px;
 
-    box-shadow:
-
-        0 10px 30px
-        rgba(55,135,165,.18);
-
+    box-shadow:0 10px 30px rgba(55,135,165,.18);
 }
 
-
 .qr{
-
     display:block;
 
     width:100%;
-
     height:auto;
-
 }
 
-
 .qr-error{
-
     display:none;
 
     padding:20px;
@@ -2118,86 +1400,58 @@ body{
     color:#48829b;
 
     line-height:1.6;
-
 }
-
 
 /* =========================================================
    CÓDIGO DE VESTIMENTA
 ========================================================= */
 
 .formal{
-
     font-family:'Cinzel',serif;
 
     font-size:23px;
-
     letter-spacing:3px;
 
     color:#438eaa;
 
     margin-bottom:20px;
-
 }
 
-
 .vestimenta-texto{
-
     line-height:1.8;
 
     color:#527e91;
-
 }
 
-
-/* =========================================================
-   DIBUJOS DE VESTIMENTA
-========================================================= */
-
 .vestimenta-iconos{
-
     display:flex;
 
     justify-content:center;
-
     align-items:flex-end;
 
     gap:55px;
 
-    margin:
-
-        25px auto
-        15px;
-
+    margin:25px auto 15px;
 }
-
 
 /* =========================================================
    VESTIDO DAMA
 ========================================================= */
 
 .figura-dama{
-
     width:95px;
-
-    height:140px;
+    height:145px;
 
     position:relative;
-
 }
 
-
-.figura-dama
-.tirante-izq,
-.figura-dama
-.tirante-der{
-
+.figura-dama .tirante-izq,
+.figura-dama .tirante-der{
     position:absolute;
 
     top:7px;
 
     width:5px;
-
     height:30px;
 
     border-radius:5px;
@@ -2205,49 +1459,32 @@ body{
     background:#74cdea;
 
     z-index:3;
-
 }
 
-
-.figura-dama
-.tirante-izq{
-
+.figura-dama .tirante-izq{
     left:32px;
 
     transform:rotate(9deg);
-
 }
 
-
-.figura-dama
-.tirante-der{
-
+.figura-dama .tirante-der{
     right:32px;
 
     transform:rotate(-9deg);
-
 }
 
-
-.figura-dama
-.corpiño{
-
+.figura-dama .corpiño{
     position:absolute;
 
     top:22px;
-
     left:50%;
 
-    transform:
-
-        translateX(-50%);
+    transform:translateX(-50%);
 
     width:47px;
-
     height:48px;
 
     background:
-
         linear-gradient(
             135deg,
             #c9f2ff,
@@ -2255,7 +1492,6 @@ body{
         );
 
     clip-path:
-
         polygon(
             8% 0,
             36% 7%,
@@ -2267,25 +1503,17 @@ body{
         );
 
     border-radius:5px;
-
 }
 
-
-.figura-dama
-.cintura{
-
+.figura-dama .cintura{
     position:absolute;
 
     top:65px;
-
     left:50%;
 
-    transform:
-
-        translateX(-50%);
+    transform:translateX(-50%);
 
     width:43px;
-
     height:7px;
 
     border-radius:10px;
@@ -2293,29 +1521,20 @@ body{
     background:white;
 
     z-index:5;
-
 }
 
-
-.figura-dama
-.falda{
-
+.figura-dama .falda{
     position:absolute;
 
     top:67px;
-
     left:50%;
 
-    transform:
-
-        translateX(-50%);
+    transform:translateX(-50%);
 
     width:90px;
-
     height:70px;
 
     background:
-
         linear-gradient(
             120deg,
             #69c8e9,
@@ -2324,7 +1543,6 @@ body{
         );
 
     clip-path:
-
         polygon(
             37% 0,
             63% 0,
@@ -2332,234 +1550,340 @@ body{
             0 100%
         );
 
-    border-radius:
-
-        0 0 15px 15px;
+    border-radius:0 0 15px 15px;
 
     filter:
-
         drop-shadow(
-            0 5px 6px
-            rgba(70,150,180,.18)
+            0 5px 6px rgba(70,150,180,.18)
         );
-
 }
 
-
 /* =========================================================
-   TERNO HOMBRE
+   TERNO ELEGANTE HOMBRE
 ========================================================= */
 
 .figura-hombre{
-
-    width:95px;
-
-    height:140px;
+    width:100px;
+    height:145px;
 
     position:relative;
 
+    filter:
+        drop-shadow(
+            0 5px 5px rgba(45,130,165,.16)
+        );
 }
 
+/* CAMISA */
 
-.figura-hombre
-.camisa{
-
+.figura-hombre .camisa{
     position:absolute;
 
     top:12px;
-
     left:50%;
 
-    transform:
+    transform:translateX(-50%);
 
-        translateX(-50%);
-
-    width:38px;
-
-    height:72px;
-
-    background:white;
-
-    z-index:1;
-
-}
-
-
-.figura-hombre
-.saco{
-
-    position:absolute;
-
-    top:13px;
-
-    left:50%;
-
-    transform:
-
-        translateX(-50%);
-
-    width:82px;
-
-    height:90px;
+    width:40px;
+    height:77px;
 
     background:
-
         linear-gradient(
-            135deg,
-            #a8e8fa,
-            #67c6e8
+            180deg,
+            #ffffff,
+            #eaf9ff
         );
 
-    clip-path:
-
-        polygon(
-            10% 0,
-            38% 0,
-            50% 23%,
-            62% 0,
-            90% 0,
-            100% 100%,
-            56% 100%,
-            50% 60%,
-            44% 100%,
-            0 100%
-        );
-
-    z-index:2;
-
+    z-index:1;
 }
 
+/* CUELLO */
 
-.figura-hombre
-.solapa-izq{
-
+.figura-hombre .cuello-camisa{
     position:absolute;
 
-    top:14px;
-
-    left:17px;
-
-    width:31px;
-
-    height:50px;
-
-    background:#72cbe9;
-
-    clip-path:
-
-        polygon(
-            0 0,
-            100% 0,
-            65% 100%
-        );
-
-    z-index:3;
-
-}
-
-
-.figura-hombre
-.solapa-der{
-
-    position:absolute;
-
-    top:14px;
-
-    right:17px;
-
-    width:31px;
-
-    height:50px;
-
-    background:#72cbe9;
-
-    clip-path:
-
-        polygon(
-            0 0,
-            100% 0,
-            35% 100%
-        );
-
-    z-index:3;
-
-}
-
-
-.figura-hombre
-.corbata{
-
-    position:absolute;
-
-    top:21px;
-
+    top:9px;
     left:50%;
 
-    transform:
+    transform:translateX(-50%);
 
-        translateX(-50%);
+    width:43px;
+    height:28px;
 
-    width:10px;
+    z-index:6;
+}
 
-    height:46px;
+.figura-hombre .cuello-camisa::before,
+.figura-hombre .cuello-camisa::after{
+    content:"";
 
-    background:#edfaff;
+    position:absolute;
+
+    top:0;
+
+    width:24px;
+    height:25px;
+
+    background:#ffffff;
+}
+
+.figura-hombre .cuello-camisa::before{
+    left:0;
 
     clip-path:
-
         polygon(
-            50% 0,
+            0 0,
+            100% 0,
+            75% 100%
+        );
+}
+
+.figura-hombre .cuello-camisa::after{
+    right:0;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            25% 100%
+        );
+}
+
+/* SACO */
+
+.figura-hombre .saco{
+    position:absolute;
+
+    top:12px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:88px;
+    height:91px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a9e8fa 0%,
+            #70cce9 48%,
+            #51b6db 100%
+        );
+
+    clip-path:
+        polygon(
+            15% 0,
+            37% 0,
+            50% 22%,
+            63% 0,
+            85% 0,
             100% 18%,
-            70% 100%,
-            30% 100%,
+            92% 100%,
+            57% 100%,
+            50% 65%,
+            43% 100%,
+            8% 100%,
             0 18%
         );
 
-    z-index:5;
-
+    z-index:2;
 }
 
+/* SOLAPAS */
 
-.figura-hombre
-.pantalon-izq,
-.figura-hombre
-.pantalon-der{
+.figura-hombre .solapa-izq{
+    position:absolute;
 
+    top:13px;
+    left:15px;
+
+    width:38px;
+    height:58px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #77d2ef,
+            #58b9dc
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            73% 35%,
+            100% 80%,
+            58% 100%,
+            25% 45%
+        );
+
+    z-index:3;
+}
+
+.figura-hombre .solapa-der{
+    position:absolute;
+
+    top:13px;
+    right:15px;
+
+    width:38px;
+    height:58px;
+
+    background:
+        linear-gradient(
+            215deg,
+            #77d2ef,
+            #58b9dc
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            75% 45%,
+            42% 100%,
+            0 80%,
+            27% 35%
+        );
+
+    z-index:3;
+}
+
+/* NUDO CORBATA */
+
+.figura-hombre .corbata-nudo{
+    position:absolute;
+
+    top:22px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:13px;
+    height:11px;
+
+    background:#367f9d;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            75% 100%,
+            25% 100%
+        );
+
+    z-index:8;
+}
+
+/* CORBATA */
+
+.figura-hombre .corbata{
+    position:absolute;
+
+    top:31px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:12px;
+    height:42px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #4a9fbe,
+            #2d7896
+        );
+
+    clip-path:
+        polygon(
+            20% 0,
+            80% 0,
+            100% 78%,
+            50% 100%,
+            0 78%
+        );
+
+    z-index:7;
+}
+
+/* BOTONES TERNO */
+
+.figura-hombre .boton-terno{
+    position:absolute;
+
+    left:50%;
+
+    width:4px;
+    height:4px;
+
+    margin-left:-2px;
+
+    border-radius:50%;
+
+    background:#eafaff;
+
+    z-index:7;
+}
+
+.figura-hombre .boton-1{
+    top:73px;
+}
+
+.figura-hombre .boton-2{
+    top:84px;
+}
+
+/* PANTALONES */
+
+.figura-hombre .pantalon-izq,
+.figura-hombre .pantalon-der{
     position:absolute;
 
     bottom:0;
 
-    width:27px;
+    width:31px;
+    height:49px;
 
-    height:47px;
+    background:
+        linear-gradient(
+            180deg,
+            #61bfdf,
+            #439fbe
+        );
 
-    background:#6dc7e7;
-
+    z-index:1;
 }
 
+.figura-hombre .pantalon-izq{
+    left:18px;
 
-.figura-hombre
-.pantalon-izq{
-
-    left:19px;
-
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            87% 100%,
+            12% 100%
+        );
 }
 
+.figura-hombre .pantalon-der{
+    right:18px;
 
-.figura-hombre
-.pantalon-der{
-
-    right:19px;
-
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            88% 100%,
+            13% 100%
+        );
 }
-
 
 /* =========================================================
-   NOMBRES DAMA / HOMBRE
+   NOMBRES VESTIMENTA
 ========================================================= */
 
 .tipo-vestimenta{
-
     display:flex;
 
     justify-content:center;
@@ -2571,140 +1895,88 @@ body{
     font-family:'Cinzel',serif;
 
     font-size:11px;
-
     letter-spacing:2px;
 
     color:#5598b3;
-
 }
-
 
 .tipo-vestimenta span{
-
     width:95px;
-
 }
-
 
 /* =========================================================
    COLORES RESERVADOS
 ========================================================= */
 
 .reserva-color{
-
     margin-top:25px;
 
     padding:22px;
 
     border-radius:16px;
 
-    background:
+    background:rgba(132,215,243,.10);
 
-        rgba(132,215,243,.10);
-
-    border:
-
-        1px solid
-        #a8e5f8;
+    border:1px solid #a8e5f8;
 
     line-height:1.7;
-
 }
 
-
 .muestras{
-
     display:flex;
 
     justify-content:center;
 
     gap:13px;
 
-    margin:
-
-        18px 0;
-
+    margin:18px 0;
 }
 
-
 .muestra{
-
     width:40px;
-
     height:40px;
 
     border-radius:50%;
 
-    border:
+    border:3px solid white;
 
-        3px solid white;
-
-    box-shadow:
-
-        0 3px 10px
-        rgba(50,130,160,.20);
-
+    box-shadow:0 3px 10px rgba(50,130,160,.20);
 }
-
 
 .celeste1{
-
     background:#bcefff;
-
 }
-
 
 .celeste2{
-
     background:#7dd6f3;
-
 }
-
 
 .plateado{
-
     background:#d6e0e5;
-
 }
-
 
 /* =========================================================
    FINAL
 ========================================================= */
 
 .final{
-
     text-align:center;
 
-    padding:
-
-        30px
-        15px
-        90px;
-
+    padding:30px 15px 90px;
 }
 
-
 .final-texto{
-
     font-family:'Great Vibes',cursive;
 
     font-size:40px;
+    line-height:1.4;
 
     color:white;
 
-    line-height:1.4;
-
-    text-shadow:
-
-        0 2px 7px
-        rgba(50,130,160,.55);
-
+    text-shadow:0 2px 7px rgba(50,130,160,.55);
 }
 
-
 .final-nombre{
-
     margin-top:30px;
 
     font-family:'Cinzel',serif;
@@ -2712,67 +1984,45 @@ body{
     letter-spacing:4px;
 
     color:#e5faff;
-
 }
-
 
 /* =========================================================
    MÚSICA
 ========================================================= */
 
 .control-musica{
-
     position:fixed;
 
     right:18px;
 
-    bottom:
-
-        calc(
-            18px +
-            env(safe-area-inset-bottom)
-        );
+    bottom:calc(18px + env(safe-area-inset-bottom));
 
     width:52px;
-
     height:52px;
 
     border-radius:50%;
 
-    border:
+    border:1px solid white;
 
-        1px solid white;
-
-    background:
-
-        rgba(106,203,237,.92);
+    background:rgba(106,203,237,.92);
 
     color:white;
 
     display:none;
 
     justify-content:center;
-
     align-items:center;
 
     z-index:1000;
 
     cursor:pointer;
 
-    box-shadow:
-
-        0 5px 20px
-        rgba(40,130,160,.28);
-
+    box-shadow:0 5px 20px rgba(40,130,160,.28);
 }
-
 
 .control-musica.visible{
-
     display:flex;
-
 }
-
 
 /* =========================================================
    CELULAR
@@ -2780,228 +2030,150 @@ body{
 
 @media(max-width:500px){
 
-
     .fondo-general{
-
         background-size:cover;
-
         background-position:center center;
-
         background-repeat:no-repeat;
-
     }
 
-
-    /*
-    Segunda sección:
-    blur moderado,
-    pero castillo reconocible.
-    */
-
     #invitacion::before{
-
         filter:blur(2.5px);
 
         transform:scale(1.03);
 
         background-position:center center;
-
     }
-
 
     .nombre-portada{
-
-        font-size:
-
-            clamp(
-                68px,
-                21vw,
-                95px
-            );
-
+        font-size:clamp(68px,21vw,95px);
     }
-
 
     .frase-portada{
-
         font-size:25px;
-
     }
-
 
     .sobre{
-
         width:225px;
-
         height:160px;
-
     }
-
 
     .sobre-fondo{
-
         height:120px;
-
     }
 
-
     .sobre-tapa{
-
         top:40px;
 
         border-left-width:112.5px;
-
         border-right-width:112.5px;
-
         border-top-width:82px;
-
     }
-
 
     .sobre-frente{
-
         height:120px;
-
     }
-
 
     .solapa-inferior{
-
         height:95px;
-
     }
 
-
     .carta-interior{
-
         width:135px;
-
         height:67px;
 
         bottom:23px;
-
     }
 
-
     .sello{
-
         top:82px;
 
         width:52px;
-
         height:52px;
-
     }
 
-
-    .sobre.abierto
-    .carta-interior{
-
+    .sobre.abierto .carta-interior{
         transform:
-
             translateX(-50%)
             translateY(-72px)
             scale(1);
-
     }
-
 
     .fecha{
-
         gap:15px;
-
     }
-
 
     .dia{
-
         font-size:62px;
-
     }
-
 
     .fecha-info{
-
         padding-left:15px;
-
     }
-
 
     .contador{
-
         gap:5px;
-
     }
 
-
     .evento{
-
         grid-template-columns:
-
             1fr
             48px
             1fr;
 
         min-height:105px;
-
     }
 
-
     .evento-hora{
-
         padding-right:8px;
 
         font-size:12px;
-
     }
 
-
     .evento-info{
-
         padding-left:8px;
 
         font-size:11px;
-
     }
 
-
     .punto-itinerario{
-
         width:38px;
-
         height:38px;
 
         font-size:16px;
-
     }
-
 
     .vestimenta-iconos{
-
         gap:35px;
-
     }
-
 
     .tipo-vestimenta{
-
         gap:38px;
-
     }
-
 
     .qr-contenedor{
-
         width:235px;
-
     }
 
+}
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+    }
 }
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -3017,26 +2189,19 @@ body{
      MÚSICA
 ===================================================== -->
 
-<audio
-id="audioFondo"
-loop
-preload="auto">
+<audio id="audioFondo" loop preload="auto">
 
-    <source
-    src="musica-fondo.mp3"
-    type="audio/mpeg">
+    <source src="musica-fondo.mp3" type="audio/mpeg">
 
 </audio>
 
 
 <button
-id="controlMusica"
-class="control-musica"
-onclick="controlarMusica()"
-aria-label="Controlar música">
-
+    id="controlMusica"
+    class="control-musica"
+    onclick="controlarMusica()"
+    aria-label="Controlar música">
     ❚❚
-
 </button>
 
 
@@ -3046,7 +2211,6 @@ aria-label="Controlar música">
 
 <section id="portada">
 
-
 <div class="estrellas"></div>
 
 <div class="marco"></div>
@@ -3054,22 +2218,17 @@ aria-label="Controlar música">
 
 <div class="portada-contenido">
 
-
     <div class="ornamento">
 
         <span class="ornamento-centro">
-
             ✦ ◇ ✦
-
         </span>
 
     </div>
 
 
     <div class="mis-xv">
-
         MIS XV AÑOS
-
     </div>
 
 
@@ -3079,9 +2238,7 @@ aria-label="Controlar música">
 
         <br>
 
-        <span>
-            Viviana
-        </span>
+        <span>Viviana</span>
 
     </h1>
 
@@ -3111,15 +2268,10 @@ aria-label="Controlar música">
 
     <!-- SOBRE -->
 
-    <div
-    class="abrir-zona"
-    onclick="abrirInvitacion()">
+    <div class="abrir-zona" onclick="abrirInvitacion()">
 
 
-        <div
-        class="sobre"
-        id="sobre">
-
+        <div class="sobre" id="sobre">
 
             <div class="sobre-fondo"></div>
 
@@ -3127,16 +2279,10 @@ aria-label="Controlar música">
             <div class="carta-interior">
 
                 <div class="mini-estrella">
-
                     ✦
-
                 </div>
 
-                <span>
-
-                    Antonella Viviana
-
-                </span>
+                <span>Antonella Viviana</span>
 
             </div>
 
@@ -3149,30 +2295,23 @@ aria-label="Controlar música">
 
 
             <div class="sello">
-
                 AV
-
             </div>
-
 
         </div>
 
 
-        <div
-        class="tocar"
-        id="textoAbrir">
+        <div class="tocar" id="textoAbrir">
 
             Toca el sobre para abrir
             la invitación
 
         </div>
 
-
     </div>
 
 
 </div>
-
 
 </section>
 
@@ -3190,25 +2329,20 @@ aria-label="Controlar música">
 
 <section class="castillo-fondo">
 
-
 <div class="presentacion">
 
 
     <div class="ornamento">
 
         <span class="ornamento-centro">
-
             ✦ ◇ ✦
-
         </span>
 
     </div>
 
 
     <div class="presentacion-mini">
-
         ÉRASE UNA VEZ...
-
     </div>
 
 
@@ -3239,7 +2373,6 @@ aria-label="Controlar música">
 
 </div>
 
-
 </section>
 
 
@@ -3258,17 +2391,12 @@ aria-label="Controlar música">
 
 
 <div class="ornamento-tarjeta">
-
     ✦ ◇ ✦
-
 </div>
 
 
 <h2 class="titulo">
-
-    CON LA BENDICIÓN
-    DE MIS PADRES
-
+    CON LA BENDICIÓN DE MIS PADRES
 </h2>
 
 
@@ -3294,16 +2422,12 @@ aria-label="Controlar música">
 
 
 <div class="ornamento-tarjeta">
-
     ✦ ◇ ✦
-
 </div>
 
 
 <h2 class="titulo">
-
     MIS PADRINOS
-
 </h2>
 
 
@@ -3349,16 +2473,12 @@ aria-label="Controlar música">
 
 
 <div class="ornamento-tarjeta">
-
     ✦ ◇ ✦
-
 </div>
 
 
 <h2 class="titulo">
-
     UNA NOCHE PARA RECORDAR
-
 </h2>
 
 
@@ -3367,26 +2487,17 @@ aria-label="Controlar música">
 
 <div>
 
-
-    <div style="
-    font-family:'Cinzel',serif;
-    letter-spacing:2px;">
-
+    <div style="font-family:'Cinzel',serif; letter-spacing:2px;">
         SÁBADO
-
     </div>
 
 
     <div class="dia">
-
         03
-
     </div>
 
 
-    <div style="
-    font-family:'Cinzel',serif;
-    letter-spacing:3px;">
+    <div style="font-family:'Cinzel',serif; letter-spacing:3px;">
 
         OCTUBRE
 
@@ -3396,7 +2507,6 @@ aria-label="Controlar música">
 
     </div>
 
-
 </div>
 
 
@@ -3404,16 +2514,12 @@ aria-label="Controlar música">
 
 
     <strong>
-
         RECEPCIÓN
-
     </strong>
 
 
     <div class="hora">
-
         6:30 P.M.
-
     </div>
 
 
@@ -3448,9 +2554,7 @@ aria-label="Controlar música">
 
 
 <h2 class="titulo">
-
     FALTAN
-
 </h2>
 
 
@@ -3459,18 +2563,12 @@ aria-label="Controlar música">
 
 <div class="tiempo">
 
-    <div
-    class="numero"
-    id="dias">
-
+    <div class="numero" id="dias">
         00
-
     </div>
 
     <div class="etiqueta">
-
         DÍAS
-
     </div>
 
 </div>
@@ -3478,18 +2576,12 @@ aria-label="Controlar música">
 
 <div class="tiempo">
 
-    <div
-    class="numero"
-    id="horas">
-
+    <div class="numero" id="horas">
         00
-
     </div>
 
     <div class="etiqueta">
-
         HORAS
-
     </div>
 
 </div>
@@ -3497,18 +2589,12 @@ aria-label="Controlar música">
 
 <div class="tiempo">
 
-    <div
-    class="numero"
-    id="minutos">
-
+    <div class="numero" id="minutos">
         00
-
     </div>
 
     <div class="etiqueta">
-
         MINUTOS
-
     </div>
 
 </div>
@@ -3516,18 +2602,12 @@ aria-label="Controlar música">
 
 <div class="tiempo">
 
-    <div
-    class="numero"
-    id="segundos">
-
+    <div class="numero" id="segundos">
         00
-
     </div>
 
     <div class="etiqueta">
-
         SEGUNDOS
-
     </div>
 
 </div>
@@ -3547,23 +2627,17 @@ aria-label="Controlar música">
 
 
 <div class="ornamento-tarjeta">
-
     ✦ ◇ ✦
-
 </div>
 
 
 <h2 class="titulo">
-
     LUGAR DEL EVENTO
-
 </h2>
 
 
 <div class="local">
-
     Shiny Star Eventos
-
 </div>
 
 
@@ -3601,23 +2675,19 @@ rel="noopener noreferrer">
 
 
 <!-- =====================================================
-     CONFIRMACIÓN DE ASISTENCIA
+     CONFIRMAR ASISTENCIA
 ===================================================== -->
 
 <section class="tarjeta confirmacion">
 
 
 <div class="ornamento-tarjeta">
-
     ✦ ◇ ✦
-
 </div>
 
 
 <h2 class="titulo">
-
     CONFIRMA TU ASISTENCIA
-
 </h2>
 
 
@@ -3665,16 +2735,12 @@ rel="noopener noreferrer">
 
 
 <div class="ornamento-tarjeta">
-
     ✦ ◇ ✦
-
 </div>
 
 
 <h2 class="titulo">
-
     ITINERARIO
-
 </h2>
 
 
@@ -3684,21 +2750,15 @@ rel="noopener noreferrer">
 <div class="evento">
 
     <div class="evento-hora">
-
         6:30 P.M.
-
     </div>
 
     <div class="punto-itinerario">
-
         ✉️
-
     </div>
 
     <div class="evento-info">
-
         RECEPCIÓN
-
     </div>
 
 </div>
@@ -3707,15 +2767,11 @@ rel="noopener noreferrer">
 <div class="evento">
 
     <div class="evento-hora">
-
         8:00 P.M.
-
     </div>
 
     <div class="punto-itinerario">
-
         ✨
-
     </div>
 
     <div class="evento-info">
@@ -3734,15 +2790,11 @@ rel="noopener noreferrer">
 <div class="evento">
 
     <div class="evento-hora">
-
         9:00 P.M.
-
     </div>
 
     <div class="punto-itinerario">
-
         🥂
-
     </div>
 
     <div class="evento-info">
@@ -3761,15 +2813,11 @@ rel="noopener noreferrer">
 <div class="evento">
 
     <div class="evento-hora">
-
         9:50 P.M.
-
     </div>
 
     <div class="punto-itinerario">
-
         💃
-
     </div>
 
     <div class="evento-info">
@@ -3788,15 +2836,11 @@ rel="noopener noreferrer">
 <div class="evento">
 
     <div class="evento-hora">
-
         10:00 P.M.
-
     </div>
 
     <div class="punto-itinerario">
-
         🎶
-
     </div>
 
     <div class="evento-info">
@@ -3826,16 +2870,12 @@ rel="noopener noreferrer">
 
 
 <div class="ornamento-tarjeta">
-
     ✦ ◇ ✦
-
 </div>
 
 
 <h2 class="titulo">
-
     SUGERENCIA DE REGALO
-
 </h2>
 
 
@@ -3869,15 +2909,13 @@ rel="noopener noreferrer">
 
 <img
 id="imagenQR"
-src="./qr-yape.jpg"
+src="qr-yape.jpg"
 class="qr"
 alt="Código QR Yape"
 onerror="errorQR()">
 
 
-<div
-id="errorQR"
-class="qr-error">
+<div id="errorQR" class="qr-error">
 
     No se pudo cargar
     el código QR.
@@ -3890,9 +2928,7 @@ class="qr-error">
     <br><br>
 
     <strong>
-
         qr-yape.jpg
-
     </strong>
 
 </div>
@@ -3924,30 +2960,19 @@ margin-top:18px;">
 
 
 <div class="ornamento-tarjeta">
-
     ✦ ◇ ✦
-
 </div>
 
 
 <h2 class="titulo">
-
     CÓDIGO DE VESTIMENTA
-
 </h2>
-
-
-<!--
-     NO SON EMOJIS.
-     EL VESTIDO Y EL TERNO ESTÁN
-     DIBUJADOS COMPLETAMENTE CON CSS.
--->
 
 
 <div class="vestimenta-iconos">
 
 
-<!-- VESTIDO DAMA -->
+<!-- VESTIDO PARA DAMA -->
 
 <div class="figura-dama">
 
@@ -3964,9 +2989,11 @@ margin-top:18px;">
 </div>
 
 
-<!-- TERNO HOMBRE -->
+<!-- TERNO ELEGANTE PARA HOMBRE -->
 
 <div class="figura-hombre">
+
+    <div class="cuello-camisa"></div>
 
     <div class="camisa"></div>
 
@@ -3976,7 +3003,13 @@ margin-top:18px;">
 
     <div class="solapa-der"></div>
 
+    <div class="corbata-nudo"></div>
+
     <div class="corbata"></div>
+
+    <div class="boton-terno boton-1"></div>
+
+    <div class="boton-terno boton-2"></div>
 
     <div class="pantalon-izq"></div>
 
@@ -3990,25 +3023,15 @@ margin-top:18px;">
 
 <div class="tipo-vestimenta">
 
-    <span>
+    <span>DAMAS</span>
 
-        DAMAS
-
-    </span>
-
-    <span>
-
-        HOMBRES
-
-    </span>
+    <span>HOMBRES</span>
 
 </div>
 
 
 <div class="formal">
-
     FORMAL ELEGANTE
-
 </div>
 
 
@@ -4030,32 +3053,28 @@ margin-top:18px;">
 
 
 <strong>
-
     COLORES RESERVADOS
-
 </strong>
 
 
 <div class="muestras">
 
-
     <div
-    class="muestra celeste1"
-    title="Celeste claro">
+        class="muestra celeste1"
+        title="Celeste claro">
     </div>
 
 
     <div
-    class="muestra celeste2"
-    title="Celeste">
+        class="muestra celeste2"
+        title="Celeste">
     </div>
 
 
     <div
-    class="muestra plateado"
-    title="Plateado">
+        class="muestra plateado"
+        title="Plateado">
     </div>
-
 
 </div>
 
@@ -4063,9 +3082,7 @@ margin-top:18px;">
 Los tonos
 
 <strong>
-
     celeste, azul y plateado
-
 </strong>
 
 han sido reservados especialmente
@@ -4095,9 +3112,7 @@ para tu atuendo.
 <div class="ornamento">
 
     <span class="ornamento-centro">
-
         ✦ ◇ ✦
-
     </span>
 
 </div>
@@ -4126,9 +3141,7 @@ para tu atuendo.
 
 
 <div class="final-nombre">
-
     ANTONELLA VIVIANA
-
 </div>
 
 
@@ -4136,13 +3149,11 @@ para tu atuendo.
 
 
 </div>
-
 
 </section>
 
 
 <script>
-
 
 /* =========================================================
    VARIABLES
@@ -4150,18 +3161,11 @@ para tu atuendo.
 
 let abierta = false;
 
-
 const audio =
-document.getElementById(
-    "audioFondo"
-);
-
+document.getElementById("audioFondo");
 
 const botonMusica =
-document.getElementById(
-    "controlMusica"
-);
-
+document.getElementById("controlMusica");
 
 audio.volume = 0.55;
 
@@ -4172,68 +3176,47 @@ audio.volume = 0.55;
 
 function abrirInvitacion(){
 
-
     if(abierta){
-
         return;
-
     }
-
 
     abierta = true;
 
-
     const sobre =
-    document.getElementById(
-        "sobre"
-    );
+    document.getElementById("sobre");
 
-
-    sobre
-    .classList
-    .add("abierto");
+    sobre.classList.add("abierto");
 
 
     document
-    .getElementById(
-        "textoAbrir"
-    )
+    .getElementById("textoAbrir")
     .innerHTML =
     "Abriendo una noche mágica...";
 
 
     setTimeout(
-
         crearEstrellas,
-
         500
-
     );
 
 
     /*
-    El navegador permite reproducir
-    el audio porque la función
-    se activa mediante el toque
-    del usuario.
+       La música se intenta reproducir
+       al tocar el sobre.
     */
 
     audio
     .play()
     .then(function(){
 
-
         botonMusica.innerHTML =
         "❚❚";
-
 
     })
     .catch(function(){
 
-
         botonMusica.innerHTML =
         "♪";
-
 
     });
 
@@ -4244,41 +3227,31 @@ function abrirInvitacion(){
 
 
     /*
-    Esperamos la animación
-    del sobre antes de mostrar
-    la invitación.
+       Esperamos a que termine
+       la animación del sobre.
     */
 
     setTimeout(
 
         function(){
 
-
             document
-            .getElementById(
-                "portada"
-            )
+            .getElementById("portada")
             .style
             .display =
             "none";
 
 
             document
-            .getElementById(
-                "invitacion"
-            )
+            .getElementById("invitacion")
             .classList
             .add("visible");
 
 
             window.scrollTo({
-
                 top:0,
-
                 behavior:"smooth"
-
             });
-
 
         },
 
@@ -4295,45 +3268,27 @@ function abrirInvitacion(){
 
 function crearEstrellas(){
 
-
     const sobre =
-    document.getElementById(
-        "sobre"
-    );
-
+    document.getElementById("sobre");
 
     const rect =
     sobre.getBoundingClientRect();
 
 
     const centroX =
-
         rect.left +
         rect.width / 2;
 
 
     const centroY =
-
         rect.top +
         rect.height / 2;
 
 
-    for(
-
-        let i = 0;
-
-        i < 75;
-
-        i++
-
-    ){
-
+    for(let i = 0; i < 75; i++){
 
         const estrella =
-        document.createElement(
-            "div"
-        );
-
+        document.createElement("div");
 
         estrella.className =
         "particula";
@@ -4348,92 +3303,62 @@ function crearEstrellas(){
 
 
         const angulo =
-
-        Math.random()
-        *
-        Math.PI
-        *
-        2;
+            Math.random() *
+            Math.PI *
+            2;
 
 
         const distancia =
-
-        80
-        +
-        Math.random()
-        *
-        300;
+            80 +
+            Math.random() *
+            300;
 
 
         const x =
-
-        Math.cos(angulo)
-        *
-        distancia;
+            Math.cos(angulo) *
+            distancia;
 
 
         const y =
-
-        Math.sin(angulo)
-        *
-        distancia;
+            Math.sin(angulo) *
+            distancia;
 
 
         estrella.style.setProperty(
-
             "--x",
-
             x + "px"
-
         );
 
 
         estrella.style.setProperty(
-
             "--y",
-
             y + "px"
-
         );
 
 
         const tamaño =
-
-        4
-        +
-        Math.random()
-        *
-        9;
+            4 +
+            Math.random() *
+            9;
 
 
         estrella.style.width =
-
-        tamaño + "px";
+            tamaño + "px";
 
 
         estrella.style.height =
-
-        tamaño + "px";
+            tamaño + "px";
 
 
         document.body
-        .appendChild(
-            estrella
-        );
+        .appendChild(estrella);
 
 
         setTimeout(
-
             function(){
-
-
                 estrella.remove();
-
-
             },
-
             2100
-
         );
 
     }
@@ -4447,29 +3372,21 @@ function crearEstrellas(){
 
 function controlarMusica(){
 
-
     if(audio.paused){
 
-
         audio.play();
-
 
         botonMusica.innerHTML =
         "❚❚";
 
-
     }
-
 
     else{
 
-
         audio.pause();
-
 
         botonMusica.innerHTML =
         "♪";
-
 
     }
 
@@ -4482,17 +3399,12 @@ function controlarMusica(){
 
 function errorQR(){
 
-
     const imagen =
-    document.getElementById(
-        "imagenQR"
-    );
+    document.getElementById("imagenQR");
 
 
     const error =
-    document.getElementById(
-        "errorQR"
-    );
+    document.getElementById("errorQR");
 
 
     imagen.style.display =
@@ -4507,14 +3419,11 @@ function errorQR(){
 
 /* =========================================================
    CUENTA REGRESIVA
-
-   03 OCTUBRE 2026
-   6:30 PM
+   03 OCTUBRE 2026 - 6:30 P.M.
    PERÚ UTC-5
 ========================================================= */
 
 const fechaEvento =
-
 new Date(
     "2026-10-03T18:30:00-05:00"
 );
@@ -4522,152 +3431,99 @@ new Date(
 
 function actualizarContador(){
 
-
     const ahora =
     new Date();
 
 
     const diferencia =
-
-        fechaEvento
-        -
+        fechaEvento -
         ahora;
 
 
     if(diferencia <= 0){
 
-
         document
-        .getElementById(
-            "dias"
-        )
+        .getElementById("dias")
         .textContent =
         "00";
 
 
         document
-        .getElementById(
-            "horas"
-        )
+        .getElementById("horas")
         .textContent =
         "00";
 
 
         document
-        .getElementById(
-            "minutos"
-        )
+        .getElementById("minutos")
         .textContent =
         "00";
 
 
         document
-        .getElementById(
-            "segundos"
-        )
+        .getElementById("segundos")
         .textContent =
         "00";
 
 
         return;
-
     }
 
 
     const dias =
-
     Math.floor(
-
-        diferencia
-        /
+        diferencia /
         86400000
-
     );
 
 
     const horas =
-
     Math.floor(
-
-        diferencia
-        /
+        diferencia /
         3600000
-
     ) % 24;
 
 
     const minutos =
-
     Math.floor(
-
-        diferencia
-        /
+        diferencia /
         60000
-
     ) % 60;
 
 
     const segundos =
-
     Math.floor(
-
-        diferencia
-        /
+        diferencia /
         1000
-
     ) % 60;
 
 
     document
-    .getElementById(
-        "dias"
-    )
+    .getElementById("dias")
     .textContent =
-
     String(dias)
-    .padStart(
-        2,
-        "0"
-    );
+    .padStart(2,"0");
 
 
     document
-    .getElementById(
-        "horas"
-    )
+    .getElementById("horas")
     .textContent =
-
     String(horas)
-    .padStart(
-        2,
-        "0"
-    );
+    .padStart(2,"0");
 
 
     document
-    .getElementById(
-        "minutos"
-    )
+    .getElementById("minutos")
     .textContent =
-
     String(minutos)
-    .padStart(
-        2,
-        "0"
-    );
+    .padStart(2,"0");
 
 
     document
-    .getElementById(
-        "segundos"
-    )
+    .getElementById("segundos")
     .textContent =
-
     String(segundos)
-    .padStart(
-        2,
-        "0"
-    );
+    .padStart(2,"0");
 
 }
 
@@ -4676,17 +3532,11 @@ actualizarContador();
 
 
 setInterval(
-
     actualizarContador,
-
     1000
-
 );
-
 
 </script>
 
-
 </body>
-
 </html>
