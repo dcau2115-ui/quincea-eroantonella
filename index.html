@@ -1,1295 +1,1443 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mis XV - Antonella Viviana</title>
+
+<!-- FUENTES -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <title>Mis XV - Antonella</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <!-- Fuentes elegantes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
 
-    <style>
+/* =====================================================
+   GENERAL
+===================================================== */
 
-        /* ==============================
-           CONFIGURACIÓN GENERAL
-        ============================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+body{
+    background:#020b16;
+    color:#fff;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
+}
 
-        body {
-            background:
-                radial-gradient(circle at top, #163d5b 0%, #071a2c 40%, #020b14 100%);
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-        }
+:root{
+    --azul:#061b32;
+    --azul2:#0b3152;
+    --azul3:#145078;
+    --dorado:#d7b66d;
+    --dorado-claro:#f2dda5;
+    --crema:#fff9ed;
+    --texto:#e9edf3;
+}
 
 
-        /* ==============================
-           PORTADA
-        ============================== */
+/* =====================================================
+   PORTADA
+===================================================== */
 
-        #portada {
+#portada{
+    width:100%;
+    min-height:100vh;
 
-            width: 100%;
-            min-height: 100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    position:relative;
+    overflow:hidden;
 
-            background: #020b14;
+    background:#020b14;
+}
 
-            position: relative;
+.portada-contenedor{
+    width:100%;
+    max-width:700px;
+    min-height:100vh;
 
-            overflow: hidden;
-        }
+    position:relative;
 
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(1,9,18,.08),
+            rgba(1,10,20,.2)
+        );
+}
 
-        .contenedor-portada {
 
-            position: relative;
+/* IMAGEN ORIGINAL DE PORTADA */
 
-            width: 100%;
-            max-width: 700px;
+.portada-imagen{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+}
 
-            margin: auto;
-        }
 
+/* oscurecimiento inferior */
 
-        .imagen-portada {
+.portada-sombra{
+    position:absolute;
+    inset:0;
 
-            width: 100%;
-            height: auto;
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 45%,
+            rgba(1,9,18,.15) 65%,
+            rgba(1,9,18,.65) 100%
+        );
+}
 
-            display: block;
-        }
 
+/* =====================================================
+   SOBRE
+===================================================== */
 
-        /* ==============================
-           BOTÓN INVISIBLE SOBRE LA LLAVE
-        ============================== */
+.zona-sobre{
+    position:absolute;
 
-        .boton-llave {
+    left:50%;
+    bottom:7%;
 
-            position: absolute;
+    transform:translateX(-50%);
 
-            /*
-            Esta zona está colocada encima
-            de la llave de la imagen.
-            */
+    width:250px;
+    height:175px;
 
-            left: 25%;
-            top: 57%;
+    cursor:pointer;
 
-            width: 55%;
-            height: 14%;
+    z-index:20;
 
-            cursor: pointer;
+    text-align:center;
+}
 
-            border: none;
-            background: transparent;
 
-            z-index: 10;
+.sobre{
+    width:210px;
+    height:125px;
 
-            border-radius: 100px;
+    position:relative;
 
-            animation: respirar 2s infinite;
-        }
+    margin:auto;
 
+    perspective:800px;
 
-        @keyframes respirar {
+    filter:
+        drop-shadow(0 10px 15px rgba(0,0,0,.55));
 
-            0%,100% {
-                filter:
-                    drop-shadow(0 0 5px transparent);
-            }
+    transition:.4s;
+}
 
-            50% {
-                filter:
-                    drop-shadow(0 0 15px #9deaff)
-                    drop-shadow(0 0 30px #4cc9ff);
-            }
-        }
 
+.sobre:hover{
+    transform:scale(1.04);
+}
 
-        /* círculo de brillo */
 
-        .boton-llave::after {
+/* cuerpo */
 
-            content: "";
+.sobre-cuerpo{
+    position:absolute;
 
-            position: absolute;
+    bottom:0;
 
-            top: 50%;
-            left: 50%;
+    width:100%;
+    height:110px;
 
-            width: 30px;
-            height: 30px;
+    border-radius:4px;
 
-            transform: translate(-50%, -50%);
+    background:
+        linear-gradient(
+            145deg,
+            #f6ead0,
+            #d9c393
+        );
 
-            border-radius: 50%;
+    border:2px solid #c4a45f;
 
-            background: rgba(160,230,255,.25);
+    overflow:hidden;
+}
 
-            box-shadow:
-                0 0 20px #b7efff,
-                0 0 50px #5bcfff;
 
-            animation: brilloLlave 1.8s infinite;
-        }
+/* líneas decorativas */
 
+.sobre-cuerpo::before,
+.sobre-cuerpo::after{
+    content:"";
 
-        @keyframes brilloLlave {
+    position:absolute;
 
-            0% {
-                transform:
-                    translate(-50%, -50%)
-                    scale(.5);
+    bottom:-55px;
 
-                opacity: .3;
-            }
+    width:150px;
+    height:150px;
 
-            50% {
+    background:#ead9b5;
 
-                transform:
-                    translate(-50%, -50%)
-                    scale(2);
+    border:1px solid #c7a85e;
+}
 
-                opacity: .8;
-            }
 
-            100% {
+.sobre-cuerpo::before{
+    left:-75px;
+    transform:rotate(45deg);
+}
 
-                transform:
-                    translate(-50%, -50%)
-                    scale(.5);
 
-                opacity: .3;
-            }
-        }
+.sobre-cuerpo::after{
+    right:-75px;
+    transform:rotate(45deg);
+}
 
 
-        /* ==============================
-           ANIMACIÓN AL ABRIR
-        ============================== */
+/* tapa */
 
-        .abrir-portada {
+.sobre-tapa{
+    position:absolute;
 
-            animation:
-                abrirMagia 1.5s forwards;
-        }
+    top:15px;
+    left:0;
 
+    width:0;
+    height:0;
 
-        @keyframes abrirMagia {
+    border-left:105px solid transparent;
+    border-right:105px solid transparent;
+    border-top:75px solid #ead8b3;
 
-            0% {
-                opacity: 1;
-                transform: scale(1);
-            }
+    transform-origin:top;
 
-            40% {
+    z-index:4;
 
-                filter:
-                    brightness(1.5)
-                    drop-shadow(0 0 40px #8cecff);
+    transition:
+        transform 1s ease,
+        z-index .2s .4s;
+}
 
-                transform: scale(1.03);
-            }
 
-            100% {
+/* sello */
 
-                opacity: 0;
+.sello{
+    position:absolute;
 
-                transform:
-                    scale(1.15);
+    width:50px;
+    height:50px;
 
-                filter:
-                    brightness(2);
-            }
-        }
+    border-radius:50%;
 
+    left:50%;
+    top:55px;
 
-        /* ==============================
-           INVITACIÓN
-        ============================== */
+    transform:translateX(-50%);
 
-        #invitacion {
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-            min-height: 100vh;
+    z-index:8;
 
-            display: none;
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #2f6285,
+            #082742
+        );
 
-            position: relative;
+    border:3px solid #d5b569;
 
-            text-align: center;
+    color:#e8d29b;
 
-            padding:
+    font-family:'Cinzel',serif;
 
-                80px
-                20px
-                80px;
+    font-size:19px;
 
-            background:
+    box-shadow:
+        0 0 12px rgba(255,215,130,.6);
 
-                radial-gradient(
-                    circle at 50% 10%,
-                    #174765,
-                    transparent 35%
-                ),
+    transition:.5s;
+}
 
-                radial-gradient(
-                    circle at 20% 70%,
-                    #0c3855,
-                    transparent 35%
-                ),
 
-                linear-gradient(
-                    180deg,
-                    #03111e,
-                    #071d30,
-                    #020a12
-                );
+/* SOBRE ABIERTO */
 
-            overflow: hidden;
-        }
+.sobre.abierto .sobre-tapa{
+    transform:rotateX(180deg);
+    z-index:1;
+}
 
+.sobre.abierto .sello{
+    opacity:0;
+    transform:
+        translateX(-50%)
+        scale(.4);
+}
 
-        #invitacion.mostrar {
 
-            display: block;
+/* texto */
 
-            animation:
-                aparecer 1.5s ease;
-        }
+.tocar{
+    margin-top:15px;
 
+    font-family:'Great Vibes',cursive;
+    font-size:28px;
 
-        @keyframes aparecer {
+    text-shadow:
+        0 2px 5px #000,
+        0 0 10px #5edcff;
 
-            from {
+    animation:pulsoTexto 2s infinite;
+}
 
-                opacity: 0;
 
-                transform:
-                    translateY(50px);
-            }
+@keyframes pulsoTexto{
+    50%{
+        transform:scale(1.04);
+    }
+}
 
-            to {
 
-                opacity: 1;
+/* =====================================================
+   PARTÍCULAS
+===================================================== */
 
-                transform:
-                    translateY(0);
-            }
-        }
+.particula{
+    position:fixed;
 
+    width:8px;
+    height:8px;
 
-        /* ==============================
-           ESTRELLAS
-        ============================== */
+    border-radius:50%;
 
-        .estrella {
+    pointer-events:none;
 
-            position: absolute;
+    z-index:9999;
 
-            width: 3px;
-            height: 3px;
+    background:#fff3b8;
 
-            background: white;
+    box-shadow:
+        0 0 8px #fff,
+        0 0 15px #ffe18a,
+        0 0 25px #8fdfff;
 
-            border-radius: 50%;
+    animation:volar 1.8s forwards;
+}
 
-            box-shadow:
-                0 0 8px white;
 
-            animation:
-                parpadear 2s infinite alternate;
-        }
+@keyframes volar{
 
+    from{
+        opacity:1;
+        transform:
+            translate(0,0)
+            scale(1);
+    }
 
-        @keyframes parpadear {
+    to{
+        opacity:0;
 
-            from {
-                opacity: .2;
-            }
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            rotate(360deg)
+            scale(.2);
+    }
+}
 
-            to {
-                opacity: 1;
-            }
-        }
 
+/* =====================================================
+   INVITACIÓN
+===================================================== */
 
-        /* ==============================
-           CONTENIDO
-        ============================== */
+#invitacion{
+    display:none;
 
-        .contenido {
+    min-height:100vh;
 
-            width: 100%;
-            max-width: 650px;
+    position:relative;
 
-            margin: auto;
+    background:
+        radial-gradient(
+            circle at 50% 5%,
+            #155078 0%,
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #03101d,
+            #08243c 45%,
+            #020b14
+        );
 
-            position: relative;
+    overflow:hidden;
+}
 
-            z-index: 5;
-        }
 
+#invitacion.visible{
+    display:block;
 
-        .corona {
+    animation:entradaPagina 1.5s ease;
+}
 
-            font-size: 45px;
 
-            margin-bottom: 15px;
+@keyframes entradaPagina{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
 
-            filter:
-                drop-shadow(
-                    0 0 10px #dfbd70
-                );
-        }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
 
-        .mis-xv {
+/* estrellas fondo */
 
-            font-family:
-                'Cinzel',
-                serif;
+.estrellas{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
 
-            letter-spacing: 6px;
+    background-image:
+        radial-gradient(#fff 1px,transparent 1px),
+        radial-gradient(#bcecff 1px,transparent 1px);
 
-            font-size: 18px;
+    background-size:
+        50px 50px,
+        80px 80px;
 
-            color: #e7d4a4;
+    background-position:
+        0 0,
+        20px 30px;
 
-            margin-bottom: 5px;
-        }
+    opacity:.23;
+}
 
 
-        .nombre {
+/* =====================================================
+   CONTENEDOR
+===================================================== */
 
-            font-family:
-                'Great Vibes',
-                cursive;
+.contenido{
+    width:92%;
+    max-width:700px;
 
-            font-size:
-                clamp(
-                    70px,
-                    15vw,
-                    115px
-                );
+    margin:auto;
 
-            font-weight: normal;
+    position:relative;
+    z-index:2;
 
-            line-height: 1;
+    padding:
+        70px
+        0
+        100px;
+}
 
-            margin: 10px 0;
 
-            color: #f4e4bd;
+/* =====================================================
+   DECRETO REAL
+===================================================== */
 
-            text-shadow:
+.decreto{
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf6,
+            #f3ead8
+        );
 
-                0 0 10px
-                rgba(
-                    255,
-                    224,
-                    154,
-                    .35
-                ),
+    color:#162438;
 
-                0 4px 4px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    .7
-                );
-        }
+    border-radius:25px;
 
+    padding:
+        55px
+        30px;
 
-        .frase {
+    text-align:center;
 
-            font-family:
-                'Great Vibes',
-                cursive;
+    border:2px solid #d1b168;
 
-            font-size: 32px;
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4);
 
-            margin:
-                20px auto
-                40px;
+    position:relative;
+}
 
-            max-width: 550px;
 
-            color: #e8edf3;
-        }
+.corona{
+    font-size:42px;
+    color:#c19a47;
+}
 
 
-        /* ==============================
-           SEPARADOR
-        ============================== */
+.subtitulo{
+    font-family:'Cinzel',serif;
 
-        .separador {
+    color:#9c7540;
 
-            margin:
-                30px auto;
+    letter-spacing:4px;
 
-            width: 180px;
+    margin:
+        15px 0
+        25px;
+}
 
-            display: flex;
 
-            align-items: center;
+.decreto p{
+    max-width:500px;
+    margin:auto;
 
-            justify-content: center;
+    line-height:1.8;
+}
 
-            gap: 10px;
 
-            color: #e3c785;
-        }
+.nombre{
+    font-family:'Great Vibes',cursive;
 
+    font-size:
+        clamp(
+            65px,
+            15vw,
+            105px
+        );
 
-        .separador::before,
-        .separador::after {
+    line-height:.9;
 
-            content: "";
+    color:#163653;
 
-            width: 70px;
-            height: 1px;
+    margin:
+        35px 0;
+}
 
-            background:
-                linear-gradient(
-                    to right,
-                    transparent,
-                    #d9bd77
-                );
-        }
 
+.frase-real{
+    font-family:'Great Vibes',cursive;
 
-        .separador::after {
+    font-size:29px;
 
-            background:
-                linear-gradient(
-                    to left,
-                    transparent,
-                    #d9bd77
-                );
-        }
+    color:#765c3c;
+}
 
 
-        /* ==============================
-           FECHA
-        ============================== */
+/* =====================================================
+   PADRES
+===================================================== */
 
-        .fecha {
+.padres{
+    margin:
+        35px auto
+        10px;
 
-            font-family:
-                'Cinzel',
-                serif;
+    padding:
+        25px;
 
-            color: #ead7a6;
+    max-width:500px;
 
-            margin-bottom: 40px;
-        }
+    border-top:
+        1px solid #c6a661;
 
+    border-bottom:
+        1px solid #c6a661;
+}
 
-        .dia-numero {
 
-            font-size: 75px;
+.padres h3{
+    font-family:'Cinzel',serif;
 
-            line-height: 1;
+    color:#9c7540;
 
-            margin:
-                10px 0;
+    margin-bottom:15px;
 
-            color: white;
+    letter-spacing:3px;
+}
 
-            text-shadow:
-                0 0 15px
-                rgba(
-                    91,
-                    207,
-                    255,
-                    .5
-                );
-        }
 
+.padres p{
+    line-height:1.9;
+}
 
-        .mes {
 
-            font-size: 27px;
+/* =====================================================
+   FECHA
+===================================================== */
 
-            letter-spacing: 5px;
-        }
+.fecha-evento{
+    margin-top:40px;
 
+    display:flex;
 
-        .anio {
+    justify-content:center;
+    align-items:center;
 
-            font-size: 18px;
+    gap:25px;
+}
 
-            letter-spacing: 5px;
 
-            margin-top: 7px;
-        }
+.numero-dia{
+    font-family:'Cinzel',serif;
 
+    font-size:75px;
 
-        .hora {
+    color:#123f67;
+}
 
-            margin-top: 20px;
 
-            font-size: 21px;
+.fecha-lado{
+    text-align:left;
 
-            color: white;
-        }
+    border-left:
+        1px solid #c6a661;
 
+    padding-left:25px;
+}
 
-        /* ==============================
-           CUENTA REGRESIVA
-        ============================== */
 
-        .titulo-contador {
+.fecha-lado strong{
+    font-family:'Cinzel',serif;
 
-            font-family:
-                'Cinzel',
-                serif;
+    color:#946f36;
+}
 
-            font-size: 20px;
 
-            letter-spacing: 3px;
+.hora-grande{
+    font-size:30px;
 
-            color: #e6cf98;
+    color:#163653;
 
-            margin-bottom: 25px;
-        }
+    margin:
+        5px 0;
+}
 
 
-        .contador {
+.puntualidad{
+    margin-top:25px;
 
-            display: grid;
+    color:#785d38;
 
-            grid-template-columns:
-                repeat(
-                    4,
-                    1fr
-                );
+    font-size:14px;
 
-            gap: 10px;
+    line-height:1.6;
+}
 
-            margin:
-                20px auto
-                50px;
 
-            max-width: 600px;
-        }
+/* =====================================================
+   CONTADOR
+===================================================== */
 
+.contador-seccion{
+    margin:
+        50px auto;
 
-        .caja-tiempo {
+    text-align:center;
+}
 
-            padding:
-                20px 5px;
 
-            background:
+.titulo-dorado{
+    font-family:'Cinzel',serif;
 
-                linear-gradient(
-                    145deg,
-                    rgba(
-                        27,
-                        73,
-                        103,
-                        .7
-                    ),
-                    rgba(
-                        5,
-                        21,
-                        35,
-                        .9
-                    )
-                );
+    color:var(--dorado-claro);
 
-            border:
-                1px solid
-                rgba(
-                    220,
-                    190,
-                    120,
-                    .45
-                );
+    letter-spacing:4px;
 
-            border-radius: 12px;
+    margin-bottom:20px;
+}
 
-            box-shadow:
 
-                0 10px 30px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    .3
-                ),
+.contador{
+    display:grid;
 
-                inset
-                0 0 15px
-                rgba(
-                    100,
-                    200,
-                    255,
-                    .08
-                );
-        }
+    grid-template-columns:
+        repeat(4,1fr);
 
+    gap:10px;
+}
 
-        .numero {
 
-            font-family:
-                'Cinzel',
-                serif;
+.tiempo{
+    background:
+        linear-gradient(
+            145deg,
+            #0f456b,
+            #04192d
+        );
 
-            font-size:
-                clamp(
-                    25px,
-                    7vw,
-                    42px
-                );
+    border:
+        1px solid #d6b465;
 
-            color: white;
-        }
+    border-radius:12px;
 
+    padding:
+        20px 5px;
 
-        .texto-tiempo {
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.3);
+}
 
-            margin-top: 5px;
 
-            font-size: 10px;
+.tiempo-numero{
+    font-family:'Cinzel',serif;
 
-            letter-spacing: 1px;
+    font-size:
+        clamp(
+            25px,
+            7vw,
+            42px
+        );
 
-            color: #d8c28c;
-        }
+    color:#fff;
+}
 
 
-        /* ==============================
-           INFORMACIÓN DEL EVENTO
-        ============================== */
+.tiempo-texto{
+    font-size:9px;
 
-        .tarjeta {
+    color:#d9c48d;
 
-            background:
+    letter-spacing:1px;
 
-                linear-gradient(
-                    145deg,
-                    rgba(
-                        18,
-                        59,
-                        84,
-                        .75
-                    ),
-                    rgba(
-                        5,
-                        19,
-                        31,
-                        .9
-                    )
-                );
+    margin-top:6px;
+}
 
-            border:
-                1px solid
-                rgba(
-                    224,
-                    196,
-                    128,
-                    .5
-                );
 
-            border-radius: 20px;
+/* =====================================================
+   TARJETAS
+===================================================== */
 
-            padding:
-                35px
-                20px;
+.tarjeta{
+    margin:
+        40px auto;
 
-            margin:
-                25px auto;
+    padding:
+        40px 25px;
 
-            max-width: 570px;
+    text-align:center;
 
-            box-shadow:
+    border-radius:22px;
 
-                0 20px 50px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    .35
-                ),
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16,61,91,.94),
+            rgba(3,18,31,.96)
+        );
 
-                inset
-                0 0 20px
-                rgba(
-                    89,
-                    199,
-                    255,
-                    .05
-                );
-        }
+    border:
+        1px solid rgba(224,193,119,.65);
 
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35);
+}
 
-        .icono {
 
-            font-size: 40px;
+.tarjeta-clara{
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf7,
+            #f3ead7
+        );
 
-            margin-bottom: 10px;
-        }
+    color:#172b3e;
+}
 
 
-        .titulo-tarjeta {
+.icono{
+    font-size:42px;
+    margin-bottom:15px;
+}
 
-            font-family:
-                'Cinzel',
-                serif;
 
-            color: #e9d39d;
+.titulo-seccion{
+    font-family:'Cinzel',serif;
 
-            font-size: 20px;
+    letter-spacing:3px;
 
-            letter-spacing: 2px;
+    color:#e4ca8a;
 
-            margin-bottom: 15px;
-        }
+    margin-bottom:25px;
+}
 
 
-        .local {
+.tarjeta-clara .titulo-seccion{
+    color:#9b7435;
+}
 
-            font-family:
-                'Great Vibes',
-                cursive;
 
-            font-size: 40px;
+/* =====================================================
+   LOCAL
+===================================================== */
 
-            color: white;
+.nombre-local{
+    font-family:'Great Vibes',cursive;
 
-            margin-bottom: 15px;
-        }
+    font-size:48px;
 
+    color:#fff;
 
-        .direccion {
+    margin-bottom:20px;
+}
 
-            line-height: 1.8;
 
-            font-size: 14px;
+.direccion{
+    line-height:1.8;
+    color:#e3eaf0;
+}
 
-            color: #d9e2e8;
-        }
 
+.referencia{
+    margin-top:12px;
+    color:#d8c183;
+}
 
-        .referencia {
 
-            margin-top: 15px;
+.boton{
+    display:inline-block;
 
-            color: #d9c68e;
+    margin-top:25px;
 
-            font-size: 13px;
-        }
+    padding:
+        15px
+        30px;
 
+    border-radius:50px;
 
-        /* ==============================
-           BOTÓN MAPA
-        ============================== */
+    text-decoration:none;
 
-        .boton-mapa {
+    background:
+        linear-gradient(
+            135deg,
+            #f1dda6,
+            #c69e4f
+        );
 
-            display: inline-flex;
+    color:#071522;
 
-            align-items: center;
+    font-family:'Cinzel',serif;
 
-            justify-content: center;
+    font-size:12px;
 
-            gap: 10px;
+    letter-spacing:1px;
 
-            margin-top: 25px;
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
 
-            padding:
-                15px
-                28px;
+    transition:.3s;
+}
 
-            text-decoration: none;
 
-            font-family:
-                'Cinzel',
-                serif;
+.boton:hover{
+    transform:
+        translateY(-3px)
+        scale(1.03);
+}
 
-            font-size: 13px;
 
-            letter-spacing: 1px;
+/* =====================================================
+   ITINERARIO
+===================================================== */
 
-            color: #071522;
+.itinerario{
+    position:relative;
 
-            background:
+    max-width:520px;
 
-                linear-gradient(
-                    135deg,
-                    #f0d89d,
-                    #caa85e
-                );
+    margin:auto;
+}
 
-            border-radius: 50px;
 
-            box-shadow:
-                0 8px 25px
-                rgba(
-                    205,
-                    173,
-                    97,
-                    .25
-                );
+.itinerario::before{
+    content:"";
 
-            transition: .3s;
-        }
+    position:absolute;
 
+    left:50%;
 
-        .boton-mapa:hover {
+    top:10px;
+    bottom:10px;
 
-            transform:
-                translateY(-3px)
-                scale(1.03);
+    width:2px;
 
-            box-shadow:
-                0 12px 30px
-                rgba(
-                    226,
-                    195,
-                    120,
-                    .4
-                );
-        }
+    background:
+        linear-gradient(
+            #d6b569,
+            #fff2bc,
+            #d6b569
+        );
+}
 
 
-        /* ==============================
-           FINAL
-        ============================== */
+.evento{
+    display:grid;
 
-        .final {
+    grid-template-columns:
+        1fr 45px 1fr;
 
-            margin-top: 60px;
+    align-items:center;
 
-            font-family:
-                'Great Vibes',
-                cursive;
+    min-height:100px;
+}
 
-            font-size: 35px;
 
-            color: #ead9af;
-        }
+.evento-hora{
+    text-align:right;
 
+    padding-right:18px;
 
-        .diamante {
+    font-family:'Cinzel',serif;
 
-            font-size: 25px;
+    color:#f1d99e;
 
-            margin:
-                25px 0;
+    font-size:17px;
+}
 
-            color: #8edfff;
 
-            text-shadow:
-                0 0 15px #67d9ff;
-        }
+.punto{
+    width:16px;
+    height:16px;
 
+    border-radius:50%;
 
-        /* ==============================
-           CELULARES
-        ============================== */
+    background:#f3dda5;
 
-        @media(
-            max-width: 500px
-        ) {
+    border:4px solid #9c7638;
 
-            #invitacion {
+    margin:auto;
 
-                padding:
-                    60px
-                    15px;
-            }
+    z-index:2;
 
-            .frase {
+    box-shadow:
+        0 0 12px #ffe49b;
+}
 
-                font-size: 28px;
-            }
 
-            .contador {
+.evento-texto{
+    text-align:left;
 
-                gap: 6px;
-            }
+    padding-left:18px;
 
-            .caja-tiempo {
+    font-size:14px;
 
-                padding:
-                    17px
-                    2px;
-            }
+    line-height:1.5;
+}
 
-            .texto-tiempo {
 
-                font-size: 8px;
-            }
+.evento-icono{
+    font-size:26px;
+    margin-bottom:5px;
+}
 
-        }
 
-    </style>
+/* =====================================================
+   REGALOS
+===================================================== */
+
+.regalo-texto{
+    line-height:1.8;
+}
+
+
+.cuenta{
+    margin:
+        20px auto;
+
+    font-family:'Cinzel',serif;
+
+    color:#6c512f;
+
+    line-height:1.8;
+}
+
+
+/* QR */
+
+.qr{
+    width:220px;
+    max-width:80%;
+
+    margin:
+        15px auto;
+
+    display:block;
+
+    border-radius:12px;
+
+    background:white;
+
+    padding:8px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.15);
+}
+
+
+/* =====================================================
+   VESTIMENTA
+===================================================== */
+
+.vestimenta-iconos{
+    font-size:55px;
+
+    margin:
+        10px 0
+        20px;
+}
+
+
+.formal{
+    font-family:'Cinzel',serif;
+
+    font-size:22px;
+
+    color:#77582e;
+
+    margin-bottom:20px;
+}
+
+
+.reservados{
+    margin-top:25px;
+
+    padding:
+        20px;
+
+    border:
+        1px solid #d3b470;
+
+    border-radius:15px;
+
+    line-height:1.7;
+}
+
+
+.colores{
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin:
+        18px 0;
+}
+
+
+.color{
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    border:
+        3px solid white;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.25);
+}
+
+
+.celeste{
+    background:#9edaf3;
+}
+
+.azul{
+    background:#175a91;
+}
+
+.plateado{
+    background:#c3c7cb;
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final{
+    text-align:center;
+
+    padding:
+        50px 15px
+        10px;
+}
+
+
+.final-frase{
+    font-family:'Great Vibes',cursive;
+
+    font-size:38px;
+
+    color:#efdaa7;
+
+    line-height:1.3;
+}
+
+
+.final-nombre{
+    margin-top:30px;
+
+    font-family:'Cinzel',serif;
+
+    letter-spacing:4px;
+
+    color:#d8bd7b;
+}
+
+
+/* =====================================================
+   YOUTUBE OCULTO
+===================================================== */
+
+#musica{
+    position:absolute;
+
+    width:1px;
+    height:1px;
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:500px){
+
+    .contenido{
+        width:94%;
+        padding-top:40px;
+    }
+
+    .decreto{
+        padding:
+            40px 18px;
+    }
+
+    .fecha-evento{
+        gap:15px;
+    }
+
+    .numero-dia{
+        font-size:62px;
+    }
+
+    .fecha-lado{
+        padding-left:15px;
+    }
+
+    .contador{
+        gap:5px;
+    }
+
+    .tiempo{
+        padding:
+            16px 2px;
+    }
+
+    .evento{
+        grid-template-columns:
+            1fr 35px 1fr;
+    }
+
+    .evento-hora{
+        font-size:14px;
+        padding-right:10px;
+    }
+
+    .evento-texto{
+        padding-left:10px;
+        font-size:12px;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-<!-- ==========================================
+<!-- ==================================================
      PORTADA
-=========================================== -->
+================================================== -->
 
 <section id="portada">
 
-    <div
-        class="contenedor-portada"
-        id="contenedorPortada"
+<div class="portada-contenedor">
+
+    <!-- TU IMAGEN ORIGINAL -->
+
+    <img
+        src="portada.jpeg"
+        class="portada-imagen"
+        alt="Antonella Viviana - Mis XV"
     >
 
-        <!--
-        IMPORTANTE:
-        La imagen debe llamarse portada.jpeg
-        -->
+    <div class="portada-sombra"></div>
 
-        <img
-            src="portada.jpeg"
-            alt="Invitación Antonella"
-            class="imagen-portada"
+
+    <!-- SOBRE INTERACTIVO -->
+
+    <div
+        class="zona-sobre"
+        onclick="abrirSobre(event)"
+    >
+
+        <div
+            class="sobre"
+            id="sobre"
         >
 
+            <div class="sobre-cuerpo"></div>
 
-        <!--
-        Este botón transparente está
-        encima de la llave.
-        -->
+            <div class="sobre-tapa"></div>
 
-        <button
-            class="boton-llave"
-            onclick="abrirInvitacion()"
-            aria-label="Abrir invitación"
-        ></button>
+            <div class="sello">
+                AV
+            </div>
+
+        </div>
+
+        <div class="tocar">
+            Toca el sobre para entrar
+        </div>
 
     </div>
+
+</div>
 
 </section>
 
 
 
-<!-- ==========================================
+<!-- ==================================================
      INVITACIÓN
-=========================================== -->
+================================================== -->
 
 <section id="invitacion">
 
+<div class="estrellas"></div>
 
-    <!-- ESTRELLAS -->
-
-    <span
-        class="estrella"
-        style="
-        top:5%;
-        left:10%;
-        "
-    ></span>
-
-    <span
-        class="estrella"
-        style="
-        top:12%;
-        left:80%;
-        "
-    ></span>
-
-    <span
-        class="estrella"
-        style="
-        top:30%;
-        left:5%;
-        "
-    ></span>
-
-    <span
-        class="estrella"
-        style="
-        top:45%;
-        left:90%;
-        "
-    ></span>
-
-    <span
-        class="estrella"
-        style="
-        top:60%;
-        left:15%;
-        "
-    ></span>
-
-    <span
-        class="estrella"
-        style="
-        top:75%;
-        left:85%;
-        "
-    ></span>
-
-    <span
-        class="estrella"
-        style="
-        top:88%;
-        left:25%;
-        "
-    ></span>
+<div class="contenido">
 
 
+<!-- ==================================================
+     DECRETO
+================================================== -->
 
-    <div class="contenido">
+<section class="decreto">
+
+    <div class="corona">
+        ♛
+    </div>
+
+    <div class="subtitulo">
+        DECRETO REAL
+    </div>
+
+    <p>
+        En un reino lleno de sueños y magia,
+        una joven princesa está a punto de
+        celebrar sus quince primaveras...
+    </p>
+
+    <h1 class="nombre">
+        Antonella
+        <br>
+        Viviana
+    </h1>
+
+    <p class="frase-real">
+        Y así, en medio de sueños, ilusión
+        y elegancia, comienza una noche
+        creada para guardar recuerdos
+        inolvidables.
+    </p>
 
 
-        <div class="corona">
-            ♛
-        </div>
+    <!-- PADRES -->
 
+    <div class="padres">
 
-        <div class="mis-xv">
-            MIS XV AÑOS
-        </div>
+        <h3>
+            MIS PADRES
+        </h3>
 
-
-        <h1 class="nombre">
-            Antonella
-        </h1>
-
-
-        <div class="separador">
-            ✦
-        </div>
-
-
-        <p class="frase">
-            Hay momentos en la vida que son
-            especiales por sí solos, pero
-            compartirlos con las personas que
-            queremos los convierte en
-            inolvidables.
+        <p>
+            Anderson Sánchez Mendoza
+            <br>
+            Kelly Vilca Meregildo
         </p>
 
+    </div>
 
 
-        <!-- FECHA -->
+    <!-- FECHA -->
 
-        <div class="fecha">
+    <div class="fecha-evento">
 
-            <div>
+        <div>
+
+            <div style="
+                font-family:'Cinzel',serif;
+                color:#98733b;
+                letter-spacing:2px;
+            ">
                 SÁBADO
             </div>
 
-            <div class="dia-numero">
+            <div class="numero-dia">
                 03
             </div>
 
-            <div class="mes">
+            <div style="
+                font-family:'Cinzel',serif;
+                letter-spacing:3px;
+                color:#98733b;
+            ">
                 OCTUBRE
-            </div>
-
-            <div class="anio">
+                <br>
                 2026
             </div>
 
-            <div class="hora">
-                ✦ 03:00 PM ✦
+        </div>
+
+
+        <div class="fecha-lado">
+
+            <strong>
+                HORA
+            </strong>
+
+            <div class="hora-grande">
+                6:30 P.M.
+            </div>
+
+            <div>
+                Recepción
             </div>
 
         </div>
 
+    </div>
 
 
-        <div class="separador">
-            ✦
-        </div>
+    <div class="puntualidad">
 
+        ✦ Te esperamos puntualmente ✦
 
+        <br><br>
 
-        <!-- =================================
-             CUENTA REGRESIVA
-        ================================== -->
+        Agradecemos tu puntualidad.
+        Te recomendamos llegar
+        unos minutos antes para
+        acompañarnos desde el inicio
+        de esta noche tan especial.
 
-        <div class="titulo-contador">
-            FALTAN
-        </div>
+    </div>
 
-
-        <div class="contador">
-
-
-            <div class="caja-tiempo">
-
-                <div
-                    class="numero"
-                    id="dias"
-                >
-                    00
-                </div>
-
-                <div class="texto-tiempo">
-                    DÍAS
-                </div>
-
-            </div>
+</section>
 
 
 
-            <div class="caja-tiempo">
+<!-- ==================================================
+     CONTADOR
+================================================== -->
 
-                <div
-                    class="numero"
-                    id="horas"
-                >
-                    00
-                </div>
+<section class="contador-seccion">
 
-                <div class="texto-tiempo">
-                    HORAS
-                </div>
+    <h2 class="titulo-dorado">
+        FALTAN
+    </h2>
 
-            </div>
+    <div class="contador">
 
 
+        <div class="tiempo">
 
-            <div class="caja-tiempo">
-
-                <div
-                    class="numero"
-                    id="minutos"
-                >
-                    00
-                </div>
-
-                <div class="texto-tiempo">
-                    MINUTOS
-                </div>
-
-            </div>
-
-
-
-            <div class="caja-tiempo">
-
-                <div
-                    class="numero"
-                    id="segundos"
-                >
-                    00
-                </div>
-
-                <div class="texto-tiempo">
-                    SEGUNDOS
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- =================================
-             LUGAR
-        ================================== -->
-
-        <div class="tarjeta">
-
-
-            <div class="icono">
-                ♕
-            </div>
-
-
-            <div class="titulo-tarjeta">
-                RECEPCIÓN
-            </div>
-
-
-            <div class="local">
-                Shiny Star Eventos
-            </div>
-
-
-            <div class="direccion">
-
-                Urb. Palmeras del Valle
-                Mz. A Lt. 3 II Etapa
-
-            </div>
-
-
-            <div class="referencia">
-
-                ✦ Referencia:
-                A espalda de Makro
-
-            </div>
-
-
-
-            <!-- BOTÓN GOOGLE MAPS -->
-
-            <a
-                class="boton-mapa"
-
-                href="https://www.google.com/maps/place/8%C2%B005'06.9%22S+79%C2%B002'48.7%22W/@-8.0852516,-79.0494475,17z/data=!4m4!3m3!8m2!3d-8.0852622!4d-79.0468618?hl=es&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D"
-
-                target="_blank"
-
-                rel="noopener noreferrer"
+            <div
+                class="tiempo-numero"
+                id="dias"
             >
+                00
+            </div>
 
-                📍 VER UBICACIÓN
-
-            </a>
-
-
-        </div>
-
-
-
-        <div class="final">
-
-            Te esperamos para
-            compartir una noche mágica
+            <div class="tiempo-texto">
+                DÍAS
+            </div>
 
         </div>
 
 
-        <div class="diamante">
-            ◆
+        <div class="tiempo">
+
+            <div
+                class="tiempo-numero"
+                id="horas"
+            >
+                00
+            </div>
+
+            <div class="tiempo-texto">
+                HORAS
+            </div>
+
         </div>
 
 
-        <div
-            style="
-            font-family:'Cinzel',serif;
-            letter-spacing:3px;
-            font-size:12px;
-            color:#d7c18b;
-            "
-        >
+        <div class="tiempo">
 
-            ANTONELLA · MIS XV
+            <div
+                class="tiempo-numero"
+                id="minutos"
+            >
+                00
+            </div>
+
+            <div class="tiempo-texto">
+                MINUTOS
+            </div>
+
+        </div>
+
+
+        <div class="tiempo">
+
+            <div
+                class="tiempo-numero"
+                id="segundos"
+            >
+                00
+            </div>
+
+            <div class="tiempo-texto">
+                SEGUNDOS
+            </div>
 
         </div>
 
@@ -1297,102 +1445,631 @@
     </div>
 
 </section>
+
+
+
+<!-- ==================================================
+     LUGAR
+================================================== -->
+
+<section class="tarjeta">
+
+    <div class="icono">
+        ♕
+    </div>
+
+    <h2 class="titulo-seccion">
+        LUGAR DEL EVENTO
+    </h2>
+
+    <div class="nombre-local">
+        Shiny Star Eventos
+    </div>
+
+    <div class="direccion">
+
+        Urb. Palmeras del Valle
+        <br>
+        Mz. A Lt. 3 II Etapa
+
+    </div>
+
+    <div class="referencia">
+
+        Referencia:
+        A espalda de Makro
+
+    </div>
+
+
+    <a
+        class="boton"
+        href="https://www.google.com/maps/place/8%C2%B005'06.9%22S+79%C2%B002'48.7%22W/@-8.0852516,-79.0494475,17z/data=!4m4!3m3!8m2!3d-8.0852622!4d-79.0468618?hl=es&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        📍 VER UBICACIÓN
+    </a>
+
+</section>
+
+
+
+<!-- ==================================================
+     ITINERARIO
+================================================== -->
+
+<section class="tarjeta">
+
+    <h2 class="titulo-seccion">
+        ✦ ITINERARIO ✦
+    </h2>
+
+
+    <div class="itinerario">
+
+
+        <!-- 6:30 -->
+
+        <div class="evento">
+
+            <div class="evento-hora">
+                6:30 P.M.
+            </div>
+
+            <div class="punto"></div>
+
+            <div class="evento-texto">
+
+                <div class="evento-icono">
+                    ♕
+                </div>
+
+                RECEPCIÓN
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 8:00 -->
+
+        <div class="evento">
+
+            <div class="evento-hora">
+                8:00 P.M.
+            </div>
+
+            <div class="punto"></div>
+
+            <div class="evento-texto">
+
+                <div class="evento-icono">
+                    📜
+                </div>
+
+                PROTOCOLO
+                <br>
+                Y CEREMONIA
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 9:00 -->
+
+        <div class="evento">
+
+            <div class="evento-hora">
+                9:00 P.M.
+            </div>
+
+            <div class="punto"></div>
+
+            <div class="evento-texto">
+
+                <div class="evento-icono">
+                    🥂
+                </div>
+
+                BRINDIS
+                <br>
+                Y CENA
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 9:50 -->
+
+        <div class="evento">
+
+            <div class="evento-hora">
+                9:50 P.M.
+            </div>
+
+            <div class="punto"></div>
+
+            <div class="evento-texto">
+
+                <div class="evento-icono">
+                    ✨
+                </div>
+
+                BAILE
+                <br>
+                SORPRESA
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 10:00 -->
+
+        <div class="evento">
+
+            <div class="evento-hora">
+                10:00 P.M.
+            </div>
+
+            <div class="punto"></div>
+
+            <div class="evento-texto">
+
+                <div class="evento-icono">
+                    ♫
+                </div>
+
+                INICIO
+                <br>
+                DE FIESTA
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     LLUVIA DE SOBRES / REGALOS
+================================================== -->
+
+<section class="tarjeta tarjeta-clara">
+
+    <div class="icono">
+        🎁
+    </div>
+
+    <h2 class="titulo-seccion">
+        LLUVIA DE SOBRES
+    </h2>
+
+    <div class="regalo-texto">
+
+        ¡Tu presencia es el mejor regalo!
+
+        <br><br>
+
+        Si también deseas obsequiarme
+        un detalle, será bienvenido.
+
+    </div>
+
+
+    <div class="cuenta">
+
+        CUENTA DE AHORRO BCP
+
+        <br>
+
+        <strong>
+            57094145830051
+        </strong>
+
+    </div>
+
+
+    <!--
+    GUARDA EL QR QUE ENVIASTE
+    CON EL NOMBRE qr-yape.jpg
+    -->
+
+    <img
+        src="qr-yape.jpg"
+        class="qr"
+        alt="Código QR Yape"
+    >
+
+    <div style="
+        font-family:'Great Vibes',cursive;
+        font-size:28px;
+        color:#71532e;
+        margin-top:10px;
+    ">
+        Con cariño, gracias ♡
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CÓDIGO DE VESTIMENTA
+================================================== -->
+
+<section class="tarjeta tarjeta-clara">
+
+    <div class="icono">
+        ♛
+    </div>
+
+    <h2 class="titulo-seccion">
+        CÓDIGO DE VESTIMENTA
+    </h2>
+
+
+    <div class="vestimenta-iconos">
+        👗 &nbsp; 🤵
+    </div>
+
+
+    <div class="formal">
+        FORMAL ELEGANTE
+    </div>
+
+
+    <p style="
+        line-height:1.8;
+    ">
+
+        Queremos que formes parte
+        de esta noche especial luciendo
+        tu mejor atuendo formal.
+
+    </p>
+
+
+    <div class="reservados">
+
+        <strong>
+            IMPORTANTE
+        </strong>
+
+        <div class="colores">
+
+            <div
+                class="color celeste"
+                title="Celeste"
+            ></div>
+
+            <div
+                class="color azul"
+                title="Azul"
+            ></div>
+
+            <div
+                class="color plateado"
+                title="Plateado"
+            ></div>
+
+        </div>
+
+        Los tonos
+
+        <strong>
+            celeste, azul y plateado
+        </strong>
+
+        están reservados exclusivamente
+        para la quinceañera y sus
+        familiares cercanos.
+
+        <br><br>
+
+        Agradecemos elegir otros colores
+        para tu atuendo.
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FINAL
+================================================== -->
+
+<section class="final">
+
+    <div class="final-frase">
+
+        Tu presencia hará de esta noche
+        un momento aún más especial.
+
+        <br><br>
+
+        ¡Te esperamos!
+
+    </div>
+
+
+    <div style="
+        margin-top:35px;
+        font-size:25px;
+        color:#e2c477;
+    ">
+        ♛
+    </div>
+
+
+    <div class="final-nombre">
+        ANTONELLA VIVIANA
+    </div>
+
+</section>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     REPRODUCTOR YOUTUBE
+================================================== -->
+
+<div id="musica"></div>
 
 
 
 <script>
 
+/* =====================================================
+   ABRIR SOBRE
+===================================================== */
 
-/* ==========================================
-   ABRIR INVITACIÓN
-========================================== */
-
-function abrirInvitacion() {
-
-
-    const portada =
-        document.getElementById(
-            "contenedorPortada"
-        );
+let invitacionAbierta = false;
 
 
-    portada.classList.add(
-        "abrir-portada"
-    );
+function abrirSobre(event){
+
+    if(invitacionAbierta){
+        return;
+    }
+
+    invitacionAbierta = true;
 
 
-    /*
-    Esperamos a que termine
-    la animación.
-    */
+    /* animación del sobre */
 
-    setTimeout(
-        function() {
-
-
-            document
-                .getElementById(
-                    "portada"
-                )
-                .style.display =
-                "none";
+    document
+        .getElementById("sobre")
+        .classList
+        .add("abierto");
 
 
-            const invitacion =
-                document
-                .getElementById(
-                    "invitacion"
-                );
+    /* partículas mágicas */
+
+    crearParticulas(event);
 
 
-            invitacion
-                .classList
-                .add(
-                    "mostrar"
-                );
+    /* reproducir música */
+
+    reproducirMusica();
 
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+    /* esperar la animación */
+
+    setTimeout(function(){
+
+        document
+            .getElementById("portada")
+            .style.display="none";
 
 
-        },
-        1400
-    );
+        document
+            .getElementById("invitacion")
+            .classList
+            .add("visible");
+
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    },1500);
 
 }
 
 
 
-/* ==========================================
+/* =====================================================
+   ESTRELLAS / BRILLOS
+===================================================== */
+
+function crearParticulas(event){
+
+    const rect =
+        document
+        .getElementById("sobre")
+        .getBoundingClientRect();
+
+
+    const centroX =
+        rect.left +
+        rect.width / 2;
+
+
+    const centroY =
+        rect.top +
+        rect.height / 2;
+
+
+    for(let i=0;i<45;i++){
+
+        const estrella =
+            document.createElement("div");
+
+
+        estrella.className =
+            "particula";
+
+
+        estrella.style.left =
+            centroX + "px";
+
+
+        estrella.style.top =
+            centroY + "px";
+
+
+        const angulo =
+            Math.random()
+            * Math.PI
+            * 2;
+
+
+        const distancia =
+            80 +
+            Math.random()
+            * 230;
+
+
+        const x =
+            Math.cos(angulo)
+            * distancia;
+
+
+        const y =
+            Math.sin(angulo)
+            * distancia;
+
+
+        estrella.style.setProperty(
+            "--x",
+            x + "px"
+        );
+
+
+        estrella.style.setProperty(
+            "--y",
+            y + "px"
+        );
+
+
+        const tamaño =
+            4 +
+            Math.random()
+            * 7;
+
+
+        estrella.style.width =
+            tamaño + "px";
+
+
+        estrella.style.height =
+            tamaño + "px";
+
+
+        document.body
+            .appendChild(
+                estrella
+            );
+
+
+        setTimeout(
+            function(){
+
+                estrella.remove();
+
+            },
+            1900
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MÚSICA DE YOUTUBE
+===================================================== */
+
+function reproducirMusica(){
+
+    /*
+    Canción:
+    https://www.youtube.com/watch?v=sz4YaMr1rlo
+
+    Como el usuario toca directamente
+    el sobre, intentamos iniciar el
+    reproductor en ese momento.
+    */
+
+    const musica =
+        document.getElementById(
+            "musica"
+        );
+
+
+    musica.innerHTML = `
+
+        <iframe
+
+            width="1"
+            height="1"
+
+            src="https://www.youtube.com/embed/sz4YaMr1rlo?autoplay=1&playsinline=1"
+
+            title="Música de la invitación"
+
+            frameborder="0"
+
+            allow="autoplay; encrypted-media"
+
+            allowfullscreen>
+
+        </iframe>
+
+    `;
+
+}
+
+
+
+/* =====================================================
    CUENTA REGRESIVA
-
-   Evento:
-   03 de octubre de 2026
-   03:00 PM
-   Hora de Perú
-========================================== */
-
+===================================================== */
 
 /*
-Perú utiliza UTC-5.
-
-Al especificar -05:00 hacemos que
-la cuenta regresiva funcione
-correctamente aunque el invitado
-abra la página desde otro país.
+Evento:
+03 de octubre de 2026
+6:30 PM
+Hora Perú UTC-5
 */
 
 const fechaEvento =
     new Date(
-        "2026-10-03T15:00:00-05:00"
+        "2026-10-03T18:30:00-05:00"
     );
 
 
-function actualizarContador() {
-
+function actualizarContador(){
 
     const ahora =
         new Date();
@@ -1402,192 +2079,91 @@ function actualizarContador() {
         fechaEvento - ahora;
 
 
-    /*
-    Si llegó la fecha del evento.
-    */
+    if(diferencia <= 0){
 
-    if (
-        diferencia <= 0
-    ) {
+        document.getElementById("dias")
+            .textContent="00";
 
+        document.getElementById("horas")
+            .textContent="00";
 
-        document
-            .getElementById(
-                "dias"
-            )
-            .textContent =
-            "00";
+        document.getElementById("minutos")
+            .textContent="00";
 
-
-        document
-            .getElementById(
-                "horas"
-            )
-            .textContent =
-            "00";
-
-
-        document
-            .getElementById(
-                "minutos"
-            )
-            .textContent =
-            "00";
-
-
-        document
-            .getElementById(
-                "segundos"
-            )
-            .textContent =
-            "00";
-
-
-        document
-            .querySelector(
-                ".titulo-contador"
-            )
-            .textContent =
-            "¡HOY ES EL GRAN DÍA!";
-
+        document.getElementById("segundos")
+            .textContent="00";
 
         return;
 
     }
 
 
-
-    /*
-    Cálculos del contador.
-    */
-
     const dias =
         Math.floor(
             diferencia /
-            (
-                1000 *
-                60 *
-                60 *
-                24
-            )
+            86400000
         );
 
 
     const horas =
         Math.floor(
-            (
-                diferencia /
-                (
-                    1000 *
-                    60 *
-                    60
-                )
-            )
-            % 24
-        );
+            diferencia /
+            3600000
+        ) % 24;
 
 
     const minutos =
         Math.floor(
-            (
-                diferencia /
-                (
-                    1000 *
-                    60
-                )
-            )
-            % 60
-        );
+            diferencia /
+            60000
+        ) % 60;
 
 
     const segundos =
         Math.floor(
-            (
-                diferencia /
-                1000
-            )
-            % 60
-        );
-
-
-
-    /*
-    Mostrar valores.
-    */
-
-    document
-        .getElementById(
-            "dias"
-        )
-        .textContent =
-        String(
-            dias
-        ).padStart(
-            2,
-            "0"
-        );
+            diferencia /
+            1000
+        ) % 60;
 
 
     document
-        .getElementById(
-            "horas"
-        )
+        .getElementById("dias")
         .textContent =
-        String(
-            horas
-        ).padStart(
-            2,
-            "0"
-        );
+        String(dias)
+        .padStart(2,"0");
 
 
     document
-        .getElementById(
-            "minutos"
-        )
+        .getElementById("horas")
         .textContent =
-        String(
-            minutos
-        ).padStart(
-            2,
-            "0"
-        );
+        String(horas)
+        .padStart(2,"0");
 
 
     document
-        .getElementById(
-            "segundos"
-        )
+        .getElementById("minutos")
         .textContent =
-        String(
-            segundos
-        ).padStart(
-            2,
-            "0"
-        );
+        String(minutos)
+        .padStart(2,"0");
+
+
+    document
+        .getElementById("segundos")
+        .textContent =
+        String(segundos)
+        .padStart(2,"0");
 
 }
 
 
-/*
-Actualizar inmediatamente.
-*/
-
 actualizarContador();
-
-
-/*
-Actualizar cada segundo.
-*/
 
 setInterval(
     actualizarContador,
     1000
 );
 
-
 </script>
-
 
 </body>
 </html>
