@@ -5,17 +5,9 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Mis XV - Antonella Viviana</title>
-
-
-<!-- =====================================================
-     FUENTES
-===================================================== -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -24,65 +16,42 @@
       crossorigin>
 
 <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
-    rel="stylesheet"
->
-
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
+rel="stylesheet">
 
 <style>
 
 /* =====================================================
-   VARIABLES DE COLOR
+   COLORES
 ===================================================== */
 
 :root{
 
     --azul-noche:#020c1c;
-
     --azul-profundo:#041b36;
-
     --azul:#0b4f82;
-
     --azul-medio:#267eb5;
-
     --celeste:#75cfff;
-
     --celeste-claro:#c9efff;
-
     --celeste-hielo:#edfaff;
-
     --blanco:#ffffff;
-
-    --cristal:rgba(220,245,255,.10);
-
-    --borde:rgba(172,226,255,.55);
-
 }
 
 
 /* =====================================================
-   RESET
+   GENERAL
 ===================================================== */
 
 *{
-
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
-
 }
-
 
 html{
-
     scroll-behavior:smooth;
-
     min-height:100%;
-
 }
-
 
 body{
 
@@ -94,23 +63,18 @@ body{
 
     overflow-x:hidden;
 
-
     /*
-    CASTILLO COMO FONDO
-    DE TODA LA INVITACIÓN
+    FONDO GENERAL DEL CASTILLO
     */
 
-    background:
+    background-image:
 
         linear-gradient(
-            180deg,
-            rgba(2,15,35,.30),
-            rgba(3,28,55,.43),
-            rgba(2,12,27,.68)
+            rgba(2,15,35,.12),
+            rgba(2,20,42,.25)
         ),
 
         url("castillo.jpg");
-
 
     background-size:cover;
 
@@ -120,6 +84,7 @@ body{
 
     background-attachment:fixed;
 
+    background-color:#03152c;
 }
 
 
@@ -144,11 +109,8 @@ body{
     overflow:hidden;
 
     background:transparent;
-
 }
 
-
-/* capa celeste */
 
 #portada::before{
 
@@ -162,26 +124,25 @@ body{
 
         radial-gradient(
             circle at 50% 15%,
-            rgba(116,207,255,.22),
-            transparent 32%
+            rgba(90,200,255,.10),
+            transparent 38%
         ),
 
         linear-gradient(
             180deg,
-            rgba(2,19,43,.12),
-            rgba(5,50,87,.22),
-            rgba(2,12,27,.43)
+            rgba(0,15,35,.05),
+            rgba(0,20,45,.12),
+            rgba(0,10,25,.20)
         );
 
     z-index:0;
 
     pointer-events:none;
-
 }
 
 
 /* =====================================================
-   ESTRELLAS DE FONDO
+   ESTRELLAS
 ===================================================== */
 
 .cielo-estrellas{
@@ -193,7 +154,6 @@ body{
     z-index:1;
 
     pointer-events:none;
-
 
     background-image:
 
@@ -209,31 +169,23 @@ body{
             transparent 1.5px
         );
 
-
     background-size:
 
         45px 45px,
-
         73px 73px;
-
 
     background-position:
 
         0 0,
-
         25px 18px;
 
-
-    opacity:.48;
-
+    opacity:.40;
 
     animation:
-
         moverEstrellas
         25s
         linear
         infinite;
-
 }
 
 
@@ -242,18 +194,14 @@ body{
     to{
 
         background-position:
-
             100px 180px,
-
             -80px 130px;
-
     }
-
 }
 
 
 /* =====================================================
-   HALO SUPERIOR
+   LUZ SUPERIOR
 ===================================================== */
 
 .luz-portada{
@@ -261,34 +209,29 @@ body{
     position:absolute;
 
     width:550px;
-
     height:550px;
 
     top:-250px;
-
     left:50%;
 
     transform:translateX(-50%);
-
 
     background:
 
         radial-gradient(
             circle,
-            rgba(122,216,255,.32),
+            rgba(122,216,255,.20),
             transparent 65%
         );
-
 
     pointer-events:none;
 
     z-index:1;
-
 }
 
 
 /* =====================================================
-   MARCO PORTADA
+   MARCO
 ===================================================== */
 
 .marco-portada{
@@ -300,12 +243,10 @@ body{
     z-index:2;
 
     border:
-
         1px solid
-        rgba(172,226,255,.55);
+        rgba(172,226,255,.65);
 
     pointer-events:none;
-
 }
 
 
@@ -318,15 +259,13 @@ body{
     inset:7px;
 
     border:
-
         1px solid
-        rgba(172,226,255,.20);
-
+        rgba(172,226,255,.22);
 }
 
 
 /* =====================================================
-   CONTENIDO PORTADA
+   PORTADA CONTENIDO
 ===================================================== */
 
 .portada-contenido{
@@ -342,15 +281,11 @@ body{
     text-align:center;
 
     padding:
-
-        60px
+        55px
         15px
         50px;
-
 }
 
-
-/* corona */
 
 .corona-portada{
 
@@ -359,16 +294,12 @@ body{
     color:var(--celeste-claro);
 
     text-shadow:
-
         0 0 12px
         var(--celeste);
 
     margin-bottom:10px;
-
 }
 
-
-/* MIS XV */
 
 .mis-xv{
 
@@ -381,12 +312,11 @@ body{
     color:var(--celeste-claro);
 
     margin-bottom:8px;
-
 }
 
 
 /* =====================================================
-   NOMBRE PORTADA
+   NOMBRE
 ===================================================== */
 
 .nombre-portada{
@@ -394,7 +324,6 @@ body{
     font-family:'Great Vibes',cursive;
 
     font-size:
-
         clamp(
             72px,
             17vw,
@@ -406,13 +335,11 @@ body{
     line-height:.78;
 
     margin:
-
         15px
         0
         30px;
 
     color:white;
-
 
     text-shadow:
 
@@ -424,19 +351,16 @@ body{
 
         0 5px 8px
         rgba(0,0,0,.5);
-
 }
 
 
 .nombre-portada span{
-
     color:var(--celeste-claro);
-
 }
 
 
 /* =====================================================
-   FRASE PORTADA
+   FRASE
 ===================================================== */
 
 .frase-portada{
@@ -444,7 +368,6 @@ body{
     max-width:500px;
 
     margin:
-
         0 auto
         25px;
 
@@ -456,12 +379,9 @@ body{
 
     color:#e6f7ff;
 
-
     text-shadow:
-
         0 2px 5px
         rgba(0,0,0,.8);
-
 }
 
 
@@ -478,12 +398,11 @@ body{
     color:#c6ecff;
 
     margin-bottom:25px;
-
 }
 
 
 /* =====================================================
-   ZONA SOBRE
+   ZONA DEL SOBRE
 ===================================================== */
 
 .abrir-zona{
@@ -491,7 +410,6 @@ body{
     width:300px;
 
     margin:
-
         15px auto
         0;
 
@@ -502,7 +420,6 @@ body{
     position:relative;
 
     z-index:20;
-
 }
 
 
@@ -522,7 +439,6 @@ body{
 
     perspective:1200px;
 
-
     filter:
 
         drop-shadow(
@@ -530,14 +446,11 @@ body{
             rgba(0,0,0,.50)
         );
 
-
     animation:
-
         flotarSobre
         3s
         ease-in-out
         infinite;
-
 }
 
 
@@ -547,27 +460,21 @@ body{
     100%{
 
         transform:
-
             translateY(0)
             rotate(-1deg);
-
     }
-
 
     50%{
 
         transform:
-
             translateY(-8px)
             rotate(1deg);
-
     }
-
 }
 
 
 /* =====================================================
-   PARTE TRASERA DEL SOBRE
+   FONDO SOBRE
 ===================================================== */
 
 .sobre-fondo{
@@ -582,7 +489,6 @@ body{
 
     height:135px;
 
-
     background:
 
         linear-gradient(
@@ -591,69 +497,57 @@ body{
             #07385f
         );
 
-
     border:
-
         1px solid
         rgba(153,222,255,.75);
 
-
     border-radius:5px;
 
-
     z-index:1;
-
 
     box-shadow:
 
         inset
         0 0 30px
         rgba(109,204,255,.12);
-
 }
 
 
 /* =====================================================
-   CARTA INTERIOR
+   CARTA INTERIOR PEQUEÑA
 ===================================================== */
 
 .carta-interior{
 
     position:absolute;
 
-    width:205px;
+    width:170px;
 
-    height:125px;
+    height:95px;
 
-    left:22px;
+    left:50%;
 
-    bottom:18px;
+    bottom:20px;
 
     z-index:2;
 
-
     border-radius:
-
-        5px
-        5px
-        3px
-        3px;
-
+        4px
+        4px
+        2px
+        2px;
 
     background:
 
         linear-gradient(
             145deg,
             #ffffff,
-            #d9f4ff
+            #e9f8ff
         );
 
-
     border:
-
         1px solid
-        #9edfff;
-
+        rgba(158,223,255,.75);
 
     display:flex;
 
@@ -663,20 +557,20 @@ body{
 
     align-items:center;
 
-
     color:#12577f;
 
-
     box-shadow:
+        0 3px 10px
+        rgba(0,0,0,.15);
 
-        0 5px 15px
-        rgba(0,0,0,.20);
-
+    /*
+    Queda escondida dentro
+    del sobre cuando está cerrado.
+    */
 
     transform:
-
-        translateY(0);
-
+        translateX(-50%)
+        translateY(25px);
 
     transition:
 
@@ -684,32 +578,26 @@ body{
         1.05s
         cubic-bezier(.2,.7,.2,1)
         .85s;
-
 }
 
 
 .carta-interior::before{
 
-    content:"♕";
+    content:"✦";
 
-    font-size:25px;
+    font-size:17px;
 
     color:#429ac9;
 
-    margin-bottom:5px;
-
+    margin-bottom:3px;
 }
 
 
 .carta-interior span{
 
-    font-family:
+    font-family:'Great Vibes',cursive;
 
-        'Great Vibes',
-        cursive;
-
-    font-size:27px;
-
+    font-size:22px;
 }
 
 
@@ -729,34 +617,22 @@ body{
 
     height:0;
 
-
     border-left:
-
         125px solid transparent;
-
 
     border-right:
-
         125px solid transparent;
 
-
     border-top:
-
         92px solid #1972a5;
 
-
     transform-origin:
-
         center top;
 
-
     transform:
-
         rotateX(0deg);
 
-
     z-index:6;
-
 
     transition:
 
@@ -764,14 +640,12 @@ body{
         .85s
         cubic-bezier(.4,.1,.2,1);
 
-
     filter:
 
         drop-shadow(
             0 3px 2px
             rgba(0,0,0,.15)
         );
-
 }
 
 
@@ -789,7 +663,6 @@ body{
 
     height:2px;
 
-
     background:
 
         linear-gradient(
@@ -798,12 +671,11 @@ body{
             #9ee4ff,
             transparent
         );
-
 }
 
 
 /* =====================================================
-   FRENTE SOBRE
+   FRENTE DEL SOBRE
 ===================================================== */
 
 .sobre-frente{
@@ -822,17 +694,13 @@ body{
 
     overflow:hidden;
 
-
     border-radius:
-
         0
         0
         5px
         5px;
 
-
     pointer-events:none;
-
 }
 
 
@@ -850,7 +718,6 @@ body{
 
     bottom:-95px;
 
-
     background:
 
         linear-gradient(
@@ -859,17 +726,12 @@ body{
             #0a416b
         );
 
-
     border:
-
         1px solid
         rgba(142,218,255,.30);
 
-
     transform:
-
         rotate(45deg);
-
 }
 
 
@@ -887,7 +749,6 @@ body{
 
     bottom:-95px;
 
-
     background:
 
         linear-gradient(
@@ -896,17 +757,12 @@ body{
             #07385f
         );
 
-
     border:
-
         1px solid
         rgba(142,218,255,.25);
 
-
     transform:
-
         rotate(45deg);
-
 }
 
 
@@ -931,7 +787,6 @@ body{
     z-index:5;
 
     pointer-events:none;
-
 }
 
 
@@ -949,12 +804,9 @@ body{
 
     bottom:-125px;
 
-
     transform:
-
         translateX(-50%)
         rotate(45deg);
-
 
     background:
 
@@ -964,12 +816,9 @@ body{
             #073b63
         );
 
-
     border:
-
         1px solid
         rgba(145,219,255,.35);
-
 }
 
 
@@ -985,23 +834,17 @@ body{
 
     top:88px;
 
-
     transform:
-
         translateX(-50%)
         scale(1);
-
 
     width:58px;
 
     height:58px;
 
-
     border-radius:50%;
 
-
     z-index:10;
-
 
     display:flex;
 
@@ -1009,18 +852,11 @@ body{
 
     align-items:center;
 
-
-    font-family:
-
-        'Cinzel',
-        serif;
-
+    font-family:'Cinzel',serif;
 
     font-size:16px;
 
-
     color:#e6f8ff;
-
 
     background:
 
@@ -1031,12 +867,9 @@ body{
             #032842
         );
 
-
     border:
-
         3px solid
         #9fe5ff;
-
 
     box-shadow:
 
@@ -1050,17 +883,12 @@ body{
         0 0 10px
         rgba(255,255,255,.25);
 
-
     transition:
 
         opacity .4s,
-
         transform .4s;
-
 }
 
-
-/* onda sello */
 
 .sello::after{
 
@@ -1070,22 +898,16 @@ body{
 
     inset:-10px;
 
-
     border:
-
         1px solid
         rgba(163,227,255,.65);
 
-
     border-radius:50%;
 
-
     animation:
-
         pulsoSello
         1.7s
         infinite;
-
 }
 
 
@@ -1096,98 +918,74 @@ body{
         transform:scale(.85);
 
         opacity:.9;
-
     }
-
 
     to{
 
         transform:scale(1.6);
 
         opacity:0;
-
     }
-
 }
 
 
 /* =====================================================
-   ANIMACIÓN ABRIR SOBRE
+   ABRIR SOBRE
 ===================================================== */
 
 .sobre.abierto{
 
     animation:none;
-
 }
 
 
-/* desaparece sello */
-
-.sobre.abierto
-.sello{
+.sobre.abierto .sello{
 
     opacity:0;
 
-
     transform:
-
         translateX(-50%)
         scale(.3);
-
 }
 
 
-/* abre tapa */
-
-.sobre.abierto
-.sobre-tapa{
+.sobre.abierto .sobre-tapa{
 
     transform:
-
         rotateX(180deg);
 
-
     z-index:0;
-
 }
 
 
-/* después sale carta */
+/*
+La carta sale DESPUÉS
+de abrir la tapa.
+*/
 
-.sobre.abierto
-.carta-interior{
+.sobre.abierto .carta-interior{
 
     transform:
-
-        translateY(-115px);
-
+        translateX(-50%)
+        translateY(-90px);
 
     z-index:3;
-
 }
 
 
 /* =====================================================
-   TEXTO TOCAR
+   TEXTO ABRIR
 ===================================================== */
 
 .tocar{
 
     margin-top:24px;
 
-
-    font-family:
-
-        'Great Vibes',
-        cursive;
-
+    font-family:'Great Vibes',cursive;
 
     font-size:28px;
 
-
     color:#e8f9ff;
-
 
     text-shadow:
 
@@ -1197,13 +995,10 @@ body{
         0 2px 5px
         rgba(0,0,0,.7);
 
-
     animation:
-
         pulsarTexto
         1.8s
         infinite;
-
 }
 
 
@@ -1214,14 +1009,12 @@ body{
         opacity:.7;
 
         transform:scale(1.03);
-
     }
-
 }
 
 
 /* =====================================================
-   PARTÍCULAS / ESTRELLAS
+   PARTÍCULAS
 ===================================================== */
 
 .particula{
@@ -1232,14 +1025,11 @@ body{
 
     pointer-events:none;
 
-
     width:8px;
 
     height:8px;
 
-
     background:white;
-
 
     clip-path:
 
@@ -1254,7 +1044,6 @@ body{
             39% 35%
         );
 
-
     filter:
 
         drop-shadow(
@@ -1267,13 +1056,10 @@ body{
             #74d4ff
         );
 
-
     animation:
-
         explosion
         2s
         forwards;
-
 }
 
 
@@ -1283,27 +1069,20 @@ body{
 
         opacity:1;
 
-
         transform:
-
             translate(0,0)
             scale(.4)
             rotate(0deg);
-
     }
-
 
     50%{
 
         opacity:1;
-
     }
-
 
     to{
 
         opacity:0;
-
 
         transform:
 
@@ -1315,9 +1094,7 @@ body{
             scale(1.5)
 
             rotate(360deg);
-
     }
-
 }
 
 
@@ -1336,7 +1113,6 @@ body{
     background:transparent;
 
     overflow:hidden;
-
 }
 
 
@@ -1344,35 +1120,29 @@ body{
 
     display:block;
 
-
     animation:
-
         aparecerInvitacion
         1.5s
         ease;
-
 }
 
 
 @keyframes aparecerInvitacion{
 
     from{
-
         opacity:0;
-
     }
-
 
     to{
-
         opacity:1;
-
     }
-
 }
 
 
-/* capa azul permanente */
+/*
+Capa muy ligera.
+No desenfoca el castillo.
+*/
 
 #invitacion::before{
 
@@ -1382,26 +1152,23 @@ body{
 
     inset:0;
 
-
     background:
 
         linear-gradient(
             180deg,
-            rgba(2,20,45,.12),
-            rgba(4,39,70,.23),
-            rgba(2,14,31,.45)
+            rgba(2,20,45,.04),
+            rgba(4,39,70,.08),
+            rgba(2,14,31,.18)
         );
-
 
     pointer-events:none;
 
     z-index:0;
-
 }
 
 
 /* =====================================================
-   PRIMERA SECCIÓN DESPUÉS DEL SOBRE
+   PRESENTACIÓN CASTILLO
 ===================================================== */
 
 .castillo-fondo{
@@ -1410,27 +1177,17 @@ body{
 
     position:relative;
 
-
     display:flex;
 
     align-items:center;
 
     justify-content:center;
 
-
     padding:
-
         80px
         20px;
 
-
-    /*
-    No colocamos otra imagen.
-    Se ve el castillo del body.
-    */
-
     background:transparent;
-
 }
 
 
@@ -1442,18 +1199,15 @@ body{
 
     inset:0;
 
-
     background:
 
         radial-gradient(
             circle at 50% 20%,
-            rgba(145,222,255,.15),
+            rgba(145,222,255,.08),
             transparent 42%
         );
 
-
     pointer-events:none;
-
 }
 
 
@@ -1471,39 +1225,30 @@ body{
 
     z-index:2;
 
-
     text-align:center;
 
-
     padding:
-
         48px
         25px;
 
-
     border:
-
         1px solid
         rgba(185,230,255,.60);
 
-
     border-radius:28px;
 
+    /*
+    SIN backdrop-filter para no
+    desenfocar el castillo.
+    */
 
     background:
 
-        rgba(2,20,43,.58);
-
-
-    backdrop-filter:
-
-        blur(6px);
-
-
-    -webkit-backdrop-filter:
-
-        blur(6px);
-
+        linear-gradient(
+            145deg,
+            rgba(3,30,58,.68),
+            rgba(2,18,38,.76)
+        );
 
     box-shadow:
 
@@ -1513,7 +1258,6 @@ body{
         inset
         0 0 25px
         rgba(90,190,255,.08);
-
 }
 
 
@@ -1526,7 +1270,6 @@ body{
     font-size:14px;
 
     color:#a9e2ff;
-
 }
 
 
@@ -1534,33 +1277,24 @@ body{
 
     font-family:'Great Vibes',cursive;
 
-
     font-size:
-
         clamp(
             70px,
             16vw,
             110px
         );
 
-
     line-height:.80;
 
-
     margin:
-
         25px
         0;
 
-
     color:white;
 
-
     text-shadow:
-
         0 0 20px
         #4dbdff;
-
 }
 
 
@@ -1573,12 +1307,11 @@ body{
     line-height:1.4;
 
     color:#dff5ff;
-
 }
 
 
 /* =====================================================
-   CONTENIDO GENERAL
+   CONTENIDO
 ===================================================== */
 
 .contenido{
@@ -1589,18 +1322,14 @@ body{
 
     margin:auto;
 
-
     position:relative;
 
     z-index:2;
 
-
     padding:
-
         70px
         0
         100px;
-
 }
 
 
@@ -1612,39 +1341,29 @@ body{
 
     position:relative;
 
-
     margin:
-
         0 auto
         45px;
 
-
     padding:
-
         42px
         25px;
 
-
     text-align:center;
 
-
     border-radius:25px;
-
 
     background:
 
         linear-gradient(
             145deg,
-            rgba(7,61,101,.72),
-            rgba(2,21,43,.82)
+            rgba(7,61,101,.78),
+            rgba(2,21,43,.85)
         );
 
-
     border:
-
         1px solid
         rgba(156,221,255,.55);
-
 
     box-shadow:
 
@@ -1655,50 +1374,28 @@ body{
         0 0 25px
         rgba(109,204,255,.05);
 
-
-    backdrop-filter:
-
-        blur(5px);
-
-
-    -webkit-backdrop-filter:
-
-        blur(5px);
-
+    /*
+    SIN blur.
+    El castillo conserva nitidez.
+    */
 }
 
-
-/* tarjetas claras */
 
 .tarjeta-clara{
 
     color:#0b3556;
 
-
     background:
 
         linear-gradient(
             145deg,
-            rgba(240,251,255,.94),
-            rgba(211,241,255,.90)
+            rgba(240,251,255,.95),
+            rgba(211,241,255,.92)
         );
 
-
     border:
-
         1px solid
         rgba(164,224,251,.90);
-
-
-    backdrop-filter:
-
-        blur(6px);
-
-
-    -webkit-backdrop-filter:
-
-        blur(6px);
-
 }
 
 
@@ -1717,15 +1414,12 @@ body{
     color:#bce9ff;
 
     margin-bottom:25px;
-
 }
 
 
-.tarjeta-clara
-.titulo{
+.tarjeta-clara .titulo{
 
     color:#17618f;
-
 }
 
 
@@ -1734,7 +1428,6 @@ body{
     font-size:38px;
 
     margin-bottom:15px;
-
 }
 
 
@@ -1751,7 +1444,6 @@ body{
     line-height:1.6;
 
     color:#f0fbff;
-
 }
 
 
@@ -1764,21 +1456,18 @@ body{
     line-height:1.9;
 
     color:#dff5ff;
-
 }
 
 
 .pareja-padrinos{
 
     margin-bottom:25px;
-
 }
 
 
 .pareja-padrinos:last-child{
 
     margin-bottom:0;
-
 }
 
 
@@ -1789,9 +1478,7 @@ body{
     height:1px;
 
     margin:
-
         25px auto;
-
 
     background:
 
@@ -1801,7 +1488,6 @@ body{
             #aee5ff,
             transparent
         );
-
 }
 
 
@@ -1820,7 +1506,6 @@ body{
     gap:25px;
 
     margin-top:10px;
-
 }
 
 
@@ -1833,7 +1518,6 @@ body{
     color:#c8eeff;
 
     line-height:1;
-
 }
 
 
@@ -1841,18 +1525,13 @@ body{
 
     text-align:left;
 
-
     border-left:
-
         1px solid
         #8dd8ff;
 
-
     padding-left:25px;
 
-
     line-height:1.8;
-
 }
 
 
@@ -1861,7 +1540,6 @@ body{
     font-family:'Cinzel',serif;
 
     color:#aee4ff;
-
 }
 
 
@@ -1872,7 +1550,6 @@ body{
     font-family:'Cinzel',serif;
 
     color:white;
-
 }
 
 
@@ -1880,31 +1557,20 @@ body{
 
     margin-top:30px;
 
-
-    padding:
-
-        20px;
-
+    padding:20px;
 
     border-radius:15px;
 
-
     background:
-
         rgba(117,207,255,.08);
 
-
     border:
-
         1px solid
         rgba(141,216,255,.20);
 
-
     line-height:1.8;
 
-
     color:#dff5ff;
-
 }
 
 
@@ -1917,27 +1583,19 @@ body{
     display:grid;
 
     grid-template-columns:
-
-        repeat(
-            4,
-            1fr
-        );
+        repeat(4,1fr);
 
     gap:8px;
-
 }
 
 
 .tiempo{
 
     padding:
-
         20px
         4px;
 
-
     border-radius:14px;
-
 
     background:
 
@@ -1947,19 +1605,15 @@ body{
             #06365c
         );
 
-
     border:
-
         1px solid
         #94dcff;
-
 
     box-shadow:
 
         inset
         0 0 15px
         rgba(255,255,255,.08);
-
 }
 
 
@@ -1967,15 +1621,12 @@ body{
 
     font-family:'Cinzel',serif;
 
-
     font-size:
-
         clamp(
             24px,
             7vw,
             42px
         );
-
 }
 
 
@@ -1988,7 +1639,6 @@ body{
     margin-top:5px;
 
     color:#c8edff;
-
 }
 
 
@@ -2003,7 +1653,6 @@ body{
     font-size:48px;
 
     margin-bottom:15px;
-
 }
 
 
@@ -2012,7 +1661,6 @@ body{
     line-height:1.8;
 
     color:#dff5ff;
-
 }
 
 
@@ -2021,45 +1669,34 @@ body{
     margin-top:15px;
 
     color:#aaddf7;
-
 }
 
 
 /* =====================================================
-   BOTONES
+   BOTÓN
 ===================================================== */
 
 .boton{
 
     display:inline-block;
 
-
     margin-top:25px;
 
-
     padding:
-
         15px
         28px;
 
-
     border-radius:50px;
-
 
     text-decoration:none;
 
-
     font-family:'Cinzel',serif;
-
 
     font-size:12px;
 
-
     letter-spacing:1px;
 
-
     color:#03223c;
-
 
     background:
 
@@ -2069,25 +1706,20 @@ body{
             #79cef7
         );
 
-
     box-shadow:
 
         0 8px 25px
         rgba(53,174,235,.30);
 
-
     transition:.3s;
-
 }
 
 
 .boton:hover{
 
     transform:
-
         translateY(-3px)
         scale(1.03);
-
 }
 
 
@@ -2102,7 +1734,6 @@ body{
     max-width:520px;
 
     margin:auto;
-
 }
 
 
@@ -2110,20 +1741,15 @@ body{
 
     content:"";
 
-
     position:absolute;
 
-
     left:50%;
-
 
     top:15px;
 
     bottom:15px;
 
-
     width:2px;
-
 
     background:
 
@@ -2132,7 +1758,6 @@ body{
             #dff7ff,
             #62c6f7
         );
-
 }
 
 
@@ -2140,19 +1765,14 @@ body{
 
     min-height:100px;
 
-
     display:grid;
 
-
     grid-template-columns:
-
         1fr
         45px
         1fr;
 
-
     align-items:center;
-
 }
 
 
@@ -2160,15 +1780,11 @@ body{
 
     text-align:right;
 
-
     padding-right:17px;
-
 
     font-family:'Cinzel',serif;
 
-
     color:#bceaff;
-
 }
 
 
@@ -2178,30 +1794,21 @@ body{
 
     height:16px;
 
-
     margin:auto;
-
 
     border-radius:50%;
 
-
     background:white;
 
-
     border:
-
         4px solid
         #48b6eb;
 
-
     box-shadow:
-
         0 0 12px
         #8cdcff;
 
-
     z-index:2;
-
 }
 
 
@@ -2209,15 +1816,11 @@ body{
 
     text-align:left;
 
-
     padding-left:17px;
-
 
     line-height:1.6;
 
-
     font-size:13px;
-
 }
 
 
@@ -2226,12 +1829,11 @@ body{
     font-size:25px;
 
     margin-bottom:5px;
-
 }
 
 
 /* =====================================================
-   SUGERENCIA DE REGALO
+   REGALO
 ===================================================== */
 
 .regalo-frase{
@@ -2247,29 +1849,21 @@ body{
     max-width:520px;
 
     margin:auto;
-
 }
 
 
 .regalo-secundario{
 
     margin:
-
         25px auto;
-
 
     line-height:1.8;
 
-
     max-width:520px;
 
-
     color:#315f7b;
-
 }
 
-
-/* QR */
 
 .qr{
 
@@ -2277,45 +1871,27 @@ body{
 
     max-width:85%;
 
-
     display:block;
 
-
     margin:
-
         25px auto
         10px;
 
-
     padding:10px;
-
 
     background:white;
 
-
     border-radius:15px;
 
-
     box-shadow:
-
         0 10px 30px
         rgba(6,60,95,.18);
-
 }
 
 
 /* =====================================================
-   VESTIMENTA
+   CÓDIGO DE VESTIMENTA
 ===================================================== */
-
-.ropa{
-
-    font-size:55px;
-
-    margin-bottom:15px;
-
-}
-
 
 .formal{
 
@@ -2328,7 +1904,6 @@ body{
     color:#125982;
 
     margin-bottom:20px;
-
 }
 
 
@@ -2337,36 +1912,262 @@ body{
     line-height:1.8;
 
     color:#315f7b;
-
 }
 
+
+/* =====================================================
+   ICONOS ELEGANTES VESTIMENTA
+===================================================== */
+
+.vestimenta-iconos{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:28px;
+
+    margin:
+        15px auto
+        28px;
+}
+
+
+/* VESTIDO */
+
+.icono-vestido{
+
+    position:relative;
+
+    width:62px;
+
+    height:90px;
+}
+
+
+.vestido-superior{
+
+    position:absolute;
+
+    top:0;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:28px;
+
+    height:35px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #246d99,
+            #123f61
+        );
+
+    clip-path:
+
+        polygon(
+            25% 0,
+            43% 14%,
+            57% 14%,
+            75% 0,
+            85% 35%,
+            68% 100%,
+            32% 100%,
+            15% 35%
+        );
+}
+
+
+.vestido-falda{
+
+    position:absolute;
+
+    top:29px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:62px;
+
+    height:61px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #3d8fbc,
+            #174d70
+        );
+
+    clip-path:
+
+        polygon(
+            39% 0,
+            61% 0,
+            100% 100%,
+            0 100%
+        );
+
+    border-radius:
+        0 0 8px 8px;
+}
+
+
+/* TRAJE */
+
+.icono-traje{
+
+    position:relative;
+
+    width:65px;
+
+    height:90px;
+
+    border-radius:
+        8px 8px 4px 4px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #245f86,
+            #102f49
+        );
+
+    clip-path:
+
+        polygon(
+            14% 0,
+            39% 0,
+            50% 16%,
+            61% 0,
+            86% 0,
+            100% 100%,
+            0 100%
+        );
+}
+
+
+.traje-cuello::before,
+.traje-cuello::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    width:25px;
+
+    height:35px;
+
+    background:#eefaff;
+}
+
+
+.traje-cuello::before{
+
+    left:9px;
+
+    clip-path:
+
+        polygon(
+            0 0,
+            100% 0,
+            100% 100%
+        );
+}
+
+
+.traje-cuello::after{
+
+    right:9px;
+
+    clip-path:
+
+        polygon(
+            0 0,
+            100% 0,
+            0 100%
+        );
+}
+
+
+.traje-corbata{
+
+    position:absolute;
+
+    top:12px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:9px;
+
+    height:38px;
+
+    background:#78c9ee;
+
+    clip-path:
+
+        polygon(
+            50% 0,
+            100% 20%,
+            72% 100%,
+            28% 100%,
+            0 20%
+        );
+
+    z-index:5;
+}
+
+
+.separador-vestimenta{
+
+    font-family:'Cinzel',serif;
+
+    font-size:22px;
+
+    color:#4c9ac4;
+
+    text-shadow:
+
+        0 0 8px
+        rgba(79,177,228,.35);
+}
+
+
+/* =====================================================
+   COLORES RESERVADOS
+===================================================== */
 
 .reserva-color{
 
     margin-top:25px;
 
-
-    padding:
-
-        22px;
-
+    padding:22px;
 
     border-radius:16px;
 
-
     background:
-
         rgba(65,167,218,.08);
 
-
     border:
-
         1px solid
         #91d7f8;
 
-
     line-height:1.7;
-
 }
 
 
@@ -2379,10 +2180,8 @@ body{
     gap:13px;
 
     margin:
-
         18px
         0;
-
 }
 
 
@@ -2392,42 +2191,30 @@ body{
 
     height:40px;
 
-
     border-radius:50%;
 
-
     border:
-
         3px solid
         white;
 
-
     box-shadow:
-
         0 3px 10px
         rgba(0,0,0,.20);
-
 }
 
 
 .celeste{
-
     background:#a8e4ff;
-
 }
 
 
 .azul{
-
     background:#2476ad;
-
 }
 
 
 .plateado{
-
     background:#c9d4da;
-
 }
 
 
@@ -2439,13 +2226,10 @@ body{
 
     text-align:center;
 
-
     padding:
-
         30px
         15px
         80px;
-
 }
 
 
@@ -2453,21 +2237,15 @@ body{
 
     font-family:'Great Vibes',cursive;
 
-
     font-size:40px;
-
 
     color:#d8f4ff;
 
-
     line-height:1.4;
 
-
     text-shadow:
-
         0 2px 7px
         rgba(0,0,0,.8);
-
 }
 
 
@@ -2475,88 +2253,62 @@ body{
 
     margin-top:30px;
 
-
     font-family:'Cinzel',serif;
-
 
     letter-spacing:4px;
 
-
     color:#8ed9ff;
-
 }
 
 
 /* =====================================================
-   CONTROL MÚSICA
+   MÚSICA
 ===================================================== */
 
 .control-musica{
 
     position:fixed;
 
-
     right:18px;
 
     bottom:18px;
-
 
     width:52px;
 
     height:52px;
 
-
     border-radius:50%;
 
-
     border:
-
         1px solid
         #9de2ff;
 
-
     background:
-
-        rgba(5,54,88,.88);
-
+        rgba(5,54,88,.90);
 
     color:white;
 
-
     display:none;
-
 
     justify-content:center;
 
     align-items:center;
 
-
     z-index:1000;
-
 
     cursor:pointer;
 
-
     font-size:20px;
 
-
-    backdrop-filter:
-
-        blur(5px);
-
-
     box-shadow:
-
         0 5px 20px
         rgba(0,0,0,.30);
-
 }
 
 
 .control-musica.visible{
 
     display:flex;
-
 }
 
 
@@ -2567,46 +2319,43 @@ body{
 @media(max-width:500px){
 
 
-    body{
+    /*
+    Mejor comportamiento de imagen
+    vertical en móviles.
+    */
 
-        /*
-        Algunos navegadores móviles
-        no manejan bien fixed.
-        */
+    body{
 
         background-attachment:scroll;
 
-        background-size:cover;
+        background-size:auto 100vh;
 
         background-position:center top;
 
+        background-repeat:repeat-y;
     }
 
 
     .portada-contenido{
 
         padding-top:45px;
-
     }
 
 
     .nombre-portada{
 
         font-size:
-
             clamp(
                 68px,
                 21vw,
                 95px
             );
-
     }
 
 
     .frase-portada{
 
         font-size:26px;
-
     }
 
 
@@ -2615,14 +2364,12 @@ body{
         width:220px;
 
         height:155px;
-
     }
 
 
     .sobre-fondo{
 
         height:120px;
-
     }
 
 
@@ -2630,13 +2377,11 @@ body{
 
         top:35px;
 
-
         border-left-width:110px;
 
         border-right-width:110px;
 
         border-top-width:82px;
-
     }
 
 
@@ -2647,34 +2392,44 @@ body{
         top:-80px;
 
         width:214px;
-
     }
 
 
+    /*
+    CARTA MÁS PEQUEÑA EN CELULAR
+    */
+
     .carta-interior{
 
-        width:180px;
+        width:150px;
 
-        height:110px;
+        height:85px;
 
-        left:20px;
+        left:50%;
 
-        bottom:17px;
+        bottom:18px;
 
+        transform:
+            translateX(-50%)
+            translateY(25px);
+    }
+
+
+    .carta-interior span{
+
+        font-size:20px;
     }
 
 
     .sobre-frente{
 
         height:120px;
-
     }
 
 
     .solapa-inferior{
 
         height:95px;
-
     }
 
 
@@ -2685,66 +2440,55 @@ body{
         width:54px;
 
         height:54px;
-
     }
 
 
-    .sobre.abierto
-    .carta-interior{
+    .sobre.abierto .carta-interior{
 
         transform:
-
-            translateY(-100px);
-
+            translateX(-50%)
+            translateY(-82px);
     }
 
 
     .fecha{
 
         gap:15px;
-
     }
 
 
     .dia{
 
         font-size:62px;
-
     }
 
 
     .fecha-info{
 
         padding-left:15px;
-
     }
 
 
     .contador{
 
         gap:5px;
-
     }
 
 
     .tiempo{
 
         padding:
-
             17px
             2px;
-
     }
 
 
     .evento{
 
         grid-template-columns:
-
             1fr
             35px
             1fr;
-
     }
 
 
@@ -2753,7 +2497,6 @@ body{
         padding-right:10px;
 
         font-size:13px;
-
     }
 
 
@@ -2762,14 +2505,12 @@ body{
         padding-left:10px;
 
         font-size:12px;
-
     }
 
 
     .castillo-fondo{
 
         min-height:100svh;
-
     }
 
 }
@@ -2782,9 +2523,9 @@ body{
 <body>
 
 
-<!-- ==================================================
-     AUDIO MP3
-================================================== -->
+<!-- =====================================================
+     MÚSICA
+===================================================== -->
 
 <audio
     id="audioFondo"
@@ -2800,21 +2541,11 @@ body{
 </audio>
 
 
-
-<!-- ==================================================
-     BOTÓN MÚSICA
-================================================== -->
-
 <button
-
     id="controlMusica"
-
     class="control-musica"
-
     onclick="controlarMusica()"
-
     aria-label="Pausar o reproducir música"
-
 >
 
     ❚❚
@@ -2822,22 +2553,18 @@ body{
 </button>
 
 
-
-<!-- ==================================================
+<!-- =====================================================
      PORTADA
-================================================== -->
+===================================================== -->
 
 <section id="portada">
 
 
     <div class="cielo-estrellas"></div>
 
-
     <div class="luz-portada"></div>
 
-
     <div class="marco-portada"></div>
-
 
 
     <div class="portada-contenido">
@@ -2846,10 +2573,8 @@ body{
         <div class="corona-portada">
 
             ♕
-
-
+            
         </div>
-
 
 
         <div class="mis-xv">
@@ -2857,7 +2582,6 @@ body{
             MIS XV AÑOS
 
         </div>
-
 
 
         <h1 class="nombre-portada">
@@ -2875,7 +2599,6 @@ body{
         </h1>
 
 
-
         <p class="frase-portada">
 
             “Te invito a compartir
@@ -2884,7 +2607,6 @@ body{
             en mi corazón.”
 
         </p>
-
 
 
         <div class="personal">
@@ -2900,26 +2622,19 @@ body{
         </div>
 
 
-
-        <!-- ==================================================
-             SOBRE REALISTA
-        ================================================== -->
+        <!-- =====================================================
+             SOBRE
+        ===================================================== -->
 
         <div
-
             class="abrir-zona"
-
             onclick="abrirInvitacion()"
-
         >
 
 
             <div
-
                 class="sobre"
-
                 id="sobre"
-
             >
 
 
@@ -2928,8 +2643,7 @@ body{
                 <div class="sobre-fondo"></div>
 
 
-
-                <!-- CARTA -->
+                <!-- CARTA PEQUEÑA -->
 
                 <div class="carta-interior">
 
@@ -2942,11 +2656,9 @@ body{
                 </div>
 
 
-
                 <!-- TAPA -->
 
                 <div class="sobre-tapa"></div>
-
 
 
                 <!-- FRENTE -->
@@ -2954,11 +2666,9 @@ body{
                 <div class="sobre-frente"></div>
 
 
-
                 <!-- SOLAPA -->
 
                 <div class="solapa-inferior"></div>
-
 
 
                 <!-- SELLO -->
@@ -2973,13 +2683,9 @@ body{
             </div>
 
 
-
             <div
-
                 class="tocar"
-
                 id="textoAbrir"
-
             >
 
                 Toca el sobre para abrir
@@ -2997,18 +2703,16 @@ body{
 </section>
 
 
-
-<!-- ==================================================
+<!-- =====================================================
      INVITACIÓN
-================================================== -->
+===================================================== -->
 
 <section id="invitacion">
 
 
-
-<!-- ==================================================
-     CASTILLO / PRESENTACIÓN
-================================================== -->
+<!-- =====================================================
+     PRESENTACIÓN
+===================================================== -->
 
 <section class="castillo-fondo">
 
@@ -3023,7 +2727,6 @@ body{
         </div>
 
 
-
         <h2 class="presentacion-nombre">
 
             Antonella
@@ -3033,7 +2736,6 @@ body{
             Viviana
 
         </h2>
-
 
 
         <p class="presentacion-frase">
@@ -3056,18 +2758,16 @@ body{
 </section>
 
 
-
-<!-- ==================================================
+<!-- =====================================================
      CONTENIDO
-================================================== -->
+===================================================== -->
 
 <div class="contenido">
 
 
-
-<!-- ==================================================
+<!-- =====================================================
      PADRES
-================================================== -->
+===================================================== -->
 
 <section class="tarjeta">
 
@@ -3075,8 +2775,7 @@ body{
     <div class="icono">
 
         ♕
-
-
+        
     </div>
 
 
@@ -3086,7 +2785,6 @@ body{
         DE MIS PADRES
 
     </h2>
-
 
 
     <div class="nombre-familia">
@@ -3103,10 +2801,9 @@ body{
 </section>
 
 
-
-<!-- ==================================================
+<!-- =====================================================
      PADRINOS
-================================================== -->
+===================================================== -->
 
 <section class="tarjeta">
 
@@ -3118,13 +2815,11 @@ body{
     </div>
 
 
-
     <h2 class="titulo">
 
         MIS PADRINOS
 
     </h2>
-
 
 
     <div class="padrinos-grupo">
@@ -3141,9 +2836,7 @@ body{
         </div>
 
 
-
         <div class="separador"></div>
-
 
 
         <div class="pareja-padrinos">
@@ -3163,10 +2856,9 @@ body{
 </section>
 
 
-
-<!-- ==================================================
+<!-- =====================================================
      FECHA
-================================================== -->
+===================================================== -->
 
 <section class="tarjeta">
 
@@ -3176,7 +2868,6 @@ body{
         UNA NOCHE PARA RECORDAR
 
     </h2>
-
 
 
     <div class="fecha">
@@ -3196,13 +2887,11 @@ body{
             </div>
 
 
-
             <div class="dia">
 
                 03
 
             </div>
-
 
 
             <div style="
@@ -3221,7 +2910,6 @@ body{
 
 
         </div>
-
 
 
         <div class="fecha-info">
@@ -3247,17 +2935,15 @@ body{
     </div>
 
 
-
     <div class="puntualidad">
 
         ✦ La magia comienza a tiempo ✦
 
         <br><br>
 
-        Para poder compartir juntos
-        cada momento de esta noche,
-        agradecemos respetar el horario
-        indicado y llegar unos minutos antes.
+        Para poder compartir juntos cada momento
+        de esta noche, agradecemos respetar el
+        horario indicado y llegar unos minutos antes.
 
     </div>
 
@@ -3265,10 +2951,9 @@ body{
 </section>
 
 
-
-<!-- ==================================================
+<!-- =====================================================
      CUENTA REGRESIVA
-================================================== -->
+===================================================== -->
 
 <section class="tarjeta">
 
@@ -3280,12 +2965,10 @@ body{
     </h2>
 
 
-
     <div class="contador">
 
 
         <div class="tiempo">
-
 
             <div
                 class="numero"
@@ -3296,20 +2979,16 @@ body{
 
             </div>
 
-
             <div class="etiqueta">
 
                 DÍAS
 
             </div>
 
-
         </div>
 
 
-
         <div class="tiempo">
-
 
             <div
                 class="numero"
@@ -3320,20 +2999,16 @@ body{
 
             </div>
 
-
             <div class="etiqueta">
 
                 HORAS
 
             </div>
 
-
         </div>
 
 
-
         <div class="tiempo">
-
 
             <div
                 class="numero"
@@ -3344,20 +3019,16 @@ body{
 
             </div>
 
-
             <div class="etiqueta">
 
                 MINUTOS
 
             </div>
 
-
         </div>
 
 
-
         <div class="tiempo">
-
 
             <div
                 class="numero"
@@ -3368,13 +3039,11 @@ body{
 
             </div>
 
-
             <div class="etiqueta">
 
                 SEGUNDOS
 
             </div>
-
 
         </div>
 
@@ -3385,10 +3054,9 @@ body{
 </section>
 
 
-
-<!-- ==================================================
-     UBICACIÓN
-================================================== -->
+<!-- =====================================================
+     LUGAR
+===================================================== -->
 
 <section class="tarjeta">
 
@@ -3396,10 +3064,8 @@ body{
     <div class="icono">
 
         ♕
-
-
+        
     </div>
-
 
 
     <h2 class="titulo">
@@ -3409,13 +3075,11 @@ body{
     </h2>
 
 
-
     <div class="local">
 
         Shiny Star Eventos
 
     </div>
-
 
 
     <div class="direccion">
@@ -3429,7 +3093,6 @@ body{
     </div>
 
 
-
     <div class="referencia">
 
         Referencia:
@@ -3438,17 +3101,11 @@ body{
     </div>
 
 
-
     <a
-
         class="boton"
-
         href="https://www.google.com/maps/place/8%C2%B005'06.9%22S+79%C2%B002'48.7%22W/@-8.0852516,-79.0494475,17z/data=!4m4!3m3!8m2!3d-8.0852622!4d-79.0468618?hl=es&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D"
-
         target="_blank"
-
         rel="noopener noreferrer"
-
     >
 
         📍 VER UBICACIÓN
@@ -3459,10 +3116,9 @@ body{
 </section>
 
 
-
-<!-- ==================================================
+<!-- =====================================================
      ITINERARIO
-================================================== -->
+===================================================== -->
 
 <section class="tarjeta">
 
@@ -3474,12 +3130,8 @@ body{
     </h2>
 
 
-
     <div class="itinerario">
 
-
-
-        <!-- 6:30 -->
 
         <div class="evento">
 
@@ -3496,25 +3148,19 @@ body{
 
             <div class="evento-info">
 
-
                 <div class="evento-icono">
 
                     ♕
 
                 </div>
 
-
                 RECEPCIÓN
-
 
             </div>
 
 
         </div>
 
-
-
-        <!-- 8:00 -->
 
         <div class="evento">
 
@@ -3531,13 +3177,11 @@ body{
 
             <div class="evento-info">
 
-
                 <div class="evento-icono">
 
                     ✦
 
                 </div>
-
 
                 PROTOCOLO
 
@@ -3545,15 +3189,11 @@ body{
 
                 Y CEREMONIA
 
-
             </div>
 
 
         </div>
 
-
-
-        <!-- 9:00 -->
 
         <div class="evento">
 
@@ -3570,13 +3210,11 @@ body{
 
             <div class="evento-info">
 
-
                 <div class="evento-icono">
 
-                    🥂
+                    ◇
 
                 </div>
-
 
                 BRINDIS
 
@@ -3584,15 +3222,11 @@ body{
 
                 Y CENA
 
-
             </div>
 
 
         </div>
 
-
-
-        <!-- 9:50 -->
 
         <div class="evento">
 
@@ -3609,13 +3243,11 @@ body{
 
             <div class="evento-info">
 
-
                 <div class="evento-icono">
 
-                    ✨
+                    ✧
 
                 </div>
-
 
                 BAILE
 
@@ -3623,15 +3255,11 @@ body{
 
                 SORPRESA
 
-
             </div>
 
 
         </div>
 
-
-
-        <!-- 10:00 -->
 
         <div class="evento">
 
@@ -3648,20 +3276,17 @@ body{
 
             <div class="evento-info">
 
-
                 <div class="evento-icono">
 
                     ♫
 
                 </div>
 
-
                 INICIO
 
                 <br>
 
                 DE FIESTA
-
 
             </div>
 
@@ -3675,20 +3300,18 @@ body{
 </section>
 
 
-
-<!-- ==================================================
+<!-- =====================================================
      SUGERENCIA DE REGALO
-================================================== -->
+===================================================== -->
 
 <section class="tarjeta tarjeta-clara">
 
 
     <div class="icono">
 
-        🎁
+        ♡
 
     </div>
-
 
 
     <h2 class="titulo">
@@ -3698,15 +3321,12 @@ body{
     </h2>
 
 
-
     <div class="regalo-frase">
 
-        Tu compañía en esta noche
-        tan especial es el regalo
-        más bonito que puedo recibir.
+        Tu presencia en esta noche tan especial
+        es el regalo más bonito que puedo recibir.
 
     </div>
-
 
 
     <div class="regalo-secundario">
@@ -3717,26 +3337,17 @@ body{
 
         <br><br>
 
-        Con mucho cariño,
-        hemos dejado esta opción
-        disponible para ti.
+        Con mucho cariño, hemos dejado
+        esta opción disponible para ti.
 
     </div>
 
 
-
-    <!-- QR -->
-
     <img
-
         src="qr-yape.jpg"
-
         class="qr"
-
         alt="Código QR para regalo"
-
     >
-
 
 
     <div style="
@@ -3755,10 +3366,9 @@ body{
 </section>
 
 
-
-<!-- ==================================================
+<!-- =====================================================
      VESTIMENTA
-================================================== -->
+===================================================== -->
 
 <section class="tarjeta tarjeta-clara">
 
@@ -3770,7 +3380,6 @@ body{
     </div>
 
 
-
     <h2 class="titulo">
 
         CÓDIGO DE VESTIMENTA
@@ -3778,13 +3387,41 @@ body{
     </h2>
 
 
+    <!-- ICONOS ELEGANTES -->
 
-    <div class="ropa">
+    <div class="vestimenta-iconos">
 
-        👗 &nbsp; 🤵
+
+        <!-- VESTIDO -->
+
+        <div class="icono-vestido">
+
+            <div class="vestido-superior"></div>
+
+            <div class="vestido-falda"></div>
+
+        </div>
+
+
+        <div class="separador-vestimenta">
+
+            ✦
+
+        </div>
+
+
+        <!-- TRAJE -->
+
+        <div class="icono-traje">
+
+            <div class="traje-cuello"></div>
+
+            <div class="traje-corbata"></div>
+
+        </div>
+
 
     </div>
-
 
 
     <div class="formal">
@@ -3792,7 +3429,6 @@ body{
         FORMAL ELEGANTE
 
     </div>
-
 
 
     <div class="vestimenta-texto">
@@ -3809,7 +3445,6 @@ body{
     </div>
 
 
-
     <div class="reserva-color">
 
 
@@ -3818,7 +3453,6 @@ body{
             COLORES RESERVADOS
 
         </strong>
-
 
 
         <div class="muestras">
@@ -3845,7 +3479,6 @@ body{
         </div>
 
 
-
         Los tonos
 
         <strong>
@@ -3855,8 +3488,7 @@ body{
         </strong>
 
         han sido reservados especialmente
-        para la quinceañera y sus
-        familiares cercanos.
+        para la quinceañera y sus familiares cercanos.
 
         <br><br>
 
@@ -3869,10 +3501,9 @@ body{
 </section>
 
 
-
-<!-- ==================================================
+<!-- =====================================================
      FINAL
-================================================== -->
+===================================================== -->
 
 <section class="final">
 
@@ -3899,7 +3530,6 @@ body{
     </div>
 
 
-
     <div class="final-nombre">
 
         ANTONELLA VIVIANA
@@ -3910,11 +3540,9 @@ body{
 </section>
 
 
-
 </div>
 
 </section>
-
 
 
 <script>
@@ -3927,27 +3555,18 @@ let abierta = false;
 
 
 const audio =
-
     document.getElementById(
         "audioFondo"
     );
 
 
 const botonMusica =
-
     document.getElementById(
         "controlMusica"
     );
 
 
-/*
-Volumen de la música.
-
-0.55 = 55%
-*/
-
 audio.volume = 0.55;
-
 
 
 /* =====================================================
@@ -3958,107 +3577,67 @@ function abrirInvitacion(){
 
 
     if(abierta){
-
         return;
-
     }
 
 
     abierta = true;
 
 
-
-    /* =================================================
-       PASO 1
-       ABRIR SOBRE
-    ================================================= */
+    /*
+    1. ABRIR SOBRE
+    */
 
     document
-
-        .getElementById(
-            "sobre"
-        )
-
+        .getElementById("sobre")
         .classList
-
-        .add(
-            "abierto"
-        );
-
+        .add("abierto");
 
 
     document
-
-        .getElementById(
-            "textoAbrir"
-        )
-
+        .getElementById("textoAbrir")
         .innerHTML =
-
         "Abriendo una noche mágica...";
 
 
-
-    /* =================================================
-       PASO 2
-       ESTRELLAS
-    ================================================= */
+    /*
+    2. ESTRELLAS
+    */
 
     setTimeout(
-
         crearEstrellas,
-
         500
-
     );
 
 
-
-    /* =================================================
-       PASO 3
-       INICIAR MÚSICA
-    ================================================= */
+    /*
+    3. MÚSICA
+    */
 
     audio
-
         .play()
-
         .then(function(){
 
-
             botonMusica.innerHTML =
-
                 "❚❚";
 
-
         })
-
         .catch(function(){
 
-
             botonMusica.innerHTML =
-
                 "♪";
-
 
         });
 
 
-
     botonMusica
-
         .classList
-
-        .add(
-            "visible"
-        );
+        .add("visible");
 
 
-
-    /* =================================================
-       PASO 4
-       MOSTRAR INVITACIÓN
-    ================================================= */
+    /*
+    4. ENTRAR A INVITACIÓN
+    */
 
     setTimeout(
 
@@ -4066,37 +3645,20 @@ function abrirInvitacion(){
 
 
             document
-
-                .getElementById(
-                    "portada"
-                )
-
+                .getElementById("portada")
                 .style.display =
-
                 "none";
 
 
-
             document
-
-                .getElementById(
-                    "invitacion"
-                )
-
+                .getElementById("invitacion")
                 .classList
-
-                .add(
-                    "visible"
-                );
-
+                .add("visible");
 
 
             window.scrollTo({
-
                 top:0,
-
                 behavior:"smooth"
-
             });
 
 
@@ -4109,189 +3671,117 @@ function abrirInvitacion(){
 }
 
 
-
 /* =====================================================
-   CREAR ESTRELLAS
+   ESTRELLAS AL ABRIR
 ===================================================== */
 
 function crearEstrellas(){
 
 
     const sobre =
-
         document.getElementById(
             "sobre"
         );
 
 
     const rect =
-
         sobre.getBoundingClientRect();
 
 
-
     const centroX =
-
         rect.left +
-
         rect.width / 2;
 
 
-
     const centroY =
-
         rect.top +
-
         rect.height / 2;
 
 
-
     for(
-
         let i = 0;
-
         i < 70;
-
         i++
-
     ){
 
 
         const estrella =
-
             document.createElement(
                 "div"
             );
 
 
-
         estrella.className =
-
             "particula";
 
 
-
         estrella.style.left =
-
             centroX + "px";
 
 
-
         estrella.style.top =
-
             centroY + "px";
 
 
-
         const angulo =
-
             Math.random()
-
             * Math.PI
-
             * 2;
 
 
-
         const distancia =
-
-            80
-
-            +
-
+            80 +
             Math.random()
-
             * 300;
 
 
-
         const x =
-
-            Math.cos(
-                angulo
-            )
-
+            Math.cos(angulo)
             * distancia;
-
 
 
         const y =
-
-            Math.sin(
-                angulo
-            )
-
+            Math.sin(angulo)
             * distancia;
 
 
-
-        estrella
-
-            .style
-
-            .setProperty(
-
-                "--x",
-
-                x + "px"
-
-            );
+        estrella.style.setProperty(
+            "--x",
+            x + "px"
+        );
 
 
-
-        estrella
-
-            .style
-
-            .setProperty(
-
-                "--y",
-
-                y + "px"
-
-            );
-
+        estrella.style.setProperty(
+            "--y",
+            y + "px"
+        );
 
 
         const tamaño =
-
-            4
-
-            +
-
+            4 +
             Math.random()
-
             * 9;
 
 
-
         estrella.style.width =
-
             tamaño + "px";
-
 
 
         estrella.style.height =
-
             tamaño + "px";
 
 
-
         document.body
-
             .appendChild(
                 estrella
             );
-
 
 
         setTimeout(
 
             function(){
 
-
                 estrella.remove();
-
 
             },
 
@@ -4302,7 +3792,6 @@ function crearEstrellas(){
     }
 
 }
-
 
 
 /* =====================================================
@@ -4319,7 +3808,6 @@ function controlarMusica(){
 
 
         botonMusica.innerHTML =
-
             "❚❚";
 
 
@@ -4330,108 +3818,62 @@ function controlarMusica(){
 
 
         botonMusica.innerHTML =
-
             "♪";
-
 
     }
 
 }
 
 
-
 /* =====================================================
    CUENTA REGRESIVA
+
+   03 OCTUBRE 2026
+   6:30 P.M.
+   PERÚ UTC-5
 ===================================================== */
 
-/*
-
-Evento:
-
-03 de octubre de 2026
-
-6:30 P.M.
-
-Hora Perú UTC-5
-
-*/
-
 const fechaEvento =
-
     new Date(
-
         "2026-10-03T18:30:00-05:00"
-
     );
-
 
 
 function actualizarContador(){
 
 
     const ahora =
-
         new Date();
 
 
-
     const diferencia =
-
         fechaEvento - ahora;
 
 
-
-    if(
-
-        diferencia <= 0
-
-    ){
+    if(diferencia <= 0){
 
 
         document
-
-            .getElementById(
-                "dias"
-            )
-
+            .getElementById("dias")
             .textContent =
-
             "00";
 
 
-
         document
-
-            .getElementById(
-                "horas"
-            )
-
+            .getElementById("horas")
             .textContent =
-
             "00";
 
 
-
         document
-
-            .getElementById(
-                "minutos"
-            )
-
+            .getElementById("minutos")
             .textContent =
-
             "00";
 
 
-
         document
-
-            .getElementById(
-                "segundos"
-            )
-
+            .getElementById("segundos")
             .textContent =
-
             "00";
 
 
@@ -4440,124 +3882,68 @@ function actualizarContador(){
     }
 
 
-
     const dias =
-
         Math.floor(
-
             diferencia /
-
             86400000
-
         );
-
 
 
     const horas =
-
         Math.floor(
-
             diferencia /
-
             3600000
-
         ) % 24;
 
 
-
     const minutos =
-
         Math.floor(
-
             diferencia /
-
             60000
-
         ) % 60;
-
 
 
     const segundos =
-
         Math.floor(
-
             diferencia /
-
             1000
-
         ) % 60;
 
 
-
     document
-
-        .getElementById(
-            "dias"
-        )
-
+        .getElementById("dias")
         .textContent =
-
-        String(
-            dias
-        )
-
+        String(dias)
         .padStart(
             2,
             "0"
         );
 
 
-
     document
-
-        .getElementById(
-            "horas"
-        )
-
+        .getElementById("horas")
         .textContent =
-
-        String(
-            horas
-        )
-
+        String(horas)
         .padStart(
             2,
             "0"
         );
 
 
-
     document
-
-        .getElementById(
-            "minutos"
-        )
-
+        .getElementById("minutos")
         .textContent =
-
-        String(
-            minutos
-        )
-
+        String(minutos)
         .padStart(
             2,
             "0"
         );
 
 
-
     document
-
-        .getElementById(
-            "segundos"
-        )
-
+        .getElementById("segundos")
         .textContent =
-
-        String(
-            segundos
-        )
-
+        String(segundos)
         .padStart(
             2,
             "0"
@@ -4566,21 +3952,14 @@ function actualizarContador(){
 }
 
 
-
-/* iniciar contador */
+/* INICIAR CONTADOR */
 
 actualizarContador();
 
 
-
-/* actualizar cada segundo */
-
 setInterval(
-
     actualizarContador,
-
     1000
-
 );
 
 
