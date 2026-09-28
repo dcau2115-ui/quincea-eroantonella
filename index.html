@@ -2,18 +2,18 @@
 <html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Mis XV - Antonella Viviana</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
+href="https://fonts.gstatic.com"
+crossorigin>
 
 <link
 href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
@@ -22,7 +22,7 @@ rel="stylesheet">
 <style>
 
 /* =====================================================
-   COLORES
+   PALETA DE COLORES
 ===================================================== */
 
 :root{
@@ -31,15 +31,17 @@ rel="stylesheet">
     --azul-profundo:#041b36;
     --azul:#0b4f82;
     --azul-medio:#267eb5;
+
     --celeste:#75cfff;
     --celeste-claro:#c9efff;
     --celeste-hielo:#edfaff;
+
     --blanco:#ffffff;
 }
 
 
 /* =====================================================
-   GENERAL
+   CONFIGURACIÓN GENERAL
 ===================================================== */
 
 *{
@@ -63,17 +65,43 @@ body{
 
     overflow-x:hidden;
 
-    /*
-    FONDO GENERAL DEL CASTILLO
-    */
+    background:#03152c;
+}
+
+
+/* =====================================================
+   FONDO ÚNICO DEL CASTILLO
+===================================================== */
+
+/*
+IMPORTANTE:
+
+El castillo NO se coloca directamente
+como fondo del body.
+
+Creamos una capa fija que ocupa toda la pantalla.
+
+De esta manera:
+
+- No se repite.
+- No aparecen varios castillos en celular.
+- Se mantiene mientras haces scroll.
+- Tiene un difuminado muy ligero.
+*/
+
+.fondo-castillo{
+
+    position:fixed;
+
+    top:-6px;
+    left:-6px;
+
+    width:calc(100% + 12px);
+    height:calc(100% + 12px);
+
+    z-index:-10;
 
     background-image:
-
-        linear-gradient(
-            rgba(2,15,35,.12),
-            rgba(2,20,42,.25)
-        ),
-
         url("castillo.jpg");
 
     background-size:cover;
@@ -82,9 +110,30 @@ body{
 
     background-repeat:no-repeat;
 
-    background-attachment:fixed;
+    filter:blur(1.2px);
 
-    background-color:#03152c;
+    transform:scale(1.015);
+}
+
+
+/* Capa azul muy suave */
+
+.fondo-castillo::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(1,15,34,.10),
+            rgba(3,25,50,.18),
+            rgba(1,12,27,.28)
+        );
 }
 
 
@@ -107,10 +156,12 @@ body{
     align-items:center;
 
     overflow:hidden;
-
-    background:transparent;
 }
 
+
+/* =====================================================
+   CAPA PORTADA
+===================================================== */
 
 #portada::before{
 
@@ -130,8 +181,8 @@ body{
 
         linear-gradient(
             180deg,
-            rgba(0,15,35,.05),
-            rgba(0,20,45,.12),
+            rgba(0,15,35,.04),
+            rgba(0,20,45,.10),
             rgba(0,10,25,.20)
         );
 
@@ -170,16 +221,14 @@ body{
         );
 
     background-size:
-
         45px 45px,
         73px 73px;
 
     background-position:
-
         0 0,
         25px 18px;
 
-    opacity:.40;
+    opacity:.35;
 
     animation:
         moverEstrellas
@@ -201,7 +250,7 @@ body{
 
 
 /* =====================================================
-   LUZ SUPERIOR
+   LUZ PORTADA
 ===================================================== */
 
 .luz-portada{
@@ -220,7 +269,7 @@ body{
 
         radial-gradient(
             circle,
-            rgba(122,216,255,.20),
+            rgba(122,216,255,.18),
             transparent 65%
         );
 
@@ -231,7 +280,7 @@ body{
 
 
 /* =====================================================
-   MARCO
+   MARCO PORTADA
 ===================================================== */
 
 .marco-portada{
@@ -265,7 +314,7 @@ body{
 
 
 /* =====================================================
-   PORTADA CONTENIDO
+   CONTENIDO PORTADA
 ===================================================== */
 
 .portada-contenido{
@@ -360,7 +409,7 @@ body{
 
 
 /* =====================================================
-   FRASE
+   FRASE PORTADA
 ===================================================== */
 
 .frase-portada{
@@ -402,7 +451,7 @@ body{
 
 
 /* =====================================================
-   ZONA DEL SOBRE
+   ZONA SOBRE
 ===================================================== */
 
 .abrir-zona{
@@ -474,7 +523,7 @@ body{
 
 
 /* =====================================================
-   FONDO SOBRE
+   PARTE TRASERA DEL SOBRE
 ===================================================== */
 
 .sobre-fondo{
@@ -482,11 +531,9 @@ body{
     position:absolute;
 
     left:0;
-
     bottom:0;
 
     width:100%;
-
     height:135px;
 
     background:
@@ -504,38 +551,26 @@ body{
     border-radius:5px;
 
     z-index:1;
-
-    box-shadow:
-
-        inset
-        0 0 30px
-        rgba(109,204,255,.12);
 }
 
 
 /* =====================================================
-   CARTA INTERIOR PEQUEÑA
+   CARTA INTERIOR
 ===================================================== */
 
 .carta-interior{
 
     position:absolute;
 
-    width:170px;
-
-    height:95px;
+    width:165px;
+    height:90px;
 
     left:50%;
-
-    bottom:20px;
+    bottom:17px;
 
     z-index:2;
 
-    border-radius:
-        4px
-        4px
-        2px
-        2px;
+    border-radius:4px;
 
     background:
 
@@ -563,14 +598,9 @@ body{
         0 3px 10px
         rgba(0,0,0,.15);
 
-    /*
-    Queda escondida dentro
-    del sobre cuando está cerrado.
-    */
-
     transform:
         translateX(-50%)
-        translateY(25px);
+        translateY(35px);
 
     transition:
 
@@ -585,7 +615,7 @@ body{
 
     content:"✦";
 
-    font-size:17px;
+    font-size:15px;
 
     color:#429ac9;
 
@@ -597,12 +627,12 @@ body{
 
     font-family:'Great Vibes',cursive;
 
-    font-size:22px;
+    font-size:21px;
 }
 
 
 /* =====================================================
-   TAPA DEL SOBRE
+   TAPA SOBRE
 ===================================================== */
 
 .sobre-tapa{
@@ -610,11 +640,9 @@ body{
     position:absolute;
 
     left:0;
-
     top:35px;
 
     width:0;
-
     height:0;
 
     border-left:
@@ -649,31 +677,6 @@ body{
 }
 
 
-.sobre-tapa::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:-122px;
-
-    top:-90px;
-
-    width:244px;
-
-    height:2px;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            transparent,
-            #9ee4ff,
-            transparent
-        );
-}
-
-
 /* =====================================================
    FRENTE DEL SOBRE
 ===================================================== */
@@ -683,11 +686,9 @@ body{
     position:absolute;
 
     left:0;
-
     bottom:0;
 
     width:100%;
-
     height:135px;
 
     z-index:4;
@@ -695,10 +696,7 @@ body{
     overflow:hidden;
 
     border-radius:
-        0
-        0
-        5px
-        5px;
+        0 0 5px 5px;
 
     pointer-events:none;
 }
@@ -711,11 +709,9 @@ body{
     position:absolute;
 
     width:190px;
-
     height:190px;
 
     left:-95px;
-
     bottom:-95px;
 
     background:
@@ -725,10 +721,6 @@ body{
             #0c4c78,
             #0a416b
         );
-
-    border:
-        1px solid
-        rgba(142,218,255,.30);
 
     transform:
         rotate(45deg);
@@ -742,11 +734,9 @@ body{
     position:absolute;
 
     width:190px;
-
     height:190px;
 
     right:-95px;
-
     bottom:-95px;
 
     background:
@@ -756,10 +746,6 @@ body{
             #0b456f,
             #07385f
         );
-
-    border:
-        1px solid
-        rgba(142,218,255,.25);
 
     transform:
         rotate(45deg);
@@ -775,11 +761,9 @@ body{
     position:absolute;
 
     left:0;
-
     bottom:0;
 
     width:100%;
-
     height:105px;
 
     overflow:hidden;
@@ -797,11 +781,9 @@ body{
     position:absolute;
 
     width:175px;
-
     height:175px;
 
     left:50%;
-
     bottom:-125px;
 
     transform:
@@ -815,10 +797,6 @@ body{
             #0f5584,
             #073b63
         );
-
-    border:
-        1px solid
-        rgba(145,219,255,.35);
 }
 
 
@@ -831,7 +809,6 @@ body{
     position:absolute;
 
     left:50%;
-
     top:88px;
 
     transform:
@@ -839,7 +816,6 @@ body{
         scale(1);
 
     width:58px;
-
     height:58px;
 
     border-radius:50%;
@@ -884,7 +860,6 @@ body{
         rgba(255,255,255,.25);
 
     transition:
-
         opacity .4s,
         transform .4s;
 }
@@ -930,7 +905,7 @@ body{
 
 
 /* =====================================================
-   ABRIR SOBRE
+   SOBRE ABIERTO
 ===================================================== */
 
 .sobre.abierto{
@@ -958,16 +933,11 @@ body{
 }
 
 
-/*
-La carta sale DESPUÉS
-de abrir la tapa.
-*/
-
 .sobre.abierto .carta-interior{
 
     transform:
         translateX(-50%)
-        translateY(-90px);
+        translateY(-88px);
 
     z-index:3;
 }
@@ -1026,7 +996,6 @@ de abrir la tapa.
     pointer-events:none;
 
     width:8px;
-
     height:8px;
 
     background:white;
@@ -1075,11 +1044,6 @@ de abrir la tapa.
             rotate(0deg);
     }
 
-    50%{
-
-        opacity:1;
-    }
-
     to{
 
         opacity:0;
@@ -1110,8 +1074,6 @@ de abrir la tapa.
 
     position:relative;
 
-    background:transparent;
-
     overflow:hidden;
 }
 
@@ -1122,8 +1084,7 @@ de abrir la tapa.
 
     animation:
         aparecerInvitacion
-        1.5s
-        ease;
+        1.5s ease;
 }
 
 
@@ -1139,36 +1100,8 @@ de abrir la tapa.
 }
 
 
-/*
-Capa muy ligera.
-No desenfoca el castillo.
-*/
-
-#invitacion::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            rgba(2,20,45,.04),
-            rgba(4,39,70,.08),
-            rgba(2,14,31,.18)
-        );
-
-    pointer-events:none;
-
-    z-index:0;
-}
-
-
 /* =====================================================
-   PRESENTACIÓN CASTILLO
+   PRESENTACIÓN
 ===================================================== */
 
 .castillo-fondo{
@@ -1184,36 +1117,9 @@ No desenfoca el castillo.
     justify-content:center;
 
     padding:
-        80px
-        20px;
-
-    background:transparent;
+        80px 20px;
 }
 
-
-.castillo-fondo::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(145,222,255,.08),
-            transparent 42%
-        );
-
-    pointer-events:none;
-}
-
-
-/* =====================================================
-   PRESENTACIÓN
-===================================================== */
 
 .presentacion{
 
@@ -1228,19 +1134,13 @@ No desenfoca el castillo.
     text-align:center;
 
     padding:
-        48px
-        25px;
+        48px 25px;
 
     border:
         1px solid
         rgba(185,230,255,.60);
 
     border-radius:28px;
-
-    /*
-    SIN backdrop-filter para no
-    desenfocar el castillo.
-    */
 
     background:
 
@@ -1253,11 +1153,7 @@ No desenfoca el castillo.
     box-shadow:
 
         0 20px 50px
-        rgba(0,0,0,.40),
-
-        inset
-        0 0 25px
-        rgba(90,190,255,.08);
+        rgba(0,0,0,.40);
 }
 
 
@@ -1287,8 +1183,7 @@ No desenfoca el castillo.
     line-height:.80;
 
     margin:
-        25px
-        0;
+        25px 0;
 
     color:white;
 
@@ -1327,9 +1222,7 @@ No desenfoca el castillo.
     z-index:2;
 
     padding:
-        70px
-        0
-        100px;
+        70px 0 100px;
 }
 
 
@@ -1342,12 +1235,10 @@ No desenfoca el castillo.
     position:relative;
 
     margin:
-        0 auto
-        45px;
+        0 auto 45px;
 
     padding:
-        42px
-        25px;
+        42px 25px;
 
     text-align:center;
 
@@ -1368,16 +1259,7 @@ No desenfoca el castillo.
     box-shadow:
 
         0 18px 45px
-        rgba(0,0,0,.30),
-
-        inset
-        0 0 25px
-        rgba(109,204,255,.05);
-
-    /*
-    SIN blur.
-    El castillo conserva nitidez.
-    */
+        rgba(0,0,0,.30);
 }
 
 
@@ -1389,8 +1271,8 @@ No desenfoca el castillo.
 
         linear-gradient(
             145deg,
-            rgba(240,251,255,.95),
-            rgba(211,241,255,.92)
+            rgba(240,251,255,.96),
+            rgba(211,241,255,.94)
         );
 
     border:
@@ -1418,7 +1300,6 @@ No desenfoca el castillo.
 
 
 .tarjeta-clara .titulo{
-
     color:#17618f;
 }
 
@@ -1432,7 +1313,7 @@ No desenfoca el castillo.
 
 
 /* =====================================================
-   PADRES
+   FAMILIA
 ===================================================== */
 
 .nombre-familia{
@@ -1447,10 +1328,6 @@ No desenfoca el castillo.
 }
 
 
-/* =====================================================
-   PADRINOS
-===================================================== */
-
 .padrinos-grupo{
 
     line-height:1.9;
@@ -1462,12 +1339,6 @@ No desenfoca el castillo.
 .pareja-padrinos{
 
     margin-bottom:25px;
-}
-
-
-.pareja-padrinos:last-child{
-
-    margin-bottom:0;
 }
 
 
@@ -1592,8 +1463,7 @@ No desenfoca el castillo.
 .tiempo{
 
     padding:
-        20px
-        4px;
+        20px 4px;
 
     border-radius:14px;
 
@@ -1608,12 +1478,6 @@ No desenfoca el castillo.
     border:
         1px solid
         #94dcff;
-
-    box-shadow:
-
-        inset
-        0 0 15px
-        rgba(255,255,255,.08);
 }
 
 
@@ -1643,7 +1507,7 @@ No desenfoca el castillo.
 
 
 /* =====================================================
-   LUGAR
+   LOCAL
 ===================================================== */
 
 .local{
@@ -1672,10 +1536,6 @@ No desenfoca el castillo.
 }
 
 
-/* =====================================================
-   BOTÓN
-===================================================== */
-
 .boton{
 
     display:inline-block;
@@ -1683,8 +1543,7 @@ No desenfoca el castillo.
     margin-top:25px;
 
     padding:
-        15px
-        28px;
+        15px 28px;
 
     border-radius:50px;
 
@@ -1746,7 +1605,6 @@ No desenfoca el castillo.
     left:50%;
 
     top:15px;
-
     bottom:15px;
 
     width:2px;
@@ -1768,9 +1626,7 @@ No desenfoca el castillo.
     display:grid;
 
     grid-template-columns:
-        1fr
-        45px
-        1fr;
+        1fr 45px 1fr;
 
     align-items:center;
 }
@@ -1791,7 +1647,6 @@ No desenfoca el castillo.
 .punto{
 
     width:16px;
-
     height:16px;
 
     margin:auto;
@@ -1821,14 +1676,6 @@ No desenfoca el castillo.
     line-height:1.6;
 
     font-size:13px;
-}
-
-
-.evento-icono{
-
-    font-size:25px;
-
-    margin-bottom:5px;
 }
 
 
@@ -1874,8 +1721,7 @@ No desenfoca el castillo.
     display:block;
 
     margin:
-        25px auto
-        10px;
+        25px auto 10px;
 
     padding:10px;
 
@@ -1890,7 +1736,7 @@ No desenfoca el castillo.
 
 
 /* =====================================================
-   CÓDIGO DE VESTIMENTA
+   VESTIMENTA
 ===================================================== */
 
 .formal{
@@ -1916,7 +1762,7 @@ No desenfoca el castillo.
 
 
 /* =====================================================
-   ICONOS ELEGANTES VESTIMENTA
+   VESTIDO DAMA + TRAJE HOMBRE
 ===================================================== */
 
 .vestimenta-iconos{
@@ -1925,140 +1771,182 @@ No desenfoca el castillo.
 
     justify-content:center;
 
-    align-items:center;
+    align-items:flex-end;
 
-    gap:28px;
+    gap:45px;
 
     margin:
-        15px auto
-        28px;
+        20px auto
+        30px;
 }
 
 
-/* VESTIDO */
+/* =====================================================
+   VESTIDO DE DAMA
+===================================================== */
 
-.icono-vestido{
+.figura-dama{
+
+    width:85px;
+
+    height:125px;
 
     position:relative;
-
-    width:62px;
-
-    height:90px;
 }
 
 
-.vestido-superior{
+/* tirantes */
+
+.figura-dama .tirante-izq,
+.figura-dama .tirante-der{
 
     position:absolute;
 
-    top:0;
+    top:8px;
+
+    width:5px;
+
+    height:27px;
+
+    background:#215d86;
+
+    border-radius:5px;
+
+    z-index:3;
+}
+
+
+.figura-dama .tirante-izq{
+
+    left:29px;
+
+    transform:rotate(9deg);
+}
+
+
+.figura-dama .tirante-der{
+
+    right:29px;
+
+    transform:rotate(-9deg);
+}
+
+
+/* parte superior vestido */
+
+.figura-dama .corpiño{
+
+    position:absolute;
+
+    top:22px;
 
     left:50%;
 
     transform:
         translateX(-50%);
 
-    width:28px;
+    width:42px;
 
-    height:35px;
+    height:43px;
 
     background:
 
         linear-gradient(
-            145deg,
-            #246d99,
-            #123f61
+            135deg,
+            #75cfff,
+            #226c9a
         );
 
     clip-path:
 
         polygon(
-            25% 0,
-            43% 14%,
-            57% 14%,
-            75% 0,
-            85% 35%,
-            68% 100%,
-            32% 100%,
-            15% 35%
+            10% 0,
+            38% 7%,
+            50% 18%,
+            62% 7%,
+            90% 0,
+            80% 100%,
+            20% 100%
         );
+
+    z-index:2;
 }
 
 
-.vestido-falda{
+/* cintura */
+
+.figura-dama .cintura{
 
     position:absolute;
 
-    top:29px;
+    top:60px;
 
     left:50%;
 
     transform:
         translateX(-50%);
 
-    width:62px;
+    width:39px;
 
-    height:61px;
+    height:7px;
+
+    border-radius:10px;
+
+    background:#d5f3ff;
+
+    z-index:4;
+
+    box-shadow:
+        0 0 7px
+        rgba(80,180,230,.50);
+}
+
+
+/* falda larga */
+
+.figura-dama .falda{
+
+    position:absolute;
+
+    top:62px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:82px;
+
+    height:62px;
 
     background:
 
         linear-gradient(
-            145deg,
-            #3d8fbc,
-            #174d70
+            120deg,
+            #246c99,
+            #75cfff 50%,
+            #195579
         );
 
     clip-path:
 
         polygon(
-            39% 0,
-            61% 0,
+            37% 0,
+            63% 0,
             100% 100%,
             0 100%
         );
 
     border-radius:
-        0 0 8px 8px;
+        0 0 12px 12px;
+
+    z-index:1;
 }
 
 
-/* TRAJE */
+/* brillo vestido */
 
-.icono-traje{
-
-    position:relative;
-
-    width:65px;
-
-    height:90px;
-
-    border-radius:
-        8px 8px 4px 4px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #245f86,
-            #102f49
-        );
-
-    clip-path:
-
-        polygon(
-            14% 0,
-            39% 0,
-            50% 16%,
-            61% 0,
-            86% 0,
-            100% 100%,
-            0 100%
-        );
-}
-
-
-.traje-cuello::before,
-.traje-cuello::after{
+.figura-dama .falda::after{
 
     content:"";
 
@@ -2066,43 +1954,65 @@ No desenfoca el castillo.
 
     top:0;
 
-    width:25px;
+    left:43%;
 
-    height:35px;
+    width:13%;
 
-    background:#eefaff;
-}
+    height:100%;
 
+    background:
 
-.traje-cuello::before{
-
-    left:9px;
-
-    clip-path:
-
-        polygon(
-            0 0,
-            100% 0,
-            100% 100%
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,.30),
+            transparent
         );
+
+    transform:
+        skewX(-10deg);
 }
 
 
-.traje-cuello::after{
+/* =====================================================
+   TRAJE DE HOMBRE
+===================================================== */
 
-    right:9px;
+.figura-hombre{
 
-    clip-path:
+    width:85px;
 
-        polygon(
-            0 0,
-            100% 0,
-            0 100%
-        );
+    height:125px;
+
+    position:relative;
 }
 
 
-.traje-corbata{
+/* camisa */
+
+.figura-hombre .camisa{
+
+    position:absolute;
+
+    top:11px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:35px;
+
+    height:65px;
+
+    background:#f5fcff;
+
+    z-index:1;
+}
+
+
+/* saco */
+
+.figura-hombre .saco{
 
     position:absolute;
 
@@ -2113,38 +2023,195 @@ No desenfoca el castillo.
     transform:
         translateX(-50%);
 
-    width:9px;
+    width:75px;
 
-    height:38px;
+    height:84px;
 
-    background:#78c9ee;
+    background:
+
+        linear-gradient(
+            135deg,
+            #256b96,
+            #103e60
+        );
+
+    clip-path:
+
+        polygon(
+            10% 0,
+            38% 0,
+            50% 22%,
+            62% 0,
+            90% 0,
+            100% 100%,
+            56% 100%,
+            50% 60%,
+            44% 100%,
+            0 100%
+        );
+
+    z-index:2;
+
+    border-radius:
+        7px 7px 4px 4px;
+}
+
+
+/* solapa izquierda */
+
+.figura-hombre .solapa-izq{
+
+    position:absolute;
+
+    top:13px;
+
+    left:17px;
+
+    width:28px;
+
+    height:48px;
+
+    background:#184d70;
+
+    clip-path:
+
+        polygon(
+            0 0,
+            100% 0,
+            65% 100%
+        );
+
+    z-index:3;
+}
+
+
+/* solapa derecha */
+
+.figura-hombre .solapa-der{
+
+    position:absolute;
+
+    top:13px;
+
+    right:17px;
+
+    width:28px;
+
+    height:48px;
+
+    background:#184d70;
+
+    clip-path:
+
+        polygon(
+            0 0,
+            100% 0,
+            35% 100%
+        );
+
+    z-index:3;
+}
+
+
+/* corbata */
+
+.figura-hombre .corbata{
+
+    position:absolute;
+
+    top:20px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:11px;
+
+    height:45px;
+
+    background:#75cfff;
 
     clip-path:
 
         polygon(
             50% 0,
-            100% 20%,
+            100% 18%,
             72% 100%,
             28% 100%,
-            0 20%
+            0 18%
         );
 
     z-index:5;
 }
 
 
-.separador-vestimenta{
+/* pantalón */
+
+.figura-hombre .pantalon-izq,
+.figura-hombre .pantalon-der{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:25px;
+
+    height:43px;
+
+    background:#123e5c;
+
+    z-index:1;
+}
+
+
+.figura-hombre .pantalon-izq{
+
+    left:17px;
+
+    transform:skewX(-4deg);
+}
+
+
+.figura-hombre .pantalon-der{
+
+    right:17px;
+
+    transform:skewX(4deg);
+}
+
+
+/* =====================================================
+   ETIQUETAS DAMA / HOMBRE
+===================================================== */
+
+.tipo-vestimenta{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:48px;
+
+    margin-top:-15px;
+
+    margin-bottom:28px;
 
     font-family:'Cinzel',serif;
 
-    font-size:22px;
+    font-size:11px;
 
-    color:#4c9ac4;
+    letter-spacing:1px;
 
-    text-shadow:
+    color:#2a6386;
+}
 
-        0 0 8px
-        rgba(79,177,228,.35);
+
+.tipo-vestimenta span{
+
+    width:85px;
+
+    text-align:center;
 }
 
 
@@ -2180,15 +2247,13 @@ No desenfoca el castillo.
     gap:13px;
 
     margin:
-        18px
-        0;
+        18px 0;
 }
 
 
 .muestra{
 
     width:40px;
-
     height:40px;
 
     border-radius:50%;
@@ -2227,9 +2292,7 @@ No desenfoca el castillo.
     text-align:center;
 
     padding:
-        30px
-        15px
-        80px;
+        30px 15px 80px;
 }
 
 
@@ -2270,11 +2333,9 @@ No desenfoca el castillo.
     position:fixed;
 
     right:18px;
-
     bottom:18px;
 
     width:52px;
-
     height:52px;
 
     border-radius:50%;
@@ -2313,26 +2374,42 @@ No desenfoca el castillo.
 
 
 /* =====================================================
-   RESPONSIVE
+   CELULARES
 ===================================================== */
 
 @media(max-width:500px){
 
 
     /*
-    Mejor comportamiento de imagen
-    vertical en móviles.
+    FONDO ÚNICO EN CELULAR
+
+    Muy importante:
+    no repeat.
     */
 
-    body{
+    .fondo-castillo{
 
-        background-attachment:scroll;
+        position:fixed;
 
-        background-size:auto 100vh;
+        top:-5px;
+        left:-5px;
 
-        background-position:center top;
+        width:calc(100vw + 10px);
 
-        background-repeat:repeat-y;
+        height:calc(100svh + 10px);
+
+        background-image:
+            url("castillo.jpg");
+
+        background-repeat:no-repeat;
+
+        background-position:center center;
+
+        background-size:cover;
+
+        filter:blur(1px);
+
+        transform:scale(1.02);
     }
 
 
@@ -2385,39 +2462,25 @@ No desenfoca el castillo.
     }
 
 
-    .sobre-tapa::after{
-
-        left:-107px;
-
-        top:-80px;
-
-        width:214px;
-    }
-
-
-    /*
-    CARTA MÁS PEQUEÑA EN CELULAR
-    */
-
     .carta-interior{
 
-        width:150px;
+        width:145px;
 
-        height:85px;
+        height:80px;
 
         left:50%;
 
-        bottom:18px;
+        bottom:16px;
 
         transform:
             translateX(-50%)
-            translateY(25px);
+            translateY(35px);
     }
 
 
     .carta-interior span{
 
-        font-size:20px;
+        font-size:19px;
     }
 
 
@@ -2443,11 +2506,12 @@ No desenfoca el castillo.
     }
 
 
-    .sobre.abierto .carta-interior{
+    .sobre.abierto
+    .carta-interior{
 
         transform:
             translateX(-50%)
-            translateY(-82px);
+            translateY(-78px);
     }
 
 
@@ -2478,17 +2542,14 @@ No desenfoca el castillo.
     .tiempo{
 
         padding:
-            17px
-            2px;
+            17px 2px;
     }
 
 
     .evento{
 
         grid-template-columns:
-            1fr
-            35px
-            1fr;
+            1fr 35px 1fr;
     }
 
 
@@ -2513,6 +2574,23 @@ No desenfoca el castillo.
         min-height:100svh;
     }
 
+
+    /*
+    Vestido y traje mantienen
+    tamaño correcto en celular.
+    */
+
+    .vestimenta-iconos{
+
+        gap:35px;
+    }
+
+
+    .tipo-vestimenta{
+
+        gap:38px;
+    }
+
 }
 
 </style>
@@ -2524,29 +2602,33 @@ No desenfoca el castillo.
 
 
 <!-- =====================================================
+     FONDO ÚNICO DEL CASTILLO
+===================================================== -->
+
+<div class="fondo-castillo"></div>
+
+
+<!-- =====================================================
      MÚSICA
 ===================================================== -->
 
 <audio
-    id="audioFondo"
-    loop
-    preload="auto"
->
+id="audioFondo"
+loop
+preload="auto">
 
     <source
-        src="musica-fondo.mp3"
-        type="audio/mpeg"
-    >
+    src="musica-fondo.mp3"
+    type="audio/mpeg">
 
 </audio>
 
 
 <button
-    id="controlMusica"
-    class="control-musica"
-    onclick="controlarMusica()"
-    aria-label="Pausar o reproducir música"
->
+id="controlMusica"
+class="control-musica"
+onclick="controlarMusica()"
+aria-label="Pausar o reproducir música">
 
     ❚❚
 
@@ -2560,144 +2642,121 @@ No desenfoca el castillo.
 <section id="portada">
 
 
-    <div class="cielo-estrellas"></div>
+<div class="cielo-estrellas"></div>
 
-    <div class="luz-portada"></div>
+<div class="luz-portada"></div>
 
-    <div class="marco-portada"></div>
-
-
-    <div class="portada-contenido">
+<div class="marco-portada"></div>
 
 
-        <div class="corona-portada">
-
-            ♕
-            
-        </div>
+<div class="portada-contenido">
 
 
-        <div class="mis-xv">
+    <div class="corona-portada">
 
-            MIS XV AÑOS
-
-        </div>
-
-
-        <h1 class="nombre-portada">
-
-            Antonella
-
-            <br>
-
-            <span>
-
-                Viviana
-
-            </span>
-
-        </h1>
+        ♕
+        
+    </div>
 
 
-        <p class="frase-portada">
+    <div class="mis-xv">
 
-            “Te invito a compartir
-            la magia de una noche
-            que guardaré para siempre
-            en mi corazón.”
+        MIS XV AÑOS
 
-        </p>
+    </div>
 
 
-        <div class="personal">
+    <h1 class="nombre-portada">
 
-            TU PRESENCIA ES NUESTRO
-            REGALO MÁS PRECIADO
+        Antonella
 
-            <br>
+        <br>
 
-            ESTA INVITACIÓN ES
-            PERSONAL E INTRANSFERIBLE
+        <span>
+            Viviana
+        </span>
 
-        </div>
+    </h1>
 
 
-        <!-- =====================================================
-             SOBRE
-        ===================================================== -->
+    <p class="frase-portada">
+
+        “Te invito a compartir
+        la magia de una noche
+        que guardaré para siempre
+        en mi corazón.”
+
+    </p>
+
+
+    <div class="personal">
+
+        TU PRESENCIA ES NUESTRO
+        REGALO MÁS PRECIADO
+
+        <br>
+
+        ESTA INVITACIÓN ES
+        PERSONAL E INTRANSFERIBLE
+
+    </div>
+
+
+    <!-- SOBRE -->
+
+    <div
+    class="abrir-zona"
+    onclick="abrirInvitacion()">
+
 
         <div
-            class="abrir-zona"
-            onclick="abrirInvitacion()"
-        >
+        class="sobre"
+        id="sobre">
 
 
-            <div
-                class="sobre"
-                id="sobre"
-            >
+            <div class="sobre-fondo"></div>
 
 
-                <!-- PARTE TRASERA -->
+            <div class="carta-interior">
 
-                <div class="sobre-fondo"></div>
-
-
-                <!-- CARTA PEQUEÑA -->
-
-                <div class="carta-interior">
-
-                    <span>
-
-                        Antonella Viviana
-
-                    </span>
-
-                </div>
-
-
-                <!-- TAPA -->
-
-                <div class="sobre-tapa"></div>
-
-
-                <!-- FRENTE -->
-
-                <div class="sobre-frente"></div>
-
-
-                <!-- SOLAPA -->
-
-                <div class="solapa-inferior"></div>
-
-
-                <!-- SELLO -->
-
-                <div class="sello">
-
-                    AV
-
-                </div>
-
+                <span>
+                    Antonella Viviana
+                </span>
 
             </div>
 
 
-            <div
-                class="tocar"
-                id="textoAbrir"
-            >
+            <div class="sobre-tapa"></div>
 
-                Toca el sobre para abrir
-                la invitación
+            <div class="sobre-frente"></div>
+
+            <div class="solapa-inferior"></div>
+
+
+            <div class="sello">
+
+                AV
 
             </div>
 
+
+        </div>
+
+
+        <div
+        class="tocar"
+        id="textoAbrir">
+
+            Toca el sobre para abrir
+            la invitación
 
         </div>
 
 
     </div>
+
+
+</div>
 
 
 </section>
@@ -2717,42 +2776,42 @@ No desenfoca el castillo.
 <section class="castillo-fondo">
 
 
-    <div class="presentacion">
+<div class="presentacion">
 
 
-        <div class="presentacion-mini">
+    <div class="presentacion-mini">
 
-            ÉRASE UNA VEZ...
-
-        </div>
-
-
-        <h2 class="presentacion-nombre">
-
-            Antonella
-
-            <br>
-
-            Viviana
-
-        </h2>
-
-
-        <p class="presentacion-frase">
-
-            En un reino lleno de sueños,
-            una joven princesa está a punto
-            de celebrar sus quince primaveras.
-
-            <br><br>
-
-            Y queremos que formes parte
-            de esta historia.
-
-        </p>
-
+        ÉRASE UNA VEZ...
 
     </div>
+
+
+    <h2 class="presentacion-nombre">
+
+        Antonella
+
+        <br>
+
+        Viviana
+
+    </h2>
+
+
+    <p class="presentacion-frase">
+
+        En un reino lleno de sueños,
+        una joven princesa está a punto
+        de celebrar sus quince primaveras.
+
+        <br><br>
+
+        Y queremos que formes parte
+        de esta historia.
+
+    </p>
+
+
+</div>
 
 
 </section>
@@ -2765,17 +2824,13 @@ No desenfoca el castillo.
 <div class="contenido">
 
 
-<!-- =====================================================
-     PADRES
-===================================================== -->
+<!-- PADRES -->
 
 <section class="tarjeta">
 
 
     <div class="icono">
-
         ♕
-        
     </div>
 
 
@@ -2801,17 +2856,13 @@ No desenfoca el castillo.
 </section>
 
 
-<!-- =====================================================
-     PADRINOS
-===================================================== -->
+<!-- PADRINOS -->
 
 <section class="tarjeta">
 
 
     <div class="icono">
-
         ✦
-
     </div>
 
 
@@ -2856,78 +2907,51 @@ No desenfoca el castillo.
 </section>
 
 
-<!-- =====================================================
-     FECHA
-===================================================== -->
+<!-- FECHA -->
 
 <section class="tarjeta">
 
 
-    <h2 class="titulo">
+<h2 class="titulo">
 
-        UNA NOCHE PARA RECORDAR
+    UNA NOCHE PARA RECORDAR
 
-    </h2>
-
-
-    <div class="fecha">
+</h2>
 
 
-        <div>
+<div class="fecha">
 
 
-            <div style="
-                font-family:'Cinzel',serif;
-                color:#9cddff;
-                letter-spacing:2px;
-            ">
-
-                SÁBADO
-
-            </div>
+    <div>
 
 
-            <div class="dia">
+        <div style="
+        font-family:'Cinzel',serif;
+        color:#9cddff;
+        letter-spacing:2px;">
 
-                03
-
-            </div>
-
-
-            <div style="
-                font-family:'Cinzel',serif;
-                letter-spacing:3px;
-                color:#a9e2ff;
-            ">
-
-                OCTUBRE
-
-                <br>
-
-                2026
-
-            </div>
-
+            SÁBADO
 
         </div>
 
 
-        <div class="fecha-info">
+        <div class="dia">
+
+            03
+
+        </div>
 
 
-            <strong>
+        <div style="
+        font-family:'Cinzel',serif;
+        letter-spacing:3px;
+        color:#a9e2ff;">
 
-                RECEPCIÓN
+            OCTUBRE
 
-            </strong>
+            <br>
 
-
-            <div class="hora">
-
-                6:30 P.M.
-
-            </div>
-
+            2026
 
         </div>
 
@@ -2935,182 +2959,186 @@ No desenfoca el castillo.
     </div>
 
 
-    <div class="puntualidad">
+    <div class="fecha-info">
 
-        ✦ La magia comienza a tiempo ✦
 
-        <br><br>
+        <strong>
 
-        Para poder compartir juntos cada momento
-        de esta noche, agradecemos respetar el
-        horario indicado y llegar unos minutos antes.
+            RECEPCIÓN
+
+        </strong>
+
+
+        <div class="hora">
+
+            6:30 P.M.
+
+        </div>
+
 
     </div>
+
+
+</div>
+
+
+<div class="puntualidad">
+
+    ✦ La magia comienza a tiempo ✦
+
+    <br><br>
+
+    Para poder compartir juntos cada momento
+    de esta noche, agradecemos respetar el
+    horario indicado y llegar unos minutos antes.
+
+</div>
 
 
 </section>
 
 
-<!-- =====================================================
-     CUENTA REGRESIVA
-===================================================== -->
+<!-- CUENTA REGRESIVA -->
 
 <section class="tarjeta">
 
 
-    <h2 class="titulo">
+<h2 class="titulo">
 
-        FALTAN
+    FALTAN
 
-    </h2>
-
-
-    <div class="contador">
+</h2>
 
 
-        <div class="tiempo">
+<div class="contador">
 
-            <div
-                class="numero"
-                id="dias"
-            >
 
-                00
+    <div class="tiempo">
 
-            </div>
+        <div
+        class="numero"
+        id="dias">
 
-            <div class="etiqueta">
-
-                DÍAS
-
-            </div>
+            00
 
         </div>
 
-
-        <div class="tiempo">
-
-            <div
-                class="numero"
-                id="horas"
-            >
-
-                00
-
-            </div>
-
-            <div class="etiqueta">
-
-                HORAS
-
-            </div>
-
+        <div class="etiqueta">
+            DÍAS
         </div>
-
-
-        <div class="tiempo">
-
-            <div
-                class="numero"
-                id="minutos"
-            >
-
-                00
-
-            </div>
-
-            <div class="etiqueta">
-
-                MINUTOS
-
-            </div>
-
-        </div>
-
-
-        <div class="tiempo">
-
-            <div
-                class="numero"
-                id="segundos"
-            >
-
-                00
-
-            </div>
-
-            <div class="etiqueta">
-
-                SEGUNDOS
-
-            </div>
-
-        </div>
-
 
     </div>
+
+
+    <div class="tiempo">
+
+        <div
+        class="numero"
+        id="horas">
+
+            00
+
+        </div>
+
+        <div class="etiqueta">
+            HORAS
+        </div>
+
+    </div>
+
+
+    <div class="tiempo">
+
+        <div
+        class="numero"
+        id="minutos">
+
+            00
+
+        </div>
+
+        <div class="etiqueta">
+            MINUTOS
+        </div>
+
+    </div>
+
+
+    <div class="tiempo">
+
+        <div
+        class="numero"
+        id="segundos">
+
+            00
+
+        </div>
+
+        <div class="etiqueta">
+            SEGUNDOS
+        </div>
+
+    </div>
+
+
+</div>
 
 
 </section>
 
 
-<!-- =====================================================
-     LUGAR
-===================================================== -->
+<!-- LUGAR -->
 
 <section class="tarjeta">
 
 
-    <div class="icono">
-
-        ♕
-        
-    </div>
+<div class="icono">
+    ♕
+</div>
 
 
-    <h2 class="titulo">
+<h2 class="titulo">
 
-        LUGAR DEL EVENTO
+    LUGAR DEL EVENTO
 
-    </h2>
-
-
-    <div class="local">
-
-        Shiny Star Eventos
-
-    </div>
+</h2>
 
 
-    <div class="direccion">
+<div class="local">
 
-        Urb. Palmeras del Valle
+    Shiny Star Eventos
 
-        <br>
-
-        Mz. A Lt. 3 II Etapa
-
-    </div>
+</div>
 
 
-    <div class="referencia">
+<div class="direccion">
 
-        Referencia:
-        A espalda de Makro
+    Urb. Palmeras del Valle
 
-    </div>
+    <br>
+
+    Mz. A Lt. 3 II Etapa
+
+</div>
 
 
-    <a
-        class="boton"
-        href="https://www.google.com/maps/place/8%C2%B005'06.9%22S+79%C2%B002'48.7%22W/@-8.0852516,-79.0494475,17z/data=!4m4!3m3!8m2!3d-8.0852622!4d-79.0468618?hl=es&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
+<div class="referencia">
 
-        📍 VER UBICACIÓN
+    Referencia:
+    A espalda de Makro
 
-    </a>
+</div>
+
+
+<a
+class="boton"
+href="https://www.google.com/maps/place/8%C2%B005'06.9%22S+79%C2%B002'48.7%22W/@-8.0852516,-79.0494475,17z/data=!4m4!3m3!8m2!3d-8.0852622!4d-79.0468618?hl=es&entry=ttu"
+target="_blank"
+rel="noopener noreferrer">
+
+    VER UBICACIÓN
+
+</a>
 
 
 </section>
@@ -3123,379 +3151,327 @@ No desenfoca el castillo.
 <section class="tarjeta">
 
 
-    <h2 class="titulo">
+<h2 class="titulo">
 
-        ✦ ITINERARIO ✦
+    ✦ ITINERARIO ✦
 
-    </h2>
+</h2>
 
 
-    <div class="itinerario">
+<div class="itinerario">
 
 
-        <div class="evento">
+<div class="evento">
 
+    <div class="evento-hora">
+        6:30 P.M.
+    </div>
 
-            <div class="evento-hora">
+    <div class="punto"></div>
 
-                6:30 P.M.
+    <div class="evento-info">
+        RECEPCIÓN
+    </div>
 
-            </div>
+</div>
 
 
-            <div class="punto"></div>
+<div class="evento">
 
+    <div class="evento-hora">
+        8:00 P.M.
+    </div>
 
-            <div class="evento-info">
+    <div class="punto"></div>
 
-                <div class="evento-icono">
+    <div class="evento-info">
 
-                    ♕
+        PROTOCOLO
 
-                </div>
+        <br>
 
-                RECEPCIÓN
-
-            </div>
-
-
-        </div>
-
-
-        <div class="evento">
-
-
-            <div class="evento-hora">
-
-                8:00 P.M.
-
-            </div>
-
-
-            <div class="punto"></div>
-
-
-            <div class="evento-info">
-
-                <div class="evento-icono">
-
-                    ✦
-
-                </div>
-
-                PROTOCOLO
-
-                <br>
-
-                Y CEREMONIA
-
-            </div>
-
-
-        </div>
-
-
-        <div class="evento">
-
-
-            <div class="evento-hora">
-
-                9:00 P.M.
-
-            </div>
-
-
-            <div class="punto"></div>
-
-
-            <div class="evento-info">
-
-                <div class="evento-icono">
-
-                    ◇
-
-                </div>
-
-                BRINDIS
-
-                <br>
-
-                Y CENA
-
-            </div>
-
-
-        </div>
-
-
-        <div class="evento">
-
-
-            <div class="evento-hora">
-
-                9:50 P.M.
-
-            </div>
-
-
-            <div class="punto"></div>
-
-
-            <div class="evento-info">
-
-                <div class="evento-icono">
-
-                    ✧
-
-                </div>
-
-                BAILE
-
-                <br>
-
-                SORPRESA
-
-            </div>
-
-
-        </div>
-
-
-        <div class="evento">
-
-
-            <div class="evento-hora">
-
-                10:00 P.M.
-
-            </div>
-
-
-            <div class="punto"></div>
-
-
-            <div class="evento-info">
-
-                <div class="evento-icono">
-
-                    ♫
-
-                </div>
-
-                INICIO
-
-                <br>
-
-                DE FIESTA
-
-            </div>
-
-
-        </div>
-
+        Y CEREMONIA
 
     </div>
+
+</div>
+
+
+<div class="evento">
+
+    <div class="evento-hora">
+        9:00 P.M.
+    </div>
+
+    <div class="punto"></div>
+
+    <div class="evento-info">
+
+        BRINDIS
+
+        <br>
+
+        Y CENA
+
+    </div>
+
+</div>
+
+
+<div class="evento">
+
+    <div class="evento-hora">
+        9:50 P.M.
+    </div>
+
+    <div class="punto"></div>
+
+    <div class="evento-info">
+
+        BAILE
+
+        <br>
+
+        SORPRESA
+
+    </div>
+
+</div>
+
+
+<div class="evento">
+
+    <div class="evento-hora">
+        10:00 P.M.
+    </div>
+
+    <div class="punto"></div>
+
+    <div class="evento-info">
+
+        INICIO
+
+        <br>
+
+        DE FIESTA
+
+    </div>
+
+</div>
+
+
+</div>
 
 
 </section>
 
 
 <!-- =====================================================
-     SUGERENCIA DE REGALO
+     REGALO
 ===================================================== -->
 
 <section class="tarjeta tarjeta-clara">
 
 
-    <div class="icono">
+<h2 class="titulo">
 
-        ♡
+    SUGERENCIA DE REGALO
 
-    </div>
-
-
-    <h2 class="titulo">
-
-        SUGERENCIA DE REGALO
-
-    </h2>
+</h2>
 
 
-    <div class="regalo-frase">
+<div class="regalo-frase">
 
-        Tu presencia en esta noche tan especial
-        es el regalo más bonito que puedo recibir.
+    Tu presencia en esta noche tan especial
+    es el regalo más bonito que puedo recibir.
 
-    </div>
-
-
-    <div class="regalo-secundario">
-
-        Si deseas tener un detalle conmigo,
-        puedes hacerlo de la manera
-        que te resulte más cómoda.
-
-        <br><br>
-
-        Con mucho cariño, hemos dejado
-        esta opción disponible para ti.
-
-    </div>
+</div>
 
 
-    <img
-        src="qr-yape.jpg"
-        class="qr"
-        alt="Código QR para regalo"
-    >
+<div class="regalo-secundario">
+
+    Si deseas tener un detalle conmigo,
+    puedes hacerlo de la manera
+    que te resulte más cómoda.
+
+    <br><br>
+
+    Con mucho cariño, hemos dejado
+    esta opción disponible para ti.
+
+</div>
 
 
-    <div style="
-        font-family:'Great Vibes',cursive;
-        font-size:29px;
-        color:#1a618a;
-        margin-top:18px;
-    ">
+<img
+src="qr-yape.jpg"
+class="qr"
+alt="Código QR para regalo">
 
-        Gracias por acompañarme
-        en este día tan especial ♡
 
-    </div>
+<div style="
+font-family:'Great Vibes',cursive;
+font-size:29px;
+color:#1a618a;
+margin-top:18px;">
+
+    Gracias por acompañarme
+    en este día tan especial ♡
+
+</div>
 
 
 </section>
 
 
 <!-- =====================================================
-     VESTIMENTA
+     CÓDIGO DE VESTIMENTA
 ===================================================== -->
 
 <section class="tarjeta tarjeta-clara">
 
 
-    <div class="icono">
+<h2 class="titulo">
 
-        ✦
+    CÓDIGO DE VESTIMENTA
 
-    </div>
-
-
-    <h2 class="titulo">
-
-        CÓDIGO DE VESTIMENTA
-
-    </h2>
+</h2>
 
 
-    <!-- ICONOS ELEGANTES -->
+<!--
+VESTIDO PARA DAMAS
+TRAJE PARA HOMBRES
+-->
 
-    <div class="vestimenta-iconos">
-
-
-        <!-- VESTIDO -->
-
-        <div class="icono-vestido">
-
-            <div class="vestido-superior"></div>
-
-            <div class="vestido-falda"></div>
-
-        </div>
+<div class="vestimenta-iconos">
 
 
-        <div class="separador-vestimenta">
+    <!-- DAMA -->
 
-            ✦
-
-        </div>
+    <div class="figura-dama">
 
 
-        <!-- TRAJE -->
+        <div class="tirante-izq"></div>
 
-        <div class="icono-traje">
+        <div class="tirante-der"></div>
 
-            <div class="traje-cuello"></div>
+        <div class="corpiño"></div>
 
-            <div class="traje-corbata"></div>
+        <div class="cintura"></div>
 
-        </div>
+        <div class="falda"></div>
 
 
     </div>
 
 
-    <div class="formal">
+    <!-- HOMBRE -->
 
-        FORMAL ELEGANTE
+    <div class="figura-hombre">
+
+
+        <div class="camisa"></div>
+
+        <div class="saco"></div>
+
+        <div class="solapa-izq"></div>
+
+        <div class="solapa-der"></div>
+
+        <div class="corbata"></div>
+
+        <div class="pantalon-izq"></div>
+
+        <div class="pantalon-der"></div>
+
 
     </div>
 
 
-    <div class="vestimenta-texto">
+</div>
 
-        Queremos celebrar juntos
-        una noche llena de elegancia.
 
-        <br><br>
+<div class="tipo-vestimenta">
 
-        Te invitamos a elegir
-        tu mejor atuendo formal
-        para esta ocasión.
+    <span>DAMAS</span>
 
+    <span>HOMBRES</span>
+
+</div>
+
+
+<div class="formal">
+
+    FORMAL ELEGANTE
+
+</div>
+
+
+<div class="vestimenta-texto">
+
+    Queremos celebrar juntos
+    una noche llena de elegancia.
+
+    <br><br>
+
+    Te invitamos a elegir
+    tu mejor atuendo formal
+    para esta ocasión.
+
+</div>
+
+
+<div class="reserva-color">
+
+
+<strong>
+
+    COLORES RESERVADOS
+
+</strong>
+
+
+<div class="muestras">
+
+
+    <div
+    class="muestra celeste"
+    title="Celeste">
     </div>
 
 
-    <div class="reserva-color">
-
-
-        <strong>
-
-            COLORES RESERVADOS
-
-        </strong>
-
-
-        <div class="muestras">
-
-
-            <div
-                class="muestra celeste"
-                title="Celeste"
-            ></div>
-
-
-            <div
-                class="muestra azul"
-                title="Azul"
-            ></div>
-
-
-            <div
-                class="muestra plateado"
-                title="Plateado"
-            ></div>
-
-
-        </div>
-
-
-        Los tonos
-
-        <strong>
-
-            celeste, azul y plateado
-
-        </strong>
-
-        han sido reservados especialmente
-        para la quinceañera y sus familiares cercanos.
-
-        <br><br>
-
-        Agradecemos elegir una tonalidad
-        diferente para tu atuendo.
-
+    <div
+    class="muestra azul"
+    title="Azul">
     </div>
+
+
+    <div
+    class="muestra plateado"
+    title="Plateado">
+    </div>
+
+
+</div>
+
+
+Los tonos
+
+<strong>
+
+    celeste, azul y plateado
+
+</strong>
+
+han sido reservados especialmente
+para la quinceañera y sus familiares cercanos.
+
+<br><br>
+
+Agradecemos elegir una tonalidad
+diferente para tu atuendo.
+
+
+</div>
 
 
 </section>
@@ -3508,33 +3484,33 @@ No desenfoca el castillo.
 <section class="final">
 
 
-    <div class="final-texto">
+<div class="final-texto">
 
-        Hay momentos que duran
-        solo una noche...
+    Hay momentos que duran
+    solo una noche...
 
-        <br>
+    <br>
 
-        pero se recuerdan
-        para toda la vida.
+    pero se recuerdan
+    para toda la vida.
 
-        <br><br>
+    <br><br>
 
-        Gracias por formar
-        parte de la mía.
+    Gracias por formar
+    parte de la mía.
 
-        <br><br>
+    <br><br>
 
-        ¡Te esperamos!
+    ¡Te esperamos!
 
-    </div>
+</div>
 
 
-    <div class="final-nombre">
+<div class="final-nombre">
 
-        ANTONELLA VIVIANA
+    ANTONELLA VIVIANA
 
-    </div>
+</div>
 
 
 </section>
@@ -3555,15 +3531,15 @@ let abierta = false;
 
 
 const audio =
-    document.getElementById(
-        "audioFondo"
-    );
+document.getElementById(
+    "audioFondo"
+);
 
 
 const botonMusica =
-    document.getElementById(
-        "controlMusica"
-    );
+document.getElementById(
+    "controlMusica"
+);
 
 
 audio.volume = 0.55;
@@ -3584,25 +3560,17 @@ function abrirInvitacion(){
     abierta = true;
 
 
-    /*
-    1. ABRIR SOBRE
-    */
-
     document
-        .getElementById("sobre")
-        .classList
-        .add("abierto");
+    .getElementById("sobre")
+    .classList
+    .add("abierto");
 
 
     document
-        .getElementById("textoAbrir")
-        .innerHTML =
-        "Abriendo una noche mágica...";
+    .getElementById("textoAbrir")
+    .innerHTML =
+    "Abriendo una noche mágica...";
 
-
-    /*
-    2. ESTRELLAS
-    */
 
     setTimeout(
         crearEstrellas,
@@ -3611,33 +3579,30 @@ function abrirInvitacion(){
 
 
     /*
-    3. MÚSICA
+    La música comienza después
+    de la interacción del usuario.
     */
 
     audio
-        .play()
-        .then(function(){
+    .play()
+    .then(function(){
 
-            botonMusica.innerHTML =
-                "❚❚";
+        botonMusica.innerHTML =
+        "❚❚";
 
-        })
-        .catch(function(){
+    })
+    .catch(function(){
 
-            botonMusica.innerHTML =
-                "♪";
+        botonMusica.innerHTML =
+        "♪";
 
-        });
+    });
 
 
     botonMusica
-        .classList
-        .add("visible");
+    .classList
+    .add("visible");
 
-
-    /*
-    4. ENTRAR A INVITACIÓN
-    */
 
     setTimeout(
 
@@ -3645,15 +3610,15 @@ function abrirInvitacion(){
 
 
             document
-                .getElementById("portada")
-                .style.display =
-                "none";
+            .getElementById("portada")
+            .style.display =
+            "none";
 
 
             document
-                .getElementById("invitacion")
-                .classList
-                .add("visible");
+            .getElementById("invitacion")
+            .classList
+            .add("visible");
 
 
             window.scrollTo({
@@ -3672,30 +3637,30 @@ function abrirInvitacion(){
 
 
 /* =====================================================
-   ESTRELLAS AL ABRIR
+   ESTRELLAS
 ===================================================== */
 
 function crearEstrellas(){
 
 
     const sobre =
-        document.getElementById(
-            "sobre"
-        );
+    document.getElementById(
+        "sobre"
+    );
 
 
     const rect =
-        sobre.getBoundingClientRect();
+    sobre.getBoundingClientRect();
 
 
     const centroX =
-        rect.left +
-        rect.width / 2;
+    rect.left +
+    rect.width / 2;
 
 
     const centroY =
-        rect.top +
-        rect.height / 2;
+    rect.top +
+    rect.height / 2;
 
 
     for(
@@ -3706,43 +3671,43 @@ function crearEstrellas(){
 
 
         const estrella =
-            document.createElement(
-                "div"
-            );
+        document.createElement(
+            "div"
+        );
 
 
         estrella.className =
-            "particula";
+        "particula";
 
 
         estrella.style.left =
-            centroX + "px";
+        centroX + "px";
 
 
         estrella.style.top =
-            centroY + "px";
+        centroY + "px";
 
 
         const angulo =
-            Math.random()
-            * Math.PI
-            * 2;
+        Math.random()
+        * Math.PI
+        * 2;
 
 
         const distancia =
-            80 +
-            Math.random()
-            * 300;
+        80 +
+        Math.random()
+        * 300;
 
 
         const x =
-            Math.cos(angulo)
-            * distancia;
+        Math.cos(angulo)
+        * distancia;
 
 
         const y =
-            Math.sin(angulo)
-            * distancia;
+        Math.sin(angulo)
+        * distancia;
 
 
         estrella.style.setProperty(
@@ -3758,23 +3723,23 @@ function crearEstrellas(){
 
 
         const tamaño =
-            4 +
-            Math.random()
-            * 9;
+        4 +
+        Math.random()
+        * 9;
 
 
         estrella.style.width =
-            tamaño + "px";
+        tamaño + "px";
 
 
         estrella.style.height =
-            tamaño + "px";
+        tamaño + "px";
 
 
         document.body
-            .appendChild(
-                estrella
-            );
+        .appendChild(
+            estrella
+        );
 
 
         setTimeout(
@@ -3795,7 +3760,7 @@ function crearEstrellas(){
 
 
 /* =====================================================
-   CONTROL DE MÚSICA
+   MÚSICA
 ===================================================== */
 
 function controlarMusica(){
@@ -3808,7 +3773,7 @@ function controlarMusica(){
 
 
         botonMusica.innerHTML =
-            "❚❚";
+        "❚❚";
 
 
     }else{
@@ -3818,7 +3783,7 @@ function controlarMusica(){
 
 
         botonMusica.innerHTML =
-            "♪";
+        "♪";
 
     }
 
@@ -3830,51 +3795,51 @@ function controlarMusica(){
 
    03 OCTUBRE 2026
    6:30 P.M.
-   PERÚ UTC-5
+   PERÚ UTC -5
 ===================================================== */
 
 const fechaEvento =
-    new Date(
-        "2026-10-03T18:30:00-05:00"
-    );
+new Date(
+    "2026-10-03T18:30:00-05:00"
+);
 
 
 function actualizarContador(){
 
 
     const ahora =
-        new Date();
+    new Date();
 
 
     const diferencia =
-        fechaEvento - ahora;
+    fechaEvento - ahora;
 
 
     if(diferencia <= 0){
 
 
         document
-            .getElementById("dias")
-            .textContent =
-            "00";
+        .getElementById("dias")
+        .textContent =
+        "00";
 
 
         document
-            .getElementById("horas")
-            .textContent =
-            "00";
+        .getElementById("horas")
+        .textContent =
+        "00";
 
 
         document
-            .getElementById("minutos")
-            .textContent =
-            "00";
+        .getElementById("minutos")
+        .textContent =
+        "00";
 
 
         document
-            .getElementById("segundos")
-            .textContent =
-            "00";
+        .getElementById("segundos")
+        .textContent =
+        "00";
 
 
         return;
@@ -3883,76 +3848,74 @@ function actualizarContador(){
 
 
     const dias =
-        Math.floor(
-            diferencia /
-            86400000
-        );
+    Math.floor(
+        diferencia /
+        86400000
+    );
 
 
     const horas =
-        Math.floor(
-            diferencia /
-            3600000
-        ) % 24;
+    Math.floor(
+        diferencia /
+        3600000
+    ) % 24;
 
 
     const minutos =
-        Math.floor(
-            diferencia /
-            60000
-        ) % 60;
+    Math.floor(
+        diferencia /
+        60000
+    ) % 60;
 
 
     const segundos =
-        Math.floor(
-            diferencia /
-            1000
-        ) % 60;
+    Math.floor(
+        diferencia /
+        1000
+    ) % 60;
 
 
     document
-        .getElementById("dias")
-        .textContent =
-        String(dias)
-        .padStart(
-            2,
-            "0"
-        );
+    .getElementById("dias")
+    .textContent =
+    String(dias)
+    .padStart(
+        2,
+        "0"
+    );
 
 
     document
-        .getElementById("horas")
-        .textContent =
-        String(horas)
-        .padStart(
-            2,
-            "0"
-        );
+    .getElementById("horas")
+    .textContent =
+    String(horas)
+    .padStart(
+        2,
+        "0"
+    );
 
 
     document
-        .getElementById("minutos")
-        .textContent =
-        String(minutos)
-        .padStart(
-            2,
-            "0"
-        );
+    .getElementById("minutos")
+    .textContent =
+    String(minutos)
+    .padStart(
+        2,
+        "0"
+    );
 
 
     document
-        .getElementById("segundos")
-        .textContent =
-        String(segundos)
-        .padStart(
-            2,
-            "0"
-        );
+    .getElementById("segundos")
+    .textContent =
+    String(segundos)
+    .padStart(
+        2,
+        "0"
+    );
 
 }
 
-
-/* INICIAR CONTADOR */
 
 actualizarContador();
 
