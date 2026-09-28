@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -11,36 +12,51 @@
 
 <title>Mis XV - Antonella Viviana</title>
 
-<!-- FUENTES -->
+
+<!-- =====================================================
+     FUENTES
+===================================================== -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
 
 <link
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
     rel="stylesheet"
 >
 
+
 <style>
 
 /* =====================================================
-   COLORES GENERALES
+   VARIABLES DE COLOR
 ===================================================== */
 
 :root{
 
     --azul-noche:#020c1c;
+
     --azul-profundo:#041b36;
+
     --azul:#0b4f82;
+
     --azul-medio:#267eb5;
 
     --celeste:#75cfff;
+
     --celeste-claro:#c9efff;
+
     --celeste-hielo:#edfaff;
 
     --blanco:#ffffff;
 
     --cristal:rgba(220,245,255,.10);
+
     --borde:rgba(172,226,255,.55);
+
 }
 
 
@@ -49,24 +65,61 @@
 ===================================================== */
 
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
 }
 
+
 html{
+
     scroll-behavior:smooth;
+
+    min-height:100%;
+
 }
+
 
 body{
 
-    font-family:'Montserrat',sans-serif;
+    min-height:100%;
 
-    background:var(--azul-noche);
+    font-family:'Montserrat',sans-serif;
 
     color:white;
 
     overflow-x:hidden;
+
+
+    /*
+    CASTILLO COMO FONDO
+    DE TODA LA INVITACIÓN
+    */
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(2,15,35,.30),
+            rgba(3,28,55,.43),
+            rgba(2,12,27,.68)
+        ),
+
+        url("castillo.jpg");
+
+
+    background-size:cover;
+
+    background-position:center center;
+
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
 }
 
 
@@ -77,113 +130,166 @@ body{
 #portada{
 
     width:100%;
+
     min-height:100svh;
 
     position:relative;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     overflow:hidden;
+
+    background:transparent;
+
+}
+
+
+/* capa celeste */
+
+#portada::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
 
     background:
 
         radial-gradient(
             circle at 50% 15%,
-            rgba(78,184,255,.38),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 20% 70%,
-            rgba(37,140,210,.30),
-            transparent 35%
+            rgba(116,207,255,.22),
+            transparent 32%
         ),
 
         linear-gradient(
             180deg,
-            #03152c,
-            #062e53 50%,
-            #020b18
+            rgba(2,19,43,.12),
+            rgba(5,50,87,.22),
+            rgba(2,12,27,.43)
         );
+
+    z-index:0;
+
+    pointer-events:none;
+
 }
 
 
-/* estrellas */
+/* =====================================================
+   ESTRELLAS DE FONDO
+===================================================== */
 
 .cielo-estrellas{
 
     position:absolute;
+
     inset:0;
 
+    z-index:1;
+
     pointer-events:none;
+
 
     background-image:
 
         radial-gradient(
             circle,
-            rgba(255,255,255,.9) 1px,
+            rgba(255,255,255,.95) 1px,
             transparent 1.5px
         ),
 
         radial-gradient(
             circle,
-            rgba(128,216,255,.9) 1px,
+            rgba(128,216,255,.90) 1px,
             transparent 1.5px
         );
 
+
     background-size:
+
         45px 45px,
+
         73px 73px;
 
+
     background-position:
+
         0 0,
+
         25px 18px;
 
-    opacity:.55;
 
-    animation:moverEstrellas 25s linear infinite;
+    opacity:.48;
+
+
+    animation:
+
+        moverEstrellas
+        25s
+        linear
+        infinite;
+
 }
 
 
 @keyframes moverEstrellas{
 
     to{
+
         background-position:
+
             100px 180px,
+
             -80px 130px;
+
     }
 
 }
 
 
-/* brillo superior */
+/* =====================================================
+   HALO SUPERIOR
+===================================================== */
 
 .luz-portada{
 
     position:absolute;
 
     width:550px;
+
     height:550px;
 
     top:-250px;
+
     left:50%;
 
     transform:translateX(-50%);
 
+
     background:
+
         radial-gradient(
             circle,
             rgba(122,216,255,.32),
             transparent 65%
         );
 
+
     pointer-events:none;
+
+    z-index:1;
+
 }
 
 
-/* marco */
+/* =====================================================
+   MARCO PORTADA
+===================================================== */
 
 .marco-portada{
 
@@ -191,11 +297,15 @@ body{
 
     inset:18px;
 
+    z-index:2;
+
     border:
+
         1px solid
-        rgba(172,226,255,.45);
+        rgba(172,226,255,.55);
 
     pointer-events:none;
+
 }
 
 
@@ -208,16 +318,21 @@ body{
     inset:7px;
 
     border:
+
         1px solid
-        rgba(172,226,255,.18);
+        rgba(172,226,255,.20);
+
 }
 
 
-/* contenido */
+/* =====================================================
+   CONTENIDO PORTADA
+===================================================== */
 
 .portada-contenido{
 
     width:92%;
+
     max-width:650px;
 
     position:relative;
@@ -227,9 +342,11 @@ body{
     text-align:center;
 
     padding:
-        65px
+
+        60px
         15px
-        45px;
+        50px;
+
 }
 
 
@@ -237,14 +354,17 @@ body{
 
 .corona-portada{
 
-    font-size:35px;
+    font-size:36px;
 
     color:var(--celeste-claro);
 
     text-shadow:
-        0 0 12px var(--celeste);
+
+        0 0 12px
+        var(--celeste);
 
     margin-bottom:10px;
+
 }
 
 
@@ -261,16 +381,20 @@ body{
     color:var(--celeste-claro);
 
     margin-bottom:8px;
+
 }
 
 
-/* nombre */
+/* =====================================================
+   NOMBRE PORTADA
+===================================================== */
 
 .nombre-portada{
 
     font-family:'Great Vibes',cursive;
 
     font-size:
+
         clamp(
             72px,
             17vw,
@@ -282,36 +406,47 @@ body{
     line-height:.78;
 
     margin:
-        15px 0
+
+        15px
+        0
         30px;
 
     color:white;
 
+
     text-shadow:
 
-        0 0 10px rgba(255,255,255,.5),
+        0 0 10px
+        rgba(255,255,255,.5),
 
-        0 0 25px rgba(84,190,255,.65),
+        0 0 25px
+        rgba(84,190,255,.65),
 
-        0 5px 8px rgba(0,0,0,.5);
+        0 5px 8px
+        rgba(0,0,0,.5);
+
 }
 
 
 .nombre-portada span{
 
     color:var(--celeste-claro);
+
 }
 
 
-/* frase portada */
+/* =====================================================
+   FRASE PORTADA
+===================================================== */
 
 .frase-portada{
 
     max-width:500px;
 
     margin:
+
         0 auto
-        30px;
+        25px;
 
     font-family:'Great Vibes',cursive;
 
@@ -321,12 +456,14 @@ body{
 
     color:#e6f7ff;
 
+
     text-shadow:
-        0 2px 5px rgba(0,0,0,.7);
+
+        0 2px 5px
+        rgba(0,0,0,.8);
+
 }
 
-
-/* personal */
 
 .personal{
 
@@ -338,271 +475,592 @@ body{
 
     letter-spacing:1.5px;
 
-    color:#bfe9ff;
+    color:#c6ecff;
 
     margin-bottom:25px;
+
 }
 
 
 /* =====================================================
-   SOBRE AZUL
+   ZONA SOBRE
 ===================================================== */
 
 .abrir-zona{
 
-    width:280px;
+    width:300px;
 
     margin:
-        10px auto
+
+        15px auto
         0;
 
     cursor:pointer;
 
     user-select:none;
+
+    position:relative;
+
+    z-index:20;
+
 }
 
 
+/* =====================================================
+   SOBRE
+===================================================== */
+
 .sobre{
 
-    width:240px;
-    height:155px;
+    width:250px;
+
+    height:170px;
 
     margin:auto;
 
     position:relative;
 
-    perspective:900px;
+    perspective:1200px;
+
 
     filter:
+
         drop-shadow(
-            0 18px 18px
-            rgba(0,0,0,.45)
+            0 18px 20px
+            rgba(0,0,0,.50)
         );
 
+
     animation:
+
         flotarSobre
         3s
         ease-in-out
         infinite;
+
 }
 
 
 @keyframes flotarSobre{
 
-    0%,100%{
-        transform:translateY(0);
+    0%,
+    100%{
+
+        transform:
+
+            translateY(0)
+            rotate(-1deg);
+
     }
 
+
     50%{
-        transform:translateY(-10px);
+
+        transform:
+
+            translateY(-8px)
+            rotate(1deg);
+
     }
 
 }
 
 
-/* cuerpo */
+/* =====================================================
+   PARTE TRASERA DEL SOBRE
+===================================================== */
 
-.sobre-cuerpo{
+.sobre-fondo{
 
     position:absolute;
+
+    left:0;
 
     bottom:0;
 
     width:100%;
-    height:130px;
 
-    overflow:hidden;
+    height:135px;
 
-    border-radius:5px;
 
     background:
 
         linear-gradient(
             145deg,
-            #0d4d7a,
-            #062c50
+            #17699b,
+            #07385f
         );
 
+
     border:
+
         1px solid
-        #64bde9;
+        rgba(153,222,255,.75);
+
+
+    border-radius:5px;
+
+
+    z-index:1;
+
 
     box-shadow:
 
-        inset 0 0 25px
-        rgba(117,207,255,.12),
+        inset
+        0 0 30px
+        rgba(109,204,255,.12);
 
-        0 0 20px
-        rgba(52,169,230,.2);
 }
 
 
-/* laterales */
+/* =====================================================
+   CARTA INTERIOR
+===================================================== */
 
-.sobre-cuerpo::before,
-.sobre-cuerpo::after{
-
-    content:"";
+.carta-interior{
 
     position:absolute;
 
-    width:180px;
-    height:180px;
+    width:205px;
 
-    bottom:-90px;
+    height:125px;
 
-    background:#0b4169;
+    left:22px;
+
+    bottom:18px;
+
+    z-index:2;
+
+
+    border-radius:
+
+        5px
+        5px
+        3px
+        3px;
+
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #d9f4ff
+        );
+
 
     border:
+
         1px solid
-        rgba(137,211,250,.35);
+        #9edfff;
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    color:#12577f;
+
+
+    box-shadow:
+
+        0 5px 15px
+        rgba(0,0,0,.20);
+
+
+    transform:
+
+        translateY(0);
+
+
+    transition:
+
+        transform
+        1.05s
+        cubic-bezier(.2,.7,.2,1)
+        .85s;
+
 }
 
 
-.sobre-cuerpo::before{
+.carta-interior::before{
 
-    left:-90px;
+    content:"♕";
 
-    transform:rotate(45deg);
+    font-size:25px;
+
+    color:#429ac9;
+
+    margin-bottom:5px;
+
 }
 
 
-.sobre-cuerpo::after{
+.carta-interior span{
 
-    right:-90px;
+    font-family:
 
-    transform:rotate(45deg);
+        'Great Vibes',
+        cursive;
+
+    font-size:27px;
+
 }
 
 
-/* tapa */
+/* =====================================================
+   TAPA DEL SOBRE
+===================================================== */
 
 .sobre-tapa{
 
     position:absolute;
 
     left:0;
-    top:25px;
+
+    top:35px;
 
     width:0;
+
     height:0;
 
+
     border-left:
-        120px solid transparent;
+
+        125px solid transparent;
+
 
     border-right:
-        120px solid transparent;
+
+        125px solid transparent;
+
 
     border-top:
-        88px solid #0e5688;
 
-    transform-origin:top;
+        92px solid #1972a5;
 
-    z-index:5;
+
+    transform-origin:
+
+        center top;
+
+
+    transform:
+
+        rotateX(0deg);
+
+
+    z-index:6;
+
 
     transition:
-        transform 1.1s
+
+        transform
+        .85s
         cubic-bezier(.4,.1,.2,1);
+
+
+    filter:
+
+        drop-shadow(
+            0 3px 2px
+            rgba(0,0,0,.15)
+        );
+
 }
 
 
-/* carta interior */
+.sobre-tapa::after{
 
-.carta-interior{
+    content:"";
+
+    position:absolute;
+
+    left:-122px;
+
+    top:-90px;
+
+    width:244px;
+
+    height:2px;
+
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #9ee4ff,
+            transparent
+        );
+
+}
+
+
+/* =====================================================
+   FRENTE SOBRE
+===================================================== */
+
+.sobre-frente{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:135px;
+
+    z-index:4;
+
+    overflow:hidden;
+
+
+    border-radius:
+
+        0
+        0
+        5px
+        5px;
+
+
+    pointer-events:none;
+
+}
+
+
+.sobre-frente::before{
+
+    content:"";
 
     position:absolute;
 
     width:190px;
-    height:105px;
 
-    left:25px;
-    bottom:15px;
+    height:190px;
+
+    left:-95px;
+
+    bottom:-95px;
+
 
     background:
+
         linear-gradient(
-            #eefaff,
-            #cceeff
+            135deg,
+            #0c4c78,
+            #0a416b
         );
 
-    border-radius:5px;
 
-    z-index:2;
+    border:
 
-    transition:
-        transform 1.2s ease
-        .45s;
+        1px solid
+        rgba(142,218,255,.30);
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
 
-    font-family:'Great Vibes',cursive;
+    transform:
 
-    font-size:27px;
+        rotate(45deg);
 
-    color:#12527d;
-
-    box-shadow:
-        0 0 15px
-        rgba(132,219,255,.4);
 }
 
 
-/* sello */
+.sobre-frente::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:190px;
+
+    height:190px;
+
+    right:-95px;
+
+    bottom:-95px;
+
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #0b456f,
+            #07385f
+        );
+
+
+    border:
+
+        1px solid
+        rgba(142,218,255,.25);
+
+
+    transform:
+
+        rotate(45deg);
+
+}
+
+
+/* =====================================================
+   SOLAPA INFERIOR
+===================================================== */
+
+.solapa-inferior{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:105px;
+
+    overflow:hidden;
+
+    z-index:5;
+
+    pointer-events:none;
+
+}
+
+
+.solapa-inferior::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:175px;
+
+    height:175px;
+
+    left:50%;
+
+    bottom:-125px;
+
+
+    transform:
+
+        translateX(-50%)
+        rotate(45deg);
+
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #0f5584,
+            #073b63
+        );
+
+
+    border:
+
+        1px solid
+        rgba(145,219,255,.35);
+
+}
+
+
+/* =====================================================
+   SELLO
+===================================================== */
 
 .sello{
 
     position:absolute;
 
     left:50%;
-    top:75px;
+
+    top:88px;
+
 
     transform:
-        translateX(-50%);
+
+        translateX(-50%)
+        scale(1);
+
 
     width:58px;
+
     height:58px;
+
 
     border-radius:50%;
 
-    z-index:8;
+
+    z-index:10;
+
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    font-family:'Cinzel',serif;
 
-    font-size:17px;
+    font-family:
 
-    color:#d9f4ff;
+        'Cinzel',
+        serif;
+
+
+    font-size:16px;
+
+
+    color:#e6f8ff;
+
 
     background:
 
         radial-gradient(
             circle at 35% 30%,
-            #2b88ba,
-            #063154
+            #48a6d5,
+            #074269 65%,
+            #032842
         );
 
+
     border:
+
         3px solid
-        #8fdcff;
+        #9fe5ff;
+
 
     box-shadow:
 
         0 0 12px
-        #75cfff,
+        #61c8fa,
 
-        inset 0 0 10px
-        rgba(255,255,255,.3);
+        0 0 25px
+        rgba(69,183,238,.45),
+
+        inset
+        0 0 10px
+        rgba(255,255,255,.25);
+
 
     transition:
-        .6s ease;
+
+        opacity .4s,
+
+        transform .4s;
+
 }
 
 
-/* brillo sello */
+/* onda sello */
 
 .sello::after{
 
@@ -610,105 +1068,160 @@ body{
 
     position:absolute;
 
-    inset:-12px;
+    inset:-10px;
+
 
     border:
+
         1px solid
-        rgba(166,228,255,.5);
+        rgba(163,227,255,.65);
+
 
     border-radius:50%;
 
+
     animation:
+
         pulsoSello
-        1.8s
+        1.7s
         infinite;
+
 }
 
 
 @keyframes pulsoSello{
 
-    0%{
-        transform:scale(.8);
-        opacity:.8;
+    from{
+
+        transform:scale(.85);
+
+        opacity:.9;
+
     }
 
-    100%{
-        transform:scale(1.5);
+
+    to{
+
+        transform:scale(1.6);
+
         opacity:0;
-    }
 
-}
-
-
-/* abierto */
-
-.sobre.abierto{
-
-    animation:none;
-}
-
-
-.sobre.abierto
-.sobre-tapa{
-
-    transform:
-        rotateX(180deg);
-}
-
-
-.sobre.abierto
-.sello{
-
-    opacity:0;
-
-    transform:
-        translateX(-50%)
-        scale(.3);
-}
-
-
-.sobre.abierto
-.carta-interior{
-
-    transform:
-        translateY(-100px);
-}
-
-
-/* texto tocar */
-
-.tocar{
-
-    margin-top:22px;
-
-    font-family:'Great Vibes',cursive;
-
-    font-size:27px;
-
-    color:#e6f8ff;
-
-    text-shadow:
-        0 0 10px #47bfff;
-
-    animation:
-        pulsarTexto
-        1.8s
-        infinite;
-}
-
-
-@keyframes pulsarTexto{
-
-    50%{
-        opacity:.65;
-        transform:scale(1.03);
     }
 
 }
 
 
 /* =====================================================
-   PARTÍCULAS AL ABRIR
+   ANIMACIÓN ABRIR SOBRE
+===================================================== */
+
+.sobre.abierto{
+
+    animation:none;
+
+}
+
+
+/* desaparece sello */
+
+.sobre.abierto
+.sello{
+
+    opacity:0;
+
+
+    transform:
+
+        translateX(-50%)
+        scale(.3);
+
+}
+
+
+/* abre tapa */
+
+.sobre.abierto
+.sobre-tapa{
+
+    transform:
+
+        rotateX(180deg);
+
+
+    z-index:0;
+
+}
+
+
+/* después sale carta */
+
+.sobre.abierto
+.carta-interior{
+
+    transform:
+
+        translateY(-115px);
+
+
+    z-index:3;
+
+}
+
+
+/* =====================================================
+   TEXTO TOCAR
+===================================================== */
+
+.tocar{
+
+    margin-top:24px;
+
+
+    font-family:
+
+        'Great Vibes',
+        cursive;
+
+
+    font-size:28px;
+
+
+    color:#e8f9ff;
+
+
+    text-shadow:
+
+        0 0 10px
+        #49bfff,
+
+        0 2px 5px
+        rgba(0,0,0,.7);
+
+
+    animation:
+
+        pulsarTexto
+        1.8s
+        infinite;
+
+}
+
+
+@keyframes pulsarTexto{
+
+    50%{
+
+        opacity:.7;
+
+        transform:scale(1.03);
+
+    }
+
+}
+
+
+/* =====================================================
+   PARTÍCULAS / ESTRELLAS
 ===================================================== */
 
 .particula{
@@ -719,12 +1232,17 @@ body{
 
     pointer-events:none;
 
+
     width:8px;
+
     height:8px;
+
 
     background:white;
 
+
     clip-path:
+
         polygon(
             50% 0%,
             61% 35%,
@@ -736,13 +1254,26 @@ body{
             39% 35%
         );
 
-    box-shadow:
-        0 0 10px white;
+
+    filter:
+
+        drop-shadow(
+            0 0 5px
+            #ffffff
+        )
+
+        drop-shadow(
+            0 0 10px
+            #74d4ff
+        );
+
 
     animation:
+
         explosion
         2s
         forwards;
+
 }
 
 
@@ -752,34 +1283,46 @@ body{
 
         opacity:1;
 
+
         transform:
+
             translate(0,0)
             scale(.4)
-            rotate(0);
+            rotate(0deg);
+
     }
 
+
     50%{
+
         opacity:1;
+
     }
+
 
     to{
 
         opacity:0;
 
+
         transform:
+
             translate(
                 var(--x),
                 var(--y)
             )
-            scale(1.6)
+
+            scale(1.5)
+
             rotate(360deg);
+
     }
 
 }
 
 
 /* =====================================================
-   SEGUNDA SECCIÓN
+   INVITACIÓN
 ===================================================== */
 
 #invitacion{
@@ -790,10 +1333,10 @@ body{
 
     position:relative;
 
-    background:
-        #031329;
+    background:transparent;
 
     overflow:hidden;
+
 }
 
 
@@ -801,27 +1344,64 @@ body{
 
     display:block;
 
+
     animation:
+
         aparecerInvitacion
-        1.5s ease;
+        1.5s
+        ease;
+
 }
 
 
 @keyframes aparecerInvitacion{
 
     from{
+
         opacity:0;
+
     }
 
+
     to{
+
         opacity:1;
+
     }
 
 }
 
 
+/* capa azul permanente */
+
+#invitacion::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(2,20,45,.12),
+            rgba(4,39,70,.23),
+            rgba(2,14,31,.45)
+        );
+
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+
 /* =====================================================
-   CASTILLO DE FONDO
+   PRIMERA SECCIÓN DESPUÉS DEL SOBRE
 ===================================================== */
 
 .castillo-fondo{
@@ -830,35 +1410,29 @@ body{
 
     position:relative;
 
+
     display:flex;
 
     align-items:center;
 
     justify-content:center;
 
+
     padding:
-        80px 20px;
 
-    background-image:
+        80px
+        20px;
 
-        linear-gradient(
-            to bottom,
-            rgba(2,17,39,.20),
-            rgba(3,22,47,.55),
-            rgba(2,11,25,.95)
-        ),
 
-        url("castillo.jpg");
+    /*
+    No colocamos otra imagen.
+    Se ve el castillo del body.
+    */
 
-    background-size:cover;
+    background:transparent;
 
-    background-position:center;
-
-    background-attachment:fixed;
 }
 
-
-/* halo */
 
 .castillo-fondo::before{
 
@@ -868,51 +1442,78 @@ body{
 
     inset:0;
 
+
     background:
+
         radial-gradient(
             circle at 50% 20%,
-            rgba(143,218,255,.25),
-            transparent 40%
+            rgba(145,222,255,.15),
+            transparent 42%
         );
+
+
+    pointer-events:none;
+
 }
 
 
-/* presentación */
+/* =====================================================
+   PRESENTACIÓN
+===================================================== */
 
 .presentacion{
 
     width:92%;
+
     max-width:620px;
 
     position:relative;
 
     z-index:2;
 
+
     text-align:center;
 
+
     padding:
-        45px
+
+        48px
         25px;
 
+
     border:
+
         1px solid
-        rgba(185,230,255,.55);
+        rgba(185,230,255,.60);
+
 
     border-radius:28px;
 
+
     background:
-        rgba(2,20,43,.62);
+
+        rgba(2,20,43,.58);
+
 
     backdrop-filter:
-        blur(7px);
+
+        blur(6px);
+
+
+    -webkit-backdrop-filter:
+
+        blur(6px);
+
 
     box-shadow:
 
         0 20px 50px
-        rgba(0,0,0,.4),
+        rgba(0,0,0,.40),
 
-        inset 0 0 25px
+        inset
+        0 0 25px
         rgba(90,190,255,.08);
+
 }
 
 
@@ -925,6 +1526,7 @@ body{
     font-size:14px;
 
     color:#a9e2ff;
+
 }
 
 
@@ -932,23 +1534,33 @@ body{
 
     font-family:'Great Vibes',cursive;
 
+
     font-size:
+
         clamp(
             70px,
             16vw,
             110px
         );
 
-    line-height:.8;
+
+    line-height:.80;
+
 
     margin:
-        25px 0;
+
+        25px
+        0;
+
 
     color:white;
 
+
     text-shadow:
+
         0 0 20px
         #4dbdff;
+
 }
 
 
@@ -961,6 +1573,7 @@ body{
     line-height:1.4;
 
     color:#dff5ff;
+
 }
 
 
@@ -971,13 +1584,23 @@ body{
 .contenido{
 
     width:92%;
+
     max-width:700px;
 
     margin:auto;
 
+
+    position:relative;
+
+    z-index:2;
+
+
     padding:
-        70px 0
+
+        70px
+        0
         100px;
+
 }
 
 
@@ -989,55 +1612,99 @@ body{
 
     position:relative;
 
+
     margin:
+
         0 auto
         45px;
 
+
     padding:
+
         42px
         25px;
 
+
     text-align:center;
 
+
     border-radius:25px;
+
 
     background:
 
         linear-gradient(
             145deg,
-            rgba(10,64,103,.88),
-            rgba(2,21,43,.96)
+            rgba(7,61,101,.72),
+            rgba(2,21,43,.82)
         );
 
+
     border:
+
         1px solid
-        var(--borde);
+        rgba(156,221,255,.55);
+
 
     box-shadow:
+
         0 18px 45px
-        rgba(0,0,0,.35);
+        rgba(0,0,0,.30),
+
+        inset
+        0 0 25px
+        rgba(109,204,255,.05);
+
+
+    backdrop-filter:
+
+        blur(5px);
+
+
+    -webkit-backdrop-filter:
+
+        blur(5px);
+
 }
 
+
+/* tarjetas claras */
 
 .tarjeta-clara{
 
     color:#0b3556;
 
+
     background:
 
         linear-gradient(
             145deg,
-            #f4fcff,
-            #dff5ff
+            rgba(240,251,255,.94),
+            rgba(211,241,255,.90)
         );
 
+
     border:
+
         1px solid
-        #93d9fa;
+        rgba(164,224,251,.90);
+
+
+    backdrop-filter:
+
+        blur(6px);
+
+
+    -webkit-backdrop-filter:
+
+        blur(6px);
+
 }
 
 
-/* títulos */
+/* =====================================================
+   TÍTULOS
+===================================================== */
 
 .titulo{
 
@@ -1050,6 +1717,7 @@ body{
     color:#bce9ff;
 
     margin-bottom:25px;
+
 }
 
 
@@ -1057,21 +1725,21 @@ body{
 .titulo{
 
     color:#17618f;
+
 }
 
-
-/* iconos */
 
 .icono{
 
     font-size:38px;
 
     margin-bottom:15px;
+
 }
 
 
 /* =====================================================
-   PADRES Y PADRINOS
+   PADRES
 ===================================================== */
 
 .nombre-familia{
@@ -1083,44 +1751,57 @@ body{
     line-height:1.6;
 
     color:#f0fbff;
+
 }
 
 
-.separador{
-
-    width:100px;
-    height:1px;
-
-    margin:
-        25px auto;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            #aee5ff,
-            transparent
-        );
-}
-
+/* =====================================================
+   PADRINOS
+===================================================== */
 
 .padrinos-grupo{
 
     line-height:1.9;
 
     color:#dff5ff;
+
 }
 
 
 .pareja-padrinos{
 
     margin-bottom:25px;
+
 }
 
 
 .pareja-padrinos:last-child{
 
     margin-bottom:0;
+
+}
+
+
+.separador{
+
+    width:100px;
+
+    height:1px;
+
+    margin:
+
+        25px auto;
+
+
+    background:
+
+        linear-gradient(
+            to right,
+            transparent,
+            #aee5ff,
+            transparent
+        );
+
 }
 
 
@@ -1133,11 +1814,13 @@ body{
     display:flex;
 
     justify-content:center;
+
     align-items:center;
 
     gap:25px;
 
     margin-top:10px;
+
 }
 
 
@@ -1150,6 +1833,7 @@ body{
     color:#c8eeff;
 
     line-height:1;
+
 }
 
 
@@ -1157,13 +1841,18 @@ body{
 
     text-align:left;
 
+
     border-left:
+
         1px solid
         #8dd8ff;
 
+
     padding-left:25px;
 
+
     line-height:1.8;
+
 }
 
 
@@ -1172,6 +1861,7 @@ body{
     font-family:'Cinzel',serif;
 
     color:#aee4ff;
+
 }
 
 
@@ -1182,6 +1872,7 @@ body{
     font-family:'Cinzel',serif;
 
     color:white;
+
 }
 
 
@@ -1189,22 +1880,36 @@ body{
 
     margin-top:30px;
 
+
     padding:
+
         20px;
+
 
     border-radius:15px;
 
+
     background:
+
         rgba(117,207,255,.08);
+
+
+    border:
+
+        1px solid
+        rgba(141,216,255,.20);
+
 
     line-height:1.8;
 
+
     color:#dff5ff;
+
 }
 
 
 /* =====================================================
-   CUENTA REGRESIVA
+   CONTADOR
 ===================================================== */
 
 .contador{
@@ -1212,18 +1917,27 @@ body{
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+
+        repeat(
+            4,
+            1fr
+        );
 
     gap:8px;
+
 }
 
 
 .tiempo{
 
     padding:
-        20px 4px;
+
+        20px
+        4px;
+
 
     border-radius:14px;
+
 
     background:
 
@@ -1233,13 +1947,19 @@ body{
             #06365c
         );
 
+
     border:
+
         1px solid
         #94dcff;
 
+
     box-shadow:
-        inset 0 0 15px
+
+        inset
+        0 0 15px
         rgba(255,255,255,.08);
+
 }
 
 
@@ -1247,12 +1967,15 @@ body{
 
     font-family:'Cinzel',serif;
 
+
     font-size:
+
         clamp(
             24px,
             7vw,
             42px
         );
+
 }
 
 
@@ -1265,6 +1988,7 @@ body{
     margin-top:5px;
 
     color:#c8edff;
+
 }
 
 
@@ -1279,6 +2003,7 @@ body{
     font-size:48px;
 
     margin-bottom:15px;
+
 }
 
 
@@ -1287,6 +2012,7 @@ body{
     line-height:1.8;
 
     color:#dff5ff;
+
 }
 
 
@@ -1295,30 +2021,45 @@ body{
     margin-top:15px;
 
     color:#aaddf7;
+
 }
 
+
+/* =====================================================
+   BOTONES
+===================================================== */
 
 .boton{
 
     display:inline-block;
 
+
     margin-top:25px;
 
+
     padding:
+
         15px
         28px;
 
+
     border-radius:50px;
+
 
     text-decoration:none;
 
+
     font-family:'Cinzel',serif;
+
 
     font-size:12px;
 
+
     letter-spacing:1px;
 
+
     color:#03223c;
+
 
     background:
 
@@ -1328,19 +2069,25 @@ body{
             #79cef7
         );
 
+
     box-shadow:
+
         0 8px 25px
-        rgba(53,174,235,.3);
+        rgba(53,174,235,.30);
+
 
     transition:.3s;
+
 }
 
 
 .boton:hover{
 
     transform:
+
         translateY(-3px)
         scale(1.03);
+
 }
 
 
@@ -1355,6 +2102,7 @@ body{
     max-width:520px;
 
     margin:auto;
+
 }
 
 
@@ -1362,14 +2110,20 @@ body{
 
     content:"";
 
+
     position:absolute;
+
 
     left:50%;
 
+
     top:15px;
+
     bottom:15px;
 
+
     width:2px;
+
 
     background:
 
@@ -1378,6 +2132,7 @@ body{
             #dff7ff,
             #62c6f7
         );
+
 }
 
 
@@ -1385,12 +2140,19 @@ body{
 
     min-height:100px;
 
+
     display:grid;
 
+
     grid-template-columns:
-        1fr 45px 1fr;
+
+        1fr
+        45px
+        1fr;
+
 
     align-items:center;
+
 }
 
 
@@ -1398,34 +2160,48 @@ body{
 
     text-align:right;
 
+
     padding-right:17px;
+
 
     font-family:'Cinzel',serif;
 
+
     color:#bceaff;
+
 }
 
 
 .punto{
 
     width:16px;
+
     height:16px;
+
 
     margin:auto;
 
+
     border-radius:50%;
+
 
     background:white;
 
+
     border:
+
         4px solid
         #48b6eb;
 
+
     box-shadow:
+
         0 0 12px
         #8cdcff;
 
+
     z-index:2;
+
 }
 
 
@@ -1433,11 +2209,15 @@ body{
 
     text-align:left;
 
+
     padding-left:17px;
+
 
     line-height:1.6;
 
+
     font-size:13px;
+
 }
 
 
@@ -1446,11 +2226,12 @@ body{
     font-size:25px;
 
     margin-bottom:5px;
+
 }
 
 
 /* =====================================================
-   REGALO
+   SUGERENCIA DE REGALO
 ===================================================== */
 
 .regalo-frase{
@@ -1466,19 +2247,25 @@ body{
     max-width:520px;
 
     margin:auto;
+
 }
 
 
 .regalo-secundario{
 
     margin:
+
         25px auto;
+
 
     line-height:1.8;
 
+
     max-width:520px;
 
+
     color:#315f7b;
+
 }
 
 
@@ -1487,28 +2274,38 @@ body{
 .qr{
 
     width:220px;
+
     max-width:85%;
+
 
     display:block;
 
+
     margin:
+
         25px auto
         10px;
 
+
     padding:10px;
+
 
     background:white;
 
+
     border-radius:15px;
 
+
     box-shadow:
+
         0 10px 30px
         rgba(6,60,95,.18);
+
 }
 
 
 /* =====================================================
-   DRESS CODE
+   VESTIMENTA
 ===================================================== */
 
 .ropa{
@@ -1516,6 +2313,7 @@ body{
     font-size:55px;
 
     margin-bottom:15px;
+
 }
 
 
@@ -1530,6 +2328,7 @@ body{
     color:#125982;
 
     margin-bottom:20px;
+
 }
 
 
@@ -1538,6 +2337,7 @@ body{
     line-height:1.8;
 
     color:#315f7b;
+
 }
 
 
@@ -1545,19 +2345,28 @@ body{
 
     margin-top:25px;
 
+
     padding:
+
         22px;
+
 
     border-radius:16px;
 
+
     background:
+
         rgba(65,167,218,.08);
 
+
     border:
+
         1px solid
         #91d7f8;
 
+
     line-height:1.7;
+
 }
 
 
@@ -1570,36 +2379,55 @@ body{
     gap:13px;
 
     margin:
-        18px 0;
+
+        18px
+        0;
+
 }
 
 
 .muestra{
 
     width:40px;
+
     height:40px;
+
 
     border-radius:50%;
 
+
     border:
-        3px solid white;
+
+        3px solid
+        white;
+
 
     box-shadow:
+
         0 3px 10px
-        rgba(0,0,0,.2);
+        rgba(0,0,0,.20);
+
 }
 
 
 .celeste{
+
     background:#a8e4ff;
+
 }
+
 
 .azul{
+
     background:#2476ad;
+
 }
 
+
 .plateado{
+
     background:#c9d4da;
+
 }
 
 
@@ -1611,9 +2439,13 @@ body{
 
     text-align:center;
 
+
     padding:
-        30px 15px
+
+        30px
+        15px
         80px;
+
 }
 
 
@@ -1621,11 +2453,21 @@ body{
 
     font-family:'Great Vibes',cursive;
 
+
     font-size:40px;
+
 
     color:#d8f4ff;
 
+
     line-height:1.4;
+
+
+    text-shadow:
+
+        0 2px 7px
+        rgba(0,0,0,.8);
+
 }
 
 
@@ -1633,156 +2475,307 @@ body{
 
     margin-top:30px;
 
+
     font-family:'Cinzel',serif;
+
 
     letter-spacing:4px;
 
+
     color:#8ed9ff;
+
 }
 
 
 /* =====================================================
-   MÚSICA
+   CONTROL MÚSICA
 ===================================================== */
 
 .control-musica{
 
     position:fixed;
 
+
     right:18px;
+
     bottom:18px;
 
-    width:50px;
-    height:50px;
+
+    width:52px;
+
+    height:52px;
+
 
     border-radius:50%;
 
+
     border:
+
         1px solid
         #9de2ff;
 
+
     background:
-        rgba(5,54,88,.85);
+
+        rgba(5,54,88,.88);
+
 
     color:white;
 
+
     display:none;
 
+
     justify-content:center;
+
     align-items:center;
+
 
     z-index:1000;
 
+
     cursor:pointer;
 
-    font-size:21px;
+
+    font-size:20px;
+
 
     backdrop-filter:
+
         blur(5px);
 
+
     box-shadow:
+
         0 5px 20px
-        rgba(0,0,0,.3);
+        rgba(0,0,0,.30);
+
 }
 
 
 .control-musica.visible{
 
     display:flex;
+
 }
 
 
 /* =====================================================
-   CELULARES
+   RESPONSIVE
 ===================================================== */
 
 @media(max-width:500px){
 
-    .portada-contenido{
-        padding-top:45px;
+
+    body{
+
+        /*
+        Algunos navegadores móviles
+        no manejan bien fixed.
+        */
+
+        background-attachment:scroll;
+
+        background-size:cover;
+
+        background-position:center top;
+
     }
+
+
+    .portada-contenido{
+
+        padding-top:45px;
+
+    }
+
+
+    .nombre-portada{
+
+        font-size:
+
+            clamp(
+                68px,
+                21vw,
+                95px
+            );
+
+    }
+
+
+    .frase-portada{
+
+        font-size:26px;
+
+    }
+
 
     .sobre{
-        width:210px;
-        height:140px;
+
+        width:220px;
+
+        height:155px;
+
     }
 
-    .sobre-cuerpo{
-        height:115px;
+
+    .sobre-fondo{
+
+        height:120px;
+
     }
+
 
     .sobre-tapa{
 
-        border-left-width:105px;
-        border-right-width:105px;
-        border-top-width:78px;
+        top:35px;
+
+
+        border-left-width:110px;
+
+        border-right-width:110px;
+
+        border-top-width:82px;
+
     }
+
+
+    .sobre-tapa::after{
+
+        left:-107px;
+
+        top:-80px;
+
+        width:214px;
+
+    }
+
 
     .carta-interior{
 
-        width:165px;
+        width:180px;
 
-        left:22px;
+        height:110px;
+
+        left:20px;
+
+        bottom:17px;
+
     }
+
+
+    .sobre-frente{
+
+        height:120px;
+
+    }
+
+
+    .solapa-inferior{
+
+        height:95px;
+
+    }
+
 
     .sello{
-        top:68px;
+
+        top:80px;
+
+        width:54px;
+
+        height:54px;
+
     }
+
+
+    .sobre.abierto
+    .carta-interior{
+
+        transform:
+
+            translateY(-100px);
+
+    }
+
 
     .fecha{
 
         gap:15px;
+
     }
+
 
     .dia{
 
         font-size:62px;
+
     }
+
 
     .fecha-info{
 
         padding-left:15px;
+
     }
+
 
     .contador{
 
         gap:5px;
+
     }
+
 
     .tiempo{
 
         padding:
-            17px 2px;
+
+            17px
+            2px;
+
     }
+
 
     .evento{
 
         grid-template-columns:
-            1fr 35px 1fr;
+
+            1fr
+            35px
+            1fr;
+
     }
+
 
     .evento-hora{
 
         padding-right:10px;
 
         font-size:13px;
+
     }
+
 
     .evento-info{
 
         padding-left:10px;
 
         font-size:12px;
+
     }
+
 
     .castillo-fondo{
 
-        background-attachment:scroll;
+        min-height:100svh;
+
     }
 
 }
 
 </style>
+
 </head>
 
 
@@ -1798,22 +2791,34 @@ body{
     loop
     preload="auto"
 >
+
     <source
         src="musica-fondo.mp3"
         type="audio/mpeg"
     >
+
 </audio>
 
 
-<!-- BOTÓN MÚSICA -->
+
+<!-- ==================================================
+     BOTÓN MÚSICA
+================================================== -->
 
 <button
+
     id="controlMusica"
+
     class="control-musica"
+
     onclick="controlarMusica()"
-    aria-label="Activar o pausar música"
+
+    aria-label="Pausar o reproducir música"
+
 >
-    ♪
+
+    ❚❚
+
 </button>
 
 
@@ -1824,24 +2829,35 @@ body{
 
 <section id="portada">
 
+
     <div class="cielo-estrellas"></div>
+
 
     <div class="luz-portada"></div>
 
+
     <div class="marco-portada"></div>
+
 
 
     <div class="portada-contenido">
 
 
         <div class="corona-portada">
+
             ♕
+
+
         </div>
+
 
 
         <div class="mis-xv">
+
             MIS XV AÑOS
+
         </div>
+
 
 
         <h1 class="nombre-portada">
@@ -1851,10 +2867,13 @@ body{
             <br>
 
             <span>
+
                 Viviana
+
             </span>
 
         </h1>
+
 
 
         <p class="frase-portada">
@@ -1865,6 +2884,7 @@ body{
             en mi corazón.”
 
         </p>
+
 
 
         <div class="personal">
@@ -1881,44 +2901,85 @@ body{
 
 
 
-        <!-- SOBRE -->
+        <!-- ==================================================
+             SOBRE REALISTA
+        ================================================== -->
 
         <div
+
             class="abrir-zona"
+
             onclick="abrirInvitacion()"
+
         >
 
 
             <div
+
                 class="sobre"
+
                 id="sobre"
+
             >
 
 
+                <!-- PARTE TRASERA -->
+
+                <div class="sobre-fondo"></div>
+
+
+
+                <!-- CARTA -->
+
                 <div class="carta-interior">
 
-                    Mis XV ✦
+                    <span>
+
+                        Antonella Viviana
+
+                    </span>
 
                 </div>
 
 
-                <div class="sobre-cuerpo"></div>
 
+                <!-- TAPA -->
 
                 <div class="sobre-tapa"></div>
 
 
+
+                <!-- FRENTE -->
+
+                <div class="sobre-frente"></div>
+
+
+
+                <!-- SOLAPA -->
+
+                <div class="solapa-inferior"></div>
+
+
+
+                <!-- SELLO -->
+
                 <div class="sello">
+
                     AV
+
                 </div>
 
 
             </div>
 
 
+
             <div
+
                 class="tocar"
+
                 id="textoAbrir"
+
             >
 
                 Toca el sobre para abrir
@@ -1932,6 +2993,7 @@ body{
 
     </div>
 
+
 </section>
 
 
@@ -1943,8 +3005,9 @@ body{
 <section id="invitacion">
 
 
+
 <!-- ==================================================
-     CASTILLO
+     CASTILLO / PRESENTACIÓN
 ================================================== -->
 
 <section class="castillo-fondo">
@@ -1960,13 +3023,17 @@ body{
         </div>
 
 
+
         <h2 class="presentacion-nombre">
 
             Antonella
+
             <br>
+
             Viviana
 
         </h2>
+
 
 
         <p class="presentacion-frase">
@@ -1990,7 +3057,12 @@ body{
 
 
 
+<!-- ==================================================
+     CONTENIDO
+================================================== -->
+
 <div class="contenido">
+
 
 
 <!-- ==================================================
@@ -2001,7 +3073,10 @@ body{
 
 
     <div class="icono">
+
         ♕
+
+
     </div>
 
 
@@ -2011,6 +3086,7 @@ body{
         DE MIS PADRES
 
     </h2>
+
 
 
     <div class="nombre-familia">
@@ -2036,8 +3112,11 @@ body{
 
 
     <div class="icono">
+
         ✦
+
     </div>
+
 
 
     <h2 class="titulo">
@@ -2045,6 +3124,7 @@ body{
         MIS PADRINOS
 
     </h2>
+
 
 
     <div class="padrinos-grupo">
@@ -2061,7 +3141,9 @@ body{
         </div>
 
 
+
         <div class="separador"></div>
+
 
 
         <div class="pareja-padrinos">
@@ -2083,7 +3165,7 @@ body{
 
 
 <!-- ==================================================
-     FECHA Y HORA
+     FECHA
 ================================================== -->
 
 <section class="tarjeta">
@@ -2096,23 +3178,31 @@ body{
     </h2>
 
 
+
     <div class="fecha">
 
 
         <div>
+
 
             <div style="
                 font-family:'Cinzel',serif;
                 color:#9cddff;
                 letter-spacing:2px;
             ">
+
                 SÁBADO
+
             </div>
+
 
 
             <div class="dia">
+
                 03
+
             </div>
+
 
 
             <div style="
@@ -2129,14 +3219,18 @@ body{
 
             </div>
 
+
         </div>
+
 
 
         <div class="fecha-info">
 
 
             <strong>
+
                 RECEPCIÓN
+
             </strong>
 
 
@@ -2153,6 +3247,7 @@ body{
     </div>
 
 
+
     <div class="puntualidad">
 
         ✦ La magia comienza a tiempo ✦
@@ -2162,8 +3257,7 @@ body{
         Para poder compartir juntos
         cada momento de esta noche,
         agradecemos respetar el horario
-        indicado y llegar unos minutos
-        antes.
+        indicado y llegar unos minutos antes.
 
     </div>
 
@@ -2186,69 +3280,101 @@ body{
     </h2>
 
 
+
     <div class="contador">
 
 
         <div class="tiempo">
 
+
             <div
                 class="numero"
                 id="dias"
             >
+
                 00
+
             </div>
 
+
             <div class="etiqueta">
+
                 DÍAS
+
             </div>
+
 
         </div>
 
 
+
         <div class="tiempo">
+
 
             <div
                 class="numero"
                 id="horas"
             >
+
                 00
+
             </div>
 
+
             <div class="etiqueta">
+
                 HORAS
+
             </div>
+
 
         </div>
 
 
+
         <div class="tiempo">
+
 
             <div
                 class="numero"
                 id="minutos"
             >
+
                 00
+
             </div>
 
+
             <div class="etiqueta">
+
                 MINUTOS
+
             </div>
+
 
         </div>
 
 
+
         <div class="tiempo">
+
 
             <div
                 class="numero"
                 id="segundos"
             >
+
                 00
+
             </div>
 
+
             <div class="etiqueta">
+
                 SEGUNDOS
+
             </div>
+
 
         </div>
 
@@ -2268,8 +3394,12 @@ body{
 
 
     <div class="icono">
+
         ♕
+
+
     </div>
+
 
 
     <h2 class="titulo">
@@ -2279,11 +3409,13 @@ body{
     </h2>
 
 
+
     <div class="local">
 
         Shiny Star Eventos
 
     </div>
+
 
 
     <div class="direccion">
@@ -2297,12 +3429,14 @@ body{
     </div>
 
 
+
     <div class="referencia">
 
         Referencia:
         A espalda de Makro
 
     </div>
+
 
 
     <a
@@ -2340,12 +3474,15 @@ body{
     </h2>
 
 
+
     <div class="itinerario">
 
 
-        <!-- RECEPCIÓN -->
+
+        <!-- 6:30 -->
 
         <div class="evento">
+
 
             <div class="evento-hora">
 
@@ -2359,21 +3496,28 @@ body{
 
             <div class="evento-info">
 
+
                 <div class="evento-icono">
+
                     ♕
+
                 </div>
+
 
                 RECEPCIÓN
 
+
             </div>
+
 
         </div>
 
 
 
-        <!-- PROTOCOLO -->
+        <!-- 8:00 -->
 
         <div class="evento">
+
 
             <div class="evento-hora">
 
@@ -2387,9 +3531,13 @@ body{
 
             <div class="evento-info">
 
+
                 <div class="evento-icono">
+
                     ✦
+
                 </div>
+
 
                 PROTOCOLO
 
@@ -2397,15 +3545,18 @@ body{
 
                 Y CEREMONIA
 
+
             </div>
+
 
         </div>
 
 
 
-        <!-- BRINDIS -->
+        <!-- 9:00 -->
 
         <div class="evento">
+
 
             <div class="evento-hora">
 
@@ -2419,9 +3570,13 @@ body{
 
             <div class="evento-info">
 
+
                 <div class="evento-icono">
+
                     🥂
+
                 </div>
+
 
                 BRINDIS
 
@@ -2429,15 +3584,18 @@ body{
 
                 Y CENA
 
+
             </div>
+
 
         </div>
 
 
 
-        <!-- BAILE -->
+        <!-- 9:50 -->
 
         <div class="evento">
+
 
             <div class="evento-hora">
 
@@ -2451,9 +3609,13 @@ body{
 
             <div class="evento-info">
 
+
                 <div class="evento-icono">
+
                     ✨
+
                 </div>
+
 
                 BAILE
 
@@ -2461,15 +3623,18 @@ body{
 
                 SORPRESA
 
+
             </div>
+
 
         </div>
 
 
 
-        <!-- FIESTA -->
+        <!-- 10:00 -->
 
         <div class="evento">
+
 
             <div class="evento-hora">
 
@@ -2483,9 +3648,13 @@ body{
 
             <div class="evento-info">
 
+
                 <div class="evento-icono">
+
                     ♫
+
                 </div>
+
 
                 INICIO
 
@@ -2493,7 +3662,9 @@ body{
 
                 DE FIESTA
 
+
             </div>
+
 
         </div>
 
@@ -2513,8 +3684,11 @@ body{
 
 
     <div class="icono">
+
         🎁
+
     </div>
+
 
 
     <h2 class="titulo">
@@ -2524,6 +3698,7 @@ body{
     </h2>
 
 
+
     <div class="regalo-frase">
 
         Tu compañía en esta noche
@@ -2531,6 +3706,7 @@ body{
         más bonito que puedo recibir.
 
     </div>
+
 
 
     <div class="regalo-secundario">
@@ -2548,7 +3724,8 @@ body{
     </div>
 
 
-    <!-- QR YAPE -->
+
+    <!-- QR -->
 
     <img
 
@@ -2556,9 +3733,10 @@ body{
 
         class="qr"
 
-        alt="QR para sugerencia de regalo"
+        alt="Código QR para regalo"
 
     >
+
 
 
     <div style="
@@ -2586,8 +3764,11 @@ body{
 
 
     <div class="icono">
+
         ✦
+
     </div>
+
 
 
     <h2 class="titulo">
@@ -2597,6 +3778,7 @@ body{
     </h2>
 
 
+
     <div class="ropa">
 
         👗 &nbsp; 🤵
@@ -2604,11 +3786,13 @@ body{
     </div>
 
 
+
     <div class="formal">
 
         FORMAL ELEGANTE
 
     </div>
+
 
 
     <div class="vestimenta-texto">
@@ -2625,6 +3809,7 @@ body{
     </div>
 
 
+
     <div class="reserva-color">
 
 
@@ -2633,6 +3818,7 @@ body{
             COLORES RESERVADOS
 
         </strong>
+
 
 
         <div class="muestras">
@@ -2659,10 +3845,13 @@ body{
         </div>
 
 
+
         Los tonos
 
         <strong>
+
             celeste, azul y plateado
+
         </strong>
 
         han sido reservados especialmente
@@ -2703,7 +3892,12 @@ body{
         Gracias por formar
         parte de la mía.
 
+        <br><br>
+
+        ¡Te esperamos!
+
     </div>
+
 
 
     <div class="final-nombre">
@@ -2714,6 +3908,7 @@ body{
 
 
 </section>
+
 
 
 </div>
@@ -2730,18 +3925,26 @@ body{
 
 let abierta = false;
 
+
 const audio =
+
     document.getElementById(
         "audioFondo"
     );
 
+
 const botonMusica =
+
     document.getElementById(
         "controlMusica"
     );
 
 
-/* volumen inicial */
+/*
+Volumen de la música.
+
+0.55 = 55%
+*/
 
 audio.volume = 0.55;
 
@@ -2755,90 +3958,152 @@ function abrirInvitacion(){
 
 
     if(abierta){
+
         return;
+
     }
 
 
     abierta = true;
 
 
-    /* abrir sobre */
+
+    /* =================================================
+       PASO 1
+       ABRIR SOBRE
+    ================================================= */
 
     document
-        .getElementById("sobre")
+
+        .getElementById(
+            "sobre"
+        )
+
         .classList
-        .add("abierto");
+
+        .add(
+            "abierto"
+        );
+
 
 
     document
-        .getElementById("textoAbrir")
+
+        .getElementById(
+            "textoAbrir"
+        )
+
         .innerHTML =
+
         "Abriendo una noche mágica...";
 
 
-    /* crear estrellas */
 
-    crearEstrellas();
+    /* =================================================
+       PASO 2
+       ESTRELLAS
+    ================================================= */
+
+    setTimeout(
+
+        crearEstrellas,
+
+        500
+
+    );
 
 
-    /*
-    Iniciar MP3.
 
-    Como el audio comienza después
-    de que el usuario toca el sobre,
-    funciona mucho mejor en celulares.
-    */
+    /* =================================================
+       PASO 3
+       INICIAR MÚSICA
+    ================================================= */
 
     audio
+
         .play()
+
         .then(function(){
 
+
             botonMusica.innerHTML =
+
                 "❚❚";
 
+
         })
+
         .catch(function(){
 
+
             botonMusica.innerHTML =
+
                 "♪";
+
 
         });
 
 
+
     botonMusica
+
         .classList
-        .add("visible");
+
+        .add(
+            "visible"
+        );
 
 
-    /*
-    Esperar la animación
-    del sobre.
-    */
+
+    /* =================================================
+       PASO 4
+       MOSTRAR INVITACIÓN
+    ================================================= */
 
     setTimeout(
+
         function(){
 
 
             document
-                .getElementById("portada")
+
+                .getElementById(
+                    "portada"
+                )
+
                 .style.display =
+
                 "none";
 
 
+
             document
-                .getElementById("invitacion")
+
+                .getElementById(
+                    "invitacion"
+                )
+
                 .classList
-                .add("visible");
+
+                .add(
+                    "visible"
+                );
+
 
 
             window.scrollTo({
+
                 top:0,
+
                 behavior:"smooth"
+
             });
 
 
         },
-        1800
+
+        2300
+
     );
 
 }
@@ -2846,121 +4111,192 @@ function abrirInvitacion(){
 
 
 /* =====================================================
-   ESTRELLAS DEL SOBRE
+   CREAR ESTRELLAS
 ===================================================== */
 
 function crearEstrellas(){
 
 
     const sobre =
-        document
-        .getElementById("sobre");
+
+        document.getElementById(
+            "sobre"
+        );
 
 
     const rect =
-        sobre
-        .getBoundingClientRect();
+
+        sobre.getBoundingClientRect();
+
 
 
     const centroX =
+
         rect.left +
+
         rect.width / 2;
 
 
+
     const centroY =
+
         rect.top +
+
         rect.height / 2;
 
 
+
     for(
+
         let i = 0;
-        i < 65;
+
+        i < 70;
+
         i++
+
     ){
 
 
         const estrella =
-            document
-            .createElement("div");
+
+            document.createElement(
+                "div"
+            );
+
 
 
         estrella.className =
+
             "particula";
 
 
+
         estrella.style.left =
+
             centroX + "px";
 
 
+
         estrella.style.top =
+
             centroY + "px";
 
 
+
         const angulo =
+
             Math.random()
+
             * Math.PI
+
             * 2;
 
 
+
         const distancia =
-            90 +
+
+            80
+
+            +
+
             Math.random()
+
             * 300;
 
 
+
         const x =
-            Math.cos(angulo)
+
+            Math.cos(
+                angulo
+            )
+
             * distancia;
+
 
 
         const y =
-            Math.sin(angulo)
+
+            Math.sin(
+                angulo
+            )
+
             * distancia;
 
 
+
         estrella
+
             .style
+
             .setProperty(
+
                 "--x",
+
                 x + "px"
+
             );
+
 
 
         estrella
+
             .style
+
             .setProperty(
+
                 "--y",
+
                 y + "px"
+
             );
+
 
 
         const tamaño =
-            4 +
+
+            4
+
+            +
+
             Math.random()
+
             * 9;
 
 
+
         estrella.style.width =
+
             tamaño + "px";
+
 
 
         estrella.style.height =
+
             tamaño + "px";
 
 
+
         document.body
+
             .appendChild(
                 estrella
             );
 
 
+
         setTimeout(
+
             function(){
+
 
                 estrella.remove();
 
+
             },
+
             2100
+
         );
 
     }
@@ -2983,6 +4319,7 @@ function controlarMusica(){
 
 
         botonMusica.innerHTML =
+
             "❚❚";
 
 
@@ -2993,6 +4330,7 @@ function controlarMusica(){
 
 
         botonMusica.innerHTML =
+
             "♪";
 
 
@@ -3007,55 +4345,93 @@ function controlarMusica(){
 ===================================================== */
 
 /*
+
 Evento:
 
-03 octubre 2026
-6:30 PM
+03 de octubre de 2026
 
-Perú UTC-5
+6:30 P.M.
+
+Hora Perú UTC-5
+
 */
 
 const fechaEvento =
+
     new Date(
+
         "2026-10-03T18:30:00-05:00"
+
     );
+
 
 
 function actualizarContador(){
 
 
     const ahora =
+
         new Date();
 
 
+
     const diferencia =
+
         fechaEvento - ahora;
 
 
-    if(diferencia <= 0){
+
+    if(
+
+        diferencia <= 0
+
+    ){
 
 
         document
-            .getElementById("dias")
+
+            .getElementById(
+                "dias"
+            )
+
             .textContent =
+
             "00";
 
 
+
         document
-            .getElementById("horas")
+
+            .getElementById(
+                "horas"
+            )
+
             .textContent =
+
             "00";
 
 
+
         document
-            .getElementById("minutos")
+
+            .getElementById(
+                "minutos"
+            )
+
             .textContent =
+
             "00";
 
 
+
         document
-            .getElementById("segundos")
+
+            .getElementById(
+                "segundos"
+            )
+
             .textContent =
+
             "00";
 
 
@@ -3064,68 +4440,124 @@ function actualizarContador(){
     }
 
 
+
     const dias =
+
         Math.floor(
+
             diferencia /
+
             86400000
+
         );
+
 
 
     const horas =
+
         Math.floor(
+
             diferencia /
+
             3600000
+
         ) % 24;
 
 
+
     const minutos =
+
         Math.floor(
+
             diferencia /
+
             60000
+
         ) % 60;
+
 
 
     const segundos =
+
         Math.floor(
+
             diferencia /
+
             1000
+
         ) % 60;
 
 
+
     document
-        .getElementById("dias")
+
+        .getElementById(
+            "dias"
+        )
+
         .textContent =
-        String(dias)
+
+        String(
+            dias
+        )
+
         .padStart(
             2,
             "0"
         );
 
 
+
     document
-        .getElementById("horas")
+
+        .getElementById(
+            "horas"
+        )
+
         .textContent =
-        String(horas)
+
+        String(
+            horas
+        )
+
         .padStart(
             2,
             "0"
         );
 
 
+
     document
-        .getElementById("minutos")
+
+        .getElementById(
+            "minutos"
+        )
+
         .textContent =
-        String(minutos)
+
+        String(
+            minutos
+        )
+
         .padStart(
             2,
             "0"
         );
 
 
+
     document
-        .getElementById("segundos")
+
+        .getElementById(
+            "segundos"
+        )
+
         .textContent =
-        String(segundos)
+
+        String(
+            segundos
+        )
+
         .padStart(
             2,
             "0"
@@ -3134,18 +4566,27 @@ function actualizarContador(){
 }
 
 
-/* iniciar */
+
+/* iniciar contador */
 
 actualizarContador();
 
 
+
+/* actualizar cada segundo */
+
 setInterval(
+
     actualizarContador,
+
     1000
+
 );
+
 
 </script>
 
 
 </body>
+
 </html>
