@@ -20,41 +20,53 @@ crossorigin>
 href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
 rel="stylesheet">
 
+
 <style>
 
-/* =====================================================
-   COLORES
-===================================================== */
+/* =========================================================
+   PALETA GENERAL
+   CELESTE · BLANCO · HIELO · PLATEADO
+========================================================= */
 
 :root{
 
-    --azul-noche:#020b18;
-    --azul-profundo:#031a32;
-    --azul:#07507d;
-    --azul-medio:#2485bb;
+    --celeste-oscuro:#287fa6;
 
-    --celeste:#73d1ff;
-    --celeste-claro:#ccefff;
-    --celeste-hielo:#edfaff;
+    --celeste:#62c9ee;
+
+    --celeste-medio:#8bdcff;
+
+    --celeste-claro:#bcecff;
+
+    --celeste-hielo:#e8f9ff;
 
     --blanco:#ffffff;
+
+    --plata:#d8e5eb;
+
+    --texto:#28566c;
 }
 
 
-/* =====================================================
+/* =========================================================
    GENERAL
-===================================================== */
+========================================================= */
 
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
+
 }
 
+
 html{
+
     scroll-behavior:smooth;
-    min-height:100%;
+
 }
+
 
 body{
 
@@ -66,79 +78,44 @@ body{
 
     color:white;
 
-    background:#03172d;
+    background:#a6def2;
 
     overflow-x:hidden;
+
 }
 
 
-/* =====================================================
-   FONDO DEL CASTILLO
-   SIN BLUR
-   SIN REPETICIÓN
-===================================================== */
+/* =========================================================
+   FONDO GENERAL
+========================================================= */
 
-.fondo-castillo{
+.fondo-general{
 
     position:fixed;
 
     inset:0;
 
     width:100vw;
-    height:100vh;
 
+    height:100vh;
     height:100svh;
 
-    z-index:-10;
+    z-index:-20;
 
     background-image:url("castillo.jpg");
+
+    background-size:cover;
 
     background-repeat:no-repeat;
 
     background-position:center center;
 
-    background-size:cover;
-
-    /*
-    IMPORTANTE:
-    NO usamos filter: blur()
-    */
-
-    filter:none;
-
-    transform:none;
-
-    image-rendering:auto;
 }
 
 
-/* Oscurecimiento independiente.
-   NO desenfoca la fotografía. */
-
-.fondo-castillo::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            rgba(1,10,25,.06) 0%,
-            rgba(2,18,40,.12) 45%,
-            rgba(1,10,25,.25) 100%
-        );
-
-    pointer-events:none;
-}
-
-
-/* =====================================================
+/* =========================================================
    PORTADA
-===================================================== */
+========================================================= */
 
 #portada{
 
@@ -154,10 +131,13 @@ body{
     align-items:center;
 
     overflow:hidden;
+
 }
 
 
-#portada::before{
+/* Capa celeste muy suave */
+
+#portada::after{
 
     content:"";
 
@@ -165,25 +145,27 @@ body{
 
     inset:0;
 
+    z-index:0;
+
     background:
 
-        radial-gradient(
-            circle at 50% 12%,
-            rgba(98,206,255,.10),
-            transparent 36%
+        linear-gradient(
+            180deg,
+            rgba(70,190,235,.10),
+            rgba(63,177,221,.13),
+            rgba(25,110,150,.25)
         );
 
     pointer-events:none;
 
-    z-index:0;
 }
 
 
-/* =====================================================
+/* =========================================================
    ESTRELLAS
-===================================================== */
+========================================================= */
 
-.cielo-estrellas{
+.estrellas{
 
     position:absolute;
 
@@ -193,70 +175,79 @@ body{
 
     pointer-events:none;
 
+    opacity:.55;
+
     background-image:
 
         radial-gradient(
             circle,
-            rgba(255,255,255,.9) 1px,
+            white 1px,
             transparent 1.5px
         ),
 
         radial-gradient(
             circle,
-            rgba(120,210,255,.8) 1px,
+            #bfeeff 1px,
             transparent 1.5px
         );
 
     background-size:
-        55px 55px,
-        85px 85px;
+
+        48px 48px,
+        78px 78px;
 
     background-position:
-        0 0,
-        25px 25px;
 
-    opacity:.28;
+        0 0,
+        20px 25px;
 
     animation:
-        moverEstrellas
-        30s
+
+        estrellasMover
+        35s
         linear
         infinite;
+
 }
 
 
-@keyframes moverEstrellas{
+@keyframes estrellasMover{
 
     to{
 
         background-position:
-            150px 200px,
-            -120px 170px;
+
+            180px 250px,
+            -150px 200px;
+
     }
+
 }
 
 
-/* =====================================================
-   MARCO
-===================================================== */
+/* =========================================================
+   MARCO PORTADA
+========================================================= */
 
-.marco-portada{
+.marco{
 
     position:absolute;
 
-    inset:16px;
+    inset:15px;
 
     z-index:2;
 
     border:
+
         1px solid
-        rgba(181,229,255,.72);
+        rgba(220,248,255,.90);
 
     pointer-events:none;
+
 }
 
 
-.marco-portada::after{
+.marco::after{
 
     content:"";
 
@@ -265,14 +256,16 @@ body{
     inset:6px;
 
     border:
+
         1px solid
-        rgba(181,229,255,.25);
+        rgba(201,241,255,.38);
+
 }
 
 
-/* =====================================================
+/* =========================================================
    CONTENIDO PORTADA
-===================================================== */
+========================================================= */
 
 .portada-contenido{
 
@@ -287,15 +280,17 @@ body{
     text-align:center;
 
     padding:
+
         50px
         15px
         45px;
+
 }
 
 
-/* =====================================================
-   ORNAMENTO ELEGANTE
-===================================================== */
+/* =========================================================
+   ORNAMENTOS
+========================================================= */
 
 .ornamento{
 
@@ -307,15 +302,10 @@ body{
 
     gap:12px;
 
-    margin-bottom:13px;
+    color:#e9fbff;
 
-    color:var(--celeste-claro);
+    margin-bottom:15px;
 
-    text-shadow:
-        0 0 12px
-        rgba(93,197,255,.9);
-
-    font-family:'Cinzel',serif;
 }
 
 
@@ -324,7 +314,7 @@ body{
 
     content:"";
 
-    width:50px;
+    width:60px;
 
     height:1px;
 
@@ -333,8 +323,9 @@ body{
         linear-gradient(
             to right,
             transparent,
-            #a9e5ff
+            #e6faff
         );
+
 }
 
 
@@ -345,22 +336,31 @@ body{
         linear-gradient(
             to left,
             transparent,
-            #a9e5ff
+            #e6faff
         );
+
 }
 
 
 .ornamento-centro{
 
-    font-size:20px;
+    font-family:'Cinzel',serif;
 
-    letter-spacing:5px;
+    font-size:19px;
+
+    letter-spacing:6px;
+
+    text-shadow:
+
+        0 0 10px
+        rgba(210,246,255,.9);
+
 }
 
 
-/* =====================================================
+/* =========================================================
    MIS XV
-===================================================== */
+========================================================= */
 
 .mis-xv{
 
@@ -370,21 +370,21 @@ body{
 
     letter-spacing:7px;
 
-    color:var(--celeste-claro);
+    color:#e7faff;
 
-    margin-bottom:10px;
 }
 
 
-/* =====================================================
-   NOMBRE
-===================================================== */
+/* =========================================================
+   NOMBRE PORTADA
+========================================================= */
 
 .nombre-portada{
 
     font-family:'Great Vibes',cursive;
 
     font-size:
+
         clamp(
             72px,
             17vw,
@@ -396,7 +396,8 @@ body{
     line-height:.78;
 
     margin:
-        18px
+
+        20px
         0
         30px;
 
@@ -404,34 +405,37 @@ body{
 
     text-shadow:
 
-        0 0 9px
-        rgba(255,255,255,.45),
+        0 0 10px
+        rgba(255,255,255,.70),
 
-        0 0 20px
-        rgba(77,185,245,.65),
+        0 0 25px
+        rgba(140,225,255,.85),
 
         0 4px 8px
-        rgba(0,0,0,.55);
+        rgba(20,90,120,.60);
+
 }
 
 
 .nombre-portada span{
 
-    color:#d8f4ff;
+    color:#dcf7ff;
+
 }
 
 
-/* =====================================================
-   FRASE
-===================================================== */
+/* =========================================================
+   FRASE PORTADA
+========================================================= */
 
 .frase-portada{
 
     max-width:500px;
 
     margin:
+
         0 auto
-        22px;
+        20px;
 
     font-family:'Great Vibes',cursive;
 
@@ -439,11 +443,13 @@ body{
 
     line-height:1.35;
 
-    color:#e9f9ff;
+    color:white;
 
     text-shadow:
-        0 2px 6px
-        rgba(0,0,0,.85);
+
+        0 2px 7px
+        rgba(20,70,100,.85);
+
 }
 
 
@@ -455,21 +461,23 @@ body{
 
     line-height:1.9;
 
-    letter-spacing:1.4px;
+    letter-spacing:1.5px;
 
-    color:#d3f1ff;
+    color:#e8faff;
 
     margin-bottom:25px;
 
     text-shadow:
+
         0 2px 5px
-        rgba(0,0,0,.8);
+        rgba(20,70,100,.80);
+
 }
 
 
-/* =====================================================
-   ÁREA DEL SOBRE
-===================================================== */
+/* =========================================================
+   SOBRE
+========================================================= */
 
 .abrir-zona{
 
@@ -478,7 +486,8 @@ body{
     max-width:100%;
 
     margin:
-        12px auto
+
+        10px auto
         0;
 
     cursor:pointer;
@@ -488,12 +497,9 @@ body{
     position:relative;
 
     z-index:20;
+
 }
 
-
-/* =====================================================
-   SOBRE
-===================================================== */
 
 .sobre{
 
@@ -510,15 +516,17 @@ body{
     filter:
 
         drop-shadow(
-            0 17px 17px
-            rgba(0,0,0,.45)
+            0 16px 17px
+            rgba(35,100,125,.38)
         );
 
     animation:
+
         flotarSobre
         3s
         ease-in-out
         infinite;
+
 }
 
 
@@ -528,22 +536,25 @@ body{
     100%{
 
         transform:
+
             translateY(0)
-            rotate(-.8deg);
+            rotate(-.7deg);
+
     }
 
     50%{
 
         transform:
-            translateY(-7px)
-            rotate(.8deg);
+
+            translateY(-8px)
+            rotate(.7deg);
+
     }
+
 }
 
 
-/* =====================================================
-   PARTE TRASERA
-===================================================== */
+/* Parte trasera */
 
 .sobre-fondo{
 
@@ -563,22 +574,26 @@ body{
 
         linear-gradient(
             145deg,
-            #1679ad,
-            #073a61
+            #9ce3fa,
+            #58bfe6
         );
 
     border:
+
         1px solid
-        rgba(164,225,255,.72);
+        rgba(230,250,255,.95);
 
     z-index:1;
+
 }
 
 
-/* =====================================================
-   CARTA
-   COMPLETAMENTE OCULTA AL PRINCIPIO
-===================================================== */
+/* =========================================================
+   CARTA INTERIOR
+
+   IMPORTANTE:
+   invisible antes de abrir.
+========================================================= */
 
 .carta-interior{
 
@@ -586,32 +601,34 @@ body{
 
     left:50%;
 
-    bottom:23px;
+    bottom:25px;
 
-    width:160px;
+    width:150px;
 
-    height:80px;
+    height:75px;
 
     transform:
+
         translateX(-50%)
         translateY(25px)
-        scale(.96);
+        scale(.95);
 
     background:
 
         linear-gradient(
             145deg,
             #ffffff,
-            #e8f7ff
+            #edfaff
         );
+
+    border:
+
+        1px solid
+        #c6efff;
 
     border-radius:5px;
 
-    border:
-        1px solid
-        #a9ddf6;
-
-    color:#145f8b;
+    color:#4a9fc1;
 
     display:flex;
 
@@ -621,12 +638,6 @@ body{
 
     align-items:center;
 
-    /*
-    CLAVE:
-    mientras el sobre está cerrado,
-    la carta no se puede ver.
-    */
-
     opacity:0;
 
     visibility:hidden;
@@ -634,25 +645,15 @@ body{
     z-index:2;
 
     box-shadow:
-        0 4px 10px
-        rgba(0,0,0,.20);
+
+        0 4px 12px
+        rgba(30,100,130,.20);
 
     transition:
 
-        transform
-        .9s
-        cubic-bezier(.2,.8,.2,1),
+        transform .9s ease,
+        opacity .25s ease;
 
-        opacity
-        .25s ease;
-}
-
-
-.carta-interior .mini-estrella{
-
-    font-size:13px;
-
-    margin-bottom:3px;
 }
 
 
@@ -660,13 +661,23 @@ body{
 
     font-family:'Great Vibes',cursive;
 
-    font-size:20px;
+    font-size:19px;
+
 }
 
 
-/* =====================================================
+.mini-estrella{
+
+    font-size:12px;
+
+    margin-bottom:4px;
+
+}
+
+
+/* =========================================================
    SOLAPA SUPERIOR
-===================================================== */
+========================================================= */
 
 .sobre-tapa{
 
@@ -677,38 +688,40 @@ body{
     top:40px;
 
     width:0;
+
     height:0;
 
     border-left:
+
         130px solid transparent;
 
     border-right:
+
         130px solid transparent;
 
     border-top:
-        95px solid #197aaa;
+
+        95px solid #83d7f4;
 
     transform-origin:
-        center top;
 
-    transform:
-        rotateX(0deg);
+        center top;
 
     z-index:8;
 
     transition:
 
-        transform
-        .75s
+        transform .75s
         cubic-bezier(.45,.05,.25,1),
 
         z-index 0s .4s;
+
 }
 
 
-/* =====================================================
-   LATERALES DEL SOBRE
-===================================================== */
+/* =========================================================
+   FRENTE DEL SOBRE
+========================================================= */
 
 .sobre-frente{
 
@@ -725,11 +738,11 @@ body{
     overflow:hidden;
 
     border-radius:
+
         0 0 6px 6px;
 
     z-index:5;
 
-    pointer-events:none;
 }
 
 
@@ -740,21 +753,23 @@ body{
     position:absolute;
 
     width:205px;
+
     height:205px;
 
     left:-105px;
+
     bottom:-103px;
 
-    transform:
-        rotate(45deg);
+    transform:rotate(45deg);
 
     background:
 
         linear-gradient(
             135deg,
-            #0d5581,
-            #083b62
+            #82d8f4,
+            #55bae0
         );
+
 }
 
 
@@ -765,27 +780,29 @@ body{
     position:absolute;
 
     width:205px;
+
     height:205px;
 
     right:-105px;
+
     bottom:-103px;
 
-    transform:
-        rotate(45deg);
+    transform:rotate(45deg);
 
     background:
 
         linear-gradient(
             135deg,
-            #0d4f79,
-            #063558
+            #75cfef,
+            #49add5
         );
+
 }
 
 
-/* =====================================================
+/* =========================================================
    SOLAPA INFERIOR
-===================================================== */
+========================================================= */
 
 .solapa-inferior{
 
@@ -803,7 +820,6 @@ body{
 
     z-index:6;
 
-    pointer-events:none;
 }
 
 
@@ -814,6 +830,7 @@ body{
     position:absolute;
 
     width:190px;
+
     height:190px;
 
     left:50%;
@@ -821,6 +838,7 @@ body{
     bottom:-138px;
 
     transform:
+
         translateX(-50%)
         rotate(45deg);
 
@@ -828,15 +846,16 @@ body{
 
         linear-gradient(
             145deg,
-            #11608f,
-            #073b61
+            #8bdcf6,
+            #56bce1
         );
+
 }
 
 
-/* =====================================================
-   SELLO ELEGANTE
-===================================================== */
+/* =========================================================
+   SELLO
+========================================================= */
 
 .sello{
 
@@ -847,9 +866,11 @@ body{
     top:92px;
 
     transform:
+
         translateX(-50%);
 
     width:58px;
+
     height:58px;
 
     border-radius:50%;
@@ -864,41 +885,34 @@ body{
 
     font-family:'Cinzel',serif;
 
-    font-size:15px;
+    font-size:14px;
 
-    letter-spacing:1px;
-
-    color:#eafaff;
+    color:white;
 
     background:
 
         radial-gradient(
             circle at 35% 30%,
-            #55b5df,
-            #07517a 58%,
-            #032b47
+            #d9f7ff,
+            #74cfee 55%,
+            #43a8d0
         );
 
     border:
+
         3px double
-        #b7eaff;
+        white;
 
     box-shadow:
 
-        0 0 12px
-        rgba(100,207,255,.8),
+        0 0 15px
+        rgba(202,244,255,.95),
 
-        0 0 25px
-        rgba(69,183,238,.38),
+        0 0 30px
+        rgba(102,207,246,.65);
 
-        inset
-        0 0 10px
-        rgba(255,255,255,.25);
+    transition:.35s;
 
-    transition:
-
-        opacity .35s,
-        transform .35s;
 }
 
 
@@ -912,7 +926,6 @@ body{
 
     font-size:7px;
 
-    color:#d9f5ff;
 }
 
 
@@ -925,25 +938,29 @@ body{
     inset:-9px;
 
     border:
+
         1px solid
-        rgba(170,230,255,.55);
+        rgba(221,248,255,.75);
 
     border-radius:50%;
 
     animation:
-        pulsoSello
+
+        pulso
         1.7s
         infinite;
+
 }
 
 
-@keyframes pulsoSello{
+@keyframes pulso{
 
     from{
 
         transform:scale(.9);
 
         opacity:.8;
+
     }
 
     to{
@@ -951,17 +968,20 @@ body{
         transform:scale(1.55);
 
         opacity:0;
+
     }
+
 }
 
 
-/* =====================================================
-   APERTURA DEL SOBRE
-===================================================== */
+/* =========================================================
+   SOBRE ABIERTO
+========================================================= */
 
 .sobre.abierto{
 
     animation:none;
+
 }
 
 
@@ -970,28 +990,21 @@ body{
     opacity:0;
 
     transform:
+
         translateX(-50%)
         scale(.3);
+
 }
 
-
-/*
-Primero abre la tapa.
-*/
 
 .sobre.abierto .sobre-tapa{
 
-    transform:
-        rotateX(180deg);
+    transform:rotateX(180deg);
 
     z-index:0;
+
 }
 
-
-/*
-La carta se vuelve visible
-DESPUÉS de comenzar a abrir la tapa.
-*/
 
 .sobre.abierto .carta-interior{
 
@@ -1000,19 +1013,19 @@ DESPUÉS de comenzar a abrir la tapa.
     opacity:1;
 
     transform:
+
         translateX(-50%)
         translateY(-90px)
         scale(1);
 
-    transition-delay:
-        .55s,
-        .55s;
+    transition-delay:.55s;
+
 }
 
 
-/* =====================================================
+/* =========================================================
    TEXTO ABRIR
-===================================================== */
+========================================================= */
 
 .tocar{
 
@@ -1022,20 +1035,22 @@ DESPUÉS de comenzar a abrir la tapa.
 
     font-size:28px;
 
-    color:#edfaff;
+    color:white;
 
     text-shadow:
 
-        0 0 10px
-        #4dbfff,
+        0 0 12px
+        #a7e8ff,
 
         0 2px 5px
-        rgba(0,0,0,.8);
+        rgba(20,90,120,.7);
 
     animation:
+
         pulsarTexto
         1.8s
         infinite;
+
 }
 
 
@@ -1043,16 +1058,18 @@ DESPUÉS de comenzar a abrir la tapa.
 
     50%{
 
-        opacity:.72;
+        opacity:.75;
 
         transform:scale(1.025);
+
     }
+
 }
 
 
-/* =====================================================
-   ESTRELLAS AL ABRIR
-===================================================== */
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
 
 .particula{
 
@@ -1063,6 +1080,7 @@ DESPUÉS de comenzar a abrir la tapa.
     pointer-events:none;
 
     width:8px;
+
     height:8px;
 
     background:white;
@@ -1083,19 +1101,19 @@ DESPUÉS de comenzar a abrir la tapa.
     filter:
 
         drop-shadow(
-            0 0 5px
-            white
+            0 0 6px white
         )
 
         drop-shadow(
-            0 0 9px
-            #70d4ff
+            0 0 12px #8de4ff
         );
 
     animation:
+
         explosion
         2s
         forwards;
+
 }
 
 
@@ -1106,9 +1124,10 @@ DESPUÉS de comenzar a abrir la tapa.
         opacity:1;
 
         transform:
+
             translate(0,0)
-            scale(.4)
-            rotate(0deg);
+            scale(.4);
+
     }
 
     to{
@@ -1122,16 +1141,18 @@ DESPUÉS de comenzar a abrir la tapa.
                 var(--y)
             )
 
-            scale(1.5)
+            scale(1.6)
 
             rotate(360deg);
+
     }
+
 }
 
 
-/* =====================================================
+/* =========================================================
    INVITACIÓN
-===================================================== */
+========================================================= */
 
 #invitacion{
 
@@ -1140,6 +1161,9 @@ DESPUÉS de comenzar a abrir la tapa.
     min-height:100vh;
 
     position:relative;
+
+    isolation:isolate;
+
 }
 
 
@@ -1148,26 +1172,108 @@ DESPUÉS de comenzar a abrir la tapa.
     display:block;
 
     animation:
+
         aparecer
-        1.3s ease;
+        1.2s ease;
+
 }
 
 
 @keyframes aparecer{
 
     from{
+
         opacity:0;
+
     }
 
     to{
+
         opacity:1;
+
     }
+
 }
 
 
-/* =====================================================
-   SEGUNDA PANTALLA
-===================================================== */
+/* =========================================================
+   FONDO DIFUMINADO DE LA SEGUNDA SECCIÓN
+
+   IMPORTANTE:
+   Aquí sí hacemos blur SOLO a la imagen.
+   El contenido permanece nítido.
+========================================================= */
+
+#invitacion::before{
+
+    content:"";
+
+    position:fixed;
+
+    /*
+    Ampliamos un poco la imagen para
+    evitar bordes causados por blur.
+    */
+
+    inset:-12px;
+
+    z-index:-2;
+
+    background-image:
+
+        url("castillo.jpg");
+
+    background-size:cover;
+
+    background-position:center center;
+
+    background-repeat:no-repeat;
+
+    /*
+    Difuminado moderado:
+    el castillo sigue distinguiéndose.
+    */
+
+    filter:
+
+        blur(3px);
+
+    transform:
+
+        scale(1.025);
+
+}
+
+
+/* Capa celeste translúcida */
+
+#invitacion::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(187,235,250,.34),
+            rgba(119,207,238,.30),
+            rgba(77,174,212,.34)
+        );
+
+    pointer-events:none;
+
+}
+
+
+/* =========================================================
+   PRESENTACIÓN
+========================================================= */
 
 .castillo-fondo{
 
@@ -1181,9 +1287,10 @@ DESPUÉS de comenzar a abrir la tapa.
     align-items:center;
 
     padding:
-        80px 20px;
 
-    position:relative;
+        80px
+        20px;
+
 }
 
 
@@ -1196,29 +1303,34 @@ DESPUÉS de comenzar a abrir la tapa.
     text-align:center;
 
     padding:
-        48px 25px;
+
+        50px
+        25px;
 
     border:
-        1px solid
-        rgba(190,232,255,.65);
 
-    border-radius:28px;
+        1px solid
+        rgba(236,251,255,.85);
+
+    border-radius:30px;
 
     background:
 
         linear-gradient(
             145deg,
-            rgba(4,40,72,.64),
-            rgba(2,20,42,.73)
+            rgba(127,210,239,.58),
+            rgba(84,179,216,.63)
         );
 
     box-shadow:
 
-        0 20px 50px
-        rgba(0,0,0,.38);
+        0 20px 45px
+        rgba(35,105,135,.28);
 
     backdrop-filter:
-        brightness(.98);
+
+        blur(4px);
+
 }
 
 
@@ -1230,7 +1342,8 @@ DESPUÉS de comenzar a abrir la tapa.
 
     font-size:13px;
 
-    color:#b6e8ff;
+    color:white;
+
 }
 
 
@@ -1239,22 +1352,32 @@ DESPUÉS de comenzar a abrir la tapa.
     font-family:'Great Vibes',cursive;
 
     font-size:
+
         clamp(
             70px,
             16vw,
             110px
         );
 
+    font-weight:normal;
+
     line-height:.82;
 
     margin:
-        25px 0;
+
+        25px
+        0;
 
     color:white;
 
     text-shadow:
+
         0 0 18px
-        rgba(72,187,255,.9);
+        rgba(216,249,255,.95),
+
+        0 3px 8px
+        rgba(41,124,157,.50);
+
 }
 
 
@@ -1264,15 +1387,16 @@ DESPUÉS de comenzar a abrir la tapa.
 
     font-size:30px;
 
-    line-height:1.4;
+    line-height:1.45;
 
-    color:#e4f7ff;
+    color:white;
+
 }
 
 
-/* =====================================================
+/* =========================================================
    CONTENIDO
-===================================================== */
+========================================================= */
 
 .contenido{
 
@@ -1283,100 +1407,102 @@ DESPUÉS de comenzar a abrir la tapa.
     margin:auto;
 
     padding:
-        70px 0 100px;
 
-    position:relative;
+        40px
+        0
+        100px;
 
-    z-index:2;
 }
 
 
-/* =====================================================
+/* =========================================================
    TARJETAS
-===================================================== */
+========================================================= */
 
 .tarjeta{
 
     margin:
+
         0 auto
         45px;
 
     padding:
-        42px 25px;
+
+        42px
+        25px;
 
     text-align:center;
 
-    border-radius:25px;
+    border-radius:26px;
+
+    color:white;
 
     background:
 
         linear-gradient(
             145deg,
-            rgba(6,60,100,.80),
-            rgba(2,22,45,.87)
+            rgba(121,209,240,.78),
+            rgba(69,164,202,.82)
         );
 
     border:
+
         1px solid
-        rgba(160,222,255,.55);
+        rgba(229,249,255,.88);
 
     box-shadow:
 
         0 18px 45px
-        rgba(0,0,0,.32);
+        rgba(41,111,140,.25);
+
+    backdrop-filter:
+
+        blur(6px);
+
 }
 
 
 .tarjeta-clara{
 
-    color:#0b3556;
+    color:var(--texto);
 
     background:
 
         linear-gradient(
             145deg,
-            rgba(244,252,255,.97),
-            rgba(214,242,255,.95)
+            rgba(255,255,255,.96),
+            rgba(229,248,255,.95)
         );
 
-    border:
-        1px solid
-        rgba(164,224,251,.9);
 }
 
 
-/* =====================================================
-   ORNAMENTO TARJETAS
-===================================================== */
+/* =========================================================
+   TÍTULOS
+========================================================= */
 
 .ornamento-tarjeta{
 
     font-family:'Cinzel',serif;
 
-    font-size:20px;
+    font-size:19px;
 
     letter-spacing:8px;
 
-    color:#bcecff;
-
     margin-bottom:15px;
 
-    text-shadow:
-        0 0 8px
-        rgba(91,197,255,.65);
+    color:#e9faff;
+
 }
 
 
 .tarjeta-clara
 .ornamento-tarjeta{
 
-    color:#2879a7;
+    color:#62badb;
+
 }
 
-
-/* =====================================================
-   TÍTULOS
-===================================================== */
 
 .titulo{
 
@@ -1386,45 +1512,55 @@ DESPUÉS de comenzar a abrir la tapa.
 
     font-size:20px;
 
-    color:#bce9ff;
+    color:white;
 
     margin-bottom:25px;
+
 }
 
 
-.tarjeta-clara .titulo{
+.tarjeta-clara
+.titulo{
 
-    color:#17618f;
+    color:#4b9dbc;
+
 }
 
 
-/* =====================================================
-   FAMILIA
-===================================================== */
+/* =========================================================
+   PADRES
+========================================================= */
 
 .nombre-familia{
 
     font-family:'Great Vibes',cursive;
 
-    font-size:31px;
+    font-size:32px;
 
     line-height:1.65;
 
-    color:#f0fbff;
+    color:white;
+
 }
 
+
+/* =========================================================
+   PADRINOS
+========================================================= */
 
 .padrinos-grupo{
 
     line-height:1.9;
 
-    color:#dff5ff;
+    color:#f1fcff;
+
 }
 
 
 .pareja-padrinos{
 
-    margin-bottom:22px;
+    margin-bottom:20px;
+
 }
 
 
@@ -1435,22 +1571,24 @@ DESPUÉS de comenzar a abrir la tapa.
     height:1px;
 
     margin:
-        22px auto;
+
+        20px auto;
 
     background:
 
         linear-gradient(
             to right,
             transparent,
-            #aee5ff,
+            white,
             transparent
         );
+
 }
 
 
-/* =====================================================
+/* =========================================================
    FECHA
-===================================================== */
+========================================================= */
 
 .fecha{
 
@@ -1462,7 +1600,6 @@ DESPUÉS de comenzar a abrir la tapa.
 
     gap:25px;
 
-    margin-top:10px;
 }
 
 
@@ -1472,9 +1609,10 @@ DESPUÉS de comenzar a abrir la tapa.
 
     font-size:75px;
 
-    color:#c8eeff;
+    color:white;
 
     line-height:1;
+
 }
 
 
@@ -1483,30 +1621,23 @@ DESPUÉS de comenzar a abrir la tapa.
     text-align:left;
 
     border-left:
+
         1px solid
-        #8dd8ff;
+        rgba(255,255,255,.8);
 
     padding-left:25px;
 
-    line-height:1.8;
-}
-
-
-.fecha-info strong{
-
-    font-family:'Cinzel',serif;
-
-    color:#aee4ff;
 }
 
 
 .hora{
 
-    font-size:27px;
-
     font-family:'Cinzel',serif;
 
-    color:white;
+    font-size:27px;
+
+    margin-top:8px;
+
 }
 
 
@@ -1519,37 +1650,45 @@ DESPUÉS de comenzar a abrir la tapa.
     border-radius:15px;
 
     background:
-        rgba(117,207,255,.08);
+
+        rgba(255,255,255,.13);
 
     border:
+
         1px solid
-        rgba(141,216,255,.25);
+        rgba(255,255,255,.45);
 
     line-height:1.8;
 
-    color:#e3f7ff;
 }
 
 
-/* =====================================================
+/* =========================================================
    CONTADOR
-===================================================== */
+========================================================= */
 
 .contador{
 
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+
+        repeat(
+            4,
+            1fr
+        );
 
     gap:8px;
+
 }
 
 
 .tiempo{
 
     padding:
-        20px 4px;
+
+        20px
+        4px;
 
     border-radius:14px;
 
@@ -1557,13 +1696,16 @@ DESPUÉS de comenzar a abrir la tapa.
 
         linear-gradient(
             145deg,
-            #1677ad,
-            #06365c
+            rgba(227,249,255,.95),
+            rgba(143,220,247,.95)
         );
 
     border:
-        1px solid
-        #94dcff;
+
+        1px solid white;
+
+    color:#3d91b2;
+
 }
 
 
@@ -1572,11 +1714,13 @@ DESPUÉS de comenzar a abrir la tapa.
     font-family:'Cinzel',serif;
 
     font-size:
+
         clamp(
             24px,
             7vw,
             42px
         );
+
 }
 
 
@@ -1588,13 +1732,12 @@ DESPUÉS de comenzar a abrir la tapa.
 
     margin-top:5px;
 
-    color:#c8edff;
 }
 
 
-/* =====================================================
+/* =========================================================
    LOCAL
-===================================================== */
+========================================================= */
 
 .local{
 
@@ -1603,6 +1746,7 @@ DESPUÉS de comenzar a abrir la tapa.
     font-size:48px;
 
     margin-bottom:15px;
+
 }
 
 
@@ -1610,7 +1754,6 @@ DESPUÉS de comenzar a abrir la tapa.
 
     line-height:1.8;
 
-    color:#dff5ff;
 }
 
 
@@ -1618,18 +1761,31 @@ DESPUÉS de comenzar a abrir la tapa.
 
     margin-top:15px;
 
-    color:#aaddf7;
+    color:#eefbff;
+
 }
 
 
+/* =========================================================
+   BOTONES
+========================================================= */
+
 .boton{
 
-    display:inline-block;
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
 
     margin-top:25px;
 
     padding:
-        15px 28px;
+
+        15px
+        28px;
 
     border-radius:50px;
 
@@ -1641,36 +1797,125 @@ DESPUÉS de comenzar a abrir la tapa.
 
     letter-spacing:1px;
 
-    color:#03223c;
+    color:#367f9c;
 
     background:
 
         linear-gradient(
             135deg,
-            #e8f9ff,
-            #79cef7
+            white,
+            #d5f5ff
         );
+
+    border:
+
+        1px solid
+        rgba(255,255,255,.9);
 
     box-shadow:
 
         0 8px 25px
-        rgba(53,174,235,.30);
+        rgba(40,130,170,.20);
 
     transition:.3s;
+
 }
 
 
 .boton:hover{
 
     transform:
+
         translateY(-3px)
         scale(1.03);
+
 }
 
 
-/* =====================================================
+/* =========================================================
+   CONFIRMAR ASISTENCIA
+========================================================= */
+
+.confirmacion{
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(237,251,255,.97),
+            rgba(203,241,255,.96)
+        );
+
+    color:#377b97;
+
+}
+
+
+.confirmacion-frase{
+
+    max-width:520px;
+
+    margin:auto;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:32px;
+
+    line-height:1.5;
+
+    color:#438eaa;
+
+}
+
+
+.confirmacion-texto{
+
+    max-width:520px;
+
+    margin:
+
+        20px auto
+        5px;
+
+    line-height:1.8;
+
+    color:#568399;
+
+}
+
+
+.boton-whatsapp{
+
+    margin-top:28px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #8fddf6,
+            #d8f6ff
+        );
+
+    color:#286d88;
+
+    padding:
+
+        17px
+        30px;
+
+    font-size:12px;
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(65,164,200,.25);
+
+}
+
+
+/* =========================================================
    ITINERARIO
-===================================================== */
+========================================================= */
 
 .itinerario{
 
@@ -1679,6 +1924,7 @@ DESPUÉS de comenzar a abrir la tapa.
     max-width:550px;
 
     margin:auto;
+
 }
 
 
@@ -1691,20 +1937,23 @@ DESPUÉS de comenzar a abrir la tapa.
     left:50%;
 
     top:20px;
+
     bottom:20px;
 
     width:2px;
 
     transform:
+
         translateX(-50%);
 
     background:
 
         linear-gradient(
-            #62c6f7,
-            #e3f8ff,
-            #62c6f7
+            white,
+            #c9f2ff,
+            white
         );
+
 }
 
 
@@ -1715,9 +1964,13 @@ DESPUÉS de comenzar a abrir la tapa.
     display:grid;
 
     grid-template-columns:
-        1fr 55px 1fr;
+
+        1fr
+        55px
+        1fr;
 
     align-items:center;
+
 }
 
 
@@ -1729,37 +1982,32 @@ DESPUÉS de comenzar a abrir la tapa.
 
     font-family:'Cinzel',serif;
 
-    color:#bceaff;
-
     font-size:14px;
+
 }
 
 
 .punto-itinerario{
 
     width:42px;
+
     height:42px;
 
     margin:auto;
 
     border-radius:50%;
 
-    background:
-
-        linear-gradient(
-            145deg,
-            #dff7ff,
-            #69c8f3
-        );
+    background:white;
 
     border:
+
         2px solid
-        white;
+        #dff8ff;
 
     box-shadow:
 
-        0 0 12px
-        rgba(114,211,255,.9);
+        0 0 14px
+        rgba(220,250,255,.95);
 
     display:flex;
 
@@ -1769,9 +2017,8 @@ DESPUÉS de comenzar a abrir la tapa.
 
     z-index:2;
 
-    font-size:19px;
+    font-size:18px;
 
-    line-height:1;
 }
 
 
@@ -1786,12 +2033,13 @@ DESPUÉS de comenzar a abrir la tapa.
     font-size:13px;
 
     font-family:'Cinzel',serif;
+
 }
 
 
-/* =====================================================
-   QR
-===================================================== */
+/* =========================================================
+   REGALO
+========================================================= */
 
 .regalo-frase{
 
@@ -1801,26 +2049,29 @@ DESPUÉS de comenzar a abrir la tapa.
 
     line-height:1.4;
 
-    color:#155b87;
+    color:#438daa;
 
-    max-width:520px;
-
-    margin:auto;
 }
 
 
 .regalo-secundario{
 
     margin:
+
         25px auto;
 
     line-height:1.8;
 
     max-width:520px;
 
-    color:#315f7b;
+    color:#547e91;
+
 }
 
+
+/* =========================================================
+   QR
+========================================================= */
 
 .qr-contenedor{
 
@@ -1829,6 +2080,7 @@ DESPUÉS de comenzar a abrir la tapa.
     max-width:90%;
 
     margin:
+
         25px auto
         15px;
 
@@ -1839,8 +2091,10 @@ DESPUÉS de comenzar a abrir la tapa.
     border-radius:18px;
 
     box-shadow:
+
         0 10px 30px
-        rgba(6,60,95,.20);
+        rgba(55,135,165,.18);
+
 }
 
 
@@ -1852,11 +2106,8 @@ DESPUÉS de comenzar a abrir la tapa.
 
     height:auto;
 
-    object-fit:contain;
 }
 
-
-/* Mensaje solo si la imagen no carga */
 
 .qr-error{
 
@@ -1864,25 +2115,16 @@ DESPUÉS de comenzar a abrir la tapa.
 
     padding:20px;
 
-    border:
-        1px dashed
-        #4a96bb;
+    color:#48829b;
 
-    border-radius:12px;
+    line-height:1.6;
 
-    color:#235b78;
-
-    font-size:13px;
-
-    line-height:1.7;
-
-    background:#edfaff;
 }
 
 
-/* =====================================================
-   VESTIMENTA
-===================================================== */
+/* =========================================================
+   CÓDIGO DE VESTIMENTA
+========================================================= */
 
 .formal{
 
@@ -1890,11 +2132,12 @@ DESPUÉS de comenzar a abrir la tapa.
 
     font-size:23px;
 
-    letter-spacing:2px;
+    letter-spacing:3px;
 
-    color:#125982;
+    color:#438eaa;
 
     margin-bottom:20px;
+
 }
 
 
@@ -1902,9 +2145,14 @@ DESPUÉS de comenzar a abrir la tapa.
 
     line-height:1.8;
 
-    color:#315f7b;
+    color:#527e91;
+
 }
 
+
+/* =========================================================
+   DIBUJOS DE VESTIMENTA
+========================================================= */
 
 .vestimenta-iconos{
 
@@ -1914,64 +2162,75 @@ DESPUÉS de comenzar a abrir la tapa.
 
     align-items:flex-end;
 
-    gap:45px;
+    gap:55px;
 
     margin:
-        20px auto
-        30px;
+
+        25px auto
+        15px;
+
 }
 
 
-/* =====================================================
-   VESTIDO
-===================================================== */
+/* =========================================================
+   VESTIDO DAMA
+========================================================= */
 
 .figura-dama{
 
-    width:85px;
+    width:95px;
 
-    height:125px;
+    height:140px;
 
     position:relative;
+
 }
 
 
-.figura-dama .tirante-izq,
-.figura-dama .tirante-der{
+.figura-dama
+.tirante-izq,
+.figura-dama
+.tirante-der{
 
     position:absolute;
 
-    top:8px;
+    top:7px;
 
     width:5px;
 
-    height:27px;
-
-    background:#215d86;
+    height:30px;
 
     border-radius:5px;
 
+    background:#74cdea;
+
     z-index:3;
+
 }
 
 
-.figura-dama .tirante-izq{
+.figura-dama
+.tirante-izq{
 
-    left:29px;
+    left:32px;
 
     transform:rotate(9deg);
+
 }
 
 
-.figura-dama .tirante-der{
+.figura-dama
+.tirante-der{
 
-    right:29px;
+    right:32px;
 
     transform:rotate(-9deg);
+
 }
 
 
-.figura-dama .corpiño{
+.figura-dama
+.corpiño{
 
     position:absolute;
 
@@ -1980,81 +2239,88 @@ DESPUÉS de comenzar a abrir la tapa.
     left:50%;
 
     transform:
+
         translateX(-50%);
 
-    width:42px;
+    width:47px;
 
-    height:43px;
+    height:48px;
 
     background:
 
         linear-gradient(
             135deg,
-            #75cfff,
-            #226c9a
+            #c9f2ff,
+            #76d0ef
         );
 
     clip-path:
 
         polygon(
-            10% 0,
-            38% 7%,
-            50% 18%,
-            62% 7%,
-            90% 0,
+            8% 0,
+            36% 7%,
+            50% 20%,
+            64% 7%,
+            92% 0,
             80% 100%,
             20% 100%
         );
 
-    z-index:2;
+    border-radius:5px;
+
 }
 
 
-.figura-dama .cintura{
+.figura-dama
+.cintura{
 
     position:absolute;
 
-    top:60px;
+    top:65px;
 
     left:50%;
 
     transform:
+
         translateX(-50%);
 
-    width:39px;
+    width:43px;
 
     height:7px;
 
     border-radius:10px;
 
-    background:#d5f3ff;
+    background:white;
 
-    z-index:4;
+    z-index:5;
+
 }
 
 
-.figura-dama .falda{
+.figura-dama
+.falda{
 
     position:absolute;
 
-    top:62px;
+    top:67px;
 
     left:50%;
 
     transform:
+
         translateX(-50%);
 
-    width:82px;
+    width:90px;
 
-    height:62px;
+    height:70px;
 
     background:
 
         linear-gradient(
             120deg,
-            #246c99,
-            #75cfff 50%,
-            #195579
+            #69c8e9,
+            #d3f6ff 50%,
+            #75cdea
         );
 
     clip-path:
@@ -2067,46 +2333,36 @@ DESPUÉS de comenzar a abrir la tapa.
         );
 
     border-radius:
-        0 0 12px 12px;
+
+        0 0 15px 15px;
+
+    filter:
+
+        drop-shadow(
+            0 5px 6px
+            rgba(70,150,180,.18)
+        );
+
 }
 
 
-/* =====================================================
-   TRAJE
-===================================================== */
+/* =========================================================
+   TERNO HOMBRE
+========================================================= */
 
 .figura-hombre{
 
-    width:85px;
+    width:95px;
 
-    height:125px;
+    height:140px;
 
     position:relative;
+
 }
 
 
-.figura-hombre .camisa{
-
-    position:absolute;
-
-    top:11px;
-
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-    width:35px;
-
-    height:65px;
-
-    background:#f5fcff;
-
-    z-index:1;
-}
-
-
-.figura-hombre .saco{
+.figura-hombre
+.camisa{
 
     position:absolute;
 
@@ -2115,18 +2371,43 @@ DESPUÉS de comenzar a abrir la tapa.
     left:50%;
 
     transform:
+
         translateX(-50%);
 
-    width:75px;
+    width:38px;
 
-    height:84px;
+    height:72px;
+
+    background:white;
+
+    z-index:1;
+
+}
+
+
+.figura-hombre
+.saco{
+
+    position:absolute;
+
+    top:13px;
+
+    left:50%;
+
+    transform:
+
+        translateX(-50%);
+
+    width:82px;
+
+    height:90px;
 
     background:
 
         linear-gradient(
             135deg,
-            #256b96,
-            #103e60
+            #a8e8fa,
+            #67c6e8
         );
 
     clip-path:
@@ -2134,7 +2415,7 @@ DESPUÉS de comenzar a abrir la tapa.
         polygon(
             10% 0,
             38% 0,
-            50% 22%,
+            50% 23%,
             62% 0,
             90% 0,
             100% 100%,
@@ -2145,22 +2426,24 @@ DESPUÉS de comenzar a abrir la tapa.
         );
 
     z-index:2;
+
 }
 
 
-.figura-hombre .solapa-izq{
+.figura-hombre
+.solapa-izq{
 
     position:absolute;
 
-    top:13px;
+    top:14px;
 
     left:17px;
 
-    width:28px;
+    width:31px;
 
-    height:48px;
+    height:50px;
 
-    background:#184d70;
+    background:#72cbe9;
 
     clip-path:
 
@@ -2171,22 +2454,24 @@ DESPUÉS de comenzar a abrir la tapa.
         );
 
     z-index:3;
+
 }
 
 
-.figura-hombre .solapa-der{
+.figura-hombre
+.solapa-der{
 
     position:absolute;
 
-    top:13px;
+    top:14px;
 
     right:17px;
 
-    width:28px;
+    width:31px;
 
-    height:48px;
+    height:50px;
 
-    background:#184d70;
+    background:#72cbe9;
 
     clip-path:
 
@@ -2197,70 +2482,81 @@ DESPUÉS de comenzar a abrir la tapa.
         );
 
     z-index:3;
+
 }
 
 
-.figura-hombre .corbata{
+.figura-hombre
+.corbata{
 
     position:absolute;
 
-    top:20px;
+    top:21px;
 
     left:50%;
 
     transform:
+
         translateX(-50%);
 
-    width:11px;
+    width:10px;
 
-    height:45px;
+    height:46px;
 
-    background:#75cfff;
+    background:#edfaff;
 
     clip-path:
 
         polygon(
             50% 0,
             100% 18%,
-            72% 100%,
-            28% 100%,
+            70% 100%,
+            30% 100%,
             0 18%
         );
 
     z-index:5;
+
 }
 
 
-.figura-hombre .pantalon-izq,
-.figura-hombre .pantalon-der{
+.figura-hombre
+.pantalon-izq,
+.figura-hombre
+.pantalon-der{
 
     position:absolute;
 
     bottom:0;
 
-    width:25px;
+    width:27px;
 
-    height:43px;
+    height:47px;
 
-    background:#123e5c;
+    background:#6dc7e7;
+
 }
 
 
-.figura-hombre .pantalon-izq{
+.figura-hombre
+.pantalon-izq{
 
-    left:17px;
+    left:19px;
 
-    transform:skewX(-4deg);
 }
 
 
-.figura-hombre .pantalon-der{
+.figura-hombre
+.pantalon-der{
 
-    right:17px;
+    right:19px;
 
-    transform:skewX(4deg);
 }
 
+
+/* =========================================================
+   NOMBRES DAMA / HOMBRE
+========================================================= */
 
 .tipo-vestimenta{
 
@@ -2268,33 +2564,31 @@ DESPUÉS de comenzar a abrir la tapa.
 
     justify-content:center;
 
-    gap:48px;
+    gap:58px;
 
-    margin-top:-15px;
-
-    margin-bottom:28px;
+    margin-bottom:30px;
 
     font-family:'Cinzel',serif;
 
     font-size:11px;
 
-    letter-spacing:1px;
+    letter-spacing:2px;
 
-    color:#2a6386;
+    color:#5598b3;
+
 }
 
 
 .tipo-vestimenta span{
 
-    width:85px;
+    width:95px;
 
-    text-align:center;
 }
 
 
-/* =====================================================
+/* =========================================================
    COLORES RESERVADOS
-===================================================== */
+========================================================= */
 
 .reserva-color{
 
@@ -2305,13 +2599,16 @@ DESPUÉS de comenzar a abrir la tapa.
     border-radius:16px;
 
     background:
-        rgba(65,167,218,.08);
+
+        rgba(132,215,243,.10);
 
     border:
+
         1px solid
-        #91d7f8;
+        #a8e5f8;
 
     line-height:1.7;
+
 }
 
 
@@ -2324,53 +2621,67 @@ DESPUÉS de comenzar a abrir la tapa.
     gap:13px;
 
     margin:
+
         18px 0;
+
 }
 
 
 .muestra{
 
     width:40px;
+
     height:40px;
 
     border-radius:50%;
 
     border:
-        3px solid
-        white;
+
+        3px solid white;
 
     box-shadow:
+
         0 3px 10px
-        rgba(0,0,0,.20);
+        rgba(50,130,160,.20);
+
 }
 
 
-.celeste{
-    background:#a8e4ff;
+.celeste1{
+
+    background:#bcefff;
+
 }
 
 
-.azul{
-    background:#2476ad;
+.celeste2{
+
+    background:#7dd6f3;
+
 }
 
 
 .plateado{
-    background:#c9d4da;
+
+    background:#d6e0e5;
+
 }
 
 
-/* =====================================================
+/* =========================================================
    FINAL
-===================================================== */
+========================================================= */
 
 .final{
 
     text-align:center;
 
     padding:
-        30px 15px
-        80px;
+
+        30px
+        15px
+        90px;
+
 }
 
 
@@ -2380,13 +2691,15 @@ DESPUÉS de comenzar a abrir la tapa.
 
     font-size:40px;
 
-    color:#d8f4ff;
+    color:white;
 
     line-height:1.4;
 
     text-shadow:
+
         0 2px 7px
-        rgba(0,0,0,.85);
+        rgba(50,130,160,.55);
+
 }
 
 
@@ -2398,13 +2711,14 @@ DESPUÉS de comenzar a abrir la tapa.
 
     letter-spacing:4px;
 
-    color:#8ed9ff;
+    color:#e5faff;
+
 }
 
 
-/* =====================================================
+/* =========================================================
    MÚSICA
-===================================================== */
+========================================================= */
 
 .control-musica{
 
@@ -2413,22 +2727,25 @@ DESPUÉS de comenzar a abrir la tapa.
     right:18px;
 
     bottom:
+
         calc(
             18px +
             env(safe-area-inset-bottom)
         );
 
     width:52px;
+
     height:52px;
 
     border-radius:50%;
 
     border:
-        1px solid
-        #9de2ff;
+
+        1px solid white;
 
     background:
-        rgba(5,54,88,.92);
+
+        rgba(106,203,237,.92);
 
     color:white;
 
@@ -2442,83 +2759,73 @@ DESPUÉS de comenzar a abrir la tapa.
 
     cursor:pointer;
 
-    font-size:17px;
-
     box-shadow:
+
         0 5px 20px
-        rgba(0,0,0,.3);
+        rgba(40,130,160,.28);
+
 }
 
 
 .control-musica.visible{
 
     display:flex;
+
 }
 
 
-/* =====================================================
+/* =========================================================
    CELULAR
-===================================================== */
+========================================================= */
 
 @media(max-width:500px){
 
 
-    /*
-    El fondo sigue siendo UNO SOLO.
-    Sin blur y sin repetición.
-    */
+    .fondo-general{
 
-    .fondo-castillo{
+        background-size:cover;
 
-        position:fixed;
+        background-position:center center;
 
-        inset:0;
+        background-repeat:no-repeat;
 
-        width:100vw;
-
-        height:100vh;
-        height:100svh;
-
-        background-image:
-            url("castillo.jpg");
-
-        background-repeat:
-            no-repeat;
-
-        background-position:
-            center center;
-
-        background-size:
-            cover;
-
-        filter:none;
-
-        transform:none;
     }
 
 
-    .portada-contenido{
+    /*
+    Segunda sección:
+    blur moderado,
+    pero castillo reconocible.
+    */
 
-        padding:
-            45px 12px
-            40px;
+    #invitacion::before{
+
+        filter:blur(2.5px);
+
+        transform:scale(1.03);
+
+        background-position:center center;
+
     }
 
 
     .nombre-portada{
 
         font-size:
+
             clamp(
                 68px,
                 21vw,
                 95px
             );
+
     }
 
 
     .frase-portada{
 
         font-size:25px;
+
     }
 
 
@@ -2527,12 +2834,14 @@ DESPUÉS de comenzar a abrir la tapa.
         width:225px;
 
         height:160px;
+
     }
 
 
     .sobre-fondo{
 
         height:120px;
+
     }
 
 
@@ -2540,48 +2849,37 @@ DESPUÉS de comenzar a abrir la tapa.
 
         top:40px;
 
-        border-left-width:
-            112.5px;
+        border-left-width:112.5px;
 
-        border-right-width:
-            112.5px;
+        border-right-width:112.5px;
 
-        border-top-width:
-            82px;
+        border-top-width:82px;
+
     }
 
 
     .sobre-frente{
 
         height:120px;
+
     }
 
 
     .solapa-inferior{
 
         height:95px;
+
     }
 
 
     .carta-interior{
 
-        width:140px;
+        width:135px;
 
-        height:70px;
+        height:67px;
 
-        bottom:22px;
+        bottom:23px;
 
-        transform:
-
-            translateX(-50%)
-            translateY(22px)
-            scale(.96);
-    }
-
-
-    .carta-interior span{
-
-        font-size:18px;
     }
 
 
@@ -2593,7 +2891,6 @@ DESPUÉS de comenzar a abrir la tapa.
 
         height:52px;
 
-        font-size:13px;
     }
 
 
@@ -2605,46 +2902,48 @@ DESPUÉS de comenzar a abrir la tapa.
             translateX(-50%)
             translateY(-72px)
             scale(1);
+
     }
 
 
     .fecha{
 
         gap:15px;
+
     }
 
 
     .dia{
 
         font-size:62px;
+
     }
 
 
     .fecha-info{
 
         padding-left:15px;
+
     }
 
 
     .contador{
 
         gap:5px;
-    }
 
-
-    .tiempo{
-
-        padding:
-            17px 2px;
     }
 
 
     .evento{
 
         grid-template-columns:
-            1fr 48px 1fr;
+
+            1fr
+            48px
+            1fr;
 
         min-height:105px;
+
     }
 
 
@@ -2653,6 +2952,7 @@ DESPUÉS de comenzar a abrir la tapa.
         padding-right:8px;
 
         font-size:12px;
+
     }
 
 
@@ -2661,6 +2961,7 @@ DESPUÉS de comenzar a abrir la tapa.
         padding-left:8px;
 
         font-size:11px;
+
     }
 
 
@@ -2670,25 +2971,29 @@ DESPUÉS de comenzar a abrir la tapa.
 
         height:38px;
 
-        font-size:17px;
+        font-size:16px;
+
     }
 
 
     .vestimenta-iconos{
 
         gap:35px;
+
     }
 
 
     .tipo-vestimenta{
 
         gap:38px;
+
     }
 
 
     .qr-contenedor{
 
         width:235px;
+
     }
 
 }
@@ -2702,10 +3007,10 @@ DESPUÉS de comenzar a abrir la tapa.
 
 
 <!-- =====================================================
-     FONDO ÚNICO
+     FONDO PRINCIPAL
 ===================================================== -->
 
-<div class="fondo-castillo"></div>
+<div class="fondo-general"></div>
 
 
 <!-- =====================================================
@@ -2742,15 +3047,13 @@ aria-label="Controlar música">
 <section id="portada">
 
 
-<div class="cielo-estrellas"></div>
+<div class="estrellas"></div>
 
-<div class="marco-portada"></div>
+<div class="marco"></div>
 
 
 <div class="portada-contenido">
 
-
-    <!-- ORNAMENTO SIN CORONA EMOJI -->
 
     <div class="ornamento">
 
@@ -2806,9 +3109,7 @@ aria-label="Controlar música">
     </div>
 
 
-    <!-- =================================================
-         SOBRE
-    ================================================== -->
+    <!-- SOBRE -->
 
     <div
     class="abrir-zona"
@@ -2823,19 +3124,18 @@ aria-label="Controlar música">
             <div class="sobre-fondo"></div>
 
 
-            <!--
-            Esta carta está invisible
-            mientras el sobre está cerrado.
-            -->
-
             <div class="carta-interior">
 
                 <div class="mini-estrella">
+
                     ✦
+
                 </div>
 
                 <span>
+
                     Antonella Viviana
+
                 </span>
 
             </div>
@@ -2843,9 +3143,7 @@ aria-label="Controlar música">
 
             <div class="sobre-tapa"></div>
 
-
             <div class="sobre-frente"></div>
-
 
             <div class="solapa-inferior"></div>
 
@@ -2927,14 +3225,14 @@ aria-label="Controlar música">
 
     <p class="presentacion-frase">
 
-        En un reino lleno de sueños,
+        En un reino lleno de sueños y magia,
         una joven princesa está a punto
         de celebrar sus quince primaveras.
 
         <br><br>
 
         Y queremos que formes parte
-        de esta historia.
+        de esta hermosa historia.
 
     </p>
 
@@ -2959,30 +3257,30 @@ aria-label="Controlar música">
 <section class="tarjeta">
 
 
-    <div class="ornamento-tarjeta">
+<div class="ornamento-tarjeta">
 
-        ✦ ◇ ✦
+    ✦ ◇ ✦
 
-    </div>
-
-
-    <h2 class="titulo">
-
-        CON LA BENDICIÓN
-        DE MIS PADRES
-
-    </h2>
+</div>
 
 
-    <div class="nombre-familia">
+<h2 class="titulo">
 
-        Anderson Sánchez Mendoza
+    CON LA BENDICIÓN
+    DE MIS PADRES
 
-        <br>
+</h2>
 
-        Kelly Vilca Meregildo
 
-    </div>
+<div class="nombre-familia">
+
+    Anderson Sánchez Mendoza
+
+    <br>
+
+    Kelly Vilca Meregildo
+
+</div>
 
 
 </section>
@@ -2995,49 +3293,49 @@ aria-label="Controlar música">
 <section class="tarjeta">
 
 
-    <div class="ornamento-tarjeta">
+<div class="ornamento-tarjeta">
 
-        ✦ ◇ ✦
+    ✦ ◇ ✦
+
+</div>
+
+
+<h2 class="titulo">
+
+    MIS PADRINOS
+
+</h2>
+
+
+<div class="padrinos-grupo">
+
+
+    <div class="pareja-padrinos">
+
+        Omar Uriol Llanos
+
+        <br>
+
+        Pilar Vilca Meregildo
+
+    </div>
+
+
+    <div class="separador"></div>
+
+
+    <div class="pareja-padrinos">
+
+        Victoriano Ambrosio Sánchez
+
+        <br>
+
+        Gladys Vilca Meregildo
 
     </div>
 
 
-    <h2 class="titulo">
-
-        MIS PADRINOS
-
-    </h2>
-
-
-    <div class="padrinos-grupo">
-
-
-        <div class="pareja-padrinos">
-
-            Omar Uriol Llanos
-
-            <br>
-
-            Pilar Vilca Meregildo
-
-        </div>
-
-
-        <div class="separador"></div>
-
-
-        <div class="pareja-padrinos">
-
-            Victoriano Ambrosio Sánchez
-
-            <br>
-
-            Gladys Vilca Meregildo
-
-        </div>
-
-
-    </div>
+</div>
 
 
 </section>
@@ -3067,61 +3365,59 @@ aria-label="Controlar música">
 <div class="fecha">
 
 
-    <div>
+<div>
 
 
-        <div style="
-        font-family:'Cinzel',serif;
-        color:#9cddff;
-        letter-spacing:2px;">
+    <div style="
+    font-family:'Cinzel',serif;
+    letter-spacing:2px;">
 
-            SÁBADO
-
-        </div>
-
-
-        <div class="dia">
-
-            03
-
-        </div>
-
-
-        <div style="
-        font-family:'Cinzel',serif;
-        letter-spacing:3px;
-        color:#a9e2ff;">
-
-            OCTUBRE
-
-            <br>
-
-            2026
-
-        </div>
-
+        SÁBADO
 
     </div>
 
 
-    <div class="fecha-info">
+    <div class="dia">
 
-
-        <strong>
-
-            RECEPCIÓN
-
-        </strong>
-
-
-        <div class="hora">
-
-            6:30 P.M.
-
-        </div>
-
+        03
 
     </div>
+
+
+    <div style="
+    font-family:'Cinzel',serif;
+    letter-spacing:3px;">
+
+        OCTUBRE
+
+        <br>
+
+        2026
+
+    </div>
+
+
+</div>
+
+
+<div class="fecha-info">
+
+
+    <strong>
+
+        RECEPCIÓN
+
+    </strong>
+
+
+    <div class="hora">
+
+        6:30 P.M.
+
+    </div>
+
+
+</div>
 
 
 </div>
@@ -3133,10 +3429,10 @@ aria-label="Controlar música">
 
     <br><br>
 
-    Para compartir juntos cada momento
-    de esta noche tan especial,
-    agradecemos respetar el horario
-    indicado y llegar unos minutos antes.
+    Para poder compartir juntos
+    cada momento de esta noche tan especial,
+    agradecemos respetar el horario indicado
+    y llegar unos minutos antes.
 
 </div>
 
@@ -3161,72 +3457,80 @@ aria-label="Controlar música">
 <div class="contador">
 
 
-    <div class="tiempo">
+<div class="tiempo">
 
-        <div
-        class="numero"
-        id="dias">
+    <div
+    class="numero"
+    id="dias">
 
-            00
-
-        </div>
-
-        <div class="etiqueta">
-            DÍAS
-        </div>
+        00
 
     </div>
 
+    <div class="etiqueta">
 
-    <div class="tiempo">
-
-        <div
-        class="numero"
-        id="horas">
-
-            00
-
-        </div>
-
-        <div class="etiqueta">
-            HORAS
-        </div>
+        DÍAS
 
     </div>
 
+</div>
 
-    <div class="tiempo">
 
-        <div
-        class="numero"
-        id="minutos">
+<div class="tiempo">
 
-            00
+    <div
+    class="numero"
+    id="horas">
 
-        </div>
-
-        <div class="etiqueta">
-            MINUTOS
-        </div>
+        00
 
     </div>
 
+    <div class="etiqueta">
 
-    <div class="tiempo">
-
-        <div
-        class="numero"
-        id="segundos">
-
-            00
-
-        </div>
-
-        <div class="etiqueta">
-            SEGUNDOS
-        </div>
+        HORAS
 
     </div>
+
+</div>
+
+
+<div class="tiempo">
+
+    <div
+    class="numero"
+    id="minutos">
+
+        00
+
+    </div>
+
+    <div class="etiqueta">
+
+        MINUTOS
+
+    </div>
+
+</div>
+
+
+<div class="tiempo">
+
+    <div
+    class="numero"
+    id="segundos">
+
+        00
+
+    </div>
+
+    <div class="etiqueta">
+
+        SEGUNDOS
+
+    </div>
+
+</div>
 
 
 </div>
@@ -3297,6 +3601,63 @@ rel="noopener noreferrer">
 
 
 <!-- =====================================================
+     CONFIRMACIÓN DE ASISTENCIA
+===================================================== -->
+
+<section class="tarjeta confirmacion">
+
+
+<div class="ornamento-tarjeta">
+
+    ✦ ◇ ✦
+
+</div>
+
+
+<h2 class="titulo">
+
+    CONFIRMA TU ASISTENCIA
+
+</h2>
+
+
+<div class="confirmacion-frase">
+
+    Tu presencia hará que esta noche
+    sea aún más especial.
+
+</div>
+
+
+<div class="confirmacion-texto">
+
+    Será una alegría inmensa
+    compartir contigo este momento
+    tan importante en la vida de Antonella.
+
+    <br><br>
+
+    Por favor, ayúdanos confirmando
+    tu asistencia.
+
+</div>
+
+
+<a
+class="boton boton-whatsapp"
+href="https://wa.me/51932066655?text=%C2%A1Hola!%20%E2%9C%A8%20Con%20mucho%20cari%C3%B1o%20quiero%20confirmar%20mi%20asistencia%20a%20los%20XV%20a%C3%B1os%20de%20Antonella%20Viviana.%20%F0%9F%A9%B5%20Me%20hace%20muy%20feliz%20poder%20acompa%C3%B1arla%20en%20una%20noche%20tan%20especial%20y%20ser%20parte%20de%20este%20hermoso%20recuerdo.%20%E2%9C%A8"
+target="_blank"
+rel="noopener noreferrer">
+
+    ♡ &nbsp; CONFIRMAR ASISTENCIA
+
+</a>
+
+
+</section>
+
+
+<!-- =====================================================
      ITINERARIO
 ===================================================== -->
 
@@ -3320,10 +3681,7 @@ rel="noopener noreferrer">
 <div class="itinerario">
 
 
-<!-- RECEPCIÓN -->
-
 <div class="evento">
-
 
     <div class="evento-hora">
 
@@ -3331,13 +3689,11 @@ rel="noopener noreferrer">
 
     </div>
 
-
     <div class="punto-itinerario">
 
         ✉️
 
     </div>
-
 
     <div class="evento-info">
 
@@ -3345,14 +3701,10 @@ rel="noopener noreferrer">
 
     </div>
 
-
 </div>
 
 
-<!-- CEREMONIA -->
-
 <div class="evento">
-
 
     <div class="evento-hora">
 
@@ -3360,13 +3712,11 @@ rel="noopener noreferrer">
 
     </div>
 
-
     <div class="punto-itinerario">
 
         ✨
 
     </div>
-
 
     <div class="evento-info">
 
@@ -3378,14 +3728,10 @@ rel="noopener noreferrer">
 
     </div>
 
-
 </div>
 
 
-<!-- BRINDIS Y CENA -->
-
 <div class="evento">
-
 
     <div class="evento-hora">
 
@@ -3393,13 +3739,11 @@ rel="noopener noreferrer">
 
     </div>
 
-
     <div class="punto-itinerario">
 
         🥂
 
     </div>
-
 
     <div class="evento-info">
 
@@ -3411,14 +3755,10 @@ rel="noopener noreferrer">
 
     </div>
 
-
 </div>
 
 
-<!-- BAILE SORPRESA -->
-
 <div class="evento">
-
 
     <div class="evento-hora">
 
@@ -3426,13 +3766,11 @@ rel="noopener noreferrer">
 
     </div>
 
-
     <div class="punto-itinerario">
 
         💃
 
     </div>
-
 
     <div class="evento-info">
 
@@ -3444,14 +3782,10 @@ rel="noopener noreferrer">
 
     </div>
 
-
 </div>
 
 
-<!-- FIESTA -->
-
 <div class="evento">
-
 
     <div class="evento-hora">
 
@@ -3459,13 +3793,11 @@ rel="noopener noreferrer">
 
     </div>
 
-
     <div class="punto-itinerario">
 
         🎶
 
     </div>
-
 
     <div class="evento-info">
 
@@ -3476,7 +3808,6 @@ rel="noopener noreferrer">
         DE FIESTA
 
     </div>
-
 
 </div>
 
@@ -3510,68 +3841,61 @@ rel="noopener noreferrer">
 
 <div class="regalo-frase">
 
-    Tu presencia en esta noche tan especial
-    es el regalo más bonito que puedo recibir.
+    Tu presencia en esta noche
+    tan especial es el regalo
+    más bonito que puedo recibir.
 
 </div>
 
 
 <div class="regalo-secundario">
 
-    Si además deseas tener un detalle conmigo,
+    Si además deseas tener
+    un detalle conmigo,
     puedes hacerlo de la manera
     que te resulte más cómoda.
 
     <br><br>
 
     Con mucho cariño,
-    hemos dejado esta opción disponible para ti.
+    hemos dejado esta opción
+    disponible para ti.
 
 </div>
 
 
-<!-- =================================================
-     QR YAPE
-
-     Debes subir el archivo como:
-
-     qr-yape.jpg
-
-================================================== -->
-
 <div class="qr-contenedor">
 
 
-    <img
-    id="imagenQR"
-    src="./qr-yape.jpg"
-    class="qr"
-    alt="Código QR Yape"
-    onerror="errorQR()">
+<img
+id="imagenQR"
+src="./qr-yape.jpg"
+class="qr"
+alt="Código QR Yape"
+onerror="errorQR()">
 
 
-    <div
-    id="errorQR"
-    class="qr-error">
+<div
+id="errorQR"
+class="qr-error">
 
-        No se pudo cargar el código QR.
+    No se pudo cargar
+    el código QR.
 
-        <br><br>
+    <br><br>
 
-        Verifica que la imagen se llame exactamente:
+    Verifica que el archivo
+    se llame exactamente:
 
-        <br>
+    <br><br>
 
-        <strong>
-            qr-yape.jpg
-        </strong>
+    <strong>
 
-        <br><br>
+        qr-yape.jpg
 
-        y que esté en la misma carpeta
-        que el archivo index.html.
+    </strong>
 
-    </div>
+</div>
 
 
 </div>
@@ -3580,7 +3904,7 @@ rel="noopener noreferrer">
 <div style="
 font-family:'Great Vibes',cursive;
 font-size:29px;
-color:#1a618a;
+color:#4a91ac;
 margin-top:18px;">
 
     Gracias por acompañarme
@@ -3593,7 +3917,7 @@ margin-top:18px;">
 
 
 <!-- =====================================================
-     VESTIMENTA
+     CÓDIGO DE VESTIMENTA
 ===================================================== -->
 
 <section class="tarjeta tarjeta-clara">
@@ -3613,10 +3937,17 @@ margin-top:18px;">
 </h2>
 
 
+<!--
+     NO SON EMOJIS.
+     EL VESTIDO Y EL TERNO ESTÁN
+     DIBUJADOS COMPLETAMENTE CON CSS.
+-->
+
+
 <div class="vestimenta-iconos">
 
 
-<!-- DAMA -->
+<!-- VESTIDO DAMA -->
 
 <div class="figura-dama">
 
@@ -3633,7 +3964,7 @@ margin-top:18px;">
 </div>
 
 
-<!-- HOMBRE -->
+<!-- TERNO HOMBRE -->
 
 <div class="figura-hombre">
 
@@ -3660,11 +3991,15 @@ margin-top:18px;">
 <div class="tipo-vestimenta">
 
     <span>
+
         DAMAS
+
     </span>
 
     <span>
+
         HOMBRES
+
     </span>
 
 </div>
@@ -3705,14 +4040,14 @@ margin-top:18px;">
 
 
     <div
-    class="muestra celeste"
-    title="Celeste">
+    class="muestra celeste1"
+    title="Celeste claro">
     </div>
 
 
     <div
-    class="muestra azul"
-    title="Azul">
+    class="muestra celeste2"
+    title="Celeste">
     </div>
 
 
@@ -3734,12 +4069,14 @@ Los tonos
 </strong>
 
 han sido reservados especialmente
-para la quinceañera y sus familiares cercanos.
+para la quinceañera y
+sus familiares cercanos.
 
 <br><br>
 
-Agradecemos elegir una tonalidad
-diferente para tu atuendo.
+Agradecemos elegir
+una tonalidad diferente
+para tu atuendo.
 
 
 </div>
@@ -3806,9 +4143,10 @@ diferente para tu atuendo.
 
 <script>
 
-/* =====================================================
+
+/* =========================================================
    VARIABLES
-===================================================== */
+========================================================= */
 
 let abierta = false;
 
@@ -3828,15 +4166,17 @@ document.getElementById(
 audio.volume = 0.55;
 
 
-/* =====================================================
+/* =========================================================
    ABRIR INVITACIÓN
-===================================================== */
+========================================================= */
 
 function abrirInvitacion(){
 
 
     if(abierta){
+
         return;
+
     }
 
 
@@ -3862,22 +4202,20 @@ function abrirInvitacion(){
     "Abriendo una noche mágica...";
 
 
-    /*
-    Estrellas después
-    de iniciar apertura.
-    */
-
     setTimeout(
+
         crearEstrellas,
+
         500
+
     );
 
 
     /*
-    Reproducir música.
-    Al hacerse desde un click,
-    funciona en la mayoría de
-    navegadores móviles.
+    El navegador permite reproducir
+    el audio porque la función
+    se activa mediante el toque
+    del usuario.
     */
 
     audio
@@ -3906,8 +4244,9 @@ function abrirInvitacion(){
 
 
     /*
-    Esperamos a que termine
-    la animación del sobre.
+    Esperamos la animación
+    del sobre antes de mostrar
+    la invitación.
     */
 
     setTimeout(
@@ -3932,10 +4271,13 @@ function abrirInvitacion(){
             .add("visible");
 
 
-            window.scrollTo(
-                0,
-                0
-            );
+            window.scrollTo({
+
+                top:0,
+
+                behavior:"smooth"
+
+            });
 
 
         },
@@ -3947,9 +4289,9 @@ function abrirInvitacion(){
 }
 
 
-/* =====================================================
-   ESTRELLAS
-===================================================== */
+/* =========================================================
+   ESTRELLAS AL ABRIR
+========================================================= */
 
 function crearEstrellas(){
 
@@ -3965,19 +4307,25 @@ function crearEstrellas(){
 
 
     const centroX =
-    rect.left +
-    rect.width / 2;
+
+        rect.left +
+        rect.width / 2;
 
 
     const centroY =
-    rect.top +
-    rect.height / 2;
+
+        rect.top +
+        rect.height / 2;
 
 
     for(
+
         let i = 0;
-        i < 70;
+
+        i < 75;
+
         i++
+
     ){
 
 
@@ -4000,50 +4348,71 @@ function crearEstrellas(){
 
 
         const angulo =
+
         Math.random()
-        * Math.PI
-        * 2;
+        *
+        Math.PI
+        *
+        2;
 
 
         const distancia =
-        80 +
+
+        80
+        +
         Math.random()
-        * 300;
+        *
+        300;
 
 
         const x =
+
         Math.cos(angulo)
-        * distancia;
+        *
+        distancia;
 
 
         const y =
+
         Math.sin(angulo)
-        * distancia;
+        *
+        distancia;
 
 
         estrella.style.setProperty(
+
             "--x",
+
             x + "px"
+
         );
 
 
         estrella.style.setProperty(
+
             "--y",
+
             y + "px"
+
         );
 
 
         const tamaño =
-        4 +
+
+        4
+        +
         Math.random()
-        * 9;
+        *
+        9;
 
 
         estrella.style.width =
+
         tamaño + "px";
 
 
         estrella.style.height =
+
         tamaño + "px";
 
 
@@ -4057,7 +4426,9 @@ function crearEstrellas(){
 
             function(){
 
+
                 estrella.remove();
+
 
             },
 
@@ -4070,9 +4441,9 @@ function crearEstrellas(){
 }
 
 
-/* =====================================================
-   CONTROL MÚSICA
-===================================================== */
+/* =========================================================
+   CONTROL DE MÚSICA
+========================================================= */
 
 function controlarMusica(){
 
@@ -4087,7 +4458,10 @@ function controlarMusica(){
         "❚❚";
 
 
-    }else{
+    }
+
+
+    else{
 
 
         audio.pause();
@@ -4096,14 +4470,15 @@ function controlarMusica(){
         botonMusica.innerHTML =
         "♪";
 
+
     }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    ERROR QR
-===================================================== */
+========================================================= */
 
 function errorQR(){
 
@@ -4130,14 +4505,16 @@ function errorQR(){
 }
 
 
-/* =====================================================
+/* =========================================================
    CUENTA REGRESIVA
+
    03 OCTUBRE 2026
    6:30 PM
    PERÚ UTC-5
-===================================================== */
+========================================================= */
 
 const fechaEvento =
+
 new Date(
     "2026-10-03T18:30:00-05:00"
 );
@@ -4151,8 +4528,10 @@ function actualizarContador(){
 
 
     const diferencia =
-    fechaEvento -
-    ahora;
+
+        fechaEvento
+        -
+        ahora;
 
 
     if(diferencia <= 0){
@@ -4196,30 +4575,46 @@ function actualizarContador(){
 
 
     const dias =
+
     Math.floor(
-        diferencia /
+
+        diferencia
+        /
         86400000
+
     );
 
 
     const horas =
+
     Math.floor(
-        diferencia /
+
+        diferencia
+        /
         3600000
+
     ) % 24;
 
 
     const minutos =
+
     Math.floor(
-        diferencia /
+
+        diferencia
+        /
         60000
+
     ) % 60;
 
 
     const segundos =
+
     Math.floor(
-        diferencia /
+
+        diferencia
+        /
         1000
+
     ) % 60;
 
 
@@ -4228,6 +4623,7 @@ function actualizarContador(){
         "dias"
     )
     .textContent =
+
     String(dias)
     .padStart(
         2,
@@ -4240,6 +4636,7 @@ function actualizarContador(){
         "horas"
     )
     .textContent =
+
     String(horas)
     .padStart(
         2,
@@ -4252,6 +4649,7 @@ function actualizarContador(){
         "minutos"
     )
     .textContent =
+
     String(minutos)
     .padStart(
         2,
@@ -4264,6 +4662,7 @@ function actualizarContador(){
         "segundos"
     )
     .textContent =
+
     String(segundos)
     .padStart(
         2,
@@ -4277,8 +4676,11 @@ actualizarContador();
 
 
 setInterval(
+
     actualizarContador,
+
     1000
+
 );
 
 
