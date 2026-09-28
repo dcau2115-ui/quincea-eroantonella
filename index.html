@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Mis XV - Antonella Viviana</title>
 
@@ -10,12 +15,37 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet"
+>
 
 <style>
 
 /* =====================================================
-   GENERAL
+   COLORES GENERALES
+===================================================== */
+
+:root{
+
+    --azul-noche:#020c1c;
+    --azul-profundo:#041b36;
+    --azul:#0b4f82;
+    --azul-medio:#267eb5;
+
+    --celeste:#75cfff;
+    --celeste-claro:#c9efff;
+    --celeste-hielo:#edfaff;
+
+    --blanco:#ffffff;
+
+    --cristal:rgba(220,245,255,.10);
+    --borde:rgba(172,226,255,.55);
+}
+
+
+/* =====================================================
+   RESET
 ===================================================== */
 
 *{
@@ -29,20 +59,14 @@ html{
 }
 
 body{
-    background:#020b16;
-    color:#fff;
-    font-family:'Montserrat',sans-serif;
-    overflow-x:hidden;
-}
 
-:root{
-    --azul:#061b32;
-    --azul2:#0b3152;
-    --azul3:#145078;
-    --dorado:#d7b66d;
-    --dorado-claro:#f2dda5;
-    --crema:#fff9ed;
-    --texto:#e9edf3;
+    font-family:'Montserrat',sans-serif;
+
+    background:var(--azul-noche);
+
+    color:white;
+
+    overflow-x:hidden;
 }
 
 
@@ -51,159 +75,402 @@ body{
 ===================================================== */
 
 #portada{
+
     width:100%;
-    min-height:100vh;
+    min-height:100svh;
+
+    position:relative;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    position:relative;
     overflow:hidden;
 
-    background:#020b14;
-}
-
-.portada-contenedor{
-    width:100%;
-    max-width:700px;
-    min-height:100vh;
-
-    position:relative;
-
     background:
+
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(78,184,255,.38),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(37,140,210,.30),
+            transparent 35%
+        ),
+
         linear-gradient(
-            to bottom,
-            rgba(1,9,18,.08),
-            rgba(1,10,20,.2)
+            180deg,
+            #03152c,
+            #062e53 50%,
+            #020b18
         );
 }
 
 
-/* IMAGEN ORIGINAL DE PORTADA */
+/* estrellas */
 
-.portada-imagen{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center top;
-}
+.cielo-estrellas{
 
-
-/* oscurecimiento inferior */
-
-.portada-sombra{
     position:absolute;
     inset:0;
 
-    background:
-        linear-gradient(
-            to bottom,
-            transparent 45%,
-            rgba(1,9,18,.15) 65%,
-            rgba(1,9,18,.65) 100%
+    pointer-events:none;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9) 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(128,216,255,.9) 1px,
+            transparent 1.5px
         );
+
+    background-size:
+        45px 45px,
+        73px 73px;
+
+    background-position:
+        0 0,
+        25px 18px;
+
+    opacity:.55;
+
+    animation:moverEstrellas 25s linear infinite;
+}
+
+
+@keyframes moverEstrellas{
+
+    to{
+        background-position:
+            100px 180px,
+            -80px 130px;
+    }
+
+}
+
+
+/* brillo superior */
+
+.luz-portada{
+
+    position:absolute;
+
+    width:550px;
+    height:550px;
+
+    top:-250px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(122,216,255,.32),
+            transparent 65%
+        );
+
+    pointer-events:none;
+}
+
+
+/* marco */
+
+.marco-portada{
+
+    position:absolute;
+
+    inset:18px;
+
+    border:
+        1px solid
+        rgba(172,226,255,.45);
+
+    pointer-events:none;
+}
+
+
+.marco-portada::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:7px;
+
+    border:
+        1px solid
+        rgba(172,226,255,.18);
+}
+
+
+/* contenido */
+
+.portada-contenido{
+
+    width:92%;
+    max-width:650px;
+
+    position:relative;
+
+    z-index:5;
+
+    text-align:center;
+
+    padding:
+        65px
+        15px
+        45px;
+}
+
+
+/* corona */
+
+.corona-portada{
+
+    font-size:35px;
+
+    color:var(--celeste-claro);
+
+    text-shadow:
+        0 0 12px var(--celeste);
+
+    margin-bottom:10px;
+}
+
+
+/* MIS XV */
+
+.mis-xv{
+
+    font-family:'Cinzel',serif;
+
+    font-size:14px;
+
+    letter-spacing:7px;
+
+    color:var(--celeste-claro);
+
+    margin-bottom:8px;
+}
+
+
+/* nombre */
+
+.nombre-portada{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:
+        clamp(
+            72px,
+            17vw,
+            125px
+        );
+
+    font-weight:normal;
+
+    line-height:.78;
+
+    margin:
+        15px 0
+        30px;
+
+    color:white;
+
+    text-shadow:
+
+        0 0 10px rgba(255,255,255,.5),
+
+        0 0 25px rgba(84,190,255,.65),
+
+        0 5px 8px rgba(0,0,0,.5);
+}
+
+
+.nombre-portada span{
+
+    color:var(--celeste-claro);
+}
+
+
+/* frase portada */
+
+.frase-portada{
+
+    max-width:500px;
+
+    margin:
+        0 auto
+        30px;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:29px;
+
+    line-height:1.3;
+
+    color:#e6f7ff;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.7);
+}
+
+
+/* personal */
+
+.personal{
+
+    font-family:'Cinzel',serif;
+
+    font-size:10px;
+
+    line-height:1.8;
+
+    letter-spacing:1.5px;
+
+    color:#bfe9ff;
+
+    margin-bottom:25px;
 }
 
 
 /* =====================================================
-   SOBRE
+   SOBRE AZUL
 ===================================================== */
 
-.zona-sobre{
-    position:absolute;
+.abrir-zona{
 
-    left:50%;
-    bottom:7%;
+    width:280px;
 
-    transform:translateX(-50%);
-
-    width:250px;
-    height:175px;
+    margin:
+        10px auto
+        0;
 
     cursor:pointer;
 
-    z-index:20;
-
-    text-align:center;
+    user-select:none;
 }
 
 
 .sobre{
-    width:210px;
-    height:125px;
 
-    position:relative;
+    width:240px;
+    height:155px;
 
     margin:auto;
 
-    perspective:800px;
+    position:relative;
+
+    perspective:900px;
 
     filter:
-        drop-shadow(0 10px 15px rgba(0,0,0,.55));
+        drop-shadow(
+            0 18px 18px
+            rgba(0,0,0,.45)
+        );
 
-    transition:.4s;
+    animation:
+        flotarSobre
+        3s
+        ease-in-out
+        infinite;
 }
 
 
-.sobre:hover{
-    transform:scale(1.04);
+@keyframes flotarSobre{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
 }
 
 
 /* cuerpo */
 
 .sobre-cuerpo{
+
     position:absolute;
 
     bottom:0;
 
     width:100%;
-    height:110px;
-
-    border-radius:4px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #f6ead0,
-            #d9c393
-        );
-
-    border:2px solid #c4a45f;
+    height:130px;
 
     overflow:hidden;
+
+    border-radius:5px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #0d4d7a,
+            #062c50
+        );
+
+    border:
+        1px solid
+        #64bde9;
+
+    box-shadow:
+
+        inset 0 0 25px
+        rgba(117,207,255,.12),
+
+        0 0 20px
+        rgba(52,169,230,.2);
 }
 
 
-/* líneas decorativas */
+/* laterales */
 
 .sobre-cuerpo::before,
 .sobre-cuerpo::after{
+
     content:"";
 
     position:absolute;
 
-    bottom:-55px;
+    width:180px;
+    height:180px;
 
-    width:150px;
-    height:150px;
+    bottom:-90px;
 
-    background:#ead9b5;
+    background:#0b4169;
 
-    border:1px solid #c7a85e;
+    border:
+        1px solid
+        rgba(137,211,250,.35);
 }
 
 
 .sobre-cuerpo::before{
-    left:-75px;
+
+    left:-90px;
+
     transform:rotate(45deg);
 }
 
 
 .sobre-cuerpo::after{
-    right:-75px;
+
+    right:-90px;
+
     transform:rotate(45deg);
 }
 
@@ -211,146 +478,292 @@ body{
 /* tapa */
 
 .sobre-tapa{
+
     position:absolute;
 
-    top:15px;
     left:0;
+    top:25px;
 
     width:0;
     height:0;
 
-    border-left:105px solid transparent;
-    border-right:105px solid transparent;
-    border-top:75px solid #ead8b3;
+    border-left:
+        120px solid transparent;
+
+    border-right:
+        120px solid transparent;
+
+    border-top:
+        88px solid #0e5688;
 
     transform-origin:top;
 
-    z-index:4;
+    z-index:5;
 
     transition:
-        transform 1s ease,
-        z-index .2s .4s;
+        transform 1.1s
+        cubic-bezier(.4,.1,.2,1);
+}
+
+
+/* carta interior */
+
+.carta-interior{
+
+    position:absolute;
+
+    width:190px;
+    height:105px;
+
+    left:25px;
+    bottom:15px;
+
+    background:
+        linear-gradient(
+            #eefaff,
+            #cceeff
+        );
+
+    border-radius:5px;
+
+    z-index:2;
+
+    transition:
+        transform 1.2s ease
+        .45s;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:27px;
+
+    color:#12527d;
+
+    box-shadow:
+        0 0 15px
+        rgba(132,219,255,.4);
 }
 
 
 /* sello */
 
 .sello{
+
     position:absolute;
 
-    width:50px;
-    height:50px;
+    left:50%;
+    top:75px;
+
+    transform:
+        translateX(-50%);
+
+    width:58px;
+    height:58px;
 
     border-radius:50%;
 
-    left:50%;
-    top:55px;
-
-    transform:translateX(-50%);
+    z-index:8;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    z-index:8;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #2f6285,
-            #082742
-        );
-
-    border:3px solid #d5b569;
-
-    color:#e8d29b;
-
     font-family:'Cinzel',serif;
 
-    font-size:19px;
+    font-size:17px;
+
+    color:#d9f4ff;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            #2b88ba,
+            #063154
+        );
+
+    border:
+        3px solid
+        #8fdcff;
 
     box-shadow:
-        0 0 12px rgba(255,215,130,.6);
 
-    transition:.5s;
+        0 0 12px
+        #75cfff,
+
+        inset 0 0 10px
+        rgba(255,255,255,.3);
+
+    transition:
+        .6s ease;
 }
 
 
-/* SOBRE ABIERTO */
+/* brillo sello */
 
-.sobre.abierto .sobre-tapa{
-    transform:rotateX(180deg);
-    z-index:1;
+.sello::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-12px;
+
+    border:
+        1px solid
+        rgba(166,228,255,.5);
+
+    border-radius:50%;
+
+    animation:
+        pulsoSello
+        1.8s
+        infinite;
 }
 
-.sobre.abierto .sello{
+
+@keyframes pulsoSello{
+
+    0%{
+        transform:scale(.8);
+        opacity:.8;
+    }
+
+    100%{
+        transform:scale(1.5);
+        opacity:0;
+    }
+
+}
+
+
+/* abierto */
+
+.sobre.abierto{
+
+    animation:none;
+}
+
+
+.sobre.abierto
+.sobre-tapa{
+
+    transform:
+        rotateX(180deg);
+}
+
+
+.sobre.abierto
+.sello{
+
     opacity:0;
+
     transform:
         translateX(-50%)
-        scale(.4);
+        scale(.3);
 }
 
 
-/* texto */
+.sobre.abierto
+.carta-interior{
+
+    transform:
+        translateY(-100px);
+}
+
+
+/* texto tocar */
 
 .tocar{
-    margin-top:15px;
+
+    margin-top:22px;
 
     font-family:'Great Vibes',cursive;
-    font-size:28px;
+
+    font-size:27px;
+
+    color:#e6f8ff;
 
     text-shadow:
-        0 2px 5px #000,
-        0 0 10px #5edcff;
+        0 0 10px #47bfff;
 
-    animation:pulsoTexto 2s infinite;
+    animation:
+        pulsarTexto
+        1.8s
+        infinite;
 }
 
 
-@keyframes pulsoTexto{
+@keyframes pulsarTexto{
+
     50%{
-        transform:scale(1.04);
+        opacity:.65;
+        transform:scale(1.03);
     }
+
 }
 
 
 /* =====================================================
-   PARTÍCULAS
+   PARTÍCULAS AL ABRIR
 ===================================================== */
 
 .particula{
+
     position:fixed;
+
+    z-index:9999;
+
+    pointer-events:none;
 
     width:8px;
     height:8px;
 
-    border-radius:50%;
+    background:white;
 
-    pointer-events:none;
-
-    z-index:9999;
-
-    background:#fff3b8;
+    clip-path:
+        polygon(
+            50% 0%,
+            61% 35%,
+            100% 50%,
+            61% 65%,
+            50% 100%,
+            39% 65%,
+            0% 50%,
+            39% 35%
+        );
 
     box-shadow:
-        0 0 8px #fff,
-        0 0 15px #ffe18a,
-        0 0 25px #8fdfff;
+        0 0 10px white;
 
-    animation:volar 1.8s forwards;
+    animation:
+        explosion
+        2s
+        forwards;
 }
 
 
-@keyframes volar{
+@keyframes explosion{
 
     from{
+
         opacity:1;
+
         transform:
             translate(0,0)
-            scale(1);
+            scale(.4)
+            rotate(0);
+    }
+
+    50%{
+        opacity:1;
     }
 
     to{
+
         opacity:0;
 
         transform:
@@ -358,17 +771,19 @@ body{
                 var(--x),
                 var(--y)
             )
-            rotate(360deg)
-            scale(.2);
+            scale(1.6)
+            rotate(360deg);
     }
+
 }
 
 
 /* =====================================================
-   INVITACIÓN
+   SEGUNDA SECCIÓN
 ===================================================== */
 
 #invitacion{
+
     display:none;
 
     min-height:100vh;
@@ -376,348 +791,193 @@ body{
     position:relative;
 
     background:
-        radial-gradient(
-            circle at 50% 5%,
-            #155078 0%,
-            transparent 28%
-        ),
-        linear-gradient(
-            180deg,
-            #03101d,
-            #08243c 45%,
-            #020b14
-        );
+        #031329;
 
     overflow:hidden;
 }
 
 
 #invitacion.visible{
+
     display:block;
 
-    animation:entradaPagina 1.5s ease;
+    animation:
+        aparecerInvitacion
+        1.5s ease;
 }
 
 
-@keyframes entradaPagina{
+@keyframes aparecerInvitacion{
+
     from{
         opacity:0;
-        transform:translateY(40px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
     }
-}
 
-
-/* estrellas fondo */
-
-.estrellas{
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-
-    background-image:
-        radial-gradient(#fff 1px,transparent 1px),
-        radial-gradient(#bcecff 1px,transparent 1px);
-
-    background-size:
-        50px 50px,
-        80px 80px;
-
-    background-position:
-        0 0,
-        20px 30px;
-
-    opacity:.23;
 }
 
 
 /* =====================================================
-   CONTENEDOR
+   CASTILLO DE FONDO
+===================================================== */
+
+.castillo-fondo{
+
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:
+        80px 20px;
+
+    background-image:
+
+        linear-gradient(
+            to bottom,
+            rgba(2,17,39,.20),
+            rgba(3,22,47,.55),
+            rgba(2,11,25,.95)
+        ),
+
+        url("castillo.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+}
+
+
+/* halo */
+
+.castillo-fondo::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(143,218,255,.25),
+            transparent 40%
+        );
+}
+
+
+/* presentación */
+
+.presentacion{
+
+    width:92%;
+    max-width:620px;
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    padding:
+        45px
+        25px;
+
+    border:
+        1px solid
+        rgba(185,230,255,.55);
+
+    border-radius:28px;
+
+    background:
+        rgba(2,20,43,.62);
+
+    backdrop-filter:
+        blur(7px);
+
+    box-shadow:
+
+        0 20px 50px
+        rgba(0,0,0,.4),
+
+        inset 0 0 25px
+        rgba(90,190,255,.08);
+}
+
+
+.presentacion-mini{
+
+    font-family:'Cinzel',serif;
+
+    letter-spacing:6px;
+
+    font-size:14px;
+
+    color:#a9e2ff;
+}
+
+
+.presentacion-nombre{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:
+        clamp(
+            70px,
+            16vw,
+            110px
+        );
+
+    line-height:.8;
+
+    margin:
+        25px 0;
+
+    color:white;
+
+    text-shadow:
+        0 0 20px
+        #4dbdff;
+}
+
+
+.presentacion-frase{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:31px;
+
+    line-height:1.4;
+
+    color:#dff5ff;
+}
+
+
+/* =====================================================
+   CONTENIDO GENERAL
 ===================================================== */
 
 .contenido{
+
     width:92%;
     max-width:700px;
 
     margin:auto;
 
-    position:relative;
-    z-index:2;
-
     padding:
-        70px
-        0
+        70px 0
         100px;
-}
-
-
-/* =====================================================
-   DECRETO REAL
-===================================================== */
-
-.decreto{
-    background:
-        linear-gradient(
-            145deg,
-            #fffdf6,
-            #f3ead8
-        );
-
-    color:#162438;
-
-    border-radius:25px;
-
-    padding:
-        55px
-        30px;
-
-    text-align:center;
-
-    border:2px solid #d1b168;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.4);
-
-    position:relative;
-}
-
-
-.corona{
-    font-size:42px;
-    color:#c19a47;
-}
-
-
-.subtitulo{
-    font-family:'Cinzel',serif;
-
-    color:#9c7540;
-
-    letter-spacing:4px;
-
-    margin:
-        15px 0
-        25px;
-}
-
-
-.decreto p{
-    max-width:500px;
-    margin:auto;
-
-    line-height:1.8;
-}
-
-
-.nombre{
-    font-family:'Great Vibes',cursive;
-
-    font-size:
-        clamp(
-            65px,
-            15vw,
-            105px
-        );
-
-    line-height:.9;
-
-    color:#163653;
-
-    margin:
-        35px 0;
-}
-
-
-.frase-real{
-    font-family:'Great Vibes',cursive;
-
-    font-size:29px;
-
-    color:#765c3c;
-}
-
-
-/* =====================================================
-   PADRES
-===================================================== */
-
-.padres{
-    margin:
-        35px auto
-        10px;
-
-    padding:
-        25px;
-
-    max-width:500px;
-
-    border-top:
-        1px solid #c6a661;
-
-    border-bottom:
-        1px solid #c6a661;
-}
-
-
-.padres h3{
-    font-family:'Cinzel',serif;
-
-    color:#9c7540;
-
-    margin-bottom:15px;
-
-    letter-spacing:3px;
-}
-
-
-.padres p{
-    line-height:1.9;
-}
-
-
-/* =====================================================
-   FECHA
-===================================================== */
-
-.fecha-evento{
-    margin-top:40px;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    gap:25px;
-}
-
-
-.numero-dia{
-    font-family:'Cinzel',serif;
-
-    font-size:75px;
-
-    color:#123f67;
-}
-
-
-.fecha-lado{
-    text-align:left;
-
-    border-left:
-        1px solid #c6a661;
-
-    padding-left:25px;
-}
-
-
-.fecha-lado strong{
-    font-family:'Cinzel',serif;
-
-    color:#946f36;
-}
-
-
-.hora-grande{
-    font-size:30px;
-
-    color:#163653;
-
-    margin:
-        5px 0;
-}
-
-
-.puntualidad{
-    margin-top:25px;
-
-    color:#785d38;
-
-    font-size:14px;
-
-    line-height:1.6;
-}
-
-
-/* =====================================================
-   CONTADOR
-===================================================== */
-
-.contador-seccion{
-    margin:
-        50px auto;
-
-    text-align:center;
-}
-
-
-.titulo-dorado{
-    font-family:'Cinzel',serif;
-
-    color:var(--dorado-claro);
-
-    letter-spacing:4px;
-
-    margin-bottom:20px;
-}
-
-
-.contador{
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:10px;
-}
-
-
-.tiempo{
-    background:
-        linear-gradient(
-            145deg,
-            #0f456b,
-            #04192d
-        );
-
-    border:
-        1px solid #d6b465;
-
-    border-radius:12px;
-
-    padding:
-        20px 5px;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.3);
-}
-
-
-.tiempo-numero{
-    font-family:'Cinzel',serif;
-
-    font-size:
-        clamp(
-            25px,
-            7vw,
-            42px
-        );
-
-    color:#fff;
-}
-
-
-.tiempo-texto{
-    font-size:9px;
-
-    color:#d9c48d;
-
-    letter-spacing:1px;
-
-    margin-top:6px;
 }
 
 
@@ -726,113 +986,331 @@ body{
 ===================================================== */
 
 .tarjeta{
+
+    position:relative;
+
     margin:
-        40px auto;
+        0 auto
+        45px;
 
     padding:
-        40px 25px;
+        42px
+        25px;
 
     text-align:center;
 
-    border-radius:22px;
+    border-radius:25px;
 
     background:
+
         linear-gradient(
             145deg,
-            rgba(16,61,91,.94),
-            rgba(3,18,31,.96)
+            rgba(10,64,103,.88),
+            rgba(2,21,43,.96)
         );
 
     border:
-        1px solid rgba(224,193,119,.65);
+        1px solid
+        var(--borde);
 
     box-shadow:
-        0 20px 50px rgba(0,0,0,.35);
+        0 18px 45px
+        rgba(0,0,0,.35);
 }
 
 
 .tarjeta-clara{
+
+    color:#0b3556;
+
     background:
+
         linear-gradient(
             145deg,
-            #fffdf7,
-            #f3ead7
+            #f4fcff,
+            #dff5ff
         );
 
-    color:#172b3e;
+    border:
+        1px solid
+        #93d9fa;
 }
 
 
-.icono{
-    font-size:42px;
-    margin-bottom:15px;
-}
+/* títulos */
 
+.titulo{
 
-.titulo-seccion{
     font-family:'Cinzel',serif;
 
     letter-spacing:3px;
 
-    color:#e4ca8a;
+    font-size:21px;
+
+    color:#bce9ff;
 
     margin-bottom:25px;
 }
 
 
-.tarjeta-clara .titulo-seccion{
-    color:#9b7435;
+.tarjeta-clara
+.titulo{
+
+    color:#17618f;
+}
+
+
+/* iconos */
+
+.icono{
+
+    font-size:38px;
+
+    margin-bottom:15px;
 }
 
 
 /* =====================================================
-   LOCAL
+   PADRES Y PADRINOS
 ===================================================== */
 
-.nombre-local{
+.nombre-familia{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:31px;
+
+    line-height:1.6;
+
+    color:#f0fbff;
+}
+
+
+.separador{
+
+    width:100px;
+    height:1px;
+
+    margin:
+        25px auto;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #aee5ff,
+            transparent
+        );
+}
+
+
+.padrinos-grupo{
+
+    line-height:1.9;
+
+    color:#dff5ff;
+}
+
+
+.pareja-padrinos{
+
+    margin-bottom:25px;
+}
+
+
+.pareja-padrinos:last-child{
+
+    margin-bottom:0;
+}
+
+
+/* =====================================================
+   FECHA
+===================================================== */
+
+.fecha{
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:25px;
+
+    margin-top:10px;
+}
+
+
+.dia{
+
+    font-family:'Cinzel',serif;
+
+    font-size:75px;
+
+    color:#c8eeff;
+
+    line-height:1;
+}
+
+
+.fecha-info{
+
+    text-align:left;
+
+    border-left:
+        1px solid
+        #8dd8ff;
+
+    padding-left:25px;
+
+    line-height:1.8;
+}
+
+
+.fecha-info strong{
+
+    font-family:'Cinzel',serif;
+
+    color:#aee4ff;
+}
+
+
+.hora{
+
+    font-size:27px;
+
+    font-family:'Cinzel',serif;
+
+    color:white;
+}
+
+
+.puntualidad{
+
+    margin-top:30px;
+
+    padding:
+        20px;
+
+    border-radius:15px;
+
+    background:
+        rgba(117,207,255,.08);
+
+    line-height:1.8;
+
+    color:#dff5ff;
+}
+
+
+/* =====================================================
+   CUENTA REGRESIVA
+===================================================== */
+
+.contador{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:8px;
+}
+
+
+.tiempo{
+
+    padding:
+        20px 4px;
+
+    border-radius:14px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #1677ad,
+            #06365c
+        );
+
+    border:
+        1px solid
+        #94dcff;
+
+    box-shadow:
+        inset 0 0 15px
+        rgba(255,255,255,.08);
+}
+
+
+.numero{
+
+    font-family:'Cinzel',serif;
+
+    font-size:
+        clamp(
+            24px,
+            7vw,
+            42px
+        );
+}
+
+
+.etiqueta{
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    margin-top:5px;
+
+    color:#c8edff;
+}
+
+
+/* =====================================================
+   LUGAR
+===================================================== */
+
+.local{
+
     font-family:'Great Vibes',cursive;
 
     font-size:48px;
 
-    color:#fff;
-
-    margin-bottom:20px;
+    margin-bottom:15px;
 }
 
 
 .direccion{
+
     line-height:1.8;
-    color:#e3eaf0;
+
+    color:#dff5ff;
 }
 
 
 .referencia{
-    margin-top:12px;
-    color:#d8c183;
+
+    margin-top:15px;
+
+    color:#aaddf7;
 }
 
 
 .boton{
+
     display:inline-block;
 
     margin-top:25px;
 
     padding:
         15px
-        30px;
+        28px;
 
     border-radius:50px;
 
     text-decoration:none;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f1dda6,
-            #c69e4f
-        );
-
-    color:#071522;
 
     font-family:'Cinzel',serif;
 
@@ -840,14 +1318,26 @@ body{
 
     letter-spacing:1px;
 
+    color:#03223c;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #e8f9ff,
+            #79cef7
+        );
+
     box-shadow:
-        0 8px 25px rgba(0,0,0,.25);
+        0 8px 25px
+        rgba(53,174,235,.3);
 
     transition:.3s;
 }
 
 
 .boton:hover{
+
     transform:
         translateY(-3px)
         scale(1.03);
@@ -859,6 +1349,7 @@ body{
 ===================================================== */
 
 .itinerario{
+
     position:relative;
 
     max-width:520px;
@@ -868,184 +1359,225 @@ body{
 
 
 .itinerario::before{
+
     content:"";
 
     position:absolute;
 
     left:50%;
 
-    top:10px;
-    bottom:10px;
+    top:15px;
+    bottom:15px;
 
     width:2px;
 
     background:
+
         linear-gradient(
-            #d6b569,
-            #fff2bc,
-            #d6b569
+            #62c6f7,
+            #dff7ff,
+            #62c6f7
         );
 }
 
 
 .evento{
+
+    min-height:100px;
+
     display:grid;
 
     grid-template-columns:
         1fr 45px 1fr;
 
     align-items:center;
-
-    min-height:100px;
 }
 
 
 .evento-hora{
+
     text-align:right;
 
-    padding-right:18px;
+    padding-right:17px;
 
     font-family:'Cinzel',serif;
 
-    color:#f1d99e;
-
-    font-size:17px;
+    color:#bceaff;
 }
 
 
 .punto{
+
     width:16px;
     height:16px;
 
-    border-radius:50%;
-
-    background:#f3dda5;
-
-    border:4px solid #9c7638;
-
     margin:auto;
 
-    z-index:2;
+    border-radius:50%;
+
+    background:white;
+
+    border:
+        4px solid
+        #48b6eb;
 
     box-shadow:
-        0 0 12px #ffe49b;
+        0 0 12px
+        #8cdcff;
+
+    z-index:2;
 }
 
 
-.evento-texto{
+.evento-info{
+
     text-align:left;
 
-    padding-left:18px;
+    padding-left:17px;
 
-    font-size:14px;
+    line-height:1.6;
 
-    line-height:1.5;
+    font-size:13px;
 }
 
 
 .evento-icono{
-    font-size:26px;
+
+    font-size:25px;
+
     margin-bottom:5px;
 }
 
 
 /* =====================================================
-   REGALOS
+   REGALO
 ===================================================== */
 
-.regalo-texto{
-    line-height:1.8;
+.regalo-frase{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:31px;
+
+    line-height:1.4;
+
+    color:#155b87;
+
+    max-width:520px;
+
+    margin:auto;
 }
 
 
-.cuenta{
+.regalo-secundario{
+
     margin:
-        20px auto;
-
-    font-family:'Cinzel',serif;
-
-    color:#6c512f;
+        25px auto;
 
     line-height:1.8;
+
+    max-width:520px;
+
+    color:#315f7b;
 }
 
 
 /* QR */
 
 .qr{
-    width:220px;
-    max-width:80%;
 
-    margin:
-        15px auto;
+    width:220px;
+    max-width:85%;
 
     display:block;
 
-    border-radius:12px;
+    margin:
+        25px auto
+        10px;
+
+    padding:10px;
 
     background:white;
 
-    padding:8px;
+    border-radius:15px;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.15);
+        0 10px 30px
+        rgba(6,60,95,.18);
 }
 
 
 /* =====================================================
-   VESTIMENTA
+   DRESS CODE
 ===================================================== */
 
-.vestimenta-iconos{
+.ropa{
+
     font-size:55px;
 
-    margin:
-        10px 0
-        20px;
+    margin-bottom:15px;
 }
 
 
 .formal{
+
     font-family:'Cinzel',serif;
 
-    font-size:22px;
+    font-size:23px;
 
-    color:#77582e;
+    letter-spacing:2px;
+
+    color:#125982;
 
     margin-bottom:20px;
 }
 
 
-.reservados{
+.vestimenta-texto{
+
+    line-height:1.8;
+
+    color:#315f7b;
+}
+
+
+.reserva-color{
+
     margin-top:25px;
 
     padding:
-        20px;
+        22px;
+
+    border-radius:16px;
+
+    background:
+        rgba(65,167,218,.08);
 
     border:
-        1px solid #d3b470;
-
-    border-radius:15px;
+        1px solid
+        #91d7f8;
 
     line-height:1.7;
 }
 
 
-.colores{
+.muestras{
+
     display:flex;
 
     justify-content:center;
 
-    gap:12px;
+    gap:13px;
 
     margin:
         18px 0;
 }
 
 
-.color{
-    width:38px;
-    height:38px;
+.muestra{
+
+    width:40px;
+    height:40px;
 
     border-radius:50%;
 
@@ -1053,20 +1585,21 @@ body{
         3px solid white;
 
     box-shadow:
-        0 3px 10px rgba(0,0,0,.25);
+        0 3px 10px
+        rgba(0,0,0,.2);
 }
 
 
 .celeste{
-    background:#9edaf3;
+    background:#a8e4ff;
 }
 
 .azul{
-    background:#175a91;
+    background:#2476ad;
 }
 
 .plateado{
-    background:#c3c7cb;
+    background:#c9d4da;
 }
 
 
@@ -1075,102 +1608,176 @@ body{
 ===================================================== */
 
 .final{
+
     text-align:center;
 
     padding:
-        50px 15px
-        10px;
+        30px 15px
+        80px;
 }
 
 
-.final-frase{
+.final-texto{
+
     font-family:'Great Vibes',cursive;
 
-    font-size:38px;
+    font-size:40px;
 
-    color:#efdaa7;
+    color:#d8f4ff;
 
-    line-height:1.3;
+    line-height:1.4;
 }
 
 
 .final-nombre{
+
     margin-top:30px;
 
     font-family:'Cinzel',serif;
 
     letter-spacing:4px;
 
-    color:#d8bd7b;
+    color:#8ed9ff;
 }
 
 
 /* =====================================================
-   YOUTUBE OCULTO
+   MÚSICA
 ===================================================== */
 
-#musica{
-    position:absolute;
+.control-musica{
 
-    width:1px;
-    height:1px;
+    position:fixed;
 
-    opacity:0;
+    right:18px;
+    bottom:18px;
 
-    pointer-events:none;
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        #9de2ff;
+
+    background:
+        rgba(5,54,88,.85);
+
+    color:white;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:1000;
+
+    cursor:pointer;
+
+    font-size:21px;
+
+    backdrop-filter:
+        blur(5px);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.3);
+}
+
+
+.control-musica.visible{
+
+    display:flex;
 }
 
 
 /* =====================================================
-   RESPONSIVE
+   CELULARES
 ===================================================== */
 
 @media(max-width:500px){
 
-    .contenido{
-        width:94%;
-        padding-top:40px;
+    .portada-contenido{
+        padding-top:45px;
     }
 
-    .decreto{
-        padding:
-            40px 18px;
+    .sobre{
+        width:210px;
+        height:140px;
     }
 
-    .fecha-evento{
+    .sobre-cuerpo{
+        height:115px;
+    }
+
+    .sobre-tapa{
+
+        border-left-width:105px;
+        border-right-width:105px;
+        border-top-width:78px;
+    }
+
+    .carta-interior{
+
+        width:165px;
+
+        left:22px;
+    }
+
+    .sello{
+        top:68px;
+    }
+
+    .fecha{
+
         gap:15px;
     }
 
-    .numero-dia{
+    .dia{
+
         font-size:62px;
     }
 
-    .fecha-lado{
+    .fecha-info{
+
         padding-left:15px;
     }
 
     .contador{
+
         gap:5px;
     }
 
     .tiempo{
+
         padding:
-            16px 2px;
+            17px 2px;
     }
 
     .evento{
+
         grid-template-columns:
             1fr 35px 1fr;
     }
 
     .evento-hora{
-        font-size:14px;
+
         padding-right:10px;
+
+        font-size:13px;
     }
 
-    .evento-texto{
+    .evento-info{
+
         padding-left:10px;
+
         font-size:12px;
+    }
+
+    .castillo-fondo{
+
+        background-attachment:scroll;
     }
 
 }
@@ -1183,53 +1790,147 @@ body{
 
 
 <!-- ==================================================
+     AUDIO MP3
+================================================== -->
+
+<audio
+    id="audioFondo"
+    loop
+    preload="auto"
+>
+    <source
+        src="musica-fondo.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
+<!-- BOTÓN MÚSICA -->
+
+<button
+    id="controlMusica"
+    class="control-musica"
+    onclick="controlarMusica()"
+    aria-label="Activar o pausar música"
+>
+    ♪
+</button>
+
+
+
+<!-- ==================================================
      PORTADA
 ================================================== -->
 
 <section id="portada">
 
-<div class="portada-contenedor">
+    <div class="cielo-estrellas"></div>
 
-    <!-- TU IMAGEN ORIGINAL -->
+    <div class="luz-portada"></div>
 
-    <img
-        src="portada.jpeg"
-        class="portada-imagen"
-        alt="Antonella Viviana - Mis XV"
-    >
-
-    <div class="portada-sombra"></div>
+    <div class="marco-portada"></div>
 
 
-    <!-- SOBRE INTERACTIVO -->
+    <div class="portada-contenido">
 
-    <div
-        class="zona-sobre"
-        onclick="abrirSobre(event)"
-    >
+
+        <div class="corona-portada">
+            ♕
+        </div>
+
+
+        <div class="mis-xv">
+            MIS XV AÑOS
+        </div>
+
+
+        <h1 class="nombre-portada">
+
+            Antonella
+
+            <br>
+
+            <span>
+                Viviana
+            </span>
+
+        </h1>
+
+
+        <p class="frase-portada">
+
+            “Te invito a compartir
+            la magia de una noche
+            que guardaré para siempre
+            en mi corazón.”
+
+        </p>
+
+
+        <div class="personal">
+
+            TU PRESENCIA ES NUESTRO
+            REGALO MÁS PRECIADO
+
+            <br>
+
+            ESTA INVITACIÓN ES
+            PERSONAL E INTRANSFERIBLE
+
+        </div>
+
+
+
+        <!-- SOBRE -->
 
         <div
-            class="sobre"
-            id="sobre"
+            class="abrir-zona"
+            onclick="abrirInvitacion()"
         >
 
-            <div class="sobre-cuerpo"></div>
 
-            <div class="sobre-tapa"></div>
+            <div
+                class="sobre"
+                id="sobre"
+            >
 
-            <div class="sello">
-                AV
+
+                <div class="carta-interior">
+
+                    Mis XV ✦
+
+                </div>
+
+
+                <div class="sobre-cuerpo"></div>
+
+
+                <div class="sobre-tapa"></div>
+
+
+                <div class="sello">
+                    AV
+                </div>
+
+
             </div>
 
+
+            <div
+                class="tocar"
+                id="textoAbrir"
+            >
+
+                Toca el sobre para abrir
+                la invitación
+
+            </div>
+
+
         </div>
 
-        <div class="tocar">
-            Toca el sobre para entrar
-        </div>
 
     </div>
-
-</div>
 
 </section>
 
@@ -1241,139 +1942,249 @@ body{
 
 <section id="invitacion">
 
-<div class="estrellas"></div>
+
+<!-- ==================================================
+     CASTILLO
+================================================== -->
+
+<section class="castillo-fondo">
+
+
+    <div class="presentacion">
+
+
+        <div class="presentacion-mini">
+
+            ÉRASE UNA VEZ...
+
+        </div>
+
+
+        <h2 class="presentacion-nombre">
+
+            Antonella
+            <br>
+            Viviana
+
+        </h2>
+
+
+        <p class="presentacion-frase">
+
+            En un reino lleno de sueños,
+            una joven princesa está a punto
+            de celebrar sus quince primaveras.
+
+            <br><br>
+
+            Y queremos que formes parte
+            de esta historia.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
 
 <div class="contenido">
 
 
 <!-- ==================================================
-     DECRETO
+     PADRES
 ================================================== -->
 
-<section class="decreto">
+<section class="tarjeta">
 
-    <div class="corona">
-        ♛
+
+    <div class="icono">
+        ♕
     </div>
 
-    <div class="subtitulo">
-        DECRETO REAL
-    </div>
 
-    <p>
-        En un reino lleno de sueños y magia,
-        una joven princesa está a punto de
-        celebrar sus quince primaveras...
-    </p>
+    <h2 class="titulo">
 
-    <h1 class="nombre">
-        Antonella
+        CON LA BENDICIÓN
+        DE MIS PADRES
+
+    </h2>
+
+
+    <div class="nombre-familia">
+
+        Anderson Sánchez Mendoza
+
         <br>
-        Viviana
-    </h1>
 
-    <p class="frase-real">
-        Y así, en medio de sueños, ilusión
-        y elegancia, comienza una noche
-        creada para guardar recuerdos
-        inolvidables.
-    </p>
-
-
-    <!-- PADRES -->
-
-    <div class="padres">
-
-        <h3>
-            MIS PADRES
-        </h3>
-
-        <p>
-            Anderson Sánchez Mendoza
-            <br>
-            Kelly Vilca Meregildo
-        </p>
+        Kelly Vilca Meregildo
 
     </div>
 
-
-    <!-- FECHA -->
-
-    <div class="fecha-evento">
-
-        <div>
-
-            <div style="
-                font-family:'Cinzel',serif;
-                color:#98733b;
-                letter-spacing:2px;
-            ">
-                SÁBADO
-            </div>
-
-            <div class="numero-dia">
-                03
-            </div>
-
-            <div style="
-                font-family:'Cinzel',serif;
-                letter-spacing:3px;
-                color:#98733b;
-            ">
-                OCTUBRE
-                <br>
-                2026
-            </div>
-
-        </div>
-
-
-        <div class="fecha-lado">
-
-            <strong>
-                HORA
-            </strong>
-
-            <div class="hora-grande">
-                6:30 P.M.
-            </div>
-
-            <div>
-                Recepción
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="puntualidad">
-
-        ✦ Te esperamos puntualmente ✦
-
-        <br><br>
-
-        Agradecemos tu puntualidad.
-        Te recomendamos llegar
-        unos minutos antes para
-        acompañarnos desde el inicio
-        de esta noche tan especial.
-
-    </div>
 
 </section>
 
 
 
 <!-- ==================================================
-     CONTADOR
+     PADRINOS
 ================================================== -->
 
-<section class="contador-seccion">
+<section class="tarjeta">
 
-    <h2 class="titulo-dorado">
-        FALTAN
+
+    <div class="icono">
+        ✦
+    </div>
+
+
+    <h2 class="titulo">
+
+        MIS PADRINOS
+
     </h2>
+
+
+    <div class="padrinos-grupo">
+
+
+        <div class="pareja-padrinos">
+
+            Omar Uriol Llanos
+
+            <br>
+
+            Pilar Vilca Meregildo
+
+        </div>
+
+
+        <div class="separador"></div>
+
+
+        <div class="pareja-padrinos">
+
+            Victoriano Ambrosio Sánchez
+
+            <br>
+
+            Gladys Vilca Meregildo
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     FECHA Y HORA
+================================================== -->
+
+<section class="tarjeta">
+
+
+    <h2 class="titulo">
+
+        UNA NOCHE PARA RECORDAR
+
+    </h2>
+
+
+    <div class="fecha">
+
+
+        <div>
+
+            <div style="
+                font-family:'Cinzel',serif;
+                color:#9cddff;
+                letter-spacing:2px;
+            ">
+                SÁBADO
+            </div>
+
+
+            <div class="dia">
+                03
+            </div>
+
+
+            <div style="
+                font-family:'Cinzel',serif;
+                letter-spacing:3px;
+                color:#a9e2ff;
+            ">
+
+                OCTUBRE
+
+                <br>
+
+                2026
+
+            </div>
+
+        </div>
+
+
+        <div class="fecha-info">
+
+
+            <strong>
+                RECEPCIÓN
+            </strong>
+
+
+            <div class="hora">
+
+                6:30 P.M.
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="puntualidad">
+
+        ✦ La magia comienza a tiempo ✦
+
+        <br><br>
+
+        Para poder compartir juntos
+        cada momento de esta noche,
+        agradecemos respetar el horario
+        indicado y llegar unos minutos
+        antes.
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     CUENTA REGRESIVA
+================================================== -->
+
+<section class="tarjeta">
+
+
+    <h2 class="titulo">
+
+        FALTAN
+
+    </h2>
+
 
     <div class="contador">
 
@@ -1381,13 +2192,13 @@ body{
         <div class="tiempo">
 
             <div
-                class="tiempo-numero"
+                class="numero"
                 id="dias"
             >
                 00
             </div>
 
-            <div class="tiempo-texto">
+            <div class="etiqueta">
                 DÍAS
             </div>
 
@@ -1397,13 +2208,13 @@ body{
         <div class="tiempo">
 
             <div
-                class="tiempo-numero"
+                class="numero"
                 id="horas"
             >
                 00
             </div>
 
-            <div class="tiempo-texto">
+            <div class="etiqueta">
                 HORAS
             </div>
 
@@ -1413,13 +2224,13 @@ body{
         <div class="tiempo">
 
             <div
-                class="tiempo-numero"
+                class="numero"
                 id="minutos"
             >
                 00
             </div>
 
-            <div class="tiempo-texto">
+            <div class="etiqueta">
                 MINUTOS
             </div>
 
@@ -1429,13 +2240,13 @@ body{
         <div class="tiempo">
 
             <div
-                class="tiempo-numero"
+                class="numero"
                 id="segundos"
             >
                 00
             </div>
 
-            <div class="tiempo-texto">
+            <div class="etiqueta">
                 SEGUNDOS
             </div>
 
@@ -1444,35 +2255,47 @@ body{
 
     </div>
 
+
 </section>
 
 
 
 <!-- ==================================================
-     LUGAR
+     UBICACIÓN
 ================================================== -->
 
 <section class="tarjeta">
+
 
     <div class="icono">
         ♕
     </div>
 
-    <h2 class="titulo-seccion">
+
+    <h2 class="titulo">
+
         LUGAR DEL EVENTO
+
     </h2>
 
-    <div class="nombre-local">
+
+    <div class="local">
+
         Shiny Star Eventos
+
     </div>
+
 
     <div class="direccion">
 
         Urb. Palmeras del Valle
+
         <br>
+
         Mz. A Lt. 3 II Etapa
 
     </div>
+
 
     <div class="referencia">
 
@@ -1483,13 +2306,21 @@ body{
 
 
     <a
+
         class="boton"
+
         href="https://www.google.com/maps/place/8%C2%B005'06.9%22S+79%C2%B002'48.7%22W/@-8.0852516,-79.0494475,17z/data=!4m4!3m3!8m2!3d-8.0852622!4d-79.0468618?hl=es&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D"
+
         target="_blank"
+
         rel="noopener noreferrer"
+
     >
+
         📍 VER UBICACIÓN
+
     </a>
+
 
 </section>
 
@@ -1501,25 +2332,32 @@ body{
 
 <section class="tarjeta">
 
-    <h2 class="titulo-seccion">
+
+    <h2 class="titulo">
+
         ✦ ITINERARIO ✦
+
     </h2>
 
 
     <div class="itinerario">
 
 
-        <!-- 6:30 -->
+        <!-- RECEPCIÓN -->
 
         <div class="evento">
 
             <div class="evento-hora">
+
                 6:30 P.M.
+
             </div>
+
 
             <div class="punto"></div>
 
-            <div class="evento-texto">
+
+            <div class="evento-info">
 
                 <div class="evento-icono">
                     ♕
@@ -1533,24 +2371,30 @@ body{
 
 
 
-        <!-- 8:00 -->
+        <!-- PROTOCOLO -->
 
         <div class="evento">
 
             <div class="evento-hora">
+
                 8:00 P.M.
+
             </div>
+
 
             <div class="punto"></div>
 
-            <div class="evento-texto">
+
+            <div class="evento-info">
 
                 <div class="evento-icono">
-                    📜
+                    ✦
                 </div>
 
                 PROTOCOLO
+
                 <br>
+
                 Y CEREMONIA
 
             </div>
@@ -1559,24 +2403,30 @@ body{
 
 
 
-        <!-- 9:00 -->
+        <!-- BRINDIS -->
 
         <div class="evento">
 
             <div class="evento-hora">
+
                 9:00 P.M.
+
             </div>
+
 
             <div class="punto"></div>
 
-            <div class="evento-texto">
+
+            <div class="evento-info">
 
                 <div class="evento-icono">
                     🥂
                 </div>
 
                 BRINDIS
+
                 <br>
+
                 Y CENA
 
             </div>
@@ -1585,24 +2435,30 @@ body{
 
 
 
-        <!-- 9:50 -->
+        <!-- BAILE -->
 
         <div class="evento">
 
             <div class="evento-hora">
+
                 9:50 P.M.
+
             </div>
+
 
             <div class="punto"></div>
 
-            <div class="evento-texto">
+
+            <div class="evento-info">
 
                 <div class="evento-icono">
                     ✨
                 </div>
 
                 BAILE
+
                 <br>
+
                 SORPRESA
 
             </div>
@@ -1611,24 +2467,30 @@ body{
 
 
 
-        <!-- 10:00 -->
+        <!-- FIESTA -->
 
         <div class="evento">
 
             <div class="evento-hora">
+
                 10:00 P.M.
+
             </div>
+
 
             <div class="punto"></div>
 
-            <div class="evento-texto">
+
+            <div class="evento-info">
 
                 <div class="evento-icono">
                     ♫
                 </div>
 
                 INICIO
+
                 <br>
+
                 DE FIESTA
 
             </div>
@@ -1638,133 +2500,164 @@ body{
 
     </div>
 
+
 </section>
 
 
 
 <!-- ==================================================
-     LLUVIA DE SOBRES / REGALOS
+     SUGERENCIA DE REGALO
 ================================================== -->
 
 <section class="tarjeta tarjeta-clara">
+
 
     <div class="icono">
         🎁
     </div>
 
-    <h2 class="titulo-seccion">
-        LLUVIA DE SOBRES
+
+    <h2 class="titulo">
+
+        SUGERENCIA DE REGALO
+
     </h2>
 
-    <div class="regalo-texto">
 
-        ¡Tu presencia es el mejor regalo!
+    <div class="regalo-frase">
+
+        Tu compañía en esta noche
+        tan especial es el regalo
+        más bonito que puedo recibir.
+
+    </div>
+
+
+    <div class="regalo-secundario">
+
+        Si deseas tener un detalle conmigo,
+        puedes hacerlo de la manera
+        que te resulte más cómoda.
 
         <br><br>
 
-        Si también deseas obsequiarme
-        un detalle, será bienvenido.
+        Con mucho cariño,
+        hemos dejado esta opción
+        disponible para ti.
 
     </div>
 
 
-    <div class="cuenta">
-
-        CUENTA DE AHORRO BCP
-
-        <br>
-
-        <strong>
-            57094145830051
-        </strong>
-
-    </div>
-
-
-    <!--
-    GUARDA EL QR QUE ENVIASTE
-    CON EL NOMBRE qr-yape.jpg
-    -->
+    <!-- QR YAPE -->
 
     <img
+
         src="qr-yape.jpg"
+
         class="qr"
-        alt="Código QR Yape"
+
+        alt="QR para sugerencia de regalo"
+
     >
+
 
     <div style="
         font-family:'Great Vibes',cursive;
-        font-size:28px;
-        color:#71532e;
-        margin-top:10px;
+        font-size:29px;
+        color:#1a618a;
+        margin-top:18px;
     ">
-        Con cariño, gracias ♡
+
+        Gracias por acompañarme
+        en este día tan especial ♡
+
     </div>
+
 
 </section>
 
 
 
 <!-- ==================================================
-     CÓDIGO DE VESTIMENTA
+     VESTIMENTA
 ================================================== -->
 
 <section class="tarjeta tarjeta-clara">
 
+
     <div class="icono">
-        ♛
+        ✦
     </div>
 
-    <h2 class="titulo-seccion">
+
+    <h2 class="titulo">
+
         CÓDIGO DE VESTIMENTA
+
     </h2>
 
 
-    <div class="vestimenta-iconos">
+    <div class="ropa">
+
         👗 &nbsp; 🤵
+
     </div>
 
 
     <div class="formal">
+
         FORMAL ELEGANTE
+
     </div>
 
 
-    <p style="
-        line-height:1.8;
-    ">
+    <div class="vestimenta-texto">
 
-        Queremos que formes parte
-        de esta noche especial luciendo
-        tu mejor atuendo formal.
+        Queremos celebrar juntos
+        una noche llena de elegancia.
 
-    </p>
+        <br><br>
+
+        Te invitamos a elegir
+        tu mejor atuendo formal
+        para esta ocasión.
+
+    </div>
 
 
-    <div class="reservados">
+    <div class="reserva-color">
+
 
         <strong>
-            IMPORTANTE
+
+            COLORES RESERVADOS
+
         </strong>
 
-        <div class="colores">
+
+        <div class="muestras">
+
 
             <div
-                class="color celeste"
+                class="muestra celeste"
                 title="Celeste"
             ></div>
 
+
             <div
-                class="color azul"
+                class="muestra azul"
                 title="Azul"
             ></div>
 
+
             <div
-                class="color plateado"
+                class="muestra plateado"
                 title="Plateado"
             ></div>
 
+
         </div>
+
 
         Los tonos
 
@@ -1772,16 +2665,17 @@ body{
             celeste, azul y plateado
         </strong>
 
-        están reservados exclusivamente
+        han sido reservados especialmente
         para la quinceañera y sus
         familiares cercanos.
 
         <br><br>
 
-        Agradecemos elegir otros colores
-        para tu atuendo.
+        Agradecemos elegir una tonalidad
+        diferente para tu atuendo.
 
     </div>
+
 
 </section>
 
@@ -1793,30 +2687,31 @@ body{
 
 <section class="final">
 
-    <div class="final-frase">
 
-        Tu presencia hará de esta noche
-        un momento aún más especial.
+    <div class="final-texto">
+
+        Hay momentos que duran
+        solo una noche...
+
+        <br>
+
+        pero se recuerdan
+        para toda la vida.
 
         <br><br>
 
-        ¡Te esperamos!
+        Gracias por formar
+        parte de la mía.
 
-    </div>
-
-
-    <div style="
-        margin-top:35px;
-        font-size:25px;
-        color:#e2c477;
-    ">
-        ♛
     </div>
 
 
     <div class="final-nombre">
+
         ANTONELLA VIVIANA
+
     </div>
+
 
 </section>
 
@@ -1827,33 +2722,47 @@ body{
 
 
 
-<!-- ==================================================
-     REPRODUCTOR YOUTUBE
-================================================== -->
-
-<div id="musica"></div>
-
-
-
 <script>
 
 /* =====================================================
-   ABRIR SOBRE
+   VARIABLES
 ===================================================== */
 
-let invitacionAbierta = false;
+let abierta = false;
+
+const audio =
+    document.getElementById(
+        "audioFondo"
+    );
+
+const botonMusica =
+    document.getElementById(
+        "controlMusica"
+    );
 
 
-function abrirSobre(event){
+/* volumen inicial */
 
-    if(invitacionAbierta){
+audio.volume = 0.55;
+
+
+
+/* =====================================================
+   ABRIR INVITACIÓN
+===================================================== */
+
+function abrirInvitacion(){
+
+
+    if(abierta){
         return;
     }
 
-    invitacionAbierta = true;
+
+    abierta = true;
 
 
-    /* animación del sobre */
+    /* abrir sobre */
 
     document
         .getElementById("sobre")
@@ -1861,51 +2770,95 @@ function abrirSobre(event){
         .add("abierto");
 
 
-    /* partículas mágicas */
-
-    crearParticulas(event);
-
-
-    /* reproducir música */
-
-    reproducirMusica();
+    document
+        .getElementById("textoAbrir")
+        .innerHTML =
+        "Abriendo una noche mágica...";
 
 
-    /* esperar la animación */
+    /* crear estrellas */
 
-    setTimeout(function(){
-
-        document
-            .getElementById("portada")
-            .style.display="none";
+    crearEstrellas();
 
 
-        document
-            .getElementById("invitacion")
-            .classList
-            .add("visible");
+    /*
+    Iniciar MP3.
 
+    Como el audio comienza después
+    de que el usuario toca el sobre,
+    funciona mucho mejor en celulares.
+    */
 
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
+    audio
+        .play()
+        .then(function(){
+
+            botonMusica.innerHTML =
+                "❚❚";
+
+        })
+        .catch(function(){
+
+            botonMusica.innerHTML =
+                "♪";
+
         });
 
-    },1500);
+
+    botonMusica
+        .classList
+        .add("visible");
+
+
+    /*
+    Esperar la animación
+    del sobre.
+    */
+
+    setTimeout(
+        function(){
+
+
+            document
+                .getElementById("portada")
+                .style.display =
+                "none";
+
+
+            document
+                .getElementById("invitacion")
+                .classList
+                .add("visible");
+
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+
+        },
+        1800
+    );
 
 }
 
 
 
 /* =====================================================
-   ESTRELLAS / BRILLOS
+   ESTRELLAS DEL SOBRE
 ===================================================== */
 
-function crearParticulas(event){
+function crearEstrellas(){
+
+
+    const sobre =
+        document
+        .getElementById("sobre");
+
 
     const rect =
-        document
-        .getElementById("sobre")
+        sobre
         .getBoundingClientRect();
 
 
@@ -1919,10 +2872,16 @@ function crearParticulas(event){
         rect.height / 2;
 
 
-    for(let i=0;i<45;i++){
+    for(
+        let i = 0;
+        i < 65;
+        i++
+    ){
+
 
         const estrella =
-            document.createElement("div");
+            document
+            .createElement("div");
 
 
         estrella.className =
@@ -1944,9 +2903,9 @@ function crearParticulas(event){
 
 
         const distancia =
-            80 +
+            90 +
             Math.random()
-            * 230;
+            * 300;
 
 
         const x =
@@ -1959,22 +2918,26 @@ function crearParticulas(event){
             * distancia;
 
 
-        estrella.style.setProperty(
-            "--x",
-            x + "px"
-        );
+        estrella
+            .style
+            .setProperty(
+                "--x",
+                x + "px"
+            );
 
 
-        estrella.style.setProperty(
-            "--y",
-            y + "px"
-        );
+        estrella
+            .style
+            .setProperty(
+                "--y",
+                y + "px"
+            );
 
 
         const tamaño =
             4 +
             Math.random()
-            * 7;
+            * 9;
 
 
         estrella.style.width =
@@ -1997,7 +2960,7 @@ function crearParticulas(event){
                 estrella.remove();
 
             },
-            1900
+            2100
         );
 
     }
@@ -2007,46 +2970,33 @@ function crearParticulas(event){
 
 
 /* =====================================================
-   MÚSICA DE YOUTUBE
+   CONTROL DE MÚSICA
 ===================================================== */
 
-function reproducirMusica(){
-
-    /*
-    Canción:
-    https://www.youtube.com/watch?v=sz4YaMr1rlo
-
-    Como el usuario toca directamente
-    el sobre, intentamos iniciar el
-    reproductor en ese momento.
-    */
-
-    const musica =
-        document.getElementById(
-            "musica"
-        );
+function controlarMusica(){
 
 
-    musica.innerHTML = `
+    if(audio.paused){
 
-        <iframe
 
-            width="1"
-            height="1"
+        audio.play();
 
-            src="https://www.youtube.com/embed/sz4YaMr1rlo?autoplay=1&playsinline=1"
 
-            title="Música de la invitación"
+        botonMusica.innerHTML =
+            "❚❚";
 
-            frameborder="0"
 
-            allow="autoplay; encrypted-media"
+    }else{
 
-            allowfullscreen>
 
-        </iframe>
+        audio.pause();
 
-    `;
+
+        botonMusica.innerHTML =
+            "♪";
+
+
+    }
 
 }
 
@@ -2058,9 +3008,11 @@ function reproducirMusica(){
 
 /*
 Evento:
-03 de octubre de 2026
+
+03 octubre 2026
 6:30 PM
-Hora Perú UTC-5
+
+Perú UTC-5
 */
 
 const fechaEvento =
@@ -2070,6 +3022,7 @@ const fechaEvento =
 
 
 function actualizarContador(){
+
 
     const ahora =
         new Date();
@@ -2081,17 +3034,30 @@ function actualizarContador(){
 
     if(diferencia <= 0){
 
-        document.getElementById("dias")
-            .textContent="00";
 
-        document.getElementById("horas")
-            .textContent="00";
+        document
+            .getElementById("dias")
+            .textContent =
+            "00";
 
-        document.getElementById("minutos")
-            .textContent="00";
 
-        document.getElementById("segundos")
-            .textContent="00";
+        document
+            .getElementById("horas")
+            .textContent =
+            "00";
+
+
+        document
+            .getElementById("minutos")
+            .textContent =
+            "00";
+
+
+        document
+            .getElementById("segundos")
+            .textContent =
+            "00";
+
 
         return;
 
@@ -2130,33 +3096,48 @@ function actualizarContador(){
         .getElementById("dias")
         .textContent =
         String(dias)
-        .padStart(2,"0");
+        .padStart(
+            2,
+            "0"
+        );
 
 
     document
         .getElementById("horas")
         .textContent =
         String(horas)
-        .padStart(2,"0");
+        .padStart(
+            2,
+            "0"
+        );
 
 
     document
         .getElementById("minutos")
         .textContent =
         String(minutos)
-        .padStart(2,"0");
+        .padStart(
+            2,
+            "0"
+        );
 
 
     document
         .getElementById("segundos")
         .textContent =
         String(segundos)
-        .padStart(2,"0");
+        .padStart(
+            2,
+            "0"
+        );
 
 }
 
 
+/* iniciar */
+
 actualizarContador();
+
 
 setInterval(
     actualizarContador,
@@ -2164,6 +3145,7 @@ setInterval(
 );
 
 </script>
+
 
 </body>
 </html>
